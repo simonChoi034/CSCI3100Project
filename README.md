@@ -1,6 +1,6 @@
 # Setup
 
-run ```npm install``` to install dependencies
+run ```sh install.sh``` to install dependencies
 
 # Run app
 
