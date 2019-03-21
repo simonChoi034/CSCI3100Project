@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "PORT=8080 node ./bin/www",
-    "devstart": "PORT=8080 nodemon ./bin/www"
+    "devstart": "PORT=8080 nodemon ./bin/www",
+    "create_database": "mysql -u root -e \"CREATE DATABASE TeachHub;\""
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
