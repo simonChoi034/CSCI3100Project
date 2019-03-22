@@ -55,7 +55,7 @@ class NavbarComponent extends Component {
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem>
-                    Option 1
+                    Cases Wall
                   </DropdownItem>
                   <DropdownItem>
                     Option 2
