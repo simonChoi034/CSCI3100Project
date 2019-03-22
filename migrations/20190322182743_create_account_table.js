@@ -1,11 +1,11 @@
 
 exports.up = function(knex, Promise) {
     return Promise.all([
-        knex.schema.createTable('user_type', function (table) {
+        knex.schema.createTable('user_type', (table) => {
             table.increments('id').primary();
             table.string('name');
         }),
-        knex.schema.createTable('user_account', function (table) {
+        knex.schema.createTable('user_account', (table) => {
             table.increments('id').primary();
             table.string('user_name').unique().notNullable();
             table.string('email').unique().notNullable();
@@ -14,11 +14,11 @@ exports.up = function(knex, Promise) {
             table.foreign('user_type').references('user_type.id');
             table.dateTime('registration_time').defaultTo(knex.fn.now());
         }),
-        knex.schema.createTable('education_level', function (table) {
+        knex.schema.createTable('education_level', (table) => {
             table.increments('id').primary();
             table.string('name').notNullable();
         }),
-        knex.schema.createTable('tutor_profile', function (table) {
+        knex.schema.createTable('tutor_profile', (table) => {
             table.integer('user_id').unsigned().notNullable();
             table.foreign('user_id').references('user_account.id');
             table.string('email').unique().notNullable();
