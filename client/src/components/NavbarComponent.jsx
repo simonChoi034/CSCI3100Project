@@ -57,17 +57,14 @@ class NavbarComponent extends Component {
                                 </DropdownToggle>
                                 <DropdownMenu right>
                                     <DropdownItem>
-                                        <Navbar to='jobs'>Jobs Wall</Navbar>
-                                    </DropdownItem>
-                                    <DropdownItem>
-                                        <NavLink to='/tutors'>Tutors List</NavLink>
+                                        <NavLink href='/jobs/'>Jobs Wall</NavLink>
                                     </DropdownItem>
                                     <DropdownItem divider/>
                                     <DropdownItem>
-                                        <NavLink to='/register'>Register</NavLink>
+                                        <NavLink href='/register/'>Register</NavLink>
                                     </DropdownItem>
                                     <DropdownItem>
-                                        <NavLink to='/login'>Login</NavLink>
+                                        <NavLink href='/login/'>Login</NavLink>
                                     </DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
