@@ -2,6 +2,8 @@
 
 run ```sh install.sh``` to install dependencies
 
+to install knex-cli, run ```npm install -g knex```
+
 # Create database
 
 After cloning the project for the first time, you need to setup the database
