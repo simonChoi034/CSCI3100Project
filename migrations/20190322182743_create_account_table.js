@@ -42,7 +42,6 @@ exports.down = function(knex, Promise) {
         knex.schema.dropTableIfExists('tutor_profile'),
         knex.schema.dropTableIfExists('user_account'),
         knex.schema.dropTableIfExists('user_type'),
-        knex.schema.dropTableIfExists('education_level'),
-
+        knex.schema.dropTableIfExists('education_level')
     ])
 };
