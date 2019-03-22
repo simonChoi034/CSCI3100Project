@@ -18,7 +18,6 @@ import {
     Input
 } from 'reactstrap';
 
-
 class NavbarComponent extends Component {
 
     constructor(props) {
@@ -58,17 +57,17 @@ class NavbarComponent extends Component {
                                 </DropdownToggle>
                                 <DropdownMenu right>
                                     <DropdownItem>
-                                        Cases Wall
+                                        <Navbar to='jobs'>Jobs Wall</Navbar>
                                     </DropdownItem>
                                     <DropdownItem>
-                                        Tutors List
+                                        <NavLink to='/tutors'>Tutors List</NavLink>
                                     </DropdownItem>
                                     <DropdownItem divider/>
                                     <DropdownItem>
-                                        Register
+                                        <NavLink to='/register'>Register</NavLink>
                                     </DropdownItem>
                                     <DropdownItem>
-                                        Log in
+                                        <NavLink to='/login'>Login</NavLink>
                                     </DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
