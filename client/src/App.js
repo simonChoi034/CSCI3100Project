@@ -1,20 +1,21 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import NavbarComponent from './components/NavbarComponent'
-
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import Home from './pages/home/home.js';
+import Login from './pages/login/login.js';
 
 class App extends Component {
     render() {
         return (
             <div className="App">
-                <NavbarComponent/>
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
-                    <p>
-                        Welcome to TeachHub!
-                    </p>
-                </header>
+                <NavbarComponent />
+                <Router>
+                    <Switch>
+                        <Route path='/' component={Home} exact />
+                        <Route path='/login' component={Login} />
+                    </Switch>
+                </Router>
             </div>
         );
     }
