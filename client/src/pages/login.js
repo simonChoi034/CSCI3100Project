@@ -29,7 +29,7 @@ class Login extends Component {
 
     render() {
         return (
-            <div className="Login">
+            <div id="Login">
                 <h1>TeachHub</h1>
                 <h3>User Login</h3>
                 <Form onSubmit={this.handleSubmit}>
