@@ -41,7 +41,7 @@ class NavbarComponent extends Component {
 
                 <Navbar className="bg-dark" expand="md">
                     <NavbarBrand className="btn btn-warning text-light" href="/">TeachHub</NavbarBrand>
-                    <NavbarToggler onClick={this.toggle}/>
+                    <NavbarToggler className="navbar-dark" onClick={this.toggle}/>
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
                             <NavItem>
