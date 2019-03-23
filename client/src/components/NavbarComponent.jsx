@@ -15,7 +15,8 @@ import {
     InputGroup,
     InputGroupAddon,
     InputGroupText,
-    Input
+    Input,
+    Button
 } from 'reactstrap';
 
 class NavbarComponent extends Component {
@@ -43,14 +44,22 @@ class NavbarComponent extends Component {
                     <NavbarToggler onClick={this.toggle}/>
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
-                            <InputGroup>
-                                <InputGroupAddon addonType="prepend">@</InputGroupAddon>
-                                <Input placeholder="Search..."/>
-                                <button>Search</button>
-                            </InputGroup>
+                            <NavItem>
+                                <NavLink className="text-light" href='/jobs'>Jobs Wall</NavLink>
+                            </NavItem>
                             <NavItem>
                                 <NavLink className="text-light" href="/tutors">Tutors</NavLink>
                             </NavItem>
+                            <NavItem>
+                                <NavLink className="text-light" href='/register'>Register</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink className="text-light" href='/login'>Login</NavLink>
+                            </NavItem>
+                            <InputGroup>
+                                <Input placeholder="Search..."/>
+                                <Button>Search</Button>
+                            </InputGroup>
                             <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle className="text-light" nav caret>
                                     Options
