@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, FormGroup, FormControl, Form } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import "./login.css";
 
 class Login extends Component {
@@ -7,13 +7,13 @@ class Login extends Component {
         super(props);
 
         this.state = {
-            username: '',
+            email: '',
             password: ''
         };
     }
 
     validateForm() {
-        return this.state.username.length > 0 && this.state.password.length > 0;
+        return this.state.email.length > 0 && this.state.password.length > 0;
     }
 
     handleChange = event => {
@@ -29,33 +29,38 @@ class Login extends Component {
     render() {
         return (
             <div className="Login">
-                <form onSubmit={this.handleSubmit}>
-                    <FormGroup controlId="email" bsSize="large">
-                        <Form.Label>Username</Form.Label>
-                        <FormControl
+                <h1>TeachHub</h1>
+                <h3>User Login</h3>
+                <Form onSubmit={this.handleSubmit}>
+                    <Form.Group controlId="email">
+                        <Form.Label>Email address</Form.Label>
+                        <Form.Control
                             autoFocus
-                            type="username"
-                            value={this.state.username}
+                            type="email"
+                            placeholder="Enter your email address"
+                            value={this.state.email}
                             onChange={this.handleChange}
                         />
-                    </FormGroup>
-                    <FormGroup controlId="password" bsSize="large">
+                    </Form.Group>
+                    <Form.Group controlId="password">
                         <Form.Label>Password</Form.Label>
-                        <FormControl
+                        <Form.Control
+                            type="password"
+                            placeholder="Enter your password"
                             value={this.state.password}
                             onChange={this.handleChange}
-                            type="password"
                         />
-                    </FormGroup>
+                    </Form.Group>
                     <Button
+                        variant="primary"
+                        type="submit"
                         block
                         bsSize="large"
                         disabled={!this.validateForm()}
-                        type="submit"
                     >
                         Login
                     </Button>
-                </form>
+                </Form>
             </div>
         );
     }
