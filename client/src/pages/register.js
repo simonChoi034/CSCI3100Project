@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, Form, FormCheck } from "react-bootstrap";
 import "./register.css";
+import tutor_register from "../components/tutor_register/tutor_register"
 
 class Register extends Component {
 
@@ -118,6 +119,7 @@ class Register extends Component {
         return (
             <div id="Register">
                 <p>Register Page</p>
+                <tutor_register />
                 <form onSubmit={this.handleSubmit}>
                     <FormGroup controlId="username" bsSize="large">
                         <Form.Label>Username: </Form.Label>
