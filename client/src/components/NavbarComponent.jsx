@@ -15,7 +15,8 @@ import {
     InputGroup,
     InputGroupAddon,
     InputGroupText,
-    Input
+    Input,
+    Button
 } from 'reactstrap';
 
 class NavbarComponent extends Component {
@@ -40,34 +41,25 @@ class NavbarComponent extends Component {
 
                 <Navbar className="bg-dark" expand="md">
                     <NavbarBrand className="btn btn-warning text-light" href="/">TeachHub</NavbarBrand>
-                    <NavbarToggler onClick={this.toggle}/>
+                    <NavbarToggler className="navbar-dark" onClick={this.toggle}/>
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
-                            <InputGroup>
-                                <InputGroupAddon addonType="prepend">@</InputGroupAddon>
-                                <Input placeholder="Search..."/>
-                                <button>Search</button>
-                            </InputGroup>
+                            <NavItem>
+                                <NavLink className="text-light" href='/jobs'>Jobs Wall</NavLink>
+                            </NavItem>
                             <NavItem>
                                 <NavLink className="text-light" href="/tutors">Tutors</NavLink>
                             </NavItem>
-                            <UncontrolledDropdown nav inNavbar>
-                                <DropdownToggle className="text-light" nav caret>
-                                    Options
-                                </DropdownToggle>
-                                <DropdownMenu right>
-                                    <DropdownItem>
-                                        <NavLink href='/jobs'>Jobs Wall</NavLink>
-                                    </DropdownItem>
-                                    <DropdownItem divider/>
-                                    <DropdownItem>
-                                        <NavLink href='/register'>Register</NavLink>
-                                    </DropdownItem>
-                                    <DropdownItem>
-                                        <NavLink href='/login'>Login</NavLink>
-                                    </DropdownItem>
-                                </DropdownMenu>
-                            </UncontrolledDropdown>
+                            <NavItem>
+                                <NavLink className="text-light" href='/register'>Register</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink className="text-light" href='/login'>Login</NavLink>
+                            </NavItem>
+                            <InputGroup>
+                                <Input placeholder="Search..."/>
+                                <Button>Search</Button>
+                            </InputGroup>
                         </Nav>
                     </Collapse>
                 </Navbar>

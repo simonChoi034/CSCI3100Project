@@ -16,7 +16,8 @@
     "http-errors": "~1.6.2",
     "knex": "^0.16.3",
     "morgan": "~1.9.0",
-    "mysql": "^2.16.0"
+    "mysql": "^2.16.0",
+    "react-bootstrap": "^1.0.0-beta.6"
   },
   "devDependencies": {
     "nodemon": "^1.18.10"
