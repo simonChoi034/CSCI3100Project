@@ -18,7 +18,6 @@ import {
     Input
 } from 'reactstrap';
 
-
 class NavbarComponent extends Component {
 
     constructor(props) {
@@ -50,7 +49,7 @@ class NavbarComponent extends Component {
                                 <button>Search</button>
                             </InputGroup>
                             <NavItem>
-                                <NavLink className="text-light" href="/tutors/">Tutors</NavLink>
+                                <NavLink className="text-light" href="/tutors">Tutors</NavLink>
                             </NavItem>
                             <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle className="text-light" nav caret>
@@ -58,17 +57,14 @@ class NavbarComponent extends Component {
                                 </DropdownToggle>
                                 <DropdownMenu right>
                                     <DropdownItem>
-                                        Cases Wall
-                                    </DropdownItem>
-                                    <DropdownItem>
-                                        Tutors List
+                                        <NavLink href='/jobs'>Jobs Wall</NavLink>
                                     </DropdownItem>
                                     <DropdownItem divider/>
                                     <DropdownItem>
-                                        Register
+                                        <NavLink href='/register'>Register</NavLink>
                                     </DropdownItem>
                                     <DropdownItem>
-                                        Log in
+                                        <NavLink href='/login'>Login</NavLink>
                                     </DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
