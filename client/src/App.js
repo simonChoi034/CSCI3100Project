@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import './App.css';
-import NavbarComponent from './components/NavbarComponent'
+import NavbarComponent from './components/navbar/NavbarComponent'
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import Home from './pages/home/home.js';
-import Login from './pages/login/login.js';
-import Register from './pages/register/register.js';
-import Tutors from './pages/tutors/tutors.js';
-import Jobs from './pages/jobs_wall/jobs_wall.js';
-import Forgot_PW from "./pages/login/forgot_password.js";
+import Home from './pages/home.js';
+import Login from './pages/login.js';
+import Register from './pages/register.js';
+import Tutors from './pages/tutors.js';
+import Jobs from './pages/jobs_wall.js';
+import Forgot_PW from "./pages/forgot_password.js";
 
 class App extends Component {
     render() {
