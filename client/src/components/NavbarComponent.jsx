@@ -49,7 +49,7 @@ class NavbarComponent extends Component {
                                 <button>Search</button>
                             </InputGroup>
                             <NavItem>
-                                <NavLink className="text-light" href="/tutors/">Tutors</NavLink>
+                                <NavLink className="text-light" href="/tutors">Tutors</NavLink>
                             </NavItem>
                             <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle className="text-light" nav caret>
@@ -57,14 +57,14 @@ class NavbarComponent extends Component {
                                 </DropdownToggle>
                                 <DropdownMenu right>
                                     <DropdownItem>
-                                        <NavLink href='/jobs/'>Jobs Wall</NavLink>
+                                        <NavLink href='/jobs'>Jobs Wall</NavLink>
                                     </DropdownItem>
                                     <DropdownItem divider/>
                                     <DropdownItem>
-                                        <NavLink href='/register/'>Register</NavLink>
+                                        <NavLink href='/register'>Register</NavLink>
                                     </DropdownItem>
                                     <DropdownItem>
-                                        <NavLink href='/login/'>Login</NavLink>
+                                        <NavLink href='/login'>Login</NavLink>
                                     </DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
