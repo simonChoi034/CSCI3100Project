@@ -3,6 +3,7 @@ import { Button, ButtonToolbar, Form } from "react-bootstrap";
 import "./login.css";
 
 class Login extends Component {
+
     constructor(props) {
         super(props);
 
@@ -58,6 +59,7 @@ class Login extends Component {
                             block
                             bsSize="large"
                             disabled={!this.validateForm()}
+                            href="/logged"
                         >
                             Login
                         </Button>
