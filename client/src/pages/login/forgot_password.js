@@ -59,6 +59,7 @@ class Forgot_PW extends Component {
                             block
                             bsSize="large"
                             disabled={!this.validateForm()}
+                            href="/reset_email"
                         >
                             Send
                         </Button>
