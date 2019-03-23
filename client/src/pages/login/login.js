@@ -59,30 +59,29 @@ class Login extends Component {
                             block
                             bsSize="large"
                             disabled={!this.validateForm()}
-                            href="/logged"
                         >
                             Login
                         </Button>
                     </ButtonToolbar>
-                    <ButtonToolbar>
-                        <Button
-                            variant="outline-danger"
-                            type="button"
-                            href="/forgot_pw"
-                        >
-                            Forgot the password
-                        </Button>
-                    </ButtonToolbar>
-                    <ButtonToolbar>
-                        <Button
-                            variant="outline-success"
-                            type="button"
-                            href="/register"
-                        >
-                            Don't have an account? Click here to register!
-                        </Button>
-                    </ButtonToolbar>
                 </Form>
+                <ButtonToolbar>
+                    <Button
+                        variant="outline-danger"
+                        type="button"
+                        href="/forgot_pw"
+                    >
+                        Forgot the password
+                    </Button>
+                </ButtonToolbar>
+                <ButtonToolbar>
+                    <Button
+                        variant="outline-success"
+                        type="button"
+                        href="/register"
+                    >
+                        Don't have an account? Click here to register!
+                    </Button>
+                </ButtonToolbar>
             </div>
         );
     }
