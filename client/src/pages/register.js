@@ -116,7 +116,7 @@ class Register extends Component {
 
     render(){
         return (
-            <div className="Register">
+            <div id="Register">
                 <p>Register Page</p>
                 <form onSubmit={this.handleSubmit}>
                     <FormGroup controlId="username" bsSize="large">
