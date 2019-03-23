@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button, ButtonToolbar, Form } from "react-bootstrap";
 import "./login.css";
+import Forgot_PW from "./forgot_password.js";
 
 class Login extends Component {
     constructor(props) {
@@ -53,21 +54,6 @@ class Login extends Component {
                     </Form.Group>
                     <ButtonToolbar>
                         <Button
-                            variant="outline-danger"
-                        >
-                            Forgot the password
-                        </Button>
-                    </ButtonToolbar>
-                    <ButtonToolbar>
-                        <Button
-                            variant="outline-success"
-                            href='/register'
-                        >
-                            Don't have an account? Click here to register!
-                        </Button>
-                    </ButtonToolbar>
-                    <ButtonToolbar>
-                        <Button
                             variant="primary"
                             type="submit"
                             block
@@ -75,6 +61,24 @@ class Login extends Component {
                             disabled={!this.validateForm()}
                         >
                             Login
+                        </Button>
+                    </ButtonToolbar>
+                    <ButtonToolbar>
+                        <Button
+                            variant="outline-danger"
+                            type="button"
+                            href="/forgot_pw"
+                        >
+                            Forgot the password
+                        </Button>
+                    </ButtonToolbar>
+                    <ButtonToolbar>
+                        <Button
+                            variant="outline-success"
+                            type="button"
+                            href="/register"
+                        >
+                            Don't have an account? Click here to register!
                         </Button>
                     </ButtonToolbar>
                 </Form>
