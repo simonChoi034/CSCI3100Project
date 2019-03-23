@@ -60,23 +60,6 @@ class NavbarComponent extends Component {
                                 <Input placeholder="Search..."/>
                                 <Button>Search</Button>
                             </InputGroup>
-                            <UncontrolledDropdown nav inNavbar>
-                                <DropdownToggle className="text-light" nav caret>
-                                    Options
-                                </DropdownToggle>
-                                <DropdownMenu right>
-                                    <DropdownItem>
-                                        <NavLink href='/jobs'>Jobs Wall</NavLink>
-                                    </DropdownItem>
-                                    <DropdownItem divider/>
-                                    <DropdownItem>
-                                        <NavLink href='/register'>Register</NavLink>
-                                    </DropdownItem>
-                                    <DropdownItem>
-                                        <NavLink href='/login'>Login</NavLink>
-                                    </DropdownItem>
-                                </DropdownMenu>
-                            </UncontrolledDropdown>
                         </Nav>
                     </Collapse>
                 </Navbar>
