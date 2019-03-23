@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Button, ButtonToolbar, Form } from "react-bootstrap";
 import "./login.css";
-import Forgot_PW from "./forgot_password.js";
 
 class Login extends Component {
     constructor(props) {

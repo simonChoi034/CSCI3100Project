@@ -8,6 +8,7 @@ const Forgot_PW = () => {
             <p>Forgot password page</p>
         </div>
     );
+
 }
 
 export default Forgot_PW;

@@ -7,6 +7,7 @@ import Login from './pages/login/login.js';
 import Register from './pages/register/register.js';
 import Tutors from './pages/tutors/tutors.js';
 import Jobs from './pages/jobs_wall/jobs_wall.js';
+import Forgot_PW from "./pages/login/forgot_password.js";
 
 class App extends Component {
     render() {
@@ -20,6 +21,7 @@ class App extends Component {
                         <Route path='/register' component={Register} />
                         <Route path='/tutors' component={Tutors} />
                         <Route path='/jobs' component={Jobs} />
+                        <Route path='/forgot_pw' component={Forgot_PW} />
                     </Switch>
                 </Router>
             </div>
