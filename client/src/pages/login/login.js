@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, ButtonToolbar, Form } from "react-bootstrap";
 import "./login.css";
 
 class Login extends Component {
@@ -51,15 +51,32 @@ class Login extends Component {
                             onChange={this.handleChange}
                         />
                     </Form.Group>
-                    <Button
-                        variant="primary"
-                        type="submit"
-                        block
-                        bsSize="large"
-                        disabled={!this.validateForm()}
-                    >
-                        Login
-                    </Button>
+                    <ButtonToolbar>
+                        <Button
+                            variant="outline-danger"
+                        >
+                            Forgot the password
+                        </Button>
+                    </ButtonToolbar>
+                    <ButtonToolbar>
+                        <Button
+                            variant="outline-success"
+                            href='/register'
+                        >
+                            Don't have an account? Click here to register!
+                        </Button>
+                    </ButtonToolbar>
+                    <ButtonToolbar>
+                        <Button
+                            variant="primary"
+                            type="submit"
+                            block
+                            bsSize="large"
+                            disabled={!this.validateForm()}
+                        >
+                            Login
+                        </Button>
+                    </ButtonToolbar>
                 </Form>
             </div>
         );
