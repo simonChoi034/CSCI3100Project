@@ -9,6 +9,7 @@ import Tutors from './pages/tutors/tutors.js';
 import Jobs from './pages/jobs_wall/jobs_wall.js';
 import Forgot_PW from "./pages/login/forgot_password.js";
 import Logged from "./pages/login/logged_in.js";
+import Reset_Email from "./pages/login/reset_email";
 
 class App extends Component {
     render() {
@@ -24,6 +25,7 @@ class App extends Component {
                         <Route path='/jobs' component={Jobs} />
                         <Route path='/forgot_pw' component={Forgot_PW} />
                         <Route path='/logged' component={Logged} />
+                        <Route path='/reset_email' component={Reset_Email} />
                     </Switch>
                 </Router>
             </div>
