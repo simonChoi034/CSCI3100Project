@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, ButtonToolbar, Form } from "react-bootstrap";
+import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import "./login.css";
 
 class Login extends Component {
@@ -8,8 +8,8 @@ class Login extends Component {
         super(props);
 
         this.state = {
-            email: '',
-            password: ''
+            email: "",
+            password: ""
         };
     }
 
@@ -18,9 +18,7 @@ class Login extends Component {
     }
 
     handleChange = event => {
-        this.setState({
-            [event.target.id]: event.target.value
-        });
+        this.setState({[event.target.id]: event.target.value});
     }
 
     handleSubmit = event => {
@@ -29,59 +27,62 @@ class Login extends Component {
 
     render() {
         return (
-            <div className="Login">
+            <div id="Login">
                 <h1>TeachHub</h1>
                 <h3>User Login</h3>
                 <Form onSubmit={this.handleSubmit}>
-                    <Form.Group controlId="email">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control
+                    <FormGroup controlId="email">
+                        <Label>Email address</Label>
+                        <Input
                             autoFocus
                             type="email"
+                            name="email"
+                            id="email"
                             placeholder="Enter your email address"
                             value={this.state.email}
                             onChange={this.handleChange}
                         />
-                    </Form.Group>
-                    <Form.Group controlId="password">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control
+                    </FormGroup>
+                    <FormGroup controlId="password">
+                        <Label>Password</Label>
+                        <Input
                             type="password"
+                            name="password"
+                            id="password"
                             placeholder="Enter your password"
                             value={this.state.password}
                             onChange={this.handleChange}
                         />
-                    </Form.Group>
-                    <ButtonToolbar>
+                    </FormGroup>
+                    <FormGroup controlId="login_btn">
                         <Button
-                            variant="primary"
-                            type="submit"
+                            color="primary"
+                            size="lg"
                             block
-                            bsSize="large"
                             disabled={!this.validateForm()}
                         >
                             Login
+                    </Button>
+                    </FormGroup>
+                    <FormGroup controlId="other_btns">
+                        <Button
+                            color="danger"
+                            size="lg"
+                            className="float-left"
+                            href="/forget_pw"
+                        >
+                            Forget password
                         </Button>
-                    </ButtonToolbar>
+                        <Button
+                            color="success"
+                            size="lg"
+                            className="float-right"
+                            href="/register"
+                        >
+                            Register now
+                        </Button>
+                    </FormGroup>
                 </Form>
-                <ButtonToolbar>
-                    <Button
-                        variant="outline-danger"
-                        type="button"
-                        href="/forgot_pw"
-                    >
-                        Forgot the password
-                    </Button>
-                </ButtonToolbar>
-                <ButtonToolbar>
-                    <Button
-                        variant="outline-success"
-                        type="button"
-                        href="/register"
-                    >
-                        Don't have an account? Click here to register!
-                    </Button>
-                </ButtonToolbar>
             </div>
         );
     }
