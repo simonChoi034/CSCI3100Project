@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-import axios from 'axios';
 import "./login.css";
 
 class Login extends Component {
@@ -24,17 +23,6 @@ class Login extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-
-        const user = {
-            email: this.state.email,
-            password: this.state.password
-        };
-
-        axios.post("/api/login", { user })
-            .then(res => {
-                console.log(res);
-                console.log(res.data);
-            })
     }
 
     render() {
