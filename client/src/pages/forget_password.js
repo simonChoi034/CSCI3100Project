@@ -1,15 +1,15 @@
 import React, { Component } from "react";
-import { Button, ButtonToolbar, Form } from "react-bootstrap";
-import "./forgot_password.css";
+import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import "./forget_password.css";
 
-class Forgot_PW extends Component {
+class Forget_PW extends Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            email: '',
-            username: ''
+            email: "",
+            username: ""
         };
     }
 
@@ -18,9 +18,7 @@ class Forgot_PW extends Component {
     }
 
     handleChange = event => {
-        this.setState({
-            [event.target.id]: event.target.value
-        });
+        this.setState({[event.target.id]: event.target.value});
     }
 
     handleSubmit = event => {
@@ -29,44 +27,47 @@ class Forgot_PW extends Component {
 
     render() {
         return (
-            <div className="Login">
-                <h1>Forgot and Reset Password</h1>
-                <h6> A reset password will be sent to your email !</h6>
+            <div id="Reset_pw">
+                <h1>Reset Password</h1>
+                <h6> A reset password will be sent to you via email !</h6>
                 <Form onSubmit={this.handleSubmit}>
-                    <Form.Group controlId="username">
-                        <Form.Label>Username</Form.Label>
-                        <Form.Control
+                    <FormGroup controlId="username">
+                        <Label>Username</Label>
+                        <Input
                             autoFocus
                             type="username"
+                            name="username"
+                            id="username"
                             placeholder="Enter your username"
                             value={this.state.username}
                             onChange={this.handleChange}
                         />
-                    </Form.Group>
-                    <Form.Group controlId="email">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control
+                    </FormGroup>
+                    <FormGroup controlId="email">
+                        <Label>Email address</Label>
+                        <Input
                             type="email"
+                            name="email"
+                            id="email"
                             placeholder="Enter your email address"
                             value={this.state.email}
                             onChange={this.handleChange}
                         />
-                    </Form.Group>
-                    <ButtonToolbar>
+                    </FormGroup>
+                    <FormGroup controlId="send_btn">
                         <Button
-                            variant="primary"
-                            type="submit"
+                            color="primary"
+                            size="lg"
                             block
-                            bsSize="large"
                             disabled={!this.validateForm()}
                         >
                             Send
                         </Button>
-                    </ButtonToolbar>
+                    </FormGroup>
                 </Form>
             </div>
         );
     }
 }
 
-export default Forgot_PW;
+export default Forget_PW;

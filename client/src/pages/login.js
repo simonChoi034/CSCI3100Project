@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import axios from 'axios';
 import "./login.css";
 
 class Login extends Component {
@@ -18,13 +19,22 @@ class Login extends Component {
     }
 
     handleChange = event => {
-        this.setState({
-            [event.target.id]: event.target.value
-        });
+        this.setState({[event.target.id]: event.target.value});
     }
 
     handleSubmit = event => {
         event.preventDefault();
+
+        const user = {
+            email: this.state.email,
+            password: this.state.password
+        };
+
+        axios.post("/api/login", { user })
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+            })
     }
 
     render() {
@@ -56,20 +66,22 @@ class Login extends Component {
                             onChange={this.handleChange}
                         />
                     </FormGroup>
-                    <Button
-                        color="primary"
-                        size="lg"
-                        block
-                        disabled={!this.validateForm()}
-                    >
-                        Login
+                    <FormGroup controlId="login_btn">
+                        <Button
+                            color="primary"
+                            size="lg"
+                            block
+                            disabled={!this.validateForm()}
+                        >
+                            Login
                     </Button>
-                    <FormGroup>
+                    </FormGroup>
+                    <FormGroup controlId="other_btns">
                         <Button
                             color="danger"
                             size="lg"
                             className="float-left"
-                            href="/forgot_pw"
+                            href="/forget_pw"
                         >
                             Forget password
                         </Button>
