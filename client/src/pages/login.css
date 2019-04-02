@@ -1,20 +1,18 @@
-#Login {
-    margin: 0;
-    position: relative;
-    left: 50%;
-    -ms-transform: translate(-50%);
-    transform: translate(-50%);
-    top:50px;
-    width: 600px;
-    border: 1px solid lightgray;
-    border-radius: 5px;
-    padding: 20px 20px;
-}
+@media all and (min-width: 480px) {
+    #Login {
+        margin: 0;
+        position: relative;
+        left: 50%;
+        -ms-transform: translate(-50%);
+        transform: translate(-50%);
+        top: 50px;
+        width: 600px;
+        border: 1px solid lightgray;
+        border-radius: 5px;
+        padding: 50px 50px;
+    }
 
-.form-group {
-    text-align: left;
-}
-
-.btn-toolbar {
-    margin-bottom: 20px;
+    .btn {
+        margin-bottom: 20px;
+    }
 }
