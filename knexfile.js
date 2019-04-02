@@ -7,7 +7,7 @@ module.exports = {
     connection: {
       database: 'TeachHub',
       user:     'root',
-      password: 'franco0903'
+      password: ''
     }
   },
 
@@ -16,7 +16,7 @@ module.exports = {
     connection: {
       database: 'TeachHub',
       user:     'root',
-      password: 'franco0903'
+      password: ''
     },
     pool: {
       min: 2,
@@ -32,7 +32,7 @@ module.exports = {
     connection: {
       database: 'TeachHub',
       user:     'root',
-      password: 'franco0903'
+      password: ''
     },
     pool: {
       min: 2,
