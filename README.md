@@ -15,6 +15,9 @@ then run ```knex migrate:latest```
 # DB migration
 
 run ```knex migrate:latest``` to update database setting
+run ```knex migrate:rollback``` to recover database setting
+
+run ```knex seed:run``` to perform seeding
 
 # Run app
 
