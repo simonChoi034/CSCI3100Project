@@ -13,15 +13,14 @@ class JobCard extends Component {
 
     constructor(props) {
         super(props);
-        this.toggle = this.toggle.bind(this);
         this.state = {
-            isOpen: false
+            
         };
     }
 
     render() {
         return (
-            <Col sm="6">
+            <Col sm="4">
                 <Card body>
                     <CardTitle>Job title</CardTitle>
                     <CardText>recruit woman teacher</CardText>
