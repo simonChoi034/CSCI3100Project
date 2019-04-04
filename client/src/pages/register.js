@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, Form, FormCheck } from "react-bootstrap";
 import "./register.css";
-import Tutor_register from "../components/tutor_register/tutor_register"
-import Normal_register from "../components/parent_register/parent_register"
+import Tutor_register from "../components/tutor_register/TutorRegister"
+import Normal_register from "../components/parent_register/ParentRegister"
 
 class Register extends Component {
 
