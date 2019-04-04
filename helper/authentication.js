@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const secret = 'mysecretsshhh';
+const secret = 'thisisasecrettoken';
 
 const withAuth = function (req, res, next) {
     const token =
@@ -14,7 +14,9 @@ const withAuth = function (req, res, next) {
             if (err) {
                 res.status(401).send('Unauthorized: Invalid token');
             } else {
+                req.id = decoded.id;
                 req.email = decoded.email;
+                req.isTutor = decoded.isTutor;
                 next();
             }
         });

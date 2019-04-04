@@ -2,13 +2,20 @@ const { db, TABLES } = require('../config/database');
 const bcrypt = require('bcrypt');
 
 module.exports.find = (id) => {
-    return db(TABLES.USER_ACCOUNT).where('id', id).returning('*');
+    return db(TABLES.USER_ACCOUNT).where('id', id).first().returning('*');
 };
 
-module.exports.login = (email) => {
-    return db(TABLES.USER_ACCOUNT)
-        .where('email', email).limit(1)
-        .returning('*');
+module.exports.login = (value) => {
+    return db(TABLES.USER_ACCOUNT).where('email', value).orWhere('username', value)
+        .first().returning('*');
+};
+
+module.exports.findUserByEmail = (email) => {
+    return db(TABLES.USER_ACCOUNT).where('email', email).returning('*')
+};
+
+module.exports.findUserByUsername = (username) => {
+    return db(TABLES.USER_ACCOUNT).where('username', username).returning('*')
 };
 
 module.exports.isCorrectPassword = (rawPassword, hashedPassword, callback) => {
