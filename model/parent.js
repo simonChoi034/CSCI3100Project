@@ -5,14 +5,14 @@ module.exports.find = (id) => {
     return db(TABLES.PARENT_PROFILE).where('id', id);
 };
 
-module.exports.create = (username, password, email, name, phone, living_area, address) => {
+module.exports.create = (password, body) => {
     return helper.getUserTypeID('parent')
         .then(function (result) {
             return db(TABLES.USER_ACCOUNT)
                 .insert([{
-                    username: username,
+                    username: body.username,
                     password: password,
-                    email: email,
+                    email: body.email,
                     user_type: result.id
                 }])
                 .returning('id')
@@ -20,11 +20,11 @@ module.exports.create = (username, password, email, name, phone, living_area, ad
                     return db(TABLES.PARENT_PROFILE)
                         .insert([{
                             user_id: result[0],
-                            name: name,
-                            phone: phone,
-                            email: email,
-                            living_area: living_area,
-                            address: address
+                            name: body.name,
+                            phone: body.phone,
+                            email: body.email,
+                            living_area: body.living_area,
+                            address: body.address
                         }])
                 })
         })
