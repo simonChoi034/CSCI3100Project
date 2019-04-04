@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import { Button, FormGroup, FormControl, Form, FormCheck } from "react-bootstrap";
-import "./parent_register.css"
+import "./ParentRegister.css"
 
-export default class tutor_register extends Component {
+class ParentRegister extends Component {
 
     constructor(props) {
         super(props);
@@ -88,3 +88,5 @@ export default class tutor_register extends Component {
         );
     }
 }
+
+export default ParentRegister;
