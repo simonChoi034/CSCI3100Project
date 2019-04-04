@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './JobsWall.css';
-import JobCard from '../job_card/JobCard'
+import JobCard from '../job_card/JobCard';
 import {
     Card, 
     CardTitle, 
