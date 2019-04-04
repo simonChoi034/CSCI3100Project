@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "./jobs_wall.css";
-import JobWall from '../components/job_wall/JobWall'
+import JobWall from '../components/job_wall/JobsWall'
 
 const Jobs = () => {
     return (

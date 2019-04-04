@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './JobWall.css';
+import './JobsWall.css';
 import JobCard from '../job_card/JobCard'
 import {
     Card, 
@@ -10,7 +10,7 @@ import {
     Button
 } from 'reactstrap';
 
-class JobWall extends Component {
+class JobsWall extends Component {
 
     constructor(props) {
         super(props);
@@ -30,4 +30,4 @@ class JobWall extends Component {
     }
 }
 
-export default JobWall;
+export default JobsWall;
