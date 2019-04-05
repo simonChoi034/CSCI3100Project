@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import axios from "axios";
 import "./login.css";
 
 class Login extends Component {
 
     constructor(props) {
         super(props);
-
+        this.apiURL = "http://localhost:3000";
         this.state = {
             email: "",
             password: ""
@@ -23,6 +24,18 @@ class Login extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
+        const user = {
+            email: this.state.email,
+            password: this.state.password
+        };
+
+        axios.post(this.apiURL + "/api/login", { user })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
 
     render() {
@@ -31,8 +44,8 @@ class Login extends Component {
                 <h1>TeachHub</h1>
                 <h3>User Login</h3>
                 <Form onSubmit={this.handleSubmit}>
-                    <FormGroup controlId="email">
-                        <Label>Email address</Label>
+                    <FormGroup>
+                        <Label for="email">Email address</Label>
                         <Input
                             autoFocus
                             type="email"
@@ -43,8 +56,8 @@ class Login extends Component {
                             onChange={this.handleChange}
                         />
                     </FormGroup>
-                    <FormGroup controlId="password">
-                        <Label>Password</Label>
+                    <FormGroup>
+                        <Label for="password">Password</Label>
                         <Input
                             type="password"
                             name="password"
@@ -54,7 +67,7 @@ class Login extends Component {
                             onChange={this.handleChange}
                         />
                     </FormGroup>
-                    <FormGroup controlId="login_btn">
+                    <FormGroup>
                         <Button
                             color="primary"
                             size="lg"
@@ -64,7 +77,7 @@ class Login extends Component {
                             Login
                     </Button>
                     </FormGroup>
-                    <FormGroup controlId="other_btns">
+                    <FormGroup>
                         <Button
                             color="danger"
                             size="lg"
