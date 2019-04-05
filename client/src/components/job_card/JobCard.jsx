@@ -14,14 +14,13 @@ class JobCard extends Component {
 
     constructor(props) {
         super(props);
-        this.apiURL = "http://localhost:3000";
         this.state = {
             jobs: ""
         };
     }
 
     componentDidMount() {
-        axios.get(this.apiURL + "/api/jobs")
+        axios.get("/api/jobs")
             .then(response => {
                 const jobs = response.data;
                 this.setState({jobs});
