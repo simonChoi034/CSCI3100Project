@@ -19,9 +19,6 @@ exports.seed = function(knex, Promise) {
         { name: 'New Territories' },
         { name: 'Kowloon' },
         { name: 'Hong Kong Island' }
-    ]),
-    knex('user_account').insert([
-        { id: 1, username: '1155039896', email: '1155093896@link.cuhk.edu.hk', password: '1155093896', user_type: 1}
     ])
   ])
 };
