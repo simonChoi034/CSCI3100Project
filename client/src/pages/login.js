@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Form, FormGroup, FormControl, Alert } from "react-bootstrap";
+import { Button, Form, FormGroup, Label, Input, Alert } from "reactstrap";
 import "./login.css";
 import axios from 'axios';
 
@@ -52,20 +52,24 @@ class Login extends Component {
                 <h1>TeachHub</h1>
                 <h3>User Login</h3>
                 <Form onSubmit={this.handleSubmit}>
-                    <FormGroup controlId="email" bsSize="large">
-                        <Form.Label for="email">Email address</Form.Label>
-                        <FormControl
+                    <FormGroup>
+                        <Label for="email">Email address</Label>
+                        <Input
                             autoFocus
                             type="email"
+                            name='email'
+                            id='email'
                             placeholder="Enter your email address"
                             value={this.state.email}
                             onChange={this.handleChange}
                         />
                     </FormGroup>
-                    <FormGroup controlId="password">
-                        <Form.Label for="password">Password</Form.Label>
-                        <FormControl
+                    <FormGroup>
+                        <Label for="password">Password</Label>
+                        <Input
                             type="password"
+                            name="password"
+                            id="password"
                             placeholder="Enter your password"
                             value={this.state.password}
                             onChange={this.handleChange}
@@ -79,7 +83,7 @@ class Login extends Component {
                     }
                     <FormGroup>
                         <Button
-                            variant="primary"
+                            color="primary"
                             size="lg"
                             block
                             disabled={!this.validateForm()}
@@ -90,7 +94,7 @@ class Login extends Component {
                     </FormGroup>
                     <FormGroup>
                         <Button
-                            variant="danger"
+                            color="danger"
                             size="lg"
                             className="float-left"
                             href="/forget_pw"
@@ -98,7 +102,7 @@ class Login extends Component {
                             Forget password
                         </Button>
                         <Button
-                            variant="success"
+                            color="success"
                             size="lg"
                             className="float-right"
                             href="/register"

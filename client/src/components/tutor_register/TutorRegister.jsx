@@ -3,7 +3,7 @@ import { Button, FormGroup, FormControl, Form, Alert } from "react-bootstrap";
 import "./TutorRegister.css";
 import axios from 'axios';
 
-class DropDown extends PureComponent{
+class DropDown extends Component{
     render() {
         return this.props.eduLevel.map(e => (
             <option value={e.id}>{e.name}</option>

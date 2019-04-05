@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Button, FormGroup, FormControl, Form, FormCheck } from "react-bootstrap";
-import "./ParentRegister.css"
+import "./ParentRegister.css";
+import axios from 'axios';
 
 class ParentRegister extends Component {
 
@@ -10,10 +11,20 @@ class ParentRegister extends Component {
         this.state = {
             username: '',
             password: '',
-            password2: '',
+            confirm_password: '',
             email: '',
+            name: '',
+            phone: '',
+            living_district: '',
+            address: ''
         };
+    }
+    
+    componentDidMount() {
+        axios.get('/api/user/parent_register')
+            .then(function (res) {
 
+        })
     }
 
     validateForm() {
