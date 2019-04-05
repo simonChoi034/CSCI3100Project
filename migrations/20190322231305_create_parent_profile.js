@@ -27,7 +27,7 @@ exports.up = function(knex, Promise) {
 exports.down = function(knex, Promise) {
     return Promise.all([
         knex.schema.dropTableIfExists('parent_profile'),
-        knex.schema.dropTableIfExists('living_area'),
+        knex.schema.dropTableIfExists('district'),
         knex.schema.dropTableIfExists('region')
     ])
 };

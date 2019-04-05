@@ -6,7 +6,8 @@ module.exports.find = (id) => {
 };
 
 module.exports.all = () => {
-    return db(TABLES.TUTOR_PROFILE).select('user_id', 'nick_name', 'sex', 'description').all()
+    return db(TABLES.TUTOR_PROFILE)
+        .select('user_id', 'nick_name', 'sex', 'description')
 };
 
 module.exports.create = (password, body) => {
@@ -31,8 +32,6 @@ module.exports.create = (password, body) => {
                             nick_name: body.nick_name,
                             sex: body.sex,
                             birth: body.birth,
-                            upper_price: body.upper_price,
-                            lower_price: body.lower_price,
                             education_level_id: body.education_level,
                             description: body.description
                         }])

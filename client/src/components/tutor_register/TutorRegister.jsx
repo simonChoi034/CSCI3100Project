@@ -1,6 +1,15 @@
-import React, {Component} from 'react';
-import { Button, FormGroup, FormControl, Form, FormCheck } from "react-bootstrap";
-import "./TutorRegister.css"
+import React, {Component, PureComponent} from 'react';
+import { Button, FormGroup, FormControl, Form, Alert } from "react-bootstrap";
+import "./TutorRegister.css";
+import axios from 'axios';
+
+class DropDown extends PureComponent{
+    render() {
+        return this.props.eduLevel.map(e => (
+            <option value={e.id}>{e.name}</option>
+        ))
+    }
+}
 
 class TutorRegister extends Component {
 
@@ -10,11 +19,33 @@ class TutorRegister extends Component {
         this.state = {
             username: '',
             password: '',
-            password2: '',
+            confirm_password: '',
             email: '',
-            tutor: false
+            phone: '',
+            full_name_ch: '',
+            full_name_en: '',
+            nick_name: '',
+            sex: 'M',
+            birth: '',
+            education_level: '',
+            description: '',
+            error: false,
+            error_message: ''
         };
+    }
 
+    componentDidMount() {
+        var self = this;
+        axios.get('/api/user/tutor_register')
+            .then(function (res) {
+                self.setState({
+                    eduLevel: res.data.eduLevel,
+                    education_level: res.data.eduLevel[0].id
+                });
+            })
+            .catch(function (err) {
+                console.log(err)
+            })
     }
 
     validateForm() {
@@ -30,6 +61,35 @@ class TutorRegister extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
+        const data = {
+            username: this.state.username,
+            email: this.state.email,
+            password: this.state.password,
+            confirm_password: this.state.confirm_password,
+            phone: this.state.phone,
+            full_name_ch: this.state.full_name_ch,
+            full_name_en: this.state.full_name_en,
+            nick_name: this.state.nick_name,
+            sex: this.state.sex,
+            birth: this.state.birth,
+            education_level: this.state.education_level
+        };
+
+        const self = this;
+        axios.post('/api/user/tutor_register', data)
+            .then(function (res) {
+                console.log(self.props);
+                self.props.history.push('/');
+            })
+            .catch(function (err){
+                const errors = err.response.data.errors;
+
+                self.setState({
+                    error: true,
+                    error_message: errors[0].msg
+                });
+                console.log(errors)
+            })
     }
 
     render(){
@@ -52,7 +112,7 @@ class TutorRegister extends Component {
                         type="password"
                     />
                 </FormGroup>
-                <FormGroup controlId="password2" bsSize="large">
+                <FormGroup controlId="confirm_password" bsSize="large">
                     <Form.Label>Confirm Password: </Form.Label>
                     <FormControl
                         value={this.state.password2}
@@ -74,7 +134,7 @@ class TutorRegister extends Component {
                         type="text"
                         value={this.state.phone}
                         onChange={this.handleChange}
-                        pattern="[0-9]*" 
+                        pattern="[0-9]*"
                         maxLength={8}
                     />
                 </FormGroup>
@@ -109,36 +169,29 @@ class TutorRegister extends Component {
                     <option value='F'>Female</option>
                     </Form.Control>
                 </Form.Group>
-                <FormGroup controlId="upper_price" bsSize="large">
-                    <Form.Label>Upper Price: </Form.Label>
+                <Form.Group controlId="birth">
+                    <Form.Label>Birth:</Form.Label>
                     <FormControl
-                        value={this.state.upper_price}
+                        value={this.state.birth}
                         onChange={this.handleChange}
                         type="text"
-                        pattern="[0-9]*" 
+                        placeholder="YYYY-mm-dd"
                     />
-                </FormGroup>
-                <FormGroup controlId="lower_price" bsSize="large">
-                    <Form.Label>Lower Price: </Form.Label>
-                    <FormControl
-                        value={this.state.lower_price}
-                        onChange={this.handleChange}
-                        type="text"
-                        pattern="[0-9]*" 
-                    />
-                </FormGroup>
+                </Form.Group>
                 <Form.Group controlId="education_level">
                     <Form.Label>Education Level:</Form.Label>
-                    <Form.Control as="select">
-                    <option value='1'>HKCEE</option>
-                    <option value='2'>HKALE</option>
-                    <option value='3'>Hong Kong Diploma of Secondary Education</option>
-                    <option value='4'>Diplomas / Associates / Professional diploma / Higher diploma / Advanced diploma</option>
-                    <option value='5'>Bachelors</option>
-                    <option value='6'>Post-graduate certificates or diplomas / Masters</option>
-                    <option value='7'>Phd</option>
+                    <Form.Control as="select" onChange={this.handleChange}>
+                        {this.state.eduLevel &&
+                        <DropDown eduLevel={this.state.eduLevel}/>
+                        }
                     </Form.Control>
                 </Form.Group>
+                {
+                    this.state.error ?
+                        <Alert variant='danger'>
+                            {this.state.error_message}
+                        </Alert> : null
+                }
                 <Button
                     block
                     bsSize="large"

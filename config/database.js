@@ -10,6 +10,6 @@ module.exports.TABLES = {
     EDUCATION_LEVEL: 'education_level',
     TUTOR_PROFILE: 'tutor_profile',
     REGION: 'region',
-    LIVING_AREA: 'living_area',
-    PARENT_PROFILE: 'parent_profile'
+    DISTRICT: 'district',
+    PARENT_PROFILE: 'parent_profile',
 };

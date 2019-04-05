@@ -28,8 +28,6 @@ exports.up = function(knex, Promise) {
             table.string('nick_name').notNullable();
             table.string('sex', 1).notNullable();
             table.date('birth').notNullable();
-            table.integer('upper_price').notNullable();
-            table.integer('lower_price').notNullable();
             table.integer('education_level_id').unsigned().notNullable();
             table.foreign('education_level_id').references('education_level.id');
             table.string('description');

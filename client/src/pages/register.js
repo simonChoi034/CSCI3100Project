@@ -31,9 +31,9 @@ class Register extends Component {
 
     getComponent() {
         if (this.state.showTutor) { 
-            return <Tutor_register/>
+            return <Tutor_register history={this.props.history}/>
         } else {
-            return <Normal_register/>
+            return <Normal_register history={this.props.history}/>
         }
     }
     

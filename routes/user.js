@@ -141,6 +141,16 @@ router.post('/parent_register', [
     });
 });
 
+router.get('/tutor_register', function (req, res) {
+   helper.getEduLevelList().then(function (level) {
+       var data = {
+           eduLevel: level
+       };
+
+       res.status(200).json(data);
+   })
+});
+
 router.post('/tutor_register', [
     // form validation
     check('username')
@@ -202,12 +212,6 @@ router.post('/tutor_register', [
             }
             return true;
         }),
-    check('upper_price')
-        .not().isEmpty()
-        .isInt().withMessage('Price must be an integer'),
-    check('lower_price')
-        .not().isEmpty()
-        .isInt().withMessage('Price must be an integer'),
     check('education_level')
         .not().isEmpty()
 ], function (req, res, next) {
@@ -231,10 +235,18 @@ router.post('/tutor_register', [
                     // rename hash key
                     err['msg'] = err['sqlMessage'];
                     delete err['sqlMessage'];
-                    res.status(500).json({ errors: err});
+                    res.status(500).json({ errors: [err]});
                 })
         }
     });
+});
+
+router.get('/list_tutor', function (req, res) {
+    console.log(tutor.all().toSQL());
+    tutor.all()
+        .then(function (result) {
+            res.status(200).json(result)
+        });
 });
 
 module.exports = router;
