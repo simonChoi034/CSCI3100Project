@@ -1,7 +1,7 @@
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('living_area').insert([
+  return knex('location').insert([
         { name: 'Central and Western', region: 3 },
         { name: 'Eastern', region: 3 },
         { name: 'Southern', region: 3 },
