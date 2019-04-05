@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { Button, Form, FormGroup, FormControl, Alert } from "react-bootstrap";
 import "./login.css";
 import axios from 'axios';
 
@@ -7,10 +7,11 @@ class Login extends Component {
 
     constructor(props) {
         super(props);
-        this.apiURL = "http://localhost:3000";
         this.state = {
             email: "",
-            password: ""
+            password: "",
+            error: false,
+            error_message: ''
         };
     }
 
@@ -36,12 +37,12 @@ class Login extends Component {
             })
             .catch(function (err) {
                 const errors = err.response.data.errors;
-                alert(errors[0].msg);
 
-                // clear password field
                 self.setState({
-                    password: ''
-                })
+                    error: true,
+                    error_message: errors[0].msg
+                });
+                console.log(errors)
             })
     };
 
@@ -51,42 +52,45 @@ class Login extends Component {
                 <h1>TeachHub</h1>
                 <h3>User Login</h3>
                 <Form onSubmit={this.handleSubmit}>
-                    <FormGroup>
-                        <Label for="email">Email address</Label>
-                        <Input
+                    <FormGroup controlId="email" bsSize="large">
+                        <Form.Label for="email">Email address</Form.Label>
+                        <FormControl
                             autoFocus
                             type="email"
-                            name="email"
-                            id="email"
                             placeholder="Enter your email address"
                             value={this.state.email}
                             onChange={this.handleChange}
                         />
                     </FormGroup>
-                    <FormGroup>
-                        <Label for="password">Password</Label>
-                        <Input
+                    <FormGroup controlId="password">
+                        <Form.Label for="password">Password</Form.Label>
+                        <FormControl
                             type="password"
-                            name="password"
-                            id="password"
                             placeholder="Enter your password"
                             value={this.state.password}
                             onChange={this.handleChange}
                         />
                     </FormGroup>
+                    {
+                        this.state.error ?
+                            <Alert variant='danger'>
+                                {this.state.error_message}
+                            </Alert> : null
+                    }
                     <FormGroup>
                         <Button
-                            color="primary"
+                            variant="primary"
                             size="lg"
                             block
                             disabled={!this.validateForm()}
+                            type="submit"
                         >
                             Login
                     </Button>
                     </FormGroup>
                     <FormGroup>
                         <Button
-                            color="danger"
+                            variant="danger"
                             size="lg"
                             className="float-left"
                             href="/forget_pw"
@@ -94,7 +98,7 @@ class Login extends Component {
                             Forget password
                         </Button>
                         <Button
-                            color="success"
+                            variant="success"
                             size="lg"
                             className="float-right"
                             href="/register"
