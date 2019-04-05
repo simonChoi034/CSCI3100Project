@@ -6,8 +6,8 @@ module.exports.find = (id) => {
 };
 
 module.exports.login = (value) => {
-    return db(TABLES.USER_ACCOUNT).where('email', value).orWhere('username', value)
-        .first().returning('*');
+    return db(TABLES.USER_ACCOUNT).where('email', value)
+        .returning('*');
 };
 
 module.exports.findUserByEmail = (email) => {

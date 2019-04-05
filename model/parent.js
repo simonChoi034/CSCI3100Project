@@ -2,7 +2,7 @@ const { db, TABLES } = require('../config/database');
 const helper = require('./helper');
 
 module.exports.find = (id) => {
-    return db(TABLES.PARENT_PROFILE).where('id', id);
+    return db(TABLES.PARENT_PROFILE).where('user_id', id);
 };
 
 module.exports.create = (password, body) => {
@@ -13,7 +13,7 @@ module.exports.create = (password, body) => {
                     username: body.username,
                     password: password,
                     email: body.email,
-                    user_type: result.id
+                    user_type_id: result.id
                 }])
                 .returning('id')
                 .then(function (result) {
@@ -23,7 +23,7 @@ module.exports.create = (password, body) => {
                             name: body.name,
                             phone: body.phone,
                             email: body.email,
-                            living_area: body.living_area,
+                            living_district_id: body.living_district,
                             address: body.address
                         }])
                 })

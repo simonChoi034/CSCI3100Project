@@ -7,11 +7,11 @@ exports.up = function(knex, Promise) {
         }),
         knex.schema.createTable('user_account', (table) => {
             table.increments('id').primary();
-            table.string('user_name').unique().notNullable();
+            table.string('username').unique().notNullable();
             table.string('email').unique().notNullable();
             table.string('password').notNullable();
-            table.integer('user_type').unsigned().notNullable();
-            table.foreign('user_type').references('user_type.id');
+            table.integer('user_type_id').unsigned().notNullable();
+            table.foreign('user_type_id').references('user_type.id');
             table.dateTime('registration_time').defaultTo(knex.fn.now());
         }),
         knex.schema.createTable('education_level', (table) => {
@@ -30,8 +30,8 @@ exports.up = function(knex, Promise) {
             table.date('birth').notNullable();
             table.integer('upper_price').notNullable();
             table.integer('lower_price').notNullable();
-            table.integer('education_level').unsigned().notNullable();
-            table.foreign('education_level').references('education_level.id');
+            table.integer('education_level_id').unsigned().notNullable();
+            table.foreign('education_level_id').references('education_level.id');
             table.string('description');
         })
     ])

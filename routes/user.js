@@ -39,7 +39,7 @@ router.post('/login', [
             res.status(401).json({errors: [{msg: 'User does not exist'}]});
         }else {
             // compare hashed password
-            const hashedPassword = result.password;
+            const hashedPassword = result[0].password;
             user.isCorrectPassword(password, hashedPassword, function (err, same) {
                 if (err){
                     res.status(500).json({errors: [{msg: 'Internal error please try again'}]});
@@ -54,7 +54,7 @@ router.post('/login', [
 
                         // Issue token
                         const payload = { id: id, email: email, username: username, tutor: isTutor};
-                        const token = jwt.sign(payload, secret, {});
+                        const token = jwt.sign(payload, secret, {expiresIn: '1d'});
                         res.cookie('token', token, { httpOnly: true });
                         res.cookie('username', username, { httpOnly: true});
                         res.sendStatus(200);
@@ -107,7 +107,7 @@ router.post('/parent_register', [
                     return Promise.reject('Phone no. has been used')
             })
         }),
-    check('living_area')
+    check('living_district')
         .not().isEmpty(),
     check('address')
         .not().isEmpty()

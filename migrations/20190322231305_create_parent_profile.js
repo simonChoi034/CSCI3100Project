@@ -5,11 +5,11 @@ exports.up = function(knex, Promise) {
             table.increments('id').primary();
             table.string('name').unique().notNullable();
         }),
-        knex.schema.createTable('living_area', (table) => {
+        knex.schema.createTable('district', (table) => {
             table.increments('id').primary();
             table.string('name').unique().notNullable();
-            table.integer('region').unsigned().notNullable();
-            table.foreign('region').references('region.id');
+            table.integer('region_id').unsigned().notNullable();
+            table.foreign('region_id').references('region.id');
         }),
         knex.schema.createTable('parent_profile', (table) => {
             table.integer('user_id').unsigned().notNullable();
@@ -17,8 +17,8 @@ exports.up = function(knex, Promise) {
             table.string('name').notNullable();
             table.integer('phone').unique().notNullable();
             table.string('email').unique().notNullable();
-            table.integer('living_area').unsigned().notNullable();
-            table.foreign('living_area').references('living_area.id');
+            table.integer('living_district_id').unsigned().notNullable();
+            table.foreign('living_district_id').references('district.id');
             table.string('address').notNullable();
         })
     ])

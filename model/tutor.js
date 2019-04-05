@@ -2,7 +2,11 @@ const { db, TABLES } = require('../config/database');
 const helper = require('./helper');
 
 module.exports.find = (id) => {
-    return db(TABLES.TUTOR_PROFILE).where('id', id);
+    return db(TABLES.TUTOR_PROFILE).where('user_id', id);
+};
+
+module.exports.all = () => {
+    return db(TABLES.TUTOR_PROFILE).select('user_id', 'nick_name', 'sex', 'description').all()
 };
 
 module.exports.create = (password, body) => {
@@ -13,7 +17,7 @@ module.exports.create = (password, body) => {
                     username: body.username,
                     password: password,
                     email: body.email,
-                    user_type: result.id
+                    user_type_id: result.id
                 }])
                 .returning('id')
                 .then(function (result) {
@@ -29,7 +33,7 @@ module.exports.create = (password, body) => {
                             birth: body.birth,
                             upper_price: body.upper_price,
                             lower_price: body.lower_price,
-                            education_level: body.education_level,
+                            education_level_id: body.education_level,
                             description: body.description
                         }])
                 })
