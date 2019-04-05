@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import axios from 'axios';
 import './JobCard.css';
 import {
     Card, 
@@ -15,16 +14,8 @@ class JobCard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            jobs: ""
+            job: props.job
         };
-    }
-
-    componentDidMount() {
-        axios.get("/api/jobs")
-            .then(response => {
-                const jobs = response.data;
-                this.setState({jobs});
-            });
     }
 
     render() {
