@@ -1,5 +1,5 @@
 import React, {Component, PureComponent} from 'react';
-import { Button, FormGroup, FormControl, Form, Alert } from "react-bootstrap";
+import { Button, FormGroup, Input, Label, Form, Alert } from "reactstrap";
 import "./TutorRegister.css";
 import axios from 'axios';
 
@@ -96,112 +96,136 @@ class TutorRegister extends Component {
 
     render(){
         return (
-            <form id = "tutor_register" onSubmit={this.handleSubmit}>
-                <FormGroup controlId="username" bsSize="large">
-                    <Form.Label>Username: </Form.Label>
-                    <FormControl
+            <Form id = "tutor_register" onSubmit={this.handleSubmit}>
+                <FormGroup>
+                    <Label for="username">Username: </Label>
+                    <Input
                         autoFocus
                         type="text"
+                        name="username"
+                        id="username"
+                        size="lg"
                         value={this.state.username}
                         onChange={this.handleChange}
                     />
                 </FormGroup>
-                <FormGroup controlId="password" bsSize="large">
-                    <Form.Label>Password: </Form.Label>
-                    <FormControl
+                <FormGroup>
+                    <Label for="password">Password: </Label>
+                    <Input
+                        type="password"
+                        name="password"
+                        id="password"
+                        size="lg"
                         value={this.state.password}
                         onChange={this.handleChange}
-                        type="password"
                     />
                 </FormGroup>
-                <FormGroup controlId="confirm_password" bsSize="large">
-                    <Form.Label>Confirm Password: </Form.Label>
-                    <FormControl
+                <FormGroup>
+                    <Label for="confirm_password">Confirm Password: </Label>
+                    <Input
+                        type="password"
+                        name="confirm_password"
+                        id="confirm_password"
+                        size="lg"
                         value={this.state.password2}
                         onChange={this.handleChange}
-                        type="password"
                     />
                 </FormGroup>
-                <FormGroup controlId="email" bsSize="large">
-                    <Form.Label>Email Address: </Form.Label>
-                    <FormControl
+                <FormGroup>
+                    <Label for="email">Email Address: </Label>
+                    <Input
+                        type="email"
+                        name="email_address"
+                        id="email"
+                        size="lg"
                         value={this.state.email}
                         onChange={this.handleChange}
-                        type="email"
                     />
                 </FormGroup>
-                <FormGroup controlId="phone" bsSize="large">
-                    <Form.Label>Phone: </Form.Label>
-                    <FormControl
+                <FormGroup>
+                    <Label for="phone">Phone: </Label>
+                    <Input
                         type="text"
+                        name="phone_number"
+                        id="phone"
+                        size="lg"
                         value={this.state.phone}
                         onChange={this.handleChange}
                         pattern="[0-9]*"
                         maxLength={8}
                     />
                 </FormGroup>
-                <FormGroup controlId="full_name_ch" bsSize="large">
-                    <Form.Label>中文姓名: </Form.Label>
-                    <FormControl
+                <FormGroup>
+                    <Label for="full_name_ch">中文姓名: </Label>
+                    <Input
+                        type="text"
+                        name="chinese_name"
+                        id="full_name_ch"
+                        size="lg"
                         value={this.state.full_name_ch}
                         onChange={this.handleChange}
-                        type="text"
                     />
                 </FormGroup>
-                <FormGroup controlId="full_name_en" bsSize="large">
-                    <Form.Label>English Name: </Form.Label>
-                    <FormControl
+                <FormGroup>
+                    <Label for="full_name_en">English Name: </Label>
+                    <Input
+                        type="text"
+                        name="english_name"
+                        id="full_name_en"
+                        size="lg"
                         value={this.state.full_name_en}
                         onChange={this.handleChange}
-                        type="text"
                     />
                 </FormGroup>
-                <FormGroup controlId="nick_name" bsSize="large">
-                    <Form.Label>Nick Name: </Form.Label>
-                    <FormControl
+                <FormGroup>
+                    <Label for="nick_name">Nick Name: </Label>
+                    <Input
+                        type="text"
+                        name="nick_name"
+                        id="nick_name"
+                        size="lg"
                         value={this.state.nick_name}
                         onChange={this.handleChange}
-                        type="text"
                     />
                 </FormGroup>
-                <Form.Group controlId="sex">
-                    <Form.Label>Sex:</Form.Label>
-                    <Form.Control as="select">
+                <FormGroup>
+                    <Label for="sex">Sex:</Label>
+                    <Input as="select">
                     <option value='M'>Male</option>
                     <option value='F'>Female</option>
-                    </Form.Control>
-                </Form.Group>
-                <Form.Group controlId="birth">
-                    <Form.Label>Birth:</Form.Label>
-                    <FormControl
+                    </Input>
+                </FormGroup>
+                <FormGroup>
+                    <Label for="birth">Birth:</Label>
+                    <Input
                         value={this.state.birth}
                         onChange={this.handleChange}
                         type="text"
                         placeholder="YYYY-mm-dd"
                     />
-                </Form.Group>
-                <Form.Group controlId="education_level">
-                    <Form.Label>Education Level:</Form.Label>
-                    <Form.Control as="select" onChange={this.handleChange}>
+                </FormGroup>
+                <FormGroup>
+                    <Label for="education_level">Education Level:</Label>
+                    <Input as="select" onChange={this.handleChange}>
                         { this.state.eduLevelList ? this.creatDropDown() : null}
-                    </Form.Control>
-                </Form.Group>
+                    </Input>
+                </FormGroup>
                 {
                     this.state.error ?
-                        <Alert variant='danger'>
+                        <Alert color='danger'>
                             {this.state.error_message}
                         </Alert> : null
                 }
                 <Button
                     block
-                    bsSize="large"
-                    onClick={!this.validateForm()}
                     type="submit"
                     id="tutor_submit_btn"
+                    size="lg"
+                    onClick={!this.validateForm()}
                 >
                     Register as Tutor
                 </Button>
-            </form>
+            </Form>
         );
     }
 }
