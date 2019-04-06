@@ -53,7 +53,7 @@ router.get('/list_job', function (req, res) {
 });
 
 router.get('/:id', function (req, res) {
-    const id = req.param('id');
+    const id = req.params[0];
 
     job.find(id)
         .then(function (result) {

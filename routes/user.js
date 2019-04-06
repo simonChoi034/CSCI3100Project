@@ -20,6 +20,22 @@ router.get('/checkToken', withAuth, function (req, res) {
     res.sendStatus(200);
 });
 
+router.get('/checkTutorToken', withAuth, function (req, res) {
+    if (req.isTutor) {
+        res.sendStatus(200);
+    }else {
+        res.status(401).send('Unauthorized: No token provided');
+    }
+});
+
+router.get('/checkParentToken', withAuth, function (req, res) {
+    if (!req.isTutor) {
+        res.sendStatus(200);
+    }else {
+        res.status(401).send('Unauthorized: No token provided');
+    }
+});
+
 // user login
 router.post('/login', [
     check('email').not().isEmpty(),
@@ -77,9 +93,9 @@ router.get('/parent_register', function (req, res) {
                 }else {
                     hash[e.region] = [];
                 }
-            })
+            });
 
-            var data = {
+            const data = {
                 districtList: hash
             };
 

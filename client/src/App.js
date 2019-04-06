@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import NavbarComponent from './components/navbar/NavbarComponent';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import withAuth from './components/auth/WithAuth';
 import ParticlesContainer from './components/particles_container/ParticlesContainer';
 import Home from './pages/home.js';
 import Login from './pages/login.js';
