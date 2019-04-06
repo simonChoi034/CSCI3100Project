@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import { Button, FormGroup, FormControl, Form, FormCheck } from "react-bootstrap";
+import React, { Component } from 'react';
+import { Button, FormGroup, Label, Form, Input } from "reactstrap";
 import "./ParentRegister.css";
 import axios from 'axios';
 
@@ -53,53 +53,70 @@ class ParentRegister extends Component {
     render(){
         return (
             <form onSubmit={this.handleSubmit}>
-                    <FormGroup controlId="username" bsSize="large">
-                        <Form.Label>Username: </Form.Label>
-                        <FormControl
+                    <FormGroup>
+                        <Label for="username">Username: </Label>
+                        <Input
                             autoFocus
                             type="text"
+                            name="username"
+                            id="username"
+                            size="lg"
                             value={this.state.username}
                             onChange={this.handleChange}
                         />
                     </FormGroup>
-                    <FormGroup controlId="password" bsSize="large">
-                        <Form.Label>Password: </Form.Label>
-                        <FormControl
+                    <FormGroup>
+                        <Label for="password">Password: </Label>
+                        <Input
+                            type="password"
+                            name="password"
+                            id="password"
+                            size="lg"
                             value={this.state.password}
                             onChange={this.handleChange}
-                            type="password"
                         />
                     </FormGroup>
-                    <FormGroup controlId="password2" bsSize="large">
-                        <Form.Label>Confirm Password: </Form.Label>
-                        <FormControl
+                    <FormGroup>
+                        <Label for="confirm_password">Confirm Password: </Label>
+                        <Input
+                            type="password"
+                            name="confirm_password"
+                            id="confirm_password"
+                            size="lg"
                             value={this.state.password2}
                             onChange={this.handleChange}
-                            type="password"
                         />
                     </FormGroup>
-                    <FormGroup controlId="email" bsSize="large">
-                        <Form.Label>Email Address: </Form.Label>
-                        <FormControl
+                    <FormGroup>
+                        <Label for="email">Email Address: </Label>
+                        <Input
+                            type="email"
+                            name="email"
+                            id="email"
+                            size="lg"
                             value={this.state.email}
                             onChange={this.handleChange}
-                            type="email"
                         />
                     </FormGroup>
-                    <FormGroup controlId="email" bsSize="large">
-                        <Form.Label>Address: </Form.Label>
-                        <FormControl
+                    <FormGroup>
+                        <Label for="address">Address: </Label>
+                        <Input
+                            type="text"
+                            name="address"
+                            id="address"
+                            size="lg"
                             value={this.state.address}
                             onChange={this.handleChange}
-                            type="text"
                         />
                     </FormGroup>
                     <Button
-                        block
-                        bsSize="large"
-                        onClick={!this.validateForm()}
                         type="submit"
                         id="normal_submit_btn"
+                        size="lg"
+                        color="primary"
+                        className="text-center"
+                        block
+                        disabled={!this.validateForm()}
                     >
                         Register as Normal User
                     </Button>

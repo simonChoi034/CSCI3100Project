@@ -56,7 +56,11 @@ class Register extends Component {
         return (
             <div id="Register">
                 <p>Register Page</p>
-                <Button onClick={this.handleClick}>Change Tutor or Parent</Button> {/* test only */}
+                <Button
+                    color="primary"
+                    size="lg"
+                    onClick={this.handleClick}>Change Tutor or Parent
+                </Button> {/* test only */}
                 {this.out}
             </div>
         );

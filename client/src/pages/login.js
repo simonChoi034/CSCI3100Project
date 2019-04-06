@@ -80,7 +80,7 @@ class Login extends Component {
                     </FormGroup>
                     {
                         this.state.error ?
-                            <Alert variant='danger'>
+                            <Alert color='danger'>
                                 {this.state.error_message}
                             </Alert> : null
                     }

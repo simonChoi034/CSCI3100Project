@@ -1,4 +1,4 @@
-import React, {Component, PureComponent} from 'react';
+import React, { Component } from 'react';
 import { Button, FormGroup, Input, Label, Form, Alert } from "reactstrap";
 import "./TutorRegister.css";
 import axios from 'axios';
@@ -20,7 +20,6 @@ class TutorRegister extends Component {
             sex: 'M',
             birth: '',
             education_level: '',
-            description: '',
             error: false,
             error_message: ''
         };
@@ -52,7 +51,7 @@ class TutorRegister extends Component {
 
     validateForm() {
         return this.state.username.length > 0 && this.state.password.length > 0
-            && this.state.email.length > 0 && (this.state.password === this.state.password2);
+            && this.state.email.length > 0 && (this.state.password === this.state.confirm_password);
     }
 
     handleChange = event => {
@@ -127,7 +126,7 @@ class TutorRegister extends Component {
                         name="confirm_password"
                         id="confirm_password"
                         size="lg"
-                        value={this.state.password2}
+                        value={this.state.confirm_password}
                         onChange={this.handleChange}
                     />
                 </FormGroup>
@@ -135,7 +134,7 @@ class TutorRegister extends Component {
                     <Label for="email">Email Address: </Label>
                     <Input
                         type="email"
-                        name="email_address"
+                        name="email"
                         id="email"
                         size="lg"
                         value={this.state.email}
@@ -190,7 +189,7 @@ class TutorRegister extends Component {
                 </FormGroup>
                 <FormGroup>
                     <Label for="sex">Sex:</Label>
-                    <Input as="select">
+                    <Input as="select" size="lg">
                     <option value='M'>Male</option>
                     <option value='F'>Female</option>
                     </Input>
@@ -198,15 +197,18 @@ class TutorRegister extends Component {
                 <FormGroup>
                     <Label for="birth">Birth:</Label>
                     <Input
+                        type="text"
+                        name="birth"
+                        id="birth"
+                        size="lg"
+                        placeholder="YYYY-mm-dd"
                         value={this.state.birth}
                         onChange={this.handleChange}
-                        type="text"
-                        placeholder="YYYY-mm-dd"
                     />
                 </FormGroup>
                 <FormGroup>
                     <Label for="education_level">Education Level:</Label>
-                    <Input as="select" onChange={this.handleChange}>
+                    <Input as="select" size="lg" onChange={this.handleChange}>
                         { this.state.eduLevelList ? this.creatDropDown() : null}
                     </Input>
                 </FormGroup>
@@ -217,11 +219,13 @@ class TutorRegister extends Component {
                         </Alert> : null
                 }
                 <Button
-                    block
                     type="submit"
                     id="tutor_submit_btn"
                     size="lg"
-                    onClick={!this.validateForm()}
+                    color="primary"
+                    className="text-center"
+                    block
+                    disabled={!this.validateForm()}
                 >
                     Register as Tutor
                 </Button>
