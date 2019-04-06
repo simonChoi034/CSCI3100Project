@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios'
+import { authenticationService } from './authentication.service';
+import { Role } from '../helper/index';
 
-export default function withAuth(ComponentToProtect) {
+export default function withAuth(ComponentToProtect, role='') {
     return class extends Component {
         constructor() {
             super();
@@ -12,13 +14,21 @@ export default function withAuth(ComponentToProtect) {
             };
         }
         componentDidMount() {
-            axios('/api/user/checkToken')
+            var checkToken;
+            if (role === Role.Tutor) {
+                checkToken = authenticationService.checkTutorToken;
+            }else if (role === Role.Parent){
+                checkToken = authenticationService.checkParentToken;
+            }else {
+                checkToken = authenticationService.checkToken;
+            }
+
+            checkToken()
                 .then(res => {
                     if (res.status === 200) {
                         this.setState({ loading: false });
                     } else {
-                        const error = new Error(res.error);
-                        throw error;
+                        throw new Error(res.error);
                     }
                 })
                 .catch(err => {

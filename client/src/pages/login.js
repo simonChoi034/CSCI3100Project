@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input, Alert } from "reactstrap";
 import "./login.css";
 import axios from 'axios';
+import { authenticationService } from "../components/auth/authentication.service";
 
 class Login extends Component {
 
@@ -13,6 +14,10 @@ class Login extends Component {
             error: false,
             error_message: ''
         };
+
+        if (authenticationService.currentUserValue) {
+            this.props.history.push('/');
+        }
     }
 
     validateForm() {
@@ -25,15 +30,13 @@ class Login extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        const user = {
-            email: this.state.email,
-            password: this.state.password
-        };
+        const email = this.state.email;
+        const password = this.state.password;
 
         const self = this;
-        axios.post('/api/user/login', user)
-            .then(res => {
-                this.props.history.push('/');
+        authenticationService.login(email, password)
+            .then(function () {
+                self.props.history.push('/');
             })
             .catch(function (err) {
                 const errors = err.response.data.errors;

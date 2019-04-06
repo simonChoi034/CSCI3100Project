@@ -24,7 +24,7 @@ router.get('/checkTutorToken', withAuth, function (req, res) {
     if (req.isTutor) {
         res.sendStatus(200);
     }else {
-        res.status(401).send('Unauthorized: No token provided');
+        res.status(401).send('Unauthorized: Invalid token provided');
     }
 });
 
@@ -32,7 +32,7 @@ router.get('/checkParentToken', withAuth, function (req, res) {
     if (!req.isTutor) {
         res.sendStatus(200);
     }else {
-        res.status(401).send('Unauthorized: No token provided');
+        res.status(401).send('Unauthorized: Invalid token provided');
     }
 });
 
@@ -66,14 +66,19 @@ router.post('/login', [
                     helper.getUserTypeID('tutor').then(function (type) {
                         const id = result[0].id;
                         const username = result[0].username;
-                        const isTutor = result[0].user_type === type.id;
+                        const isTutor = result[0].user_type_id === type.id;
+                        const role = isTutor ? 'Tutor' : 'Parent';
 
                         // Issue token
                         const payload = { id: id, email: email, username: username, tutor: isTutor};
                         const token = jwt.sign(payload, secret, {expiresIn: '1d'});
                         res.cookie('token', token, { httpOnly: true });
-                        res.cookie('username', username, { httpOnly: true});
-                        res.sendStatus(200);
+
+                        const user = {
+                            id: id, email: email, username: username, role: role, token: token
+                        };
+
+                        res.status(200).json(user);
                     })
 
                 }

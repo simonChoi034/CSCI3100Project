@@ -11,7 +11,6 @@ const job = require('../model/job');
 const helper = require('../model/helper');
 
 router.post('/create_job', [
-    withAuth,
     check('client_id')
         .not().isEmpty(),
     check('district_id')

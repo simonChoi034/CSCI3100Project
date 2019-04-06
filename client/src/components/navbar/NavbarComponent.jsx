@@ -8,16 +8,9 @@ import {
     Nav,
     NavItem,
     NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
-    InputGroup,
-    InputGroupAddon,
-    InputGroupText,
-    Input,
-    Button
+    Badge
 } from 'reactstrap';
+import { authenticationService } from '../auth/authentication.service';
 
 class NavbarComponent extends Component {
 
@@ -35,13 +28,44 @@ class NavbarComponent extends Component {
         });
     }
 
+    createNavItem() {
+        var item = [];
+
+        if (this.props.currentUser) {
+            item.push(
+                <NavLink className="text-light" href='/' onClick={this.logout}>Logout</NavLink>
+            )
+        } else {
+            item.push(
+                <NavItem>
+                    <NavLink className="text-light" href='/register'>Register</NavLink>
+                </NavItem>
+            );
+            item.push(
+                <NavItem>
+                    <NavLink className="text-light" href='/login'>Login</NavLink>
+                </NavItem>
+            );
+        }
+
+        return item;
+    }
+
+    logout() {
+        authenticationService.logout();
+        this.props.history.push('/');
+    }
+
     render() {
         return (
             <div className="NavbarComponent">
-
                 <Navbar className="bg-dark" expand="md">
                     <NavbarBrand className="btn btn-warning text-light" href="/">TeachHub</NavbarBrand>
                     <NavbarToggler className="navbar-dark" onClick={this.toggle}/>
+                    {
+                        this.props.currentUser &&
+                        <h4><Badge color="secondary">Hi {this.props.currentUser.username}</Badge></h4>
+                    }
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
                             <NavItem>
@@ -50,16 +74,9 @@ class NavbarComponent extends Component {
                             <NavItem>
                                 <NavLink className="text-light" href="/tutors">Tutors</NavLink>
                             </NavItem>
-                            <NavItem>
-                                <NavLink className="text-light" href='/register'>Register</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink className="text-light" href='/login'>Login</NavLink>
-                            </NavItem>
-                            <InputGroup>
-                                <Input placeholder="Search..."/>
-                                <Button>Search</Button>
-                            </InputGroup>
+                            {
+                                this.createNavItem()
+                            }
                         </Nav>
                     </Collapse>
                 </Navbar>
