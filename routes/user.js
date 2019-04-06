@@ -186,13 +186,13 @@ router.post('/parent_register', [
 });
 
 router.get('/tutor_register', function (req, res) {
-   helper.getEduLevelList().then(function (level) {
-       var data = {
-           eduLevelList: level
-       };
+    helper.getEduLevelList().then(function (level) {
+        var data = {
+            eduLevelList: level
+        };
 
-       res.status(200).json(data);
-   })
+        res.status(200).json(data);
+    })
 });
 
 router.post('/tutor_register', [

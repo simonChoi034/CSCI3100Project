@@ -37,7 +37,7 @@ class ParentRegister extends Component {
 
     validateForm() {
         return this.state.username.length > 0 && this.state.password.length > 0
-            && this.state.email.length > 0 && (this.state.password === this.state.password2);
+            && this.state.email.length > 0 && (this.state.password === this.state.confirm_password);
     }
 
     handleChange = event => {
@@ -48,6 +48,30 @@ class ParentRegister extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
+        console.log(this.state)
+        const data = {
+            username: this.state.username,
+            email: this.state.email,
+            password: this.state.password,
+            confirm_password: this.state.confirm_password,
+            address: this.state.address
+        };
+
+        const self = this;
+        axios.post('api/user/parent_register', data)
+            .then(function (res) {
+              console.log(self.props);
+              self.props.history.push('/');
+          })
+          .catch(function (err){
+              const errors = err.response.data.errors;
+
+              self.setState({
+                  error: true,
+                  error_message: errors[0].msg
+              });
+              console.log(errors)
+          })
     }
 
     render(){
@@ -83,7 +107,7 @@ class ParentRegister extends Component {
                             name="confirm_password"
                             id="confirm_password"
                             size="lg"
-                            value={this.state.password2}
+                            value={this.state.confirm_password}
                             onChange={this.handleChange}
                         />
                     </FormGroup>
