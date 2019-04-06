@@ -16,7 +16,7 @@ class JobsWall extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            jobs: [{job_title: 'Chinese', job_description: 'woman teacher!'}, {job_title: 'Eng', job_description: 'woman!'}]  // temp data
+            jobs: [{title: 'Chinese', content: 'woman teacher!'}, {title: 'Eng', content: 'I want woman!'}]  // temp data
         };
     }
 

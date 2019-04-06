@@ -23,7 +23,7 @@ class JobCard extends Component {
             <Col sm="4">
                 <Card body>
                     <CardTitle>{this.state.job.title}</CardTitle>
-                    <CardText>recruit woman teacher</CardText>
+                    <CardText>{this.state.job.content}</CardText>
                     <Button>More</Button>
                 </Card>
             </Col>
