@@ -5,7 +5,7 @@ module.exports.getDistrictList = () => {
         .join(TABLES.REGION, TABLES.DISTRICT.concat('.region_id'), '=', TABLES.REGION.concat('.id'))
         .select(
             TABLES.DISTRICT.concat('.id'),
-            TABLES.LIVING_AREA.concat('.name', ' as ', 'area'),
+            TABLES.DISTRICT.concat('.name', ' as ', 'area'),
             TABLES.REGION.concat('.name', ' as ', TABLES.REGION)
         )
 };

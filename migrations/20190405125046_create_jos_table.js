@@ -20,7 +20,7 @@ exports.up = function(knex, Promise) {
           table.integer('student_level_id').unsigned();
           table.foreign('student_level_id').references('student_level.id');
           table.string('tuition_fee');
-          table.integer('num_of_student').defaultTo(0);
+          table.integer('num_of_student');
           table.integer('tutor_academic_id').unsigned();
           table.foreign('tutor_academic_id').references('education_level.id');
           table.string('tutor_sex', 1).defaultTo('O');
@@ -28,6 +28,7 @@ exports.up = function(knex, Promise) {
           table.string('duration');
           table.string('time');
           table.dateTime('create_time').defaultTo(knex.fn.now());
+          table.string('hotline');
           table.string('remark');
       }),
       knex.schema.createTable('job_subject', function (table) {

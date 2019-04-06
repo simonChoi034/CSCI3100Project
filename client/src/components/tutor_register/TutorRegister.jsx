@@ -3,14 +3,6 @@ import { Button, FormGroup, FormControl, Form, Alert } from "react-bootstrap";
 import "./TutorRegister.css";
 import axios from 'axios';
 
-class DropDown extends Component{
-    render() {
-        return this.props.eduLevel.map(e => (
-            <option value={e.id}>{e.name}</option>
-        ))
-    }
-}
-
 class TutorRegister extends Component {
 
     constructor(props) {
@@ -39,13 +31,23 @@ class TutorRegister extends Component {
         axios.get('/api/user/tutor_register')
             .then(function (res) {
                 self.setState({
-                    eduLevel: res.data.eduLevel,
-                    education_level: res.data.eduLevel[0].id
+                    eduLevelList: res.data.eduLevelList,
+                    education_level: res.data.eduLevelList[0].id
                 });
             })
             .catch(function (err) {
                 console.log(err)
             })
+    }
+
+    creatDropDown(){
+        var options = [];
+
+        this.state.eduLevelList.forEach(function (e) {
+            options.push(<option value={e.id}>{e.name}</option>)
+        });
+
+        return options;
     }
 
     validateForm() {
@@ -181,9 +183,7 @@ class TutorRegister extends Component {
                 <Form.Group controlId="education_level">
                     <Form.Label>Education Level:</Form.Label>
                     <Form.Control as="select" onChange={this.handleChange}>
-                        {this.state.eduLevel &&
-                        <DropDown eduLevel={this.state.eduLevel}/>
-                        }
+                        { this.state.eduLevelList ? this.creatDropDown() : null}
                     </Form.Control>
                 </Form.Group>
                 {

@@ -21,10 +21,18 @@ class ParentRegister extends Component {
     }
     
     componentDidMount() {
+        var self = this;
         axios.get('/api/user/parent_register')
             .then(function (res) {
+                self.setState({
+                    districtList: res.data.districtList,
+                    living_district: res.data.districtList[0].id
+                })
+            })
+            .catch(function (err) {
+                console.log(err)
+            })
 
-        })
     }
 
     validateForm() {

@@ -48,9 +48,9 @@ router.post('/login', [
                 }else {
                     // get tutor type id
                     helper.getUserTypeID('tutor').then(function (type) {
-                        const id = result.id;
-                        const username = result.username;
-                        const isTutor = result.user_type === type.id;
+                        const id = result[0].id;
+                        const username = result[0].username;
+                        const isTutor = result[0].user_type === type.id;
 
                         // Issue token
                         const payload = { id: id, email: email, username: username, tutor: isTutor};
@@ -65,6 +65,29 @@ router.post('/login', [
         }
     });
 
+});
+
+router.get('/parent_register', function (req, res) {
+    helper.getDistrictList()
+        .then(function (result) {
+            var hash = {};
+            result.forEach(function (e) {
+                if ( e.region in hash ){
+                    hash[e.region].push(e);
+                }else {
+                    hash[e.region] = [];
+                }
+            })
+
+            var data = {
+                districtList: hash
+            };
+
+            res.status(200).json(data);
+        })
+        .catch(function (err) {
+            console.log(err)
+        })
 });
 
 router.post('/parent_register', [
@@ -144,7 +167,7 @@ router.post('/parent_register', [
 router.get('/tutor_register', function (req, res) {
    helper.getEduLevelList().then(function (level) {
        var data = {
-           eduLevel: level
+           eduLevelList: level
        };
 
        res.status(200).json(data);
