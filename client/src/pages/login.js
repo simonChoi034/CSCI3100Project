@@ -62,6 +62,7 @@ class Login extends Component {
                             type="email"
                             name='email'
                             id='email'
+                            size="lg"
                             placeholder="Enter your email address"
                             value={this.state.email}
                             onChange={this.handleChange}
@@ -73,6 +74,7 @@ class Login extends Component {
                             type="password"
                             name="password"
                             id="password"
+                            size="lg"
                             placeholder="Enter your password"
                             value={this.state.password}
                             onChange={this.handleChange}

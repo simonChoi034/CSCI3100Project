@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Button } from "reactstrap";
 import "./register.css";
-import Tutor_register from "../components/tutor_register/TutorRegister"
-import Normal_register from "../components/parent_register/ParentRegister"
+import TutorRegister from "../components/tutor_register/TutorRegister"
+import ParentRegister from "../components/parent_register/ParentRegister"
 
 class Register extends Component {
 
@@ -31,9 +31,9 @@ class Register extends Component {
 
     getComponent() {
         if (this.state.showTutor) { 
-            return <Tutor_register history={this.props.history}/>
+            return <TutorRegister history={this.props.history}/>
         } else {
-            return <Normal_register history={this.props.history}/>
+            return <ParentRegister history={this.props.history}/>
         }
     }
 
@@ -41,11 +41,7 @@ class Register extends Component {
         return (
             <div id="Register">
                 <p>Register Page</p>
-                <Button
-                    color="primary"
-                    size="lg"
-                    onClick={this.handleClick}>Change Tutor or Parent
-                </Button> {/* test only */}
+                <Button onClick={this.handleClick}>Change Tutor or Parent</Button> {/* test only */}
                 {this.out}
             </div>
         );

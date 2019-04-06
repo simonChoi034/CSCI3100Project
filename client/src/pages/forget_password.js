@@ -29,7 +29,7 @@ class Forget_PW extends Component {
         return (
             <div id="Reset_pw">
                 <h1>Reset Password</h1>
-                <h6> A reset password will be sent to you via email !</h6>
+                <h6> The new password will be sent to you via email !</h6>
                 <Form onSubmit={this.handleSubmit}>
                     <FormGroup controlId="username">
                         <Label>Username</Label>
