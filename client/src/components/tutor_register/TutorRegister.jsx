@@ -224,7 +224,6 @@ class TutorRegister extends Component {
                     size="lg"
                     color="primary"
                     className="text-center"
-                    block
                     disabled={!this.validateForm()}
                 >
                     Register as Tutor

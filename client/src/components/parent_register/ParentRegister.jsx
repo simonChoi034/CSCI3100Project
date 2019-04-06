@@ -115,7 +115,6 @@ class ParentRegister extends Component {
                         size="lg"
                         color="primary"
                         className="text-center"
-                        block
                         disabled={!this.validateForm()}
                     >
                         Register as Normal User
