@@ -20,7 +20,7 @@ class JobCard extends Component {
 
     render() {
         return (
-            <Col sm="4">
+            <Col xs="12" sm="6" md="4" lg="3">
                 <Card body>
                     <CardTitle>{this.state.job.title}</CardTitle>
                     <CardText>{this.state.job.content}</CardText>

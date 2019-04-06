@@ -3,12 +3,8 @@ import axios from 'axios';
 import './JobsWall.css';
 import JobCard from '../job_card/JobCard';
 import {
-    Card, 
-    CardTitle, 
-    CardText, 
+    Container,
     Row, 
-    Col,
-    Button
 } from 'reactstrap';
 
 class JobsWall extends Component {
@@ -16,12 +12,12 @@ class JobsWall extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            jobs: [{title: 'Chinese', content: 'woman teacher!'}, {title: 'Eng', content: 'I want woman!'}]  // temp data
+            jobs: [{title: 'Chinese', content: 'woman teacher!'}, {title: 'Eng', content: 'I want woman!'}, {title: 'Eng', content: 'I want woman!'}, {title: 'Eng', content: 'I want woman!'}, {title: 'Eng', content: 'I want woman!'}, {title: 'Eng', content: 'I want woman!'}]  // temp data
         };
     }
 
     componentDidMount() {
-      axios.get("/api/jobs")
+        axios.get("/api/jobs")
             .then(response => response.json())
             .then(data => {
                 this.setState({jobs: data})
@@ -31,11 +27,13 @@ class JobsWall extends Component {
 
     render() {
         return (
-            <Row>
-                {this.state.jobs.map((job) => 
-                    <JobCard job={job} />
-                )}
-            </Row>
+            <Container fluid>
+                <Row>
+                    {this.state.jobs.map((job) => 
+                        <JobCard job={job} />
+                    )}
+                </Row>
+            </Container>
         );
     }
 }
