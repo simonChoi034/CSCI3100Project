@@ -16,24 +16,25 @@ class JobsWall extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            jobs: ""
+            jobs: [{job_title: 'Chinese', job_description: 'woman teacher!'}, {job_title: 'Eng', job_description: 'woman!'}]  // temp data
         };
     }
 
     componentDidMount() {
       axios.get("/api/jobs")
-          .then(response => {
-              const jobs = response.data;
-              this.setState({jobs});
-          });
+            .then(response => response.json())
+            .then(data => {
+                this.setState({jobs: data})
+            })
+            .catch(err => console.error(err.toString()))
     }
 
     render() {
         return (
             <Row>
-                this.jobs.map((job) => 
+                {this.state.jobs.map((job) => 
                     <JobCard job={job} />
-                )
+                )}
             </Row>
         );
     }
