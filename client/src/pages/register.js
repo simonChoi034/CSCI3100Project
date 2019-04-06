@@ -36,21 +36,6 @@ class Register extends Component {
             return <ParentRegister history={this.props.history}/>
         }
     }
-    
-    validateForm() {
-        return this.state.username.length > 0 && this.state.password.length > 0
-            && this.state.email.length > 0 && (this.state.password === this.state.password2);
-    }
-
-    handleChange = event => {
-        this.setState({
-            [event.target.id]: event.target.value
-        });
-    }
-
-    handleSubmit = event => {
-        event.preventDefault();
-    }
 
     render(){
         return (

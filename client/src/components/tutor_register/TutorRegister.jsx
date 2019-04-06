@@ -87,7 +87,6 @@ class TutorRegister extends Component {
         const self = this;
         axios.post('/api/user/tutor_register', data)
             .then(function (res) {
-                console.log(self.props);
                 self.props.history.push('/');
             })
             .catch(function (err){
