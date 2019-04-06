@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, FormGroup, FormControl, Form, FormCheck } from "react-bootstrap";
+import { Button } from "reactstrap";
 import "./register.css";
 import TutorRegister from "../components/tutor_register/TutorRegister"
 import ParentRegister from "../components/parent_register/ParentRegister"
