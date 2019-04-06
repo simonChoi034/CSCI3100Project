@@ -79,7 +79,6 @@ class TutorRegister extends Component {
         const self = this;
         axios.post('/api/user/tutor_register', data)
             .then(function (res) {
-                console.log(self.props);
                 self.props.history.push('/');
             })
             .catch(function (err){
@@ -208,7 +207,7 @@ class TutorRegister extends Component {
                 </FormGroup>
                 <FormGroup>
                     <Label for="education_level">Education Level:</Label>
-                    <Input as="select" size="lg" onChange={this.handleChange}>
+                    <Input type="select" size="lg" onChange={this.handleChange}>
                         { this.state.eduLevelList ? this.creatDropDown() : null}
                     </Input>
                 </FormGroup>

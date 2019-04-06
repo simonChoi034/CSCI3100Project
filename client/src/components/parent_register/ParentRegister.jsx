@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, FormGroup, Label, Form, Input } from "reactstrap";
+import {Button, FormGroup, Label, Form, Input, Alert} from "reactstrap";
 import "./ParentRegister.css";
 import axios from 'axios';
 
@@ -26,7 +26,6 @@ class ParentRegister extends Component {
             .then(function (res) {
                 self.setState({
                     districtList: res.data.districtList,
-                    living_district: res.data.districtList[0].id
                 })
             })
             .catch(function (err) {
@@ -35,9 +34,26 @@ class ParentRegister extends Component {
 
     }
 
+    creatDropDown(){
+        var options = [];
+        var districts = this.state.districtList;
+
+        options.push(<option value="">Please choose a district</option>);
+
+        for (var key in districts) {
+            options.push(<option value="" disabled>{key}</option>);
+
+            districts[key].forEach(function (e) {
+                options.push(<option value={e.id}>{e.area}</option>)
+            })
+        }
+
+        return options;
+    }
+
     validateForm() {
         return this.state.username.length > 0 && this.state.password.length > 0
-            && this.state.email.length > 0 && (this.state.password === this.state.password2);
+            && this.state.email.length > 0 && (this.state.password === this.state.confirm_password);
     }
 
     handleChange = event => {
@@ -48,6 +64,33 @@ class ParentRegister extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
+        const data = {
+            username: this.state.username,
+            email: this.state.email,
+            password: this.state.password,
+            confirm_password: this.state.confirm_password,
+            name: this.state.name,
+            phone: this.state.phone,
+            living_district: this.state.living_district,
+            address: this.state.address
+        };
+
+        var self = this;
+        axios.post('/api/user/parent_register', data)
+            .then(function (res) {
+                console.log(self.props);
+                self.props.history.push('/');
+            })
+            .catch(function (err){
+                const errors = err.response.data.errors;
+
+                self.setState({
+                    error: true,
+                    error_message: errors[0].msg
+                });
+                console.log(errors)
+            })
+
     }
 
     render(){
@@ -83,7 +126,7 @@ class ParentRegister extends Component {
                             name="confirm_password"
                             id="confirm_password"
                             size="lg"
-                            value={this.state.password2}
+                            value={this.state.confirm_password}
                             onChange={this.handleChange}
                         />
                     </FormGroup>
@@ -99,6 +142,39 @@ class ParentRegister extends Component {
                         />
                     </FormGroup>
                     <FormGroup>
+                        <Label for="name">Name: </Label>
+                        <Input
+                            type="text"
+                            name="name"
+                            id="name"
+                            size="lg"
+                            value={this.state.name}
+                            onChange={this.handleChange}
+                        />
+                    </FormGroup>
+                    <FormGroup>
+                        <Label for="phone">Phone: </Label>
+                        <Input
+                            type="text"
+                            name="phone"
+                            id="phone"
+                            size="lg"
+                            value={this.state.phone}
+                            onChange={this.handleChange}
+                        />
+                    </FormGroup>
+                    <FormGroup>
+                        <Label for="living_district">Living district:</Label>
+                        <Input
+                            type="select"
+                            size="lg"
+                            name="living_district"
+                            id="living_district"
+                            onChange={this.handleChange}>
+                            { this.state.districtList ? this.creatDropDown() : null}
+                        </Input>
+                    </FormGroup>
+                    <FormGroup>
                         <Label for="address">Address: </Label>
                         <Input
                             type="text"
@@ -109,6 +185,12 @@ class ParentRegister extends Component {
                             onChange={this.handleChange}
                         />
                     </FormGroup>
+                    {
+                        this.state.error ?
+                            <Alert color='danger'>
+                                {this.state.error_message}
+                            </Alert> : null
+                    }
                     <Button
                         type="submit"
                         id="normal_submit_btn"
@@ -117,7 +199,7 @@ class ParentRegister extends Component {
                         className="text-center"
                         disabled={!this.validateForm()}
                     >
-                        Register as Normal User
+                        Register as Parent
                     </Button>
                 </form>
         );
