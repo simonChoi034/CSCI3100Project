@@ -12,4 +12,7 @@ module.exports.TABLES = {
     REGION: 'region',
     DISTRICT: 'district',
     PARENT_PROFILE: 'parent_profile',
+    JOB: 'job',
+    JOB_SUBJECT: 'job_subject',
+    JOB_TUTOR: 'job_tutor',
 };
