@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Button, FormGroup, Input, Label, Form, Alert } from "reactstrap";
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import "./TutorRegister.css";
 import axios from 'axios';
 
@@ -18,7 +20,7 @@ class TutorRegister extends Component {
             full_name_en: '',
             nick_name: '',
             sex: 'M',
-            birth: '',
+            birth: new Date(),
             education_level: '',
             error: false,
             error_message: ''
@@ -60,6 +62,12 @@ class TutorRegister extends Component {
         });
     }
 
+    handleDateChange = date => {
+        this.setState({
+            birth: date
+        });
+    }
+
     handleSubmit = event => {
         event.preventDefault();
         const data = {
@@ -72,7 +80,7 @@ class TutorRegister extends Component {
             full_name_en: this.state.full_name_en,
             nick_name: this.state.nick_name,
             sex: this.state.sex,
-            birth: this.state.birth,
+            birth: "".concat(this.state.birth.getFullYear(),"-",this.state.birth.getMonth(),"-",this.state.birth.getDay()),
             education_level: this.state.education_level
         };
 
@@ -195,15 +203,13 @@ class TutorRegister extends Component {
                     </Input>
                 </FormGroup>
                 <FormGroup>
-                    <Label for="birth">Birth:</Label>
-                    <Input
-                        type="text"
-                        name="birth"
+                    <Label for="birth">Birth: </Label>
+                    <DatePicker 
                         id="birth"
-                        size="lg"
-                        placeholder="YYYY-mm-dd"
-                        value={this.state.birth}
-                        onChange={this.handleChange}
+                        name="birth"
+                        selected={ this.state.birth }
+                        onChange={ this.handleDateChange }
+                        dataFormat="YYYY-MM-DD"
                     />
                 </FormGroup>
                 <FormGroup>

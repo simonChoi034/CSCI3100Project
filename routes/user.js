@@ -249,11 +249,10 @@ router.post('/tutor_register', [
     check('birth')
         .not().isEmpty()
         .custom(function (value) {
-            if (!value.match(/^\d{4}-\d{2}-\d{2}$/))
-                throw new Error('Birth must be in format: YYYY-mm-dd');
-            if (isNaN(Date.parse(value))) {
-                throw new Error('Invalid date');
-            }
+            now = new Date();
+            birth = new Date(value);
+            if (now.getFullYear() - birth.getFullYear() < 3)
+                throw new Error('Your children is too young. How about give him a little bit childhood.');
             return true;
         }),
     check('education_level')
