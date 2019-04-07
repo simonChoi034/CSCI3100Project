@@ -52,7 +52,7 @@ router.get('/list_job', function (req, res) {
 });
 
 router.get('/:id', function (req, res) {
-    const id = req.params[0];
+    const id = req.params['id'];
 
     job.find(id)
         .then(function (result) {
@@ -66,6 +66,30 @@ router.get('/:id', function (req, res) {
             res.status(500).json({ errors: [err]});
         })
 });
+
+router.get('/district/:id', function (req, res) {
+    const id = req.params['id'];
+
+    helper.getDistrictById(id)
+        .then(function (district_result) {
+            helper.getRegionById(district_result['region_id'])
+                .then(function (region_result) {
+                    const data = {
+                        district_name: district_result['name'],
+                        region_name: region_result['name']
+                    }
+
+                    res.status(200).json(data);
+                })
+                .catch(function (err) {
+                    console.log(err)
+                })
+        })
+        .catch(function (err) {
+          console.log(err)
+        })
+        
+})
 
 
 module.exports = router;

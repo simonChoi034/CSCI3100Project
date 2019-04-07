@@ -10,6 +10,16 @@ module.exports.getDistrictList = () => {
         )
 };
 
+module.exports.getDistrictById = (id) => {
+    return db(TABLES.DISTRICT)
+        .select('name', 'region_id').where('id', id).first()
+}
+
+module.exports.getRegionById = (id) => {
+    return db(TABLES.REGION)
+        .select('name').where('id', id).first()
+}
+
 module.exports.getEduLevelList = () => {
     return db(TABLES.EDUCATION_LEVEL)
         .select(
