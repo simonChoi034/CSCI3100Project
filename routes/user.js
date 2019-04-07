@@ -249,8 +249,6 @@ router.post('/tutor_register', [
     check('birth')
         .not().isEmpty()
         .custom(function (value) {
-            if (!value.match(/^\d{4}-\d{2}-\d{2}$/))
-                throw new Error('Birth must be in format: YYYY-mm-dd');
             if (isNaN(Date.parse(value))) {
                 throw new Error('Invalid date');
             }

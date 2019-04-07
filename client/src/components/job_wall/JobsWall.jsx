@@ -17,10 +17,9 @@ class JobsWall extends Component {
     }
 
     componentDidMount() {
-        axios.get("/api/job")
-            .then(response => response.json())
-            .then(data => {
-                this.setState({jobs: data})
+        axios.get("/api/job/list_job")
+            .then(res => {
+                this.setState({jobs: res.data.jobList})
             })
             .catch(err => console.error(err.toString()))
     }
