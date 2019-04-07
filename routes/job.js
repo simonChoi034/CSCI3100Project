@@ -82,11 +82,11 @@ router.get('/district/:id', function (req, res) {
                     res.status(200).json(data);
                 })
                 .catch(function (err) {
-                    console.log(err)
+                    res.status(500).json({ errors: [err]});
                 })
         })
         .catch(function (err) {
-          console.log(err)
+            res.status(500).json({ errors: [err]});
         })
         
 })
