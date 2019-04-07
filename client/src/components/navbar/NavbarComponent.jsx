@@ -33,16 +33,16 @@ class NavbarComponent extends Component {
 
         if (this.props.currentUser) {
             item.push(
-                <NavLink className="text-light" href='/' onClick={this.logout}>Logout</NavLink>
+                <NavLink key={0} className="text-light" href='/' onClick={this.logout}>Logout</NavLink>
             )
         } else {
             item.push(
-                <NavItem>
+                <NavItem key={0}>
                     <NavLink className="text-light" href='/register'>Register</NavLink>
                 </NavItem>
             );
             item.push(
-                <NavItem>
+                <NavItem key={1}>
                     <NavLink className="text-light" href='/login'>Login</NavLink>
                 </NavItem>
             );

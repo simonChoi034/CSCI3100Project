@@ -45,8 +45,8 @@ class TutorRegister extends Component {
     creatDropDown(){
         var options = [];
 
-        this.state.eduLevelList.forEach(function (e) {
-            options.push(<option value={e.id}>{e.name}</option>)
+        this.state.eduLevelList.forEach(function (e, key) {
+            options.push(<option key={key} value={e.id}>{e.name}</option>)
         });
 
         return options;
