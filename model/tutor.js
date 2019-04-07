@@ -42,3 +42,8 @@ module.exports.create = (password, body) => {
 module.exports.edit = () => {
 
 };
+
+
+module.exports.findUserByPhone = (phone) => {
+    return db(TABLES.TUTOR_PROFILE).where('phone', phone).returning('*')
+};
