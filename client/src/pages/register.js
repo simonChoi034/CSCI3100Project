@@ -12,7 +12,7 @@ class Register extends Component {
         this.state = {
             username: '',
             password: '',
-            password2: '',
+            confirm_password: '',
             email: '',
             tutor: false,
             showTutor: false
