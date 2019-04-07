@@ -211,6 +211,9 @@ class TutorRegister extends Component {
                         selected={ this.state.birth }
                         onChange={ this.handleDateChange }
                         placeholderText="Choose your birthday"
+                        showMonthDropdown
+                        showYearDropdown
+                        dropdownMode="select"
                     />
                 </FormGroup>
                 <FormGroup>
