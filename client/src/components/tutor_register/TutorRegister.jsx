@@ -206,9 +206,9 @@ class TutorRegister extends Component {
                     <DatePicker 
                         id="birth"
                         name="birth"
+                        dateFormat="dd/MM/yyyy"
                         selected={ this.state.birth }
                         onChange={ this.handleDateChange }
-                        dataFormat="YYYY-MM-DD"
                     />
                 </FormGroup>
                 <FormGroup>
