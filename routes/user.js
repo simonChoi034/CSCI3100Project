@@ -252,6 +252,10 @@ router.post('/tutor_register', [
             if (isNaN(Date.parse(value))) {
                 throw new Error('Invalid date');
             }
+            now = new Date();
+            birth = new Date(value);
+            if (now.getFullYear() - birth.getFullYear() < 3)
+                throw new Error('Your children is too young. How about give him a little bit childhood.');
             return true;
         }),
     check('education_level')
