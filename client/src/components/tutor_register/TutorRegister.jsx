@@ -21,7 +21,7 @@ class TutorRegister extends Component {
             full_name_en: '',
             nick_name: '',
             sex: 'M',
-            birth: '',
+            birth: null,
             education_level: '',
             error: false,
             error_message: ''
@@ -214,6 +214,7 @@ class TutorRegister extends Component {
                         showMonthDropdown
                         showYearDropdown
                         dropdownMode="select"
+                        maxDate={new Date(new Date().setFullYear(new Date().getFullYear() - 3))}
                     />
                 </FormGroup>
                 <FormGroup>
