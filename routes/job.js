@@ -36,9 +36,7 @@ router.post('/create_job', [
 });
 
 router.get('/list_job', function (req, res) {
-    const { offset, limit } = req.body;
-
-    job.all(offset, limit)
+    job.all()
         .then(function (result) {
             const data = {
                 jobList: result

@@ -41,7 +41,7 @@ module.exports.create = (body) => {
     }])
 };
 
-module.exports.all = (offset, limit) => {
+module.exports.all = () => {
     return db(TABLES.JOB)
         .join(TABLES.DISTRICT, TABLES.DISTRICT.concat('.id'), '=', TABLES.JOB.concat('.district_id'))
         .join(TABLES.REGION, TABLES.REGION.concat('.id'), '=', TABLES.DISTRICT.concat('.region_id'))
@@ -61,7 +61,5 @@ module.exports.all = (offset, limit) => {
             'hotline'
         )
         .where('open', true)
-        .offset(offset)
-        .limit(limit)
         .returning('*')
 };
