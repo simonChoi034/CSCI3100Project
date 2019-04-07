@@ -9,7 +9,6 @@ import {
     Col,
     Button
 } from 'reactstrap';
-import Axios from 'axios';
 
 class JobCard extends Component {
 
@@ -25,8 +24,8 @@ class JobCard extends Component {
             <Col xs="12" sm="6" md="4" lg="3">
                 <Card body>
                     <CardTitle>{this.state.job.title}</CardTitle>
-                    <CardText>Region: {this.state.job.region}</CardText>
-                    <CardText>District: {this.state.job.district}</CardText>
+                    <CardText className="text-left">Region: {this.state.job.region}</CardText>
+                    <CardText className="text-left">District: {this.state.job.district}</CardText>
                     <Button>More</Button>
                 </Card>
             </Col>
