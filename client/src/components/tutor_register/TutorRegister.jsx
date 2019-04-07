@@ -21,7 +21,7 @@ class TutorRegister extends Component {
             full_name_en: '',
             nick_name: '',
             sex: 'M',
-            birth: new Date(),
+            birth: '',
             education_level: '',
             error: false,
             error_message: ''
@@ -210,6 +210,7 @@ class TutorRegister extends Component {
                         dateFormat="dd/MM/yyyy"
                         selected={ this.state.birth }
                         onChange={ this.handleDateChange }
+                        placeholderText="Choose your birthday"
                     />
                 </FormGroup>
                 <FormGroup>
