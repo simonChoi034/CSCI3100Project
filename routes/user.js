@@ -228,7 +228,7 @@ router.post('/tutor_register', [
         .isLength(8).withMessage("Value must be a HK phone number")
         .not().isEmpty()
         .custom(function (value) {
-            return parent.findUserByPhone(value).then(function (result){
+            return tutor.findUserByPhone(value).then(function (result){
                 if (result.length > 0)
                     return Promise.reject('Phone no. has been used')
             })
@@ -252,10 +252,6 @@ router.post('/tutor_register', [
             if (isNaN(Date.parse(value))) {
                 throw new Error('Invalid date');
             }
-            now = new Date();
-            birth = new Date(value);
-            if (now.getFullYear() - birth.getFullYear() < 3)
-                throw new Error('Your children is too young. How about give him a little bit childhood.');
             return true;
         }),
     check('education_level')

@@ -4,6 +4,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import "./TutorRegister.css";
 import axios from 'axios';
+import dateformat from 'dateformat';
 
 class TutorRegister extends Component {
 
@@ -80,7 +81,7 @@ class TutorRegister extends Component {
             full_name_en: this.state.full_name_en,
             nick_name: this.state.nick_name,
             sex: this.state.sex,
-            birth: "".concat(this.state.birth.getFullYear(),"-",this.state.birth.getMonth(),"-",this.state.birth.getDay()),
+            birth: dateformat(this.state.birth, "yyyy-mm-dd"),
             education_level: this.state.education_level
         };
 
