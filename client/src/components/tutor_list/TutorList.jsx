@@ -12,7 +12,7 @@ class TutorList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            tutors: []  // temp data
+            tutors: [{title: 'Chinese', subjects: 'woman teacher!'}, {title: 'Eng', subjects: 'I want woman!'}, {title: 'Eng', subjects: 'I want woman!'}]  // temp data
         };
     }
 
