@@ -103,7 +103,6 @@ class ParentRegister extends Component {
                         type="text"
                         name="username"
                         id="username"
-                        bssize="lg"
                         value={this.state.username}
                         onChange={this.handleChange}
                     />
@@ -114,7 +113,6 @@ class ParentRegister extends Component {
                         type="password"
                         name="password"
                         id="password"
-                        bssize="lg"
                         value={this.state.password}
                         onChange={this.handleChange}
                     />
@@ -125,7 +123,6 @@ class ParentRegister extends Component {
                         type="password"
                         name="confirm_password"
                         id="confirm_password"
-                        bssize="lg"
                         value={this.state.confirm_password}
                         onChange={this.handleChange}
                     />
@@ -136,7 +133,6 @@ class ParentRegister extends Component {
                         type="email"
                         name="email"
                         id="email"
-                        bssize="lg"
                         value={this.state.email}
                         onChange={this.handleChange}
                     />
@@ -147,7 +143,6 @@ class ParentRegister extends Component {
                         type="text"
                         name="name"
                         id="name"
-                        bssize="lg"
                         value={this.state.name}
                         onChange={this.handleChange}
                     />
@@ -158,7 +153,6 @@ class ParentRegister extends Component {
                         type="text"
                         name="phone"
                         id="phone"
-                        bssize="lg"
                         value={this.state.phone}
                         onChange={this.handleChange}
                         pattern="[0-9]*"
@@ -169,7 +163,6 @@ class ParentRegister extends Component {
                     <Label for="living_district">Living district:</Label>
                     <Input
                         type="select"
-                        bssize="lg"
                         name="living_district"
                         id="living_district"
                         onChange={this.handleChange}>
@@ -182,7 +175,6 @@ class ParentRegister extends Component {
                         type="text"
                         name="address"
                         id="address"
-                        bssize="lg"
                         value={this.state.address}
                         onChange={this.handleChange}
                     />
@@ -196,7 +188,6 @@ class ParentRegister extends Component {
                 <Button
                     type="submit"
                     id="normal_submit_btn"
-                    bssize="lg"
                     color="primary"
                     className="text-center"
                     disabled={!this.validateForm()}
