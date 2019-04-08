@@ -56,7 +56,7 @@ module.exports.all = () => {
             'tutor_sex',
             'times_per_week',
             'duration',
-            'time',
+            'lesson_time',
             'remark',
             'hotline'
         )

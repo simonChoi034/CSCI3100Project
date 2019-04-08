@@ -166,7 +166,7 @@ class ParentRegister extends Component {
                         name="living_district"
                         id="living_district"
                         onChange={this.handleChange}>
-                        { this.state.districtList ? this.creatDropDown() : null}
+                        { this.state.districtList && this.creatDropDown() }
                     </Input>
                 </FormGroup>
                 <FormGroup>
