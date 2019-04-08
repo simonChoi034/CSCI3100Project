@@ -27,7 +27,7 @@ class JobCard extends Component {
                     <CardTitle>{this.state.job.title}</CardTitle>
                     <CardText className="text-left">Region: {this.state.job.region}</CardText>
                     <CardText className="text-left">District: {this.state.job.district}</CardText>
-                    <Button>More</Button>
+                    <Button className = "more_btn">More</Button>
                 </Card>
             </Col>
         );
