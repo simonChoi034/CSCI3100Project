@@ -164,6 +164,8 @@ class ParentRegister extends Component {
                             bssize="lg"
                             value={this.state.phone}
                             onChange={this.handleChange}
+                            pattern="[0-9]*"
+                            maxLength={8}
                         />
                     </FormGroup>
                     <FormGroup>
