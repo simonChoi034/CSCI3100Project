@@ -1,0 +1,12 @@
+.card{
+    margin-top: 10px;
+    margin-bottom:10px;
+    background-color: transparent !important;
+}
+.card-body{
+    padding-left: 2rem !important;
+}
+.more_btn{
+    margin-left:4rem;
+    margin-right: 4rem;
+}
