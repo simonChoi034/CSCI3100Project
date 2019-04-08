@@ -88,7 +88,7 @@ class TutorRegister extends Component {
         const self = this;
         axios.post('/api/user/tutor_register', data)
             .then(function (res) {
-                self.props.history.push('/');
+                self.props.history.push('/login');
             })
             .catch(function (err){
                 const errors = err.response.data.errors;
@@ -111,7 +111,7 @@ class TutorRegister extends Component {
                         type="text"
                         name="username"
                         id="username"
-                        size="lg"
+                        
                         value={this.state.username}
                         onChange={this.handleChange}
                     />
@@ -122,7 +122,7 @@ class TutorRegister extends Component {
                         type="password"
                         name="password"
                         id="password"
-                        size="lg"
+                        
                         value={this.state.password}
                         onChange={this.handleChange}
                     />
@@ -133,7 +133,7 @@ class TutorRegister extends Component {
                         type="password"
                         name="confirm_password"
                         id="confirm_password"
-                        size="lg"
+                        
                         value={this.state.confirm_password}
                         onChange={this.handleChange}
                     />
@@ -144,7 +144,7 @@ class TutorRegister extends Component {
                         type="email"
                         name="email"
                         id="email"
-                        size="lg"
+                        
                         value={this.state.email}
                         onChange={this.handleChange}
                     />
@@ -155,7 +155,7 @@ class TutorRegister extends Component {
                         type="text"
                         name="phone_number"
                         id="phone"
-                        size="lg"
+                        
                         value={this.state.phone}
                         onChange={this.handleChange}
                         pattern="[0-9]*"
@@ -168,7 +168,7 @@ class TutorRegister extends Component {
                         type="text"
                         name="chinese_name"
                         id="full_name_ch"
-                        size="lg"
+                        
                         value={this.state.full_name_ch}
                         onChange={this.handleChange}
                     />
@@ -179,7 +179,7 @@ class TutorRegister extends Component {
                         type="text"
                         name="english_name"
                         id="full_name_en"
-                        size="lg"
+                        
                         value={this.state.full_name_en}
                         onChange={this.handleChange}
                     />
@@ -190,20 +190,21 @@ class TutorRegister extends Component {
                         type="text"
                         name="nick_name"
                         id="nick_name"
-                        size="lg"
+                        
                         value={this.state.nick_name}
                         onChange={this.handleChange}
                     />
                 </FormGroup>
                 <FormGroup>
                     <Label for="sex">Sex:</Label>
-                    <Input type="select" size="lg">
+                    <Input type="select" >
                         <option value='M'>Male</option>
                         <option value='F'>Female</option>
                     </Input>
                 </FormGroup>
                 <FormGroup>
                     <Label for="birth">Birth: </Label>
+                    <br></br>
                     <DatePicker 
                         id="birth"
                         name="birth"
@@ -214,12 +215,12 @@ class TutorRegister extends Component {
                         showMonthDropdown
                         showYearDropdown
                         dropdownMode="select"
-                        maxDate={new Date(new Date().setFullYear(new Date().getFullYear() - 3))}
+                        maxDate={new Date(new Date().setFullYear(new Date().getFullYear() - 10))}
                     />
                 </FormGroup>
                 <FormGroup>
                     <Label for="education_level">Education Level:</Label>
-                    <Input type="select" size="lg" onChange={this.handleChange}>
+                    <Input type="select"  onChange={this.handleChange}>
                         { this.state.eduLevelList ? this.creatDropDown() : null}
                     </Input>
                 </FormGroup>
@@ -232,7 +233,7 @@ class TutorRegister extends Component {
                 <Button
                     type="submit"
                     id="tutor_submit_btn"
-                    size="lg"
+                    
                     color="primary"
                     className="text-center"
                     disabled={!this.validateForm()}

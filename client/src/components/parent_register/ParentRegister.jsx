@@ -82,7 +82,7 @@ class ParentRegister extends Component {
         axios.post('/api/user/parent_register', data)
             .then(function (res) {
                 console.log(self.props);
-                self.props.history.push('/');
+                self.props.history.push('/login');
             })
             .catch(function (err){
                 const errors = err.response.data.errors;
