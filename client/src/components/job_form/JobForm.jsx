@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, FormGroup, Input, Label, Form, Alert } from "reactstrap";
+import { Button, FormGroup, Input, Label, Form, Alert, Row, Col } from "reactstrap";
 import axios from 'axios';
 
 class JobForm extends Component{
@@ -8,7 +8,8 @@ class JobForm extends Component{
 
         this.state = {
             currentUser: this.props.currentUser,
-        };
+            client_id: this.props.currentUser.id
+        }
     };
 
     componentDidMount() {
@@ -17,7 +18,9 @@ class JobForm extends Component{
             .then(function (res) {
                 self.setState({
                     districtList: res.data.districtList,
-                    eduLevelList: res.data.eduLevelList
+                    eduLevelList: res.data.eduLevelList,
+                    subjectList: res.data.subjectList,
+                    studentLevelList: res.data.studentLevelList
                 })
             })
             .catch(function (err) {
@@ -25,17 +28,17 @@ class JobForm extends Component{
             })
     }
 
-    creatEduLevelList(){
+    creatEduLevelList() {
         var options = [];
 
         this.state.eduLevelList.forEach(function (e) {
-            options.push(<option value={e.id}>{e.name}</option>)
+            options.push(<option value={e.id}>{e.education_level}</option>)
         });
 
         return options;
     };
 
-    creatDistrictList(){
+    creatDistrictList() {
         var options = [];
         var districts = this.state.districtList;
 
@@ -45,12 +48,32 @@ class JobForm extends Component{
             options.push(<option value="" disabled>{key}</option>);
 
             districts[key].forEach(function (e) {
-                options.push(<option value={e.id}>{e.area}</option>);
+                options.push(<option value={e.id}>{e.district}</option>);
             })
         }
 
         return options;
     };
+
+    createSubjectList() {
+        var options = [];
+
+        this.state.subjectList.forEach(function (e) {
+            options.push(<option value={e.id}>{e.subject}</option>)
+        });
+
+        return options;
+    }
+
+    createStuLevelList() {
+        var options = [];
+
+        this.state.studentLevelList.forEach(function (e) {
+            options.push(<option value={e.id}>{e.student_level}</option>)
+        });
+
+        return options;
+    }
 
     handleChange = event => {
         this.setState({
@@ -58,18 +81,17 @@ class JobForm extends Component{
         });
     };
 
-    handleSubmit = (event) => {
+    handleSubmit = event => {
         event.preventDefault();
     };
 
     render() {
         return (
-            <Form id="job_create_form" onSubmit={this.handleSubmit()}>
+            <Form id="job_create_form" onSubmit={this.handleSubmit}>
                 <FormGroup>
                     <Label for="district">Living district:</Label>
                     <Input
                         type="select"
-                        size="lg"
                         name="district"
                         id="district"
                         onChange={this.handleChange}>
@@ -82,36 +104,61 @@ class JobForm extends Component{
                         type="text"
                         name="location"
                         id="location"
-                        size="lg"
                         value={this.state.location}
                         onChange={this.handleChange}
                     />
                 </FormGroup>
+                <Row form>
+                    <Col md={6}>
+                        <FormGroup>
+                            <Label for="student_level">Student level:</Label>
+                            <Input
+                                type="select"
+                                name="student_level"
+                                id="student_level"
+                                onChange={this.handleChange}
+                            >
+                                { this.state.studentLevelList && this.createStuLevelList() }
+                            </Input>
+                        </FormGroup>
+                    </Col>
+                    <Col md={6}>
+                        <FormGroup>
+                            <Label for="subject">Subject:</Label>
+                            <Input
+                                type="select"
+                                name="subject"
+                                id="subject"
+                                onChange={this.handleChange}
+                            >
+                                { this.state.subjectList && this.createSubjectList() }
+                            </Input>
+                        </FormGroup>
+                    </Col>
+                </Row>
                 <FormGroup>
                     <Label for="tuition_fee">Tuition fee:</Label>
                     <Input
                         type="text"
                         name="tuition_fee"
                         id="tuition_fee"
-                        size="lg"
                         value={this.state.tuition_fee}
                         onChange={this.handleChange}
                     />
                 </FormGroup>
                 <FormGroup>
-                    <Label for="num_of_student">Tuition fee:</Label>
+                    <Label for="num_of_student">Number of student:</Label>
                     <Input
                         type="select"
                         name="num_of_student"
                         id="num_of_student"
-                        size="lg"
                         onChange={this.handleChange}
                     >
-                        <option value="1">1</optionvalue>
-                        <option value="2">2</optionvalue>
-                        <option value="3">3</optionvalue>
-                        <option value="4">4</optionvalue>
-                        <option value="5">5</optionvalue>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
                     </Input>
                 </FormGroup>
                 <FormGroup>
@@ -120,7 +167,6 @@ class JobForm extends Component{
                         type="select"
                         name="tutor_academic"
                         id="tutor_academic"
-                        size="lg"
                         onChange={this.handleChange}
                     >
                         { this.state.eduLevelList && this.creatEduLevelList() }
@@ -132,7 +178,6 @@ class JobForm extends Component{
                         type="select"
                         name="tutor_sex"
                         id="tutor_sex"
-                        size="lg"
                         onChange={this.handleChange}
                     >
                         <option>Male or Female</option>
@@ -146,7 +191,6 @@ class JobForm extends Component{
                         type="text"
                         name="times_per_week"
                         id="times_per_week"
-                        size="lg"
                         value={this.state.times_per_week}
                         onChange={this.handleChange}
                     />
@@ -157,7 +201,6 @@ class JobForm extends Component{
                         type="text"
                         name="duration"
                         id="duration"
-                        size="lg"
                         value={this.state.duration}
                         onChange={this.handleChange}
                     />
@@ -168,7 +211,6 @@ class JobForm extends Component{
                         type="text"
                         name="lesson_time"
                         id="lesson_time"
-                        size="lg"
                         value={this.state.lesson_time}
                         onChange={this.handleChange}
                     />
@@ -179,7 +221,6 @@ class JobForm extends Component{
                         type="text"
                         name="hotline"
                         id="hotline"
-                        size="lg"
                         value={this.state.hotline}
                         onChange={this.handleChange}
                     />
@@ -190,7 +231,6 @@ class JobForm extends Component{
                         type="text"
                         name="remark"
                         id="remark"
-                        size="lg"
                         value={this.state.remark}
                         onChange={this.handleChange}
                     />
@@ -204,7 +244,6 @@ class JobForm extends Component{
                 <Button
                     type="submit"
                     id="job_submit_btn"
-                    size="lg"
                     color="primary"
                     className="text-center"
                 >
@@ -214,3 +253,5 @@ class JobForm extends Component{
         )
     }
 }
+
+export default JobForm;

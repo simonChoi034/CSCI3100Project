@@ -4,7 +4,7 @@ import './JobsWall.css';
 import JobCard from '../job_card/JobCard';
 import {
     Container,
-    Row, 
+    Row,
 } from 'reactstrap';
 
 class JobsWall extends Component {

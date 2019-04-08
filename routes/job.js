@@ -15,21 +15,29 @@ router.get('/create_job', function (req, res) {
         .then(function (eduLevelList) {
             helper.getDistrictList()
                 .then(function (districtList) {
-                    var hash = {};
-                    districtList.forEach(function (e) {
-                        if ( e.region in hash ){
-                            hash[e.region].push(e);
-                        }else {
-                            hash[e.region] = [];
-                        }
-                    });
+                    helper.getStudentLevelList()
+                        .then(function (studentLevelList) {
+                            helper.getSubjectList()
+                                .then(function (subjectList) {
+                                    var hash = {};
+                                    districtList.forEach(function (e) {
+                                        if ( e.region in hash ){
+                                            hash[e.region].push(e);
+                                        }else {
+                                            hash[e.region] = [];
+                                        }
+                                    });
 
-                    const data = {
-                        districtList: hash,
-                        eduLevelList: eduLevelList
-                    };
+                                    const data = {
+                                        districtList: hash,
+                                        eduLevelList: eduLevelList,
+                                        subjectList: subjectList,
+                                        studentLevelList: studentLevelList
+                                    };
 
-                    res.status(200).json(data);
+                                    res.status(200).json(data);
+                                })
+                        })
                 })
                 .catch(function (err) {
                     console.log(err)
@@ -44,7 +52,9 @@ router.post('/create_job', [
         .not().isEmpty(),
     check('num_of_student')
         .not().isEmpty()
-        .isInt()
+        .isInt(),
+    check('subject')
+        .not().isEmpty()
 ],function (req, res, next) {
     const errors = validationResult(req);
     if (!errors.isEmpty()){
@@ -94,30 +104,6 @@ router.get('/:id', function (req, res) {
             res.status(500).json({ errors: [err]});
         })
 });
-
-router.get('/district/:id', function (req, res) {
-    const id = req.params['id'];
-
-    helper.getDistrictById(id)
-        .then(function (district_result) {
-            helper.getRegionById(district_result['region_id'])
-                .then(function (region_result) {
-                    const data = {
-                        district_name: district_result['name'],
-                        region_name: region_result['name']
-                    }
-
-                    res.status(200).json(data);
-                })
-                .catch(function (err) {
-                    res.status(500).json({ errors: [err]});
-                })
-        })
-        .catch(function (err) {
-            res.status(500).json({ errors: [err]});
-        })
-        
-})
 
 
 module.exports = router;

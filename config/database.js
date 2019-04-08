@@ -15,4 +15,6 @@ module.exports.TABLES = {
     JOB: 'job',
     JOB_SUBJECT: 'job_subject',
     JOB_TUTOR: 'job_tutor',
+    STUDENT_LEVEL: 'student_level',
+    SUBJECT: 'subject'
 };

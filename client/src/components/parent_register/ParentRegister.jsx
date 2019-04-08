@@ -43,7 +43,7 @@ class ParentRegister extends Component {
             options.push(<option value="" disabled>{key}</option>);
 
             districts[key].forEach(function (e, key) {
-                options.push(<option value={e.id}>{e.area}</option>);
+                options.push(<option value={e.id}>{e.district}</option>);
             })
         }
 

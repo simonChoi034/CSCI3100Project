@@ -46,7 +46,7 @@ class TutorRegister extends Component {
         var options = [];
 
         this.state.eduLevelList.forEach(function (e) {
-            options.push(<option value={e.id}>{e.name}</option>);
+            options.push(<option value={e.id}>{e.education_level}</option>);
         });
 
         return options;

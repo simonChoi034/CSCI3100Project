@@ -7,7 +7,12 @@ module.exports.find = (id) => {
 
 module.exports.all = () => {
     return db(TABLES.TUTOR_PROFILE)
-        .select('user_id', 'nick_name', 'sex', 'description')
+        .join(TABLES.EDUCATION_LEVEL, TABLES.EDUCATION_LEVEL.concat('.id'), '=', TABLES.TUTOR_PROFILE.concat('.education_level_id'))
+        .select('user_id',
+            'nick_name',
+            'sex',
+            'description',
+            'education_level.name as education_level')
 };
 
 module.exports.create = (password, body) => {
