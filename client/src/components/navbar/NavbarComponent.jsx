@@ -60,7 +60,7 @@ class NavbarComponent extends Component {
         return (
             <div className="NavbarComponent">
                 <Navbar className="bg-dark" expand="md">
-                    <NavbarBrand className="btn btn-warning text-light" href="/">TeachHub</NavbarBrand>
+                    <NavbarBrand className="btn btn-warning text-light m-0" href="/">TeachHub</NavbarBrand>
                     <NavbarToggler className="navbar-dark" onClick={this.toggle}/>
                     {
                         this.props.currentUser &&
