@@ -26,12 +26,12 @@ module.exports.find = (id) => {
 module.exports.create = (body) => {
     return db(TABLES.JOB).insert([{
         client_id: body.client_id,
-        district_id: body.district_id,
+        district_id: body.district,
         location: body.location,
-        student_level_id: body.student_level_id,
+        student_level_id: body.student_level,
         tuition_fee: body.tuition_fee,
         num_of_student: body.num_of_student,
-        tutor_academic_id: body.tutor_academic_id,
+        tutor_academic_id: body.tutor_academic,
         tutor_sex: body.tutor_sex,
         times_per_week: body.times_per_week,
         duration: body.duration,

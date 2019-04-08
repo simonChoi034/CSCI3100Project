@@ -45,8 +45,8 @@ class TutorRegister extends Component {
     creatDropDown(){
         var options = [];
 
-        this.state.eduLevelList.forEach(function (e, key) {
-            options.push(<option key={key} value={e.id}>{e.name}</option>)
+        this.state.eduLevelList.forEach(function (e) {
+            options.push(<option value={e.id}>{e.name}</option>);
         });
 
         return options;
@@ -219,15 +219,20 @@ class TutorRegister extends Component {
                 </FormGroup>
                 <FormGroup>
                     <Label for="education_level">Education Level:</Label>
-                    <Input type="select" size="lg" onChange={this.handleChange}>
-                        { this.state.eduLevelList ? this.creatDropDown() : null}
+                    <Input
+                        type="select"
+                        name="education_level"
+                        id="education_level"
+                        size="lg"
+                        onChange={this.handleChange}>
+                        { this.state.eduLevelList && this.creatDropDown() }
                     </Input>
                 </FormGroup>
                 {
-                    this.state.error ?
+                    this.state.error &&
                         <Alert color='danger'>
                             {this.state.error_message}
-                        </Alert> : null
+                        </Alert>
                 }
                 <Button
                     type="submit"

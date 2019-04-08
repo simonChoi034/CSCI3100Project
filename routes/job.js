@@ -10,11 +10,41 @@ const parent = require('../model/parent');
 const job = require('../model/job');
 const helper = require('../model/helper');
 
+router.get('/create_job', function (req, res) {
+    helper.getEduLevelList()
+        .then(function (eduLevelList) {
+            helper.getDistrictList()
+                .then(function (districtList) {
+                    var hash = {};
+                    districtList.forEach(function (e) {
+                        if ( e.region in hash ){
+                            hash[e.region].push(e);
+                        }else {
+                            hash[e.region] = [];
+                        }
+                    });
+
+                    const data = {
+                        districtList: hash,
+                        eduLevelList: eduLevelList
+                    };
+
+                    res.status(200).json(data);
+                })
+                .catch(function (err) {
+                    console.log(err)
+                })
+        })
+});
+
 router.post('/create_job', [
     check('client_id')
         .not().isEmpty(),
     check('district_id')
+        .not().isEmpty(),
+    check('num_of_student')
         .not().isEmpty()
+        .isInt()
 ],function (req, res, next) {
     const errors = validationResult(req);
     if (!errors.isEmpty()){

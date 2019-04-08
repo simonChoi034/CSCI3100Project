@@ -186,9 +186,9 @@ router.post('/parent_register', [
 });
 
 router.get('/tutor_register', function (req, res) {
-    helper.getEduLevelList().then(function (level) {
+    helper.getEduLevelList().then(function (eduLevelList) {
         var data = {
-            eduLevelList: level
+            eduLevelList: eduLevelList
         };
 
         res.status(200).json(data);
