@@ -3,6 +3,9 @@ import { Button } from "reactstrap";
 import "./register.css";
 import TutorRegister from "../components/tutor_register/TutorRegister"
 import ParentRegister from "../components/parent_register/ParentRegister"
+import {
+  Row, 
+} from 'reactstrap';
 
 class Register extends Component {
 
@@ -15,34 +18,50 @@ class Register extends Component {
             confirm_password: '',
             email: '',
             tutor: false,
-            showTutor: false
+            showTutor: false,
+            showParent: true,
+            out: <ParentRegister history={this.props.history}/>
         };
         
-        this.handleClick = this.handleClick.bind(this);
-        this.out = this.getComponent();
+        this.handleClickTutor = this.handleClickTutor.bind(this);
+        this.handleClickParent = this.handleClickParent.bind(this);
     }
 
-    handleClick(event) {  
+    handleClickTutor(event) {  
         this.setState({
-            showTutor: !this.state.showTutor
+            showTutor: true,
+            showParent: false,
+            out: <TutorRegister history={this.props.history}/>
         });
-        this.out = this.getComponent();
     }
 
-    getComponent() {
-        if (this.state.showTutor) { 
-            return <TutorRegister history={this.props.history}/>
-        } else {
-            return <ParentRegister history={this.props.history}/>
-        }
+    handleClickParent(event) {  
+        this.setState({
+            showTutor: false,
+            showParent: true,
+            out: <ParentRegister history={this.props.history}/>
+        });
     }
 
     render(){
         return (
             <div id="Register">
                 <p>Register Page</p>
-                <Button onClick={this.handleClick}>Change Tutor or Parent</Button> {/* test only */}
-                {this.out}
+                <Row>
+                    <Button
+                        color="success"
+                        className="text-center pull-left" 
+                        id="tutor_btn"
+                        onClick={this.handleClickTutor}>Tutor Registration
+                    </Button>
+                    <Button 
+                        color="secondary"
+                        className="text-center"
+                        id="parent_btn"
+                        onClick={this.handleClickParent}>Parent Registration
+                    </Button>
+                </Row>
+                {this.state.out}
             </div>
         );
     }

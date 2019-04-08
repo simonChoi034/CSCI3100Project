@@ -7,7 +7,8 @@ import {
     CardText, 
     Row, 
     Col,
-    Button
+    Button,
+    Container
 } from 'reactstrap';
 
 class JobCard extends Component {
@@ -22,11 +23,11 @@ class JobCard extends Component {
     render() {
         return (
             <Col xs="12" sm="6" md="4" lg="3">
-                <Card body>
+                <Card body className="my-3">
                     <CardTitle>{this.state.job.title}</CardTitle>
                     <CardText className="text-left">Region: {this.state.job.region}</CardText>
                     <CardText className="text-left">District: {this.state.job.district}</CardText>
-                    <Button>More</Button>
+                    <Button className = "more_btn">More</Button>
                 </Card>
             </Col>
         );
