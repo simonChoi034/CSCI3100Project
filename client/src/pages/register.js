@@ -3,7 +3,9 @@ import { Button } from "reactstrap";
 import "./register.css";
 import TutorRegister from "../components/tutor_register/TutorRegister"
 import ParentRegister from "../components/parent_register/ParentRegister"
-import Row from 'react-bootstrap/Row'
+import {
+  Row, 
+} from 'reactstrap';
 
 class Register extends Component {
 
