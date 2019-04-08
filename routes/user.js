@@ -287,8 +287,14 @@ router.get('/list_tutor', function (req, res) {
     console.log(tutor.all().toSQL());
     tutor.all()
         .then(function (result) {
-            res.status(200).json(result)
-        });
+            const data = {
+                tutorList: result
+            };
+            res.status(200).json(data);
+        })
+        .catch(function (err) {
+            res.status(500).json({ errors: [err]});
+        })
 });
 
 module.exports = router;
