@@ -19,43 +19,35 @@ class Register extends Component {
             email: '',
             tutor: false,
             showTutor: false,
-            showParent: true
+            showParent: true,
+            out: <ParentRegister history={this.props.history}/>
         };
         
         this.handleClickTutor = this.handleClickTutor.bind(this);
         this.handleClickParent = this.handleClickParent.bind(this);
-        this.out = this.getComponent();
     }
 
     handleClickTutor(event) {  
         this.setState({
             showTutor: true,
-            showParent: false
+            showParent: false,
+            out: <TutorRegister history={this.props.history}/>
         });
-        this.out = this.getComponent();
     }
 
     handleClickParent(event) {  
         this.setState({
             showTutor: false,
-            showParent: true
+            showParent: true,
+            out: <ParentRegister history={this.props.history}/>
         });
-        this.out = this.getComponent();
-    }
-
-    getComponent() {
-        if (this.state.showTutor) { 
-            return <TutorRegister history={this.props.history}/>
-        } else if (this.state.showParent){
-            return <ParentRegister history={this.props.history}/>
-        }
     }
 
     render(){
         return (
             <div id="Register">
                 <p>Register Page</p>
-                <Row xs>
+                <Row>
                     <Button
                         color="success"
                         className="text-center pull-left" 
@@ -69,7 +61,7 @@ class Register extends Component {
                         onClick={this.handleClickParent}>Parent Registration
                     </Button>
                 </Row>
-                {this.out}
+                {this.state.out}
             </div>
         );
     }
