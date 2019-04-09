@@ -3,3 +3,9 @@
     border: 1px solid lightgray;
     border-radius: 5px;
 }
+
+@media(min-width: 600px) {
+    #job_create_form {
+        width: 600px;
+    }
+}

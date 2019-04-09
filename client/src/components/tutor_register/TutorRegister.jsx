@@ -18,6 +18,7 @@ class TutorRegister extends Component {
             email: '',
             sex: 'M',
             birth: null,
+            description: '',
             error: false,
             error_message: ''
         };
@@ -77,7 +78,8 @@ class TutorRegister extends Component {
             nick_name: this.state.nick_name,
             sex: this.state.sex,
             birth: dateformat(this.state.birth, "yyyy-mm-dd"),
-            education_level: this.state.education_level
+            education_level: this.state.education_level,
+            description: this.state.description
         };
 
         const self = this;
