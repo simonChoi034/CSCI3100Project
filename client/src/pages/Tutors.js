@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import "./tutors.css";
-import TutorList from '../components/tutor_list/TutorList'
+import "./Tutors.css";
+import TutorsWall from '../components/tutor_wall/TutorsWall'
 
 const Tutors = () => {
     return (
         <div>
             <p>Tutors List Page</p>
-            <TutorList />
+            <TutorsWall />
         </div>
     );
 }

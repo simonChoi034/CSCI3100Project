@@ -6,12 +6,12 @@ import { history, Role } from './components/helper/index';
 import { authenticationService } from './components/auth/authentication.service';
 
 import ParticlesContainer from './components/particles_container/ParticlesContainer';
-import Home from './pages/home.js';
-import Login from './pages/login.js';
-import Register from './pages/register.js';
-import Tutors from './pages/tutors.js';
-import Jobs from './pages/jobs_wall.js';
-import Forget_PW from "./pages/forget_password.js";
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Tutors from './pages/Tutors';
+import Jobs from './pages/JobsWall';
+import Forget_PW from "./pages/ForgetPassword";
 
 class App extends Component {
 

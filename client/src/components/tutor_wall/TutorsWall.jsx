@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './TutorList.css';
+import './TutorsWall.css';
 import TutorCard from '../tutor_card/TutorCard';
 import {
     Container,
     Row,
 } from 'reactstrap';
 
-class TutorList extends Component {
+class TutorsWall extends Component {
 
     constructor(props) {
         super(props);
@@ -37,4 +37,4 @@ class TutorList extends Component {
     }
 }
 
-export default TutorList;
+export default TutorsWall;
