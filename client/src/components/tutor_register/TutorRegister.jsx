@@ -107,7 +107,6 @@ class TutorRegister extends Component {
                         type="text"
                         name="username"
                         id="username"
-                        value={this.state.username}
                         onChange={this.handleChange}
                     />
                 </FormGroup>
@@ -117,7 +116,6 @@ class TutorRegister extends Component {
                         type="password"
                         name="password"
                         id="password"
-                        value={this.state.password}
                         onChange={this.handleChange}
                     />
                 </FormGroup>
@@ -127,7 +125,6 @@ class TutorRegister extends Component {
                         type="password"
                         name="confirm_password"
                         id="confirm_password"
-                        value={this.state.confirm_password}
                         onChange={this.handleChange}
                     />
                 </FormGroup>
@@ -137,7 +134,6 @@ class TutorRegister extends Component {
                         type="email"
                         name="email"
                         id="email"
-                        value={this.state.email}
                         onChange={this.handleChange}
                     />
                 </FormGroup>
@@ -147,9 +143,7 @@ class TutorRegister extends Component {
                         type="text"
                         name="phone_number"
                         id="phone"
-                        value={this.state.phone}
                         onChange={this.handleChange}
-                        pattern="[0-9]*"
                         maxLength={8}
                     />
                 </FormGroup>
@@ -159,7 +153,6 @@ class TutorRegister extends Component {
                         type="text"
                         name="chinese_name"
                         id="full_name_ch"
-                        value={this.state.full_name_ch}
                         onChange={this.handleChange}
                     />
                 </FormGroup>
@@ -169,7 +162,6 @@ class TutorRegister extends Component {
                         type="text"
                         name="english_name"
                         id="full_name_en"
-                        value={this.state.full_name_en}
                         onChange={this.handleChange}
                     />
                 </FormGroup>
@@ -179,7 +171,6 @@ class TutorRegister extends Component {
                         type="text"
                         name="nick_name"
                         id="nick_name"
-                        value={this.state.nick_name}
                         onChange={this.handleChange}
                     />
                 </FormGroup>
@@ -234,7 +225,6 @@ class TutorRegister extends Component {
                 <Button
                     type="submit"
                     id="tutor_submit_btn"
-                    
                     color="primary"
                     className="text-center"
                     disabled={!this.validateForm()}

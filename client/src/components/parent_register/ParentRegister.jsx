@@ -103,7 +103,6 @@ class ParentRegister extends Component {
                         type="text"
                         name="username"
                         id="username"
-                        value={this.state.username}
                         onChange={this.handleChange}
                     />
                 </FormGroup>
@@ -113,7 +112,6 @@ class ParentRegister extends Component {
                         type="password"
                         name="password"
                         id="password"
-                        value={this.state.password}
                         onChange={this.handleChange}
                     />
                 </FormGroup>
@@ -123,7 +121,6 @@ class ParentRegister extends Component {
                         type="password"
                         name="confirm_password"
                         id="confirm_password"
-                        value={this.state.confirm_password}
                         onChange={this.handleChange}
                     />
                 </FormGroup>
@@ -133,7 +130,6 @@ class ParentRegister extends Component {
                         type="email"
                         name="email"
                         id="email"
-                        value={this.state.email}
                         onChange={this.handleChange}
                     />
                 </FormGroup>
@@ -143,7 +139,6 @@ class ParentRegister extends Component {
                         type="text"
                         name="name"
                         id="name"
-                        value={this.state.name}
                         onChange={this.handleChange}
                     />
                 </FormGroup>
@@ -153,7 +148,6 @@ class ParentRegister extends Component {
                         type="text"
                         name="phone"
                         id="phone"
-                        value={this.state.phone}
                         onChange={this.handleChange}
                         pattern="[0-9]*"
                         maxLength={8}
@@ -175,7 +169,6 @@ class ParentRegister extends Component {
                         type="text"
                         name="address"
                         id="address"
-                        value={this.state.address}
                         onChange={this.handleChange}
                     />
                 </FormGroup>

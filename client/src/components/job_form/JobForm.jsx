@@ -151,7 +151,6 @@ class JobForm extends Component{
                                 type="text"
                                 name="location"
                                 id="location"
-                                value={this.state.location}
                                 onChange={this.handleChange}
                             />
                         </FormGroup>
@@ -189,7 +188,6 @@ class JobForm extends Component{
                                 type="text"
                                 name="tuition_fee"
                                 id="tuition_fee"
-                                value={this.state.tuition_fee}
                                 onChange={this.handleChange}
                             />
                         </FormGroup>
@@ -238,7 +236,6 @@ class JobForm extends Component{
                                 type="text"
                                 name="times_per_week"
                                 id="times_per_week"
-                                value={this.state.times_per_week}
                                 onChange={this.handleChange}
                             />
                         </FormGroup>
@@ -258,7 +255,6 @@ class JobForm extends Component{
                                 type="text"
                                 name="lesson_time"
                                 id="lesson_time"
-                                value={this.state.lesson_time}
                                 onChange={this.handleChange}
                             />
                         </FormGroup>
@@ -268,7 +264,6 @@ class JobForm extends Component{
                                 type="text"
                                 name="hotline"
                                 id="hotline"
-                                value={this.state.hotline}
                                 onChange={this.handleChange}
                             />
                         </FormGroup>
@@ -278,7 +273,6 @@ class JobForm extends Component{
                                 type="text"
                                 name="remark"
                                 id="remark"
-                                value={this.state.remark}
                                 onChange={this.handleChange}
                             />
                         </FormGroup>
