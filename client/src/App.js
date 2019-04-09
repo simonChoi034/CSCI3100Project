@@ -48,7 +48,6 @@ class App extends Component {
                                     <Route path='/tutors' component={Tutors} />
                                     <Route path='/jobs' component={Jobs} />
                                     <Route path='/forget_pw' component={Forget_PW} />
-                                    <Route path='/jobrequest' component={JobRequest} />
                                 </Switch>
                             </div>
                         </div>
