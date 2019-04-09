@@ -42,7 +42,7 @@ class JobCard extends Component {
                     </Button>
                     */
                     }
-                    <Button className="detail_btn" onClick={ (event) => this.props.toggle(event, this.state.job)}>Show Detail</Button>
+                    <Button color="info" className="detail_btn" onClick={ (event) => this.props.toggle(event, this.state.job)}>Show Detail</Button>
                 </Card>
             </Col>
         );
