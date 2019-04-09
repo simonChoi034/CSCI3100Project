@@ -31,8 +31,8 @@ class Forget_PW extends Component {
                 <h1>Reset Password</h1>
                 <h6> The new password will be sent to you via email !</h6>
                 <Form onSubmit={this.handleSubmit}>
-                    <FormGroup controlId="username">
-                        <Label>Username</Label>
+                    <FormGroup>
+                        <Label for="username">Username</Label>
                         <Input
                             autoFocus
                             type="username"
@@ -43,8 +43,8 @@ class Forget_PW extends Component {
                             onChange={this.handleChange}
                         />
                     </FormGroup>
-                    <FormGroup controlId="email">
-                        <Label>Email address</Label>
+                    <FormGroup>
+                        <Label for="email">Email address</Label>
                         <Input
                             type="email"
                             name="email"
@@ -54,7 +54,7 @@ class Forget_PW extends Component {
                             onChange={this.handleChange}
                         />
                     </FormGroup>
-                    <FormGroup controlId="send_btn">
+                    <FormGroup>
                         <Button
                             color="primary"
                             size="lg"
