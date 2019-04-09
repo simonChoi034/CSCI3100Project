@@ -6,6 +6,7 @@ import {
     Container,
     Row,
 } from 'reactstrap';
+import Fade from "reactstrap/es/Fade";
 
 class TutorsWall extends Component {
 
@@ -26,13 +27,15 @@ class TutorsWall extends Component {
 
     render() {
         return (
-            <Container fluid>
-                <Row>
-                    {this.state.tutors.map((tutor) =>
-                        <TutorCard tutor={tutor} />
-                    )}
-                </Row>
-            </Container>
+            <Fade>
+                <Container fluid>
+                    <Row>
+                        {this.state.tutors.map((tutor) =>
+                            <TutorCard tutor={tutor} />
+                        )}
+                    </Row>
+                </Container>
+            </Fade>
         );
     }
 }

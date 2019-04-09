@@ -4,13 +4,9 @@ import './JobsWall.css';
 import JobCard from '../job_card/JobCard';
 import JobModal from '../job_wall/JobModal';
 import {
-    Container,
     Button,
     Row,
-    Modal,
-    ModalBody,
-    ModalFooter,
-    ModalHeader,
+    Fade
 } from 'reactstrap';
 
 class JobsWall extends Component {
@@ -55,7 +51,7 @@ class JobsWall extends Component {
 
     render() {
         return (
-            <div>
+            <Fade>
                 { this.createModal() }
                 {
                     this.props.currentUser && !this.props.isTutor ?
@@ -67,7 +63,7 @@ class JobsWall extends Component {
                         <JobCard job={job} toggle={this.toggle}/>
                     )}
                 </Row>
-            </div>
+            </Fade>
         );
     }
 }

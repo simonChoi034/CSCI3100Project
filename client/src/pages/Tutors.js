@@ -4,11 +4,8 @@ import TutorsWall from '../components/tutor_wall/TutorsWall'
 
 const Tutors = () => {
     return (
-        <div>
-            <p>Tutors List Page</p>
-            <TutorsWall />
-        </div>
+        <TutorsWall />
     );
-}
+};
 
 export default Tutors;

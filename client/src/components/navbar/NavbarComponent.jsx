@@ -58,29 +58,27 @@ class NavbarComponent extends Component {
 
     render() {
         return (
-            <div className="NavbarComponent">
-                <Navbar className="bg-dark" expand="md">
-                    <NavbarBrand className="btn btn-warning text-light m-0" href="/">TeachHub</NavbarBrand>
-                    <NavbarToggler className="navbar-dark" onClick={this.toggle}/>
-                    {
-                        this.props.currentUser &&
-                        <h4><Badge color="secondary">Hi {this.props.currentUser.username}</Badge></h4>
-                    }
-                    <Collapse isOpen={this.state.isOpen} navbar>
-                        <Nav className="ml-auto" navbar>
-                            <NavItem>
-                                <NavLink className="text-light" href='/jobs'>Jobs</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink className="text-light" href="/tutors">Tutors</NavLink>
-                            </NavItem>
-                            {
-                                this.createNavItem()
-                            }
-                        </Nav>
-                    </Collapse>
-                </Navbar>
-            </div>
+            <Navbar id="nav-bar" expand="md">
+                <NavbarBrand className="btn btn-outline-light m-0" href="/">TeachHub</NavbarBrand>
+                <NavbarToggler className="navbar-light" onClick={this.toggle}/>
+                {
+                    this.props.currentUser &&
+                    <h4 className={"text-light"}><b>Hi {this.props.currentUser.username}</b></h4>
+                }
+                <Collapse isOpen={this.state.isOpen} navbar>
+                    <Nav className="ml-auto" navbar>
+                        <NavItem>
+                            <NavLink className="text-light" href='/jobs'>Jobs</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink className="text-light" href="/tutors">Tutors</NavLink>
+                        </NavItem>
+                        {
+                            this.createNavItem()
+                        }
+                    </Nav>
+                </Collapse>
+            </Navbar>
         );
     }
 }

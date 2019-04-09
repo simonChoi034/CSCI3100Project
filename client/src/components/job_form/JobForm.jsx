@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, FormGroup, Input, Label, Form, Alert, Row, Col } from "reactstrap";
+import { Button, FormGroup, Input, Label, Form, Alert, Row, Col, Fade } from "reactstrap";
 import './JobForm.css'
 import axios from 'axios';
 
@@ -127,7 +127,7 @@ class JobForm extends Component{
 
     render() {
         return (
-            <div>
+            <Fade>
                 <Row>
                     <Form id="job_create_form" className="py-2" onSubmit={this.handleSubmit}>
                         <FormGroup>
@@ -292,7 +292,7 @@ class JobForm extends Component{
                         </Button>
                     </Form>
                 </Row>
-            </div>
+            </Fade>
         )
     }
 }
