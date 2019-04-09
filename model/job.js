@@ -5,6 +5,7 @@ module.exports.find = (id) => {
     return db(TABLES.JOB)
         .join(TABLES.DISTRICT, TABLES.DISTRICT.concat('.id'), '=', TABLES.JOB.concat('.district_id'))
         .join(TABLES.REGION, TABLES.REGION.concat('.id'), '=', TABLES.DISTRICT.concat('.region_id'))
+        .join(TABLES.EDUCATION_LEVEL, TABLES.EDUCATION_LEVEL.concat('.id'), '=', TABLES.JOB.concat('.tutor_academic_id'))
         .join(TABLES.STUDENT_LEVEL, TABLES.STUDENT_LEVEL.concat('.id'), '=', TABLES.JOB.concat('.student_level_id'))
         .join(TABLES.JOB_SUBJECT, TABLES.JOB_SUBJECT.concat('.job_id'), '=', TABLES.JOB.concat('.id'))
         .join(TABLES.SUBJECT, TABLES.JOB_SUBJECT.concat('.subject_id'), '=', TABLES.SUBJECT.concat('.id'))
@@ -16,7 +17,7 @@ module.exports.find = (id) => {
             'subject.name as subject',
             'tuition_fee',
             'num_of_student',
-            'tutor_academic_id',
+            'education_level.name as tutor_academic',
             'tutor_sex',
             'times_per_week',
             'duration',
@@ -59,6 +60,7 @@ module.exports.all = () => {
     return db(TABLES.JOB)
         .join(TABLES.DISTRICT, TABLES.DISTRICT.concat('.id'), '=', TABLES.JOB.concat('.district_id'))
         .join(TABLES.REGION, TABLES.REGION.concat('.id'), '=', TABLES.DISTRICT.concat('.region_id'))
+        .join(TABLES.EDUCATION_LEVEL, TABLES.EDUCATION_LEVEL.concat('.id'), '=', TABLES.JOB.concat('.tutor_academic_id'))
         .join(TABLES.STUDENT_LEVEL, TABLES.STUDENT_LEVEL.concat('.id'), '=', TABLES.JOB.concat('.student_level_id'))
         .join(TABLES.JOB_SUBJECT, TABLES.JOB_SUBJECT.concat('.job_id'), '=', TABLES.JOB.concat('.id'))
         .join(TABLES.SUBJECT, TABLES.JOB_SUBJECT.concat('.subject_id'), '=', TABLES.SUBJECT.concat('.id'))
@@ -70,7 +72,7 @@ module.exports.all = () => {
             'subject.name as subject',
             'tuition_fee',
             'num_of_student',
-            'tutor_academic_id',
+            'education_level.name as tutor_academic',
             'tutor_sex',
             'times_per_week',
             'duration',

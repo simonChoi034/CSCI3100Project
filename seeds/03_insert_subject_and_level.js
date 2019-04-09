@@ -23,18 +23,18 @@ exports.seed = function(knex, Promise) {
           { name: 'Statistics' }
       ]),
       knex('student_level').insert([
-          { name: 'P1' },
-          { name: 'P2' },
-          { name: 'P3' },
-          { name: 'P4' },
-          { name: 'P5' },
-          { name: 'P6' },
-          { name: 'S1' },
-          { name: 'S2' },
-          { name: 'S3' },
-          { name: 'S4' },
-          { name: 'S5' },
-          { name: 'S6' },
+          { name: 'Primary 1' },
+          { name: 'Primary 2' },
+          { name: 'Primary 3' },
+          { name: 'Primary 4' },
+          { name: 'Primary 5' },
+          { name: 'Primary 6' },
+          { name: 'Secondary 1' },
+          { name: 'Secondary 2' },
+          { name: 'Secondary 3' },
+          { name: 'Secondary 4' },
+          { name: 'Secondary 5' },
+          { name: 'Secondary 6' },
       ])
   ])
 };

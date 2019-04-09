@@ -12,7 +12,6 @@ import Register from './pages/Register';
 import Tutors from './pages/Tutors';
 import Jobs from './pages/JobsWall';
 import Forget_PW from "./pages/ForgetPassword";
-import JobRequest from "./pages/JobRequest";
 
 class App extends Component {
 

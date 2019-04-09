@@ -4,11 +4,10 @@ import './JobCard.css';
 import {
     Card, 
     CardTitle, 
-    CardText, 
-    Row, 
+    CardText,
     Col,
     Button,
-    Container
+    Badge
 } from 'reactstrap';
 
 class JobCard extends Component {
@@ -24,10 +23,10 @@ class JobCard extends Component {
         return (
             <Col xs="12" sm="6" lg="4">
                 <Card body className="my-3">
-                    <CardTitle>Tuition</CardTitle>
+                    <CardTitle><Button outline color="primary">{this.state.job.subject}</Button></CardTitle>
                     <CardText className="text-left">Region: {this.state.job.region}</CardText>
                     <CardText className="text-left">District: {this.state.job.district}</CardText>
-                    <Button className = "more_btn">More</Button>
+                    <Button className="more_btn" onClick={ (event) => this.props.toggle(event, this.state.job)}>More</Button>
                 </Card>
             </Col>
         );
