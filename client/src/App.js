@@ -39,14 +39,16 @@ class App extends Component {
                         <ParticlesContainer />
                         <div className="web-content">
                             <NavbarComponent currentUser={this.state.currentUser} history={history}/>
-                            <Switch>
-                                <Route path='/' component={Home} exact />
-                                <Route path='/login' component={Login} />
-                                <Route path='/register' component={Register} />
-                                <Route path='/tutors' component={Tutors} />
-                                <Route path='/jobs' component={Jobs} />
-                                <Route path='/forget_pw' component={Forget_PW} />
-                            </Switch>
+                            <div id="body">
+                                <Switch>
+                                    <Route path='/' component={Home} exact />
+                                    <Route path='/login' component={Login} />
+                                    <Route path='/register' component={Register} />
+                                    <Route path='/tutors' component={Tutors} />
+                                    <Route path='/jobs' component={Jobs} />
+                                    <Route path='/forget_pw' component={Forget_PW} />
+                                </Switch>
+                            </div>
                         </div>
                     </div>
                 </Router>

@@ -4,10 +4,17 @@ import JobWall from '../components/job_wall/JobsWall';
 import JobForm from '../components/job_form/JobForm'
 import {authenticationService} from "../components/auth/authentication.service";
 import {Role} from "../components/helper";
+import {Container} from "reactstrap";
 
 class Jobs extends Component{
     constructor(props){
         super(props);
+
+        this.state = {
+            isFormOpen: false
+        };
+
+        this.handleOpenForm = this.handleOpenForm.bind(this)
     }
 
     componentDidMount() {
@@ -17,9 +24,36 @@ class Jobs extends Component{
         }));
     }
 
+    handleOpenForm() {
+        this.setState({
+            isFormOpen: !this.state.isFormOpen
+        })
+    }
+
+    openJobForm() {
+        const form = (
+            <JobForm
+                currentUser={this.state.currentUser}
+                isTutor={this.state.isTutor}
+                openForm={this.handleOpenForm}
+            />
+        );
+        const wall = (
+            <JobWall
+                currentUser={this.state.currentUser}
+                isTutor={this.state.isTutor}
+                openForm={this.handleOpenForm}
+            />
+        );
+
+        return this.state.isFormOpen ? form : wall;
+    }
+
     render() {
         return (
-            <JobWall/>
+            <Container fluid>
+                { this.openJobForm() }
+            </Container>
         )
     }
 }

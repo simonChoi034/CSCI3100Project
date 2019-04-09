@@ -16,13 +16,8 @@ class TutorRegister extends Component {
             password: '',
             confirm_password: '',
             email: '',
-            phone: '',
-            full_name_ch: '',
-            full_name_en: '',
-            nick_name: '',
             sex: 'M',
             birth: null,
-            education_level: '',
             error: false,
             error_message: ''
         };
@@ -220,6 +215,15 @@ class TutorRegister extends Component {
                         onChange={this.handleChange}>
                         { this.state.eduLevelList && this.creatDropDown() }
                     </Input>
+                </FormGroup>
+                <FormGroup>
+                    <Label for="description">Self description:</Label>
+                    <Input
+                        type="textarea"
+                        name="description"
+                        id="description"
+                        onChange={this.handleChange}
+                    />
                 </FormGroup>
                 {
                     this.state.error &&

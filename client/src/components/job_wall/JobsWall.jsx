@@ -4,6 +4,7 @@ import './JobsWall.css';
 import JobCard from '../job_card/JobCard';
 import {
     Container,
+    Button,
     Row,
 } from 'reactstrap';
 
@@ -26,13 +27,18 @@ class JobsWall extends Component {
 
     render() {
         return (
-            <Container fluid>
+            <div>
+                {
+                    this.props.currentUser && !this.props.isTutor ?
+                        <Button color="success" onClick={this.props.openForm}>Request a job</Button>
+                        : null
+                }
                 <Row>
                     {this.state.jobs.map((job) => 
                         <JobCard job={job} />
                     )}
                 </Row>
-            </Container>
+            </div>
         );
     }
 }

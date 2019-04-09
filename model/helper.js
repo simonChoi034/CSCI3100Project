@@ -39,7 +39,7 @@ module.exports.getSubjectList = () => {
         .select('id',
             'name as subject'
         )
-}
+};
 
 module.exports.getUserTypeID = (name) => {
     return db(TABLES.USER_TYPE).where('name', name).first().returning('id');
