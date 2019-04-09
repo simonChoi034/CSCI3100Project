@@ -25,8 +25,8 @@ class TutorCard extends Component {
             <Col xs="12" sm="6" md="4" lg="3">
                 <Card body className="my-3">
                     <CardTitle>{this.state.tutor.title}</CardTitle>
-                    <CardText className="text-left">Name: {this.state.tutor.name}</CardText>
-                    <CardText className="text-left">Teaching Subjects: {this.state.tutor.subjects}</CardText>
+                    <CardText className="text-left">Nickname: {this.state.tutor.nick_name}</CardText>
+                    <CardText className="text-left">Description: {this.state.tutor.description}</CardText>
                     <Button className = "more_btn">More</Button>
                 </Card>
             </Col>
