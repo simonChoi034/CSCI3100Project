@@ -1,11 +1,11 @@
 @media all and (min-width: 480px) {
     #Register {
-        margin: 0;
+        margin-bottom: 1rem !important;
         position: relative;
         left: 50%;
         -ms-transform: translate(-50%);
         transform: translate(-50%);
-        top:50px;
+        top:1rem !important;
         width: 600px;
     }
 
