@@ -9,4 +9,11 @@
 .more_btn{
     margin-left:4rem;
     margin-right: 4rem; 
+    width: 8rem;
+}
+
+.detail_btn{
+    margin-left:4rem;
+    margin-right: 4rem; 
+    width: 8rem;
 }
