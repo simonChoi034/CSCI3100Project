@@ -5,7 +5,7 @@ import JobCard from '../job_card/JobCard';
 import {
     Container,
     Button,
-    Row,
+    Row
 } from 'reactstrap';
 
 class JobsWall extends Component {
@@ -30,7 +30,7 @@ class JobsWall extends Component {
             <div>
                 {
                     this.props.currentUser && !this.props.isTutor ?
-                        <Button color="success" onClick={this.props.openForm}>Request a job</Button>
+                        <Row className="mx-0"><Button color="success" className="m-0" onClick={this.props.openForm}>Request a job</Button></Row>
                         : null
                 }
                 <Row>

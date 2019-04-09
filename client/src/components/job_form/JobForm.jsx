@@ -91,9 +91,11 @@ class JobForm extends Component{
             <div>
                 <Row>
                     <Form id="job_create_form" onSubmit={this.handleSubmit}>
-                        <Button color='danger' onClick={this.props.openForm}>
-                            Close
-                        </Button>
+                        <FormGroup>
+                            <Button color='danger' className="m-0" onClick={this.props.openForm}>
+                                Close
+                            </Button>
+                        </FormGroup>
                         <FormGroup>
                             <Label for="district">Living district:</Label>
                             <Input
