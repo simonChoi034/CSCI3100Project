@@ -1,7 +1,7 @@
 .card{
     margin-top: 10px;
     margin-bottom:10px;
-    background-color: white !important;
+    background-color: rgba(240, 240, 240, 0.815) !important;
     border-radius: 0.41rem;
     border: 1px solid;
     border-color: rgba(0,0,0,0.2);
@@ -10,20 +10,19 @@
 }
 
 .card:hover {
-    box-shadow: 2px 4px 8px 0px rgba(46, 61, 73, 0.2);
+    box-shadow: 2px 4px 8px 0px rgba(46, 61, 73, 0.6);
+    background-color: rgba(200,200,200,0.2) !important;
 }
 
 .card-body{
     padding-left: 2rem !important;
 }
 .more_btn{
-    margin-left:4rem;
-    margin-right: 4rem; 
-    width: 8rem;
+    margin-left:5rem;
+    margin-right: 5rem; 
 }
 
 .detail_btn{
-    margin-left:4rem;
-    margin-right: 4rem; 
-    width: 8rem;
+    margin-left:5rem;
+    margin-right: 5rem; 
 }
