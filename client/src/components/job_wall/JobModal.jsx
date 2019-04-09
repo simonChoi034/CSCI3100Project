@@ -52,7 +52,6 @@ class JobModal extends Component{
                     <ListGroupItemText>{data.remark}</ListGroupItemText>  </ListGroupItem>)
             )
         }
-        console.log(content);
         return content;
     }
 
