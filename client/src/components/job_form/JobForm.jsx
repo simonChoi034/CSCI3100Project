@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, FormGroup, Input, Label, Form, Alert, Row, Col } from "reactstrap";
-import './job_form.css'
+import './JobForm.css'
 import axios from 'axios';
 
 class JobForm extends Component{
