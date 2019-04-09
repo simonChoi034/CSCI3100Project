@@ -24,10 +24,16 @@ class TutorCard extends Component {
         return (
             <Col xs="12" sm="6" md="4" lg="3">
                 <Card body className="my-3">
-                    <CardTitle>{this.state.tutor.title}</CardTitle>
-                    <CardText className="text-left">Name: {this.state.tutor.name}</CardText>
-                    <CardText className="text-left">Teaching Subjects: {this.state.tutor.subjects}</CardText>
-                    <Button className = "more_btn">More</Button>
+                    <CardTitle>{this.state.tutor.nick_name}</CardTitle>
+                    <CardText className="text-left">Gender: {this.state.tutor.sex}</CardText>
+                    <CardText className="text-left">Education Level: {this.state.tutor.education_level}</CardText>
+                    <CardText className="text-left">Description: {this.state.tutor.description}</CardText>
+                    <Button
+                        className = "contact_btn"
+                        color="primary"
+                        block
+                    >
+                        Contact Tutor</Button>
                 </Card>
             </Col>
         );
