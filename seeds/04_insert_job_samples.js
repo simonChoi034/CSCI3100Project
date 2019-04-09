@@ -1,5 +1,3 @@
-const bcrypt = require("bcrypt");
-
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
   return Promise.all([
@@ -19,7 +17,10 @@ exports.seed = function(knex, Promise) {
           { username: "ChanTaiDai", email: "Chan2013@gmail.com", password: "$2b$10$1mGILaFWsOJjP11x8bmIjuUoBfPQhIPscCU6VnemYmsLnz8e1PLfC", user_type_id: 2},
           { username: "LoTaiNgan", email: "Chan2014@gmail.com", password: "$2b$10$1mGILaFWsOJjP11x8bmIjuUoBfPQhIPscCU6VnemYmsLnz8e1PLfC", user_type_id: 2},
           { username: "ChanTaiGou", email: "Chan2015@gmail.com", password: "$2b$10$1mGILaFWsOJjP11x8bmIjuUoBfPQhIPscCU6VnemYmsLnz8e1PLfC", user_type_id: 2},
-          { username: "HelloWorld", email: "Chan2016@gmail.com", password: "$2b$10$1mGILaFWsOJjP11x8bmIjuUoBfPQhIPscCU6VnemYmsLnz8e1PLfC", user_type_id: 2}
+          { username: "HelloWorld", email: "Chan2016@gmail.com", password: "$2b$10$1mGILaFWsOJjP11x8bmIjuUoBfPQhIPscCU6VnemYmsLnz8e1PLfC", user_type_id: 2},
+          { username: "Tutor1", email: "tut1@gmail.com", password: "$2b$10$1mGILaFWsOJjP11x8bmIjuUoBfPQhIPscCU6VnemYmsLnz8e1PLfC", user_type_id: 1},
+          { username: "Tutor2", email: "tut2@gmail.com", password: "$2b$10$1mGILaFWsOJjP11x8bmIjuUoBfPQhIPscCU6VnemYmsLnz8e1PLfC", user_type_id: 1},
+          { username: "Tutor3", email: "tut3@gmail.com", password: "$2b$10$1mGILaFWsOJjP11x8bmIjuUoBfPQhIPscCU6VnemYmsLnz8e1PLfC", user_type_id: 1}
       ]),
       knex('parent_profile').insert([
           { user_id: 1, name: "Chan Tai Man", phone: "90000001", email: "Chan2001@gmail.com", living_district_id: 1, address: "here"},
@@ -39,23 +40,46 @@ exports.seed = function(knex, Promise) {
           { user_id: 15, name: "Chan Tai Gou", phone: "90000015", email: "Chan2015@gmail.com", living_district_id: 15, address: "here"},
           { user_id: 16, name: "Hello World", phone: "90000016", email: "Chan2016@gmail.com", living_district_id: 16, address: "here"}
       ]),
+      knex('tutor_profile').insert([
+          { user_id: 17, email: "tut1@gmail.com", phone: "90000017", full_name_ch: "陳一", full_name_en: "ChanOne", nick_name: "Chan1", sex: "F", birth: "1998-11-11", education_level_id: "2", description: "I am very nice!"},
+          { user_id: 18, email: "tut2@gmail.com", phone: "90000018", full_name_ch: "陳二", full_name_en: "ChanTwo", nick_name: "Chan2", sex: "M", birth: "1998-11-11", education_level_id: "2", description: "I am very nice!"},
+          { user_id: 19, email: "tut3@gmail.com", phone: "90000019", full_name_ch: "陳三", full_name_en: "ChanThree", nick_name: "Chan3", sex: "F", birth: "1998-11-10", education_level_id: "2", description: "I am very nice!"}
+      ]),
       knex('job').insert([
-          { open: true, district_id: 1, location: 'this street', student_level_id: 1, tuition_fee: "255", num_of_student: 1, tutor_academic_id: 7, tutor_sex: 'F', times_per_week: '10 hrs', duration: '1 year', time: 'Wednesday 10:00am-11:30am', remark: 'the tutor should be nice'},
-          { open: true, district_id: 2, location: 'that street', student_level_id: 2, tuition_fee: "230", num_of_student: 2, tutor_academic_id: 3, tutor_sex: 'M', times_per_week: '10 hrs', duration: '3 years', time: 'Monday Tuesday 10:00am-11:30am', remark: 'want patient tutor'},
-          { open: true, district_id: 3, location: 'the street next to that street', student_level_id: 2, tuition_fee: "299", num_of_student: 4, tutor_academic_id: 4, tutor_sex: 'F', times_per_week: '10 hrs', duration: '1 year', time: 'Wednesday 10:00am-11:30am', remark: 'need to be patient'},
-          { open: true, district_id: 4, location: 'the street between this street and that street', student_level_id: 1, tuition_fee: "211", num_of_student: 1, tutor_academic_id: 7, tutor_sex: 'F', times_per_week: '10 hrs', duration: '1 year', time: 'Wednesday 10:00am-11:30am', remark: 'the tutor should be nice'},
-          { open: true, district_id: 5, location: 'that street', student_level_id: 4, tuition_fee: "260", num_of_student: 1, tutor_academic_id: 3, tutor_sex: 'F', times_per_week: '10 hrs', duration: '1 year', time: 'Wednesday 10:00am-11:30am', remark: 'the tutor should be nice'},
-          { open: true, district_id: 6, location: 'this street', student_level_id: 1, tuition_fee: "300", num_of_student: 1, tutor_academic_id: 5, tutor_sex: 'F', times_per_week: '6 hrs', duration: '6 years', time: 'Wednesday 10:00am-11:30am', remark: 'the tutor should be nice'},
-          { open: true, district_id: 7, location: 'right over here', student_level_id: 6, tuition_fee: "400", num_of_student: 1, tutor_academic_id: 5, tutor_sex: 'M', times_per_week: '10 hrs', duration: '6 years', time: 'Wednesday 10:00am-11:30am', remark: 'the tutor should be nice'},
-          { open: true, district_id: 8, location: 'this street', student_level_id: 6, tuition_fee: "200", num_of_student: 1, tutor_academic_id: 4, tutor_sex: 'F', times_per_week: '12 hrs', duration: '3 years', time: 'Wednesday 10:00am-11:30am', remark: 'the tutor should be nice'},
-          { open: true, district_id: 9, location: 'there', student_level_id: 4, tuition_fee: "255", num_of_student: 1, tutor_academic_id: 6, tutor_sex: 'F', times_per_week: '10 hrs', duration: '2 years', time: 'Wednesday 10:00am-11:30am', remark: 'the tutor should be nice'},
-          { open: true, district_id: 10, location: '1000 room, this buiding', student_level_id: 6, tuition_fee: "255", num_of_student: 1, tutor_academic_id: 1, tutor_sex: 'F', times_per_week: '10 hrs', duration: '1 year', time: 'Wednesday 10:00am-11:30am', remark: 'the tutor should be nice'},
-          { open: true, district_id: 11, location: 'that building', student_level_id: 5, tuition_fee: "255", num_of_student: 1, tutor_academic_id: 4, tutor_sex: 'F', times_per_week: '10 hrs', duration: '1 year', time: 'Wednesday 10:00am-11:30am', remark: 'the tutor should be nice'},
-          { open: true, district_id: 12, location: 'this street', student_level_id: 10, tuition_fee: "255", num_of_student: 1, tutor_academic_id: 3, tutor_sex: 'M', times_per_week: '20 hrs', duration: '3 years', time: 'Wednesday 10:00am-11:30am', remark: 'the tutor should be nice'},
-          { open: true, district_id: 13, location: 'over there', student_level_id: 9, tuition_fee: "255", num_of_student: 1, tutor_academic_id: 2, tutor_sex: 'F', times_per_week: '10 hrs', duration: '4 years', time: 'Wednesday 10:00am-11:30am', remark: 'the tutor should be nice'},
-          { open: true, district_id: 14, location: 'this street', student_level_id: 10, tuition_fee: "255", num_of_student: 1, tutor_academic_id: 6, tutor_sex: 'F', times_per_week: '5 hrs', duration: 'until DSE', time: 'Wednesday 10:00am-11:30am', remark: 'the tutor should be nice'},
-          { open: true, district_id: 15, location: 'Mcdonald', student_level_id: 11, tuition_fee: "255", num_of_student: 1, tutor_academic_id: 4, tutor_sex: 'F', times_per_week: '1.5 hrs', duration: '1 year', time: 'Wednesday 10:00am-11:30am', remark: 'the tutor should be nice'},
-          { open: true, district_id: 16, location: 'Starbucks', student_level_id: 12, tuition_fee: "255", num_of_student: 1, tutor_academic_id: 5, tutor_sex: 'M', times_per_week: '1 hrs', duration: 'until graduration', time: 'Wednesday 10:00am-11:30am', remark: 'the tutor should be nice'}
+          { open: true, district_id: 1, location: 'this street', student_level_id: 1, tuition_fee: "255", num_of_student: 1, tutor_academic_id: 7, tutor_sex: 'F', times_per_week: '10 hrs', duration: '1 year', lesson_time: 'Wednesday 10:00am-11:30am', remark: 'the tutor should be nice'},
+          { open: true, district_id: 2, location: 'that street', student_level_id: 2, tuition_fee: "230", num_of_student: 2, tutor_academic_id: 3, tutor_sex: 'M', times_per_week: '10 hrs', duration: '3 years', lesson_time: 'Monday Tuesday 10:00am-11:30am', remark: 'want patient tutor'},
+          { open: true, district_id: 3, location: 'the street next to that street', student_level_id: 2, tuition_fee: "299", num_of_student: 4, tutor_academic_id: 4, tutor_sex: 'F', times_per_week: '10 hrs', duration: '1 year', lesson_time: 'Wednesday 10:00am-11:30am', remark: 'need to be patient'},
+          { open: true, district_id: 4, location: 'the street between this street and that street', student_level_id: 1, tuition_fee: "211", num_of_student: 1, tutor_academic_id: 7, tutor_sex: 'F', times_per_week: '10 hrs', duration: '1 year', lesson_time: 'Wednesday 10:00am-11:30am', remark: 'the tutor should be nice'},
+          { open: true, district_id: 5, location: 'that street', student_level_id: 4, tuition_fee: "260", num_of_student: 1, tutor_academic_id: 3, tutor_sex: 'F', times_per_week: '10 hrs', duration: '1 year', lesson_time: 'Wednesday 10:00am-11:30am', remark: 'the tutor should be nice'},
+          { open: true, district_id: 6, location: 'this street', student_level_id: 1, tuition_fee: "300", num_of_student: 1, tutor_academic_id: 5, tutor_sex: 'F', times_per_week: '6 hrs', duration: '6 years', lesson_time: 'Wednesday 10:00am-11:30am', remark: 'the tutor should be nice'},
+          { open: true, district_id: 7, location: 'right over here', student_level_id: 6, tuition_fee: "400", num_of_student: 1, tutor_academic_id: 5, tutor_sex: 'M', times_per_week: '10 hrs', duration: '6 years', lesson_time: 'Wednesday 10:00am-11:30am', remark: 'the tutor should be nice'},
+          { open: true, district_id: 8, location: 'this street', student_level_id: 6, tuition_fee: "200", num_of_student: 1, tutor_academic_id: 4, tutor_sex: 'F', times_per_week: '12 hrs', duration: '3 years', lesson_time: 'Wednesday 10:00am-11:30am', remark: 'the tutor should be nice'},
+          { open: true, district_id: 9, location: 'there', student_level_id: 4, tuition_fee: "255", num_of_student: 1, tutor_academic_id: 6, tutor_sex: 'F', times_per_week: '10 hrs', duration: '2 years', lesson_time: 'Wednesday 10:00am-11:30am', remark: 'the tutor should be nice'},
+          { open: true, district_id: 10, location: '1000 room, this buiding', student_level_id: 6, tuition_fee: "255", num_of_student: 1, tutor_academic_id: 1, tutor_sex: 'F', times_per_week: '10 hrs', duration: '1 year', lesson_time: 'Wednesday 10:00am-11:30am', remark: 'the tutor should be nice'},
+          { open: true, district_id: 11, location: 'that building', student_level_id: 5, tuition_fee: "255", num_of_student: 1, tutor_academic_id: 4, tutor_sex: 'F', times_per_week: '10 hrs', duration: '1 year', lesson_time: 'Wednesday 10:00am-11:30am', remark: 'the tutor should be nice'},
+          { open: true, district_id: 12, location: 'this street', student_level_id: 10, tuition_fee: "255", num_of_student: 1, tutor_academic_id: 3, tutor_sex: 'M', times_per_week: '20 hrs', duration: '3 years', lesson_time: 'Wednesday 10:00am-11:30am', remark: 'the tutor should be nice'},
+          { open: true, district_id: 13, location: 'over there', student_level_id: 9, tuition_fee: "255", num_of_student: 1, tutor_academic_id: 2, tutor_sex: 'F', times_per_week: '10 hrs', duration: '4 years', lesson_time: 'Wednesday 10:00am-11:30am', remark: 'the tutor should be nice'},
+          { open: true, district_id: 14, location: 'this street', student_level_id: 10, tuition_fee: "255", num_of_student: 1, tutor_academic_id: 6, tutor_sex: 'F', times_per_week: '5 hrs', duration: 'until DSE', lesson_time: 'Wednesday 10:00am-11:30am', remark: 'the tutor should be nice'},
+          { open: true, district_id: 15, location: 'Mcdonald', student_level_id: 11, tuition_fee: "255", num_of_student: 1, tutor_academic_id: 4, tutor_sex: 'F', times_per_week: '1.5 hrs', duration: '1 year', lesson_time: 'Wednesday 10:00am-11:30am', remark: 'the tutor should be nice'},
+          { open: true, district_id: 16, location: 'Starbucks', student_level_id: 12, tuition_fee: "255", num_of_student: 1, tutor_academic_id: 5, tutor_sex: 'M', times_per_week: '1 hrs', duration: 'until graduration', lesson_time: 'Wednesday 10:00am-11:30am', remark: 'the tutor should be nice'}
+      ]),
+      knex('job_subject').insert([
+          { job_id: 1, subject_id: 1},
+          { job_id: 2, subject_id: 2},
+          { job_id: 3, subject_id: 3},
+          { job_id: 4, subject_id: 4},
+          { job_id: 5, subject_id: 5},
+          { job_id: 6, subject_id: 6},
+          { job_id: 7, subject_id: 7},
+          { job_id: 8, subject_id: 8},
+          { job_id: 9, subject_id: 9},
+          { job_id: 10, subject_id: 10},
+          { job_id: 11, subject_id: 11},
+          { job_id: 12, subject_id: 12},
+          { job_id: 13, subject_id: 13},
+          { job_id: 14, subject_id: 14},
+          { job_id: 15, subject_id: 15},
+          { job_id: 16, subject_id: 16}
       ])
   ])
 };
