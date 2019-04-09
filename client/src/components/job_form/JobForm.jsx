@@ -9,7 +9,12 @@ class JobForm extends Component{
 
         this.state = {
             currentUser: this.props.currentUser,
-            client_id: this.props.currentUser.id
+            client_id: this.props.currentUser.id,
+            districtList: [],
+            eduLevelList: [],
+            subjectList: [],
+            studentLevelList: [],
+            num_of_student: 1
         }
     };
 
@@ -21,7 +26,10 @@ class JobForm extends Component{
                     districtList: res.data.districtList,
                     eduLevelList: res.data.eduLevelList,
                     subjectList: res.data.subjectList,
-                    studentLevelList: res.data.studentLevelList
+                    studentLevelList: res.data.studentLevelList,
+                    student_level: res.data.studentLevelList[0].id,
+                    subject: res.data.subjectList[0].id,
+                    tutor_academic: res.data.eduLevelList[0].id
                 })
             })
             .catch(function (err) {
@@ -84,6 +92,37 @@ class JobForm extends Component{
 
     handleSubmit = event => {
         event.preventDefault();
+        const data = {
+            client_id: this.state.client_id,
+            district: this.state.district,
+            location: this.state.location,
+            student_level: this.state.student_level,
+            subject: this.state.subject,
+            tuition_fee: this.state.tuition_fee,
+            num_of_student: this.state.num_of_student,
+            tutor_academic: this.state.tutor_academic,
+            tutor_sex: this.state.tutor_sex,
+            times_per_week: this.state.times_per_week,
+            duration: this.state.duration,
+            lesson_time: this.state.lesson_time,
+            hotline: this.state.hotline,
+            remark: this.state.hotline
+        };
+
+        var self = this;
+        axios.post('/api/job/create_job', data)
+            .then(function (res) {
+                self.props.openForm();
+            })
+            .catch(function (err) {
+                const errors = err.response.data.errors;
+
+                self.setState({
+                    error: true,
+                    error_message: errors[0].msg
+                });
+                console.log(errors)
+            })
     };
 
     render() {
@@ -101,7 +140,7 @@ class JobForm extends Component{
                                 name="district"
                                 id="district"
                                 onChange={this.handleChange}>
-                                { this.state.districtList && this.creatDistrictList() }
+                                { this.creatDistrictList() }
                             </Input>
                         </FormGroup>
                         <FormGroup>
@@ -124,7 +163,7 @@ class JobForm extends Component{
                                         id="student_level"
                                         onChange={this.handleChange}
                                     >
-                                        { this.state.studentLevelList && this.createStuLevelList() }
+                                        { this.createStuLevelList() }
                                     </Input>
                                 </FormGroup>
                             </Col>
@@ -137,7 +176,7 @@ class JobForm extends Component{
                                         id="subject"
                                         onChange={this.handleChange}
                                     >
-                                        { this.state.subjectList && this.createSubjectList() }
+                                        { this.createSubjectList() }
                                     </Input>
                                 </FormGroup>
                             </Col>
@@ -175,7 +214,7 @@ class JobForm extends Component{
                                 id="tutor_academic"
                                 onChange={this.handleChange}
                             >
-                                { this.state.eduLevelList && this.creatEduLevelList() }
+                                { this.creatEduLevelList() }
                             </Input>
                         </FormGroup>
                         <FormGroup>

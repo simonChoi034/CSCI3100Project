@@ -36,6 +36,7 @@ class Jobs extends Component{
                 currentUser={this.state.currentUser}
                 isTutor={this.state.isTutor}
                 openForm={this.handleOpenForm}
+                history={this.props.history}
             />
         );
         const wall = (
@@ -43,6 +44,7 @@ class Jobs extends Component{
                 currentUser={this.state.currentUser}
                 isTutor={this.state.isTutor}
                 openForm={this.handleOpenForm}
+                history={this.props.history}
             />
         );
 

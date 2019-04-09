@@ -48,11 +48,8 @@ router.get('/create_job', function (req, res) {
 router.post('/create_job', [
     check('client_id')
         .not().isEmpty(),
-    check('district_id')
-        .not().isEmpty(),
-    check('num_of_student')
-        .not().isEmpty()
-        .isInt(),
+    check('district')
+        .not().isEmpty().withMessage("Please choose a district"),
     check('subject')
         .not().isEmpty()
 ],function (req, res, next) {
@@ -70,7 +67,7 @@ router.post('/create_job', [
                 res.sendStatus(200);
             })
             .catch(function (err) {
-                res.status(500).json({ errors: [err]});
+                res.sendStatus(500);
             })
     }
 });

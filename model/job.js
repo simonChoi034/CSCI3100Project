@@ -41,7 +41,7 @@ module.exports.create = (body) => {
             tutor_sex: body.tutor_sex,
             times_per_week: body.times_per_week,
             duration: body.duration,
-            time: body.time,
+            lesson_time: body.lesson_time,
             hotline: body.hotline,
             remark: body.remark
         }])
