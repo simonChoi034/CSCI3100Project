@@ -90,9 +90,9 @@ class JobForm extends Component{
         return (
             <div>
                 <Row>
-                    <Form id="job_create_form" onSubmit={this.handleSubmit}>
+                    <Form id="job_create_form" className="py-2" onSubmit={this.handleSubmit}>
                         <FormGroup>
-                            <Button color='danger' className="m-0" onClick={this.props.openForm}>
+                            <Button color='danger' className="my-0" onClick={this.props.openForm}>
                                 Close
                             </Button>
                         </FormGroup>
