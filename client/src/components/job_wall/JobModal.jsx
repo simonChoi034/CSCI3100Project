@@ -17,37 +17,39 @@ class JobModal extends Component{
         if (data){
             console.log(data);
             content.push(
-                (<ListGroupItem> 
+                (<ListGroupItem key = {1}> 
                     <ListGroupItemHeading>{'Region:'}</ListGroupItemHeading> 
                     <ListGroupItemText>{data.region}</ListGroupItemText>  
                 </ListGroupItem>),
-                (<ListGroupItem> 
+                (<ListGroupItem key = {2}> 
                     <ListGroupItemHeading>{'District:'} </ListGroupItemHeading>
                     <ListGroupItemText>{data.district}</ListGroupItemText>
                 </ListGroupItem>),
-                (<ListGroupItem> 
+                (<ListGroupItem key = {3}> 
                     <ListGroupItemHeading>{'Student Level:'}</ListGroupItemHeading> 
                     <ListGroupItemText>{data.student_level}</ListGroupItemText>  
                 </ListGroupItem>),
-                (<ListGroupItem> 
+                (<ListGroupItem key = {4}> 
                     <ListGroupItemHeading>{'Tuition Fee:'}</ListGroupItemHeading> 
                     <ListGroupItemText>{data.tuition_fee}</ListGroupItemText>
                 </ListGroupItem>),
-                (<ListGroupItem> <ListGroupItemHeading>{'Number of Student:'}</ListGroupItemHeading> 
+                (<ListGroupItem key = {5}> 
+                    <ListGroupItemHeading>{'Number of Student:'}</ListGroupItemHeading> 
                     <ListGroupItemText>{data.num_of_student} </ListGroupItemText>
                 </ListGroupItem>),
-                (<ListGroupItem> 
+                (<ListGroupItem key = {6}> 
                     <ListGroupItemHeading>{'Tutorial time per week:'}</ListGroupItemHeading>  
                     <ListGroupItemText>{data.times_per_week}</ListGroupItemText>  
                 </ListGroupItem>),
-                (<ListGroupItem> 
+                (<ListGroupItem key = {7}> 
                     <ListGroupItemHeading>{'Duration:'} </ListGroupItemHeading>
-                    <ListGroupItemText>{data.region}</ListGroupItemText>  
+                    <ListGroupItemText>{data.duration}</ListGroupItemText>  
                 </ListGroupItem>),
-                (<ListGroupItem> <ListGroupItemHeading>{'Lesson Time:'}</ListGroupItemHeading> 
-                    <ListGroupItemText>{data.region}</ListGroupItemText>
+                (<ListGroupItem key = {8}> 
+                    <ListGroupItemHeading>{'Lesson Time:'}</ListGroupItemHeading> 
+                    <ListGroupItemText>{data.lesson_time}</ListGroupItemText>
                 </ListGroupItem>),
-                (<ListGroupItem> 
+                (<ListGroupItem key = {9}> 
                     <ListGroupItemHeading>{'Remark:'} </ListGroupItemHeading>
                     <ListGroupItemText>{data.remark}</ListGroupItemText>  </ListGroupItem>)
             )
@@ -64,9 +66,9 @@ class JobModal extends Component{
                     </div>
                 </ModalHeader>
                 <ModalBody>
-                <ListGroup>
-                    { this.createModalContent() }
-                </ListGroup>
+                    <ListGroup>
+                        { this.createModalContent() }
+                    </ListGroup>
                 </ModalBody>
                 <ModalFooter>
                     <Button outline color={"primary"}>Contact Me</Button>

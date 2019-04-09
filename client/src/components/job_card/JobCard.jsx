@@ -15,29 +15,9 @@ class JobCard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            job: props.job,
-            showmore: true
+            job: props.job
         };
-
-        this.handleClick = this.handleClick.bind(this);
-        this.out = this.getComponent();
     }
-
-    handleClick(event) {  
-        this.setState({
-            showmore: !this.state.showmore
-        });
-        this.out = this.getComponent();
-    }
-
-    getComponent(){
-        if(this.state.showmore){
-            return 'Show More'
-        } else {
-            return 'Show Less'
-        }
-    }
-
     render() {
         return (
             <Col xs="12" sm="6" lg="4">
