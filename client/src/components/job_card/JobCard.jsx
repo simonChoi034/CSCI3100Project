@@ -22,7 +22,7 @@ class JobCard extends Component {
 
     render() {
         return (
-            <Col xs="12" sm="6" md="4" lg="4">
+            <Col xs="12" sm="6" lg="4">
                 <Card body className="my-3">
                     <CardTitle>Tuition</CardTitle>
                     <CardText className="text-left">Region: {this.state.job.region}</CardText>
