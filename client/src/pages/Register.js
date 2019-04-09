@@ -46,7 +46,6 @@ class Register extends Component {
     render(){
         return (
             <div id="Register">
-                <p>Register Page</p>
                 <Row>
                     <Button
                         color="success"
