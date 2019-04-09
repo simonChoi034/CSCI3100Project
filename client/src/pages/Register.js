@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button } from "reactstrap";
-import "./register.css";
+import "./Register.css";
 import TutorRegister from "../components/tutor_register/TutorRegister"
 import ParentRegister from "../components/parent_register/ParentRegister"
 import {

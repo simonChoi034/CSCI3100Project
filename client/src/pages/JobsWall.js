@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "./jobs_wall.css";
+import "./JobsWall.css";
 import JobWall from '../components/job_wall/JobsWall';
 import JobForm from '../components/job_form/JobForm'
 import {authenticationService} from "../components/auth/authentication.service";

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-import "./forget_password.css";
+import "./ForgetPassword.css";
 
 class Forget_PW extends Component {
 
