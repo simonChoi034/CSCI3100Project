@@ -225,7 +225,7 @@ class JobForm extends Component{
                                 id="tutor_sex"
                                 onChange={this.handleChange}
                             >
-                                <option>Male or Female</option>
+                                <option value="O">Male or Female</option>
                                 <option value="M">Male</option>
                                 <option value="F">Female</option>
                             </Input>
