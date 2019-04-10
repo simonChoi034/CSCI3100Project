@@ -59,7 +59,7 @@ class TutorModal extends Component{
             <Modal isOpen={this.props.modal} toggle={this.props.toggle} className={this.props.className} size={'lg'}>
                 <ModalHeader toggle={this.props.toggle}>
                     <div className={"d-flex justify-content-center"}>
-                        <b>Tutor Info</b>
+                        <b>Tutor Information</b>
                     </div>
                 </ModalHeader>
                 <ModalBody>

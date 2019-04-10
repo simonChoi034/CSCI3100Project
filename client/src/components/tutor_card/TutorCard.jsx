@@ -31,7 +31,7 @@ class TutorCard extends Component {
 
     render() {
         return (
-            <Col xs="12" sm="6" lg="4">
+            <Col className="d-flex justify-content-center" xs="12" sm="6" lg="4">
                 <Card body className="my-3">
                     <CardTitle>{ this.createCardTitle() }</CardTitle>
                     <CardText className="text-left">Gender: {this.state.tutor.sex}</CardText>
@@ -41,7 +41,7 @@ class TutorCard extends Component {
                         color="info"
                         onClick={ (event) => this.props.toggle(event, this.state.tutor) }
                     >
-                        More info
+                        More information
                     </Button>
                 </Card>
             </Col>
