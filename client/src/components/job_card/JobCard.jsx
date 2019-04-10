@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import axios from 'axios';
 import './JobCard.css';
 import {
     Card, 
@@ -11,7 +10,6 @@ import {
 } from 'reactstrap';
 
 class JobCard extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -42,7 +40,13 @@ class JobCard extends Component {
                     </Button>
                     */
                     }
-                    <Button color="info" className="detail_btn" onClick={ (event) => this.props.toggle(event, this.state.job)}>Show Detail</Button>
+                    <Button
+                        color="info"
+                        className="detail_btn"
+                        onClick={ (event) => this.props.toggle(event, this.state.job) }
+                    >
+                        Show Detail
+                    </Button>
                 </Card>
             </Col>
         );

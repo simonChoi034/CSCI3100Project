@@ -30,7 +30,7 @@ class Jobs extends Component{
         })
     }
 
-    openJobForm() {
+    showContent() {
         const form = (
             <JobForm
                 currentUser={this.state.currentUser}
@@ -54,7 +54,7 @@ class Jobs extends Component{
     render() {
         return (
             <Container fluid>
-                { this.openJobForm() }
+                { this.showContent() }
             </Container>
         )
     }

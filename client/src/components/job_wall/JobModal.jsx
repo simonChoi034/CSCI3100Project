@@ -1,9 +1,15 @@
 import React, {Component} from 'react';
-import {Modal, ModalHeader, ListGroup, ListGroupItem, ListGroupItemHeading, ListGroupItemText, Row, Col} from "reactstrap";
-import ModalBody from "reactstrap/es/ModalBody";
-import ModalFooter from "reactstrap/es/ModalFooter";
-import Button from "reactstrap/es/Button";
-import { constants } from 'crypto';
+import {
+    Modal,
+    ModalHeader,
+    ModalBody,
+    ModalFooter,
+    Button,
+    ListGroup,
+    ListGroupItem,
+    ListGroupItemHeading,
+    ListGroupItemText
+} from "reactstrap";
 
 
 class JobModal extends Component{
@@ -14,8 +20,7 @@ class JobModal extends Component{
     createModalContent() {
         const content = [];
         const data = this.props.modalData;
-        if (data){
-            console.log(data);
+        if (data) {
             content.push(
                 (<ListGroupItem key = {1}> 
                     <ListGroupItemHeading>{'Region:'}</ListGroupItemHeading> 
@@ -58,7 +63,7 @@ class JobModal extends Component{
     }
 
     handleModal() {
-        const modal = (
+         return (
             <Modal isOpen={this.props.modal} toggle={this.props.toggle} className={this.props.className} size={'lg'}>
                 <ModalHeader toggle={this.props.toggle}>
                     <div className={"d-flex justify-content-center"}>
@@ -75,8 +80,6 @@ class JobModal extends Component{
                 </ModalFooter>
             </Modal>
         );
-
-        return modal;
     }
 
     render() {

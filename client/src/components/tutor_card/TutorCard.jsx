@@ -5,10 +5,8 @@ import {
     Card,
     CardTitle,
     CardText,
-    Row,
     Col,
     Button,
-    Container
 } from 'reactstrap';
 
 class TutorCard extends Component {
@@ -27,13 +25,14 @@ class TutorCard extends Component {
                     <CardTitle>{this.state.tutor.nick_name}</CardTitle>
                     <CardText className="text-left">Gender: {this.state.tutor.sex}</CardText>
                     <CardText className="text-left">Education Level: {this.state.tutor.education_level}</CardText>
-                    <CardText className="text-left">Description: {this.state.tutor.description}</CardText>
                     <Button
                         className = "contact_btn"
                         color="primary"
                         block
+                        onClick={ (event) => this.props.toggle(event, this.state.tutor) }
                     >
-                        Contact Tutor</Button>
+                        More info
+                    </Button>
                 </Card>
             </Col>
         );

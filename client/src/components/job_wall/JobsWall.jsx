@@ -38,14 +38,15 @@ class JobsWall extends Component {
     }
 
     createModal() {
-        var props = {
+        const props = {
             modal: this.state.modal,
             toggle: this.toggle,
             className: this.props.className,
+            modalData: this.state.modalData
         };
 
         return (
-            <JobModal {...props} modalData={this.state.modalData}/>
+            <JobModal {...props}/>
         )
     }
 

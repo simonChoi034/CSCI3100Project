@@ -284,7 +284,6 @@ router.post('/tutor_register', [
 });
 
 router.get('/list_tutor', function (req, res) {
-    console.log(tutor.all().toSQL());
     tutor.all()
         .then(function (result) {
             const data = {
