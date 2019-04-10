@@ -19,7 +19,6 @@ class TutorCard extends Component {
         this.state = {
             tutor: props.tutor
         };
-        console.log(this.state.tutor);
     }
 
     render() {
