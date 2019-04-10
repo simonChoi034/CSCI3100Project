@@ -55,8 +55,8 @@ class TutorsWall extends Component {
             <Fade>
                 { this.createModal() }
                 <Row>
-                    {this.state.tutors.map((tutor) =>
-                        <TutorCard tutor={tutor} toggle={this.toggle}/>
+                    {this.state.tutors.map((tutor, key) =>
+                        <TutorCard key={key} tutor={tutor} toggle={this.toggle}/>
                     )}
                 </Row>
             </Fade>
