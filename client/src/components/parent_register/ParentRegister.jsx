@@ -37,13 +37,13 @@ class ParentRegister extends Component {
         var options = [];
         var districts = this.state.districtList;
 
-        options.push(<option value="">Please choose a district</option>);
+        options.push(<option key = {""} value="">Please choose a district</option>);
 
         for (var key in districts) {
-            options.push(<option value="" disabled>{key}</option>);
+            options.push(<option key = {key}value="" disabled>{key}</option>);
 
             districts[key].forEach(function (e, key) {
-                options.push(<option value={e.id}>{e.district}</option>);
+                options.push(<option key = {e.id} value={e.id}>{e.district}</option>);
             })
         }
 
