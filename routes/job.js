@@ -72,8 +72,10 @@ router.post('/create_job', [
     }
 });
 
-router.get('/list_job', function (req, res) {
-    job.all()
+router.get('/list_job/:offset/:limit', function (req, res) {
+    offset = req.params['offset'];
+    limit = req.params['limit'];
+    job.all(offset, limit)
         .then(function (result) {
             const data = {
                 jobList: result
@@ -85,6 +87,20 @@ router.get('/list_job', function (req, res) {
             res.status(500).json({ errors: [err]});
         })
 });
+
+router.get('/total_count', function (req, res) {
+    job.totalCount()
+        .then(function (result) {
+            const data = {
+                total: result[0]['count(*)']
+            };
+
+            res.status(200).json(data);
+        })
+        .catch(function (err) {
+            res.status(500).json({ errors: [err]});
+        })
+})
 
 router.get('/:id', function (req, res) {
     const id = req.params['id'];

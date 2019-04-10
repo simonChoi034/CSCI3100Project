@@ -56,7 +56,7 @@ module.exports.create = (body) => {
         })
 };
 
-module.exports.all = () => {
+module.exports.all = (offset, limit) => {
     return db(TABLES.JOB)
         .join(TABLES.DISTRICT, TABLES.DISTRICT.concat('.id'), '=', TABLES.JOB.concat('.district_id'))
         .join(TABLES.REGION, TABLES.REGION.concat('.id'), '=', TABLES.DISTRICT.concat('.region_id'))
@@ -64,6 +64,8 @@ module.exports.all = () => {
         .join(TABLES.STUDENT_LEVEL, TABLES.STUDENT_LEVEL.concat('.id'), '=', TABLES.JOB.concat('.student_level_id'))
         .join(TABLES.JOB_SUBJECT, TABLES.JOB_SUBJECT.concat('.job_id'), '=', TABLES.JOB.concat('.id'))
         .join(TABLES.SUBJECT, TABLES.JOB_SUBJECT.concat('.subject_id'), '=', TABLES.SUBJECT.concat('.id'))
+        .offset(parseInt(offset))
+        .limit(parseInt(limit))
         .select('job.id as id',
             'district.name as district',
             'region.name as region',
@@ -82,5 +84,10 @@ module.exports.all = () => {
         )
         .where('open', true)
         .orderBy('create_time', 'desc')
-        .returning('*')
 };
+
+module.exports.totalCount = () => {
+    return db(TABLES.JOB)
+        .where('open', true)
+        .count()
+}
