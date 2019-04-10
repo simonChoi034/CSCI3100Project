@@ -97,14 +97,6 @@ class Login extends Component {
                     </FormGroup>
                     <FormGroup>
                         <Button
-                            color="danger"
-                            size="lg"
-                            className="float-left"
-                            href="/forget_pw"
-                        >
-                            Forget password
-                        </Button>
-                        <Button
                             color="success"
                             size="lg"
                             className="float-right"

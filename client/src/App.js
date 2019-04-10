@@ -11,7 +11,6 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Tutors from './pages/Tutors';
 import Jobs from './pages/JobsWall';
-import Forget_PW from "./pages/ForgetPassword";
 
 class App extends Component {
 
@@ -46,7 +45,6 @@ class App extends Component {
                                     <Route path='/register' component={Register} />
                                     <Route path='/tutors' component={Tutors} />
                                     <Route path='/jobs' component={Jobs} />
-                                    <Route path='/forget_pw' component={Forget_PW} />
                                 </Switch>
                             </div>
                         </div>
