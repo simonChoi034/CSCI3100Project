@@ -21,7 +21,7 @@ class TutorModal extends Component{
         const sex = data.sex === 'M' ? "Male" : "Female";
 
         return (
-            <Button outline color={color}>
+            <Button disabled outline color={color}>
                 { sex }
             </Button>
         )

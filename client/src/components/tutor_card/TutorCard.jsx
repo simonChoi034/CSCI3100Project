@@ -23,7 +23,7 @@ class TutorCard extends Component {
         const color = this.state.tutor.sex === 'M' ? 'primary' : 'danger';
 
         return (
-            <Button outline color={color}>
+            <Button disabled outline color={color}>
                 Tutor: {this.state.tutor.nick_name}
             </Button>
         )

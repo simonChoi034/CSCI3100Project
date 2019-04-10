@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
+import './JobModal.css'
 import {
+    Row,
+    Col,
     Modal,
     ModalHeader,
     ModalBody,
@@ -22,42 +25,49 @@ class JobModal extends Component{
         const data = this.props.modalData;
         if (data) {
             content.push(
-                (<ListGroupItem key = {1}> 
-                    <ListGroupItemHeading>{'Region:'}</ListGroupItemHeading> 
-                    <ListGroupItemText>{data.region}</ListGroupItemText>  
-                </ListGroupItem>),
-                (<ListGroupItem key = {2}> 
-                    <ListGroupItemHeading>{'District:'} </ListGroupItemHeading>
-                    <ListGroupItemText>{data.district}</ListGroupItemText>
-                </ListGroupItem>),
-                (<ListGroupItem key = {3}> 
-                    <ListGroupItemHeading>{'Student Level:'}</ListGroupItemHeading> 
-                    <ListGroupItemText>{data.student_level}</ListGroupItemText>  
-                </ListGroupItem>),
-                (<ListGroupItem key = {4}> 
-                    <ListGroupItemHeading>{'Tuition Fee:'}</ListGroupItemHeading> 
-                    <ListGroupItemText>{data.tuition_fee}</ListGroupItemText>
-                </ListGroupItem>),
-                (<ListGroupItem key = {5}> 
-                    <ListGroupItemHeading>{'Number of Student:'}</ListGroupItemHeading> 
-                    <ListGroupItemText>{data.num_of_student} </ListGroupItemText>
-                </ListGroupItem>),
-                (<ListGroupItem key = {6}> 
-                    <ListGroupItemHeading>{'Tutorial time per week:'}</ListGroupItemHeading>  
-                    <ListGroupItemText>{data.times_per_week}</ListGroupItemText>  
-                </ListGroupItem>),
-                (<ListGroupItem key = {7}> 
-                    <ListGroupItemHeading>{'Duration:'} </ListGroupItemHeading>
-                    <ListGroupItemText>{data.duration}</ListGroupItemText>  
-                </ListGroupItem>),
-                (<ListGroupItem key = {8}> 
-                    <ListGroupItemHeading>{'Lesson Time:'}</ListGroupItemHeading> 
-                    <ListGroupItemText>{data.lesson_time}</ListGroupItemText>
-                </ListGroupItem>),
-                (<ListGroupItem key = {9}> 
-                    <ListGroupItemHeading>{'Remark:'} </ListGroupItemHeading>
-                    <ListGroupItemText>{data.remark}</ListGroupItemText>  </ListGroupItem>)
-            )
+                (<Row>
+                    <Col>
+                        <ListGroupItem key = {1}>
+                            <ListGroupItemHeading>{'Region:'}</ListGroupItemHeading>
+                            <ListGroupItemText>{data.region}</ListGroupItemText>
+                        </ListGroupItem>
+                        <ListGroupItem key = {2}>
+                            <ListGroupItemHeading>{'District:'} </ListGroupItemHeading>
+                            <ListGroupItemText>{data.district}</ListGroupItemText>
+                        </ListGroupItem>
+                        <ListGroupItem key = {3}>
+                            <ListGroupItemHeading>{'Student Level:'}</ListGroupItemHeading>
+                            <ListGroupItemText>{data.student_level}</ListGroupItemText>
+                        </ListGroupItem>
+                        <ListGroupItem key = {4}>
+                            <ListGroupItemHeading>{'Tuition Fee:'}</ListGroupItemHeading>
+                            <ListGroupItemText>{data.tuition_fee}</ListGroupItemText>
+                        </ListGroupItem>
+                        <ListGroupItem key = {5}>
+                            <ListGroupItemHeading>{'Number of Student:'}</ListGroupItemHeading>
+                            <ListGroupItemText>{data.num_of_student} </ListGroupItemText>
+                        </ListGroupItem>
+                    </Col>
+                    <Col>
+                        <ListGroupItem key = {6}>
+                            <ListGroupItemHeading>{'Tutorial time per week:'}</ListGroupItemHeading>
+                            <ListGroupItemText>{data.times_per_week}</ListGroupItemText>
+                        </ListGroupItem>
+                            <ListGroupItem key = {7}>
+                            <ListGroupItemHeading>{'Duration:'} </ListGroupItemHeading>
+                            <ListGroupItemText>{data.duration}</ListGroupItemText>
+                        </ListGroupItem>
+                            <ListGroupItem key = {8}>
+                            <ListGroupItemHeading>{'Lesson Time:'}</ListGroupItemHeading>
+                            <ListGroupItemText>{data.lesson_time}</ListGroupItemText>
+                        </ListGroupItem>
+                            <ListGroupItem key = {9}>
+                            <ListGroupItemHeading>{'Remark:'} </ListGroupItemHeading>
+                            <ListGroupItemText>{data.remark}</ListGroupItemText>
+                        </ListGroupItem>
+                    </Col>
+                </Row>
+            ))
         }
         return content;
     }
