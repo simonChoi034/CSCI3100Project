@@ -30,8 +30,8 @@ class TutorsWall extends Component {
             <Fade>
                 <Container fluid>
                     <Row>
-                        {this.state.tutors.map((tutor) =>
-                            <TutorCard tutor={tutor} />
+                        {this.state.tutors.map((tutor, key) =>
+                            <TutorCard key={key} tutor={tutor} />
                         )}
                     </Row>
                 </Container>

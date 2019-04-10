@@ -1,23 +1,24 @@
 .card{
-    margin-top: 10px;
-    margin-bottom:10px;
-    background-color: white !important;
-    border-radius: 0.41rem;
-    border: 1px solid;
-    border-color: rgba(0,0,0,0.2);
-    transition: all .3s ease-in-out;
-    box-shadow: 5px 5px 25px 0px rgba(46, 61, 73, 0.2);
+  margin-top: 10px;
+  margin-bottom:10px;
+  background-color: rgba(255, 255, 255, 0.815) !important;
+  border-radius: 0.5rem !important;
+  border: 1px solid;
+  border-color: rgba(0,0,0,0.2);
+  transition: all .3s ease-in-out;
+  box-shadow: 5px 5px 25px 0px rgba(46, 61, 73, 0.2);
 }
 
 .card:hover {
-    box-shadow: 2px 4px 8px 0px rgba(46, 61, 73, 0.2);
+  box-shadow: 2px 4px 8px 0px rgba(46, 61, 73, 0.6);
+  background-color: rgba(255, 255, 255, 0.2) !important;
 }
 
 .card-body{
-    padding-left: 2rem !important;
+  padding-left: 2rem !important;
 }
 
-.more_btn{
-    margin-left:4rem;
-    margin-right: 4rem;
+.detail_btn{
+  margin-left: 5rem ;
+  margin-right: 5rem ; 
 }
