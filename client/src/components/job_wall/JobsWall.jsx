@@ -6,7 +6,10 @@ import JobModal from '../job_wall/JobModal';
 import {
     Button,
     Row,
-    Fade
+    Fade,
+    Pagination,
+    PaginationItem,
+    PaginationLink
 } from 'reactstrap';
 
 class JobsWall extends Component {
@@ -16,7 +19,10 @@ class JobsWall extends Component {
         this.state = {
             jobs: [],
             modal: false,
-            modalData: null
+            modalData: null,
+            limit: 8,
+            offset: 0,
+            page: []
         };
 
         this.toggle = this.toggle.bind(this);
@@ -50,8 +56,13 @@ class JobsWall extends Component {
         )
     }
 
+    updatePagination() {
+
+    }
+
     render() {
         return (
+            <div>
             <Fade>
                 { this.createModal() }
                 {
@@ -65,6 +76,50 @@ class JobsWall extends Component {
                     )}
                 </Row>
             </Fade>
+
+            <Row>
+            
+            <Pagination aria-label="Page navigation example">
+            <PaginationItem disabled>
+                <PaginationLink first href="#" />
+              </PaginationItem>
+              <PaginationItem disabled>
+                <PaginationLink previous href="#" />
+              </PaginationItem>
+              <PaginationItem active>
+                <PaginationLink href="#">
+                  {this.state.offset / this.state.limit}
+                </PaginationLink>
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationLink href="#">
+                  {this.state.offset / this.state.limit}
+                </PaginationLink>
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationLink href="#">
+                  3
+                </PaginationLink>
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationLink href="#">
+                  4
+                </PaginationLink>
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationLink href="#">
+                  5
+                </PaginationLink>
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationLink next href="#" />
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationLink last href="#" />
+              </PaginationItem>
+            </Pagination>
+            </Row>
+            </div>
         );
     }
 }
