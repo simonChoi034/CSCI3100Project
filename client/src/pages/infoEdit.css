@@ -1,0 +1,28 @@
+@media all and (min-width: 480px) {
+    #infoEdit {
+        margin-bottom: 1rem !important;
+        position: relative;
+        left: 50%;
+        -ms-transform: translate(-50%);
+        transform: translate(-50%);
+        top:1rem !important;
+        width: 600px;
+    }
+
+    #infoEdit form {
+        margin: 0 auto;
+        width: auto;
+        border: 1px solid lightgray;
+        border-radius: 5px;
+
+    }
+
+    .form-group{
+        text-align: left;
+        padding: 5px 20px 5px 20px;
+    }
+
+    .row{
+        margin-bottom: 1rem;
+    }
+}
