@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Form, FormGroup, Label, Input, Alert } from "reactstrap";
+import { Button, Form, FormGroup, Label, Input, Alert, Container } from "reactstrap";
 import "./Login.css";
 import axios from 'axios';
 import { authenticationService } from "../components/auth/authentication.service";
@@ -54,60 +54,62 @@ class Login extends Component {
             <div id="Login">
                 <h1>TeachHub</h1>
                 <h3>User Login</h3>
-                <Form onSubmit={this.handleSubmit}>
-                    <FormGroup>
-                        <Label for="email">Email address</Label>
-                        <Input
-                            autoFocus
-                            type="email"
-                            name='email'
-                            id='email'
-                            placeholder="Enter your email address"
-                            value={this.state.email}
-                            onChange={this.handleChange}
-                        />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for="password">Password</Label>
-                        <Input
-                            type="password"
-                            name="password"
-                            id="password"
-                            placeholder="Enter your password"
-                            value={this.state.password}
-                            onChange={this.handleChange}
-                        />
-                    </FormGroup>
-                    {
-                        this.state.error ?
-                            <Alert color='danger'>
-                                {this.state.error_message}
-                            </Alert> : null
-                    }
-                    <FormGroup>
-                        <Button
-                            color="primary"
-                            size="lg"
-                            block
-                            disabled={!this.validateForm()}
-                            type="submit"
-                        >
-                            Login
-                    </Button>
-                    </FormGroup>
-                    <FormGroup>
-                        <Button
-                            outline
-                            block
-                            color="success"
-                            size="lg"
-                            className="float-left"
-                            href="/register"
-                        >
-                            Register now
+                <Container fluid>
+                    <Form onSubmit={this.handleSubmit}>
+                        <FormGroup>
+                            <Label for="email">Email address</Label>
+                            <Input
+                                autoFocus
+                                type="email"
+                                name='email'
+                                id='email'
+                                placeholder="Enter your email address"
+                                value={this.state.email}
+                                onChange={this.handleChange}
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for="password">Password</Label>
+                            <Input
+                                type="password"
+                                name="password"
+                                id="password"
+                                placeholder="Enter your password"
+                                value={this.state.password}
+                                onChange={this.handleChange}
+                            />
+                        </FormGroup>
+                        {
+                            this.state.error ?
+                                <Alert color='danger'>
+                                    {this.state.error_message}
+                                </Alert> : null
+                        }
+                        <FormGroup>
+                            <Button
+                                color="primary"
+                                size="lg"
+                                block
+                                disabled={!this.validateForm()}
+                                type="submit"
+                            >
+                                Login
                         </Button>
-                    </FormGroup>
-                </Form>
+                        </FormGroup>
+                        <FormGroup>
+                            <Button
+                                outline
+                                block
+                                color="success"
+                                size="lg"
+                                className="float-left"
+                                href="/register"
+                            >
+                                Register now
+                            </Button>
+                        </FormGroup>
+                    </Form>
+                </Container>
             </div>
         );
     }

@@ -5,6 +5,7 @@ import TutorRegister from "../components/tutor_register/TutorRegister"
 import ParentRegister from "../components/parent_register/ParentRegister"
 import {
   Row, 
+  Container
 } from 'reactstrap';
 
 class Register extends Component {
@@ -46,21 +47,23 @@ class Register extends Component {
     render(){
         return (
             <div id="Register">
-                <Row>
-                    <Button
-                        color="success"
-                        className="text-center pull-left" 
-                        id="tutor_btn"
-                        onClick={this.handleClickTutor}>Tutor Registration
-                    </Button>
-                    <Button 
-                        color="secondary"
-                        className="text-center"
-                        id="parent_btn"
-                        onClick={this.handleClickParent}>Parent Registration
-                    </Button>
-                </Row>
-                {this.state.out}
+                <Container fluid>
+                    <Row>
+                        <Button
+                            color="success"
+                            className="text-center pull-left mx-3" 
+                            id="tutor_btn"
+                            onClick={this.handleClickTutor}>Tutor Registration
+                        </Button>
+                        <Button 
+                            color="secondary"
+                            className="text-center mx-3"
+                            id="parent_btn"
+                            onClick={this.handleClickParent}>Parent Registration
+                        </Button>
+                    </Row>
+                    {this.state.out}
+                </Container>
             </div>
         );
     }
