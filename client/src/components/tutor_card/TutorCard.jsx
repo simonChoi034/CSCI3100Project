@@ -41,7 +41,7 @@ class TutorCard extends Component {
                         color="info"
                         onClick={ (event) => this.props.toggle(event, this.state.tutor) }
                     >
-                        More info
+                        More information
                     </Button>
                 </Card>
             </Col>
