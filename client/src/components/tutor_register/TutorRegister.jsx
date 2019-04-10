@@ -178,7 +178,12 @@ class TutorRegister extends Component {
                 </FormGroup>
                 <FormGroup>
                     <Label for="sex">Sex:</Label>
-                    <Input type="select" >
+                    <Input
+                        type="select"
+                        id="sex"
+                        name="sex"
+                        onChange={this.handleChange}
+                    >
                         <option value='M'>Male</option>
                         <option value='F'>Female</option>
                     </Input>
@@ -203,8 +208,8 @@ class TutorRegister extends Component {
                     <Label for="education_level">Education Level:</Label>
                     <Input
                         type="select"
-                        name="education_level"
                         id="education_level"
+                        name="education_level"
                         onChange={this.handleChange}>
                         { this.state.eduLevelList && this.creatDropDown() }
                     </Input>
