@@ -19,11 +19,21 @@ class TutorCard extends Component {
         };
     }
 
+    createCardTitle() {
+        const color = this.state.tutor.sex === 'M' ? 'primary' : 'danger';
+
+        return (
+            <Button outline color={color}>
+                Tutor: {this.state.tutor.nick_name}
+            </Button>
+        )
+    }
+
     render() {
         return (
             <Col xs="12" sm="6" lg="4">
                 <Card body className="my-3">
-                    <CardTitle><Button outline color="primary">Name: {this.state.tutor.nick_name}</Button></CardTitle>
+                    <CardTitle>{ this.createCardTitle() }</CardTitle>
                     <CardText className="text-left">Gender: {this.state.tutor.sex}</CardText>
                     <CardText className="text-left">Education Level: {this.state.tutor.education_level}</CardText>
                     <Button

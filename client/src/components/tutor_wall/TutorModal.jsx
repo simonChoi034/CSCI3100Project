@@ -16,12 +16,22 @@ class TutorModal extends Component{
         super(props);
     }
 
+    mapTutorSex(data){
+        const color = data.sex === 'M' ? "primary" : "danger";
+        const sex = data.sex === 'M' ? "Male" : "Female";
+
+        return (
+            <Button outline color={color}>
+                { sex }
+            </Button>
+        )
+    }
+
     createModalContent() {
         const content = [];
         const data = this.props.modalData;
 
         if (data) {
-            console.log(data);
             content.push(
                 (<ListGroupItem key={1}>
                     <ListGroupItemHeading>Tutor name:</ListGroupItemHeading>
@@ -29,7 +39,7 @@ class TutorModal extends Component{
                 </ListGroupItem>),
                 (<ListGroupItem key={2}>
                     <ListGroupItemHeading>Sex:</ListGroupItemHeading>
-                    <ListGroupItemText>{ data.sex }</ListGroupItemText>
+                    <ListGroupItemText>{ this.mapTutorSex(data) }</ListGroupItemText>
                 </ListGroupItem>),
                 (<ListGroupItem key={3}>
                     <ListGroupItemHeading>Education level:</ListGroupItemHeading>
