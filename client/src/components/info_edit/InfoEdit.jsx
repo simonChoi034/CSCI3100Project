@@ -185,7 +185,7 @@ class InfoEdit extends Component {
                     className="text-center"
                     disabled={!this.validateForm()}
                 >
-                    Register as Parent
+                    Edit
                 </Button>
             </Form>
         );
