@@ -58,13 +58,13 @@ class NavbarComponent extends Component {
 
     render() {
         return (
-            <Navbar id="nav-bar" expand="md">
+            <Navbar id="nav-bar" expand="sm">
                 <NavbarBrand className="btn btn-outline-light m-0" href="/">TeachHub</NavbarBrand>
-                <NavbarToggler className="navbar-light" onClick={this.toggle}/>
                 {
                     this.props.currentUser &&
-                    <h4 className={"text-light"}><b>Hi {this.props.currentUser.username}</b></h4>
+                    <Nav id = 'hi' className="text-light mx-1"><b>Hi {this.props.currentUser.username}</b></Nav>
                 }
+                <NavbarToggler className="navbar-light float-right" onClick={this.toggle}/>
                 <Collapse isOpen={this.state.isOpen} navbar>
                     <Nav className="ml-auto" navbar>
                         <NavItem>
