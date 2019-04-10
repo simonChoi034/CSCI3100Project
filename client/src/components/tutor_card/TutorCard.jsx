@@ -23,7 +23,7 @@ class TutorCard extends Component {
         const color = this.state.tutor.sex === 'M' ? 'primary' : 'danger';
 
         return (
-            <Button disabled outline color={color}>
+            <Button outline disabled color={color}>
                 Tutor: {this.state.tutor.nick_name}
             </Button>
         )
@@ -37,9 +37,8 @@ class TutorCard extends Component {
                     <CardText className="text-left">Gender: {this.state.tutor.sex}</CardText>
                     <CardText className="text-left">Education Level: {this.state.tutor.education_level}</CardText>
                     <Button
-                        className = "contact_btn"
-                        color="primary"
-                        block
+                        className = "contact_btn mx-1"
+                        color="info"
                         onClick={ (event) => this.props.toggle(event, this.state.tutor) }
                     >
                         More info
