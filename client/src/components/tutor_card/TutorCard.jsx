@@ -11,6 +11,7 @@ import {
 
 class TutorCard extends Component {
 
+    
     constructor(props) {
         super(props);
         this.state = {
@@ -20,9 +21,9 @@ class TutorCard extends Component {
 
     render() {
         return (
-            <Col xs="12" sm="6" md="4" lg="3">
+            <Col xs="12" sm="6" lg="4">
                 <Card body className="my-3">
-                    <CardTitle>{this.state.tutor.nick_name}</CardTitle>
+                    <CardTitle><Button outline color="primary">Name: {this.state.tutor.nick_name}</Button></CardTitle>
                     <CardText className="text-left">Gender: {this.state.tutor.sex}</CardText>
                     <CardText className="text-left">Education Level: {this.state.tutor.education_level}</CardText>
                     <Button
