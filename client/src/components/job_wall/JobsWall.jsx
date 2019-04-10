@@ -7,10 +7,7 @@ import PageBar from '../page_bar/PageBar';
 import {
     Button,
     Row,
-    Fade,
-    Pagination,
-    PaginationItem,
-    PaginationLink
+    Fade
 } from 'reactstrap';
 
 class JobsWall extends Component {
@@ -23,11 +20,12 @@ class JobsWall extends Component {
             modalData: null,
             totalJobs: 0,
             totalPages: 0,
-            limit: 4,
+            limit: 6,
             offset: 0,
             curPage: 1,
             pages: [],
-            pageBarDisplay: null
+            pageBarDisplay: null,
+            jobCardsDisplay: null,
         };
 
         this.toggle = this.toggle.bind(this);
@@ -36,7 +34,7 @@ class JobsWall extends Component {
 
     componentDidMount() {
         this.setupPageBar();
-        this.getJobs();
+        this.getJobs(this.state.offset, this.state.limit);
     }
 
     setupPageBar() {
@@ -54,27 +52,48 @@ class JobsWall extends Component {
                   pages: pages
                 })
                 
-                const props = {
-                    curPage: 1 + Math.floor(this.state.offset / this.state.limit),
-                    pages: this.state.pages,
-                    onPageChange: this.onPageChange
-                }
-                
-                this.setState({pageBarDisplay: <PageBar {...props} />});
+                this.updatePageBar();
             })
             .catch(err => console.error(err.toString()))
     }
 
-    getJobs() {
-        axios.get("/api/job/list_job/".concat(this.state.offset).concat("/").concat(this.state.limit))
+    // not quite useful, might consider merge to setupPageBar()
+    updatePageBar() {
+      const props = {
+          curPage: 1 + Math.floor(this.state.offset / this.state.limit),
+          pages: this.state.pages,
+          onPageChange: this.onPageChange
+      }
+      this.setState({pageBarDisplay: <PageBar {...props} />});
+    }
+
+    createJobCards(jobs) {
+        var item = [];
+        jobs.map((job, key) => {
+            item.push(<JobCard key = {key} job={job} toggle={this.toggle}/>);
+        });
+        this.setState({
+            jobCardsDisplay: item
+        });
+    }
+
+    getJobs(offset, limit) {
+        axios.get("/api/job/list_job/".concat(offset).concat("/").concat(limit))
             .then(res => {
-                this.setState({jobs: res.data.jobList})
+                const jobs = res.data.jobList;
+                this.setState({jobs: jobs});
+                this.createJobCards(jobs);
             })
             .catch(err => console.error(err.toString()))
     }
 
-    onPageChange(event, data) {
-
+    onPageChange(event, page) {
+        const new_offset = (page - 1) * this.state.limit;
+        this.setState({
+            offset: new_offset,
+            curPage: page
+        });
+        this.getJobs(new_offset, this.state.limit);
     }
 
     toggle(event, data) {
@@ -108,9 +127,7 @@ class JobsWall extends Component {
                             : null
                     }
                     <Row>
-                        {this.state.jobs.map((job, key) => 
-                            <JobCard key = {key} job={job} toggle={this.toggle}/>
-                        )}
+                        { this.state.jobCardsDisplay }
                     </Row>
                 </Fade>
 
