@@ -55,10 +55,9 @@ class JobsWall extends Component {
                 })
                 
                 const props = {
-                  offset: this.state.offset,
-                  limit: this.state.limit,
-                  pages: this.state.pages,
-                  onPageChange: this.onPageChange
+                    curPage: 1 + Math.floor(this.state.offset / this.state.limit),
+                    pages: this.state.pages,
+                    onPageChange: this.onPageChange
                 }
                 
                 this.setState({pageBarDisplay: <PageBar {...props} />});

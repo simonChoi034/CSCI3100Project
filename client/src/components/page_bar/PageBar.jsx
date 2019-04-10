@@ -17,11 +17,9 @@ class PageBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            limit: props.limit,
-            offset: props.offset,
+            curPage: props.curPage,
             pages: props.pages,
             onPageChange: props.onPageChange,
-            curPage: 1,
             pageItems: []
         };
     }
