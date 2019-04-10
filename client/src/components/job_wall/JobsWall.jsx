@@ -71,8 +71,8 @@ class JobsWall extends Component {
                         : null
                 }
                 <Row>
-                    {this.state.jobs.map((job) => 
-                        <JobCard job={job} toggle={this.toggle}/>
+                    {this.state.jobs.map((job, key) => 
+                        <JobCard key = {key} job={job} toggle={this.toggle}/>
                     )}
                 </Row>
             </Fade>
