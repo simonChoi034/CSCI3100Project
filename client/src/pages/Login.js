@@ -97,9 +97,11 @@ class Login extends Component {
                     </FormGroup>
                     <FormGroup>
                         <Button
+                            outline
+                            block
                             color="success"
                             size="lg"
-                            className="float-right"
+                            className="float-left"
                             href="/register"
                         >
                             Register now
