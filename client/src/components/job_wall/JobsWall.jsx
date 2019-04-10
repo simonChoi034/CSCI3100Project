@@ -60,8 +60,6 @@ class JobsWall extends Component {
                   pages: this.state.pages,
                   onPageChange: this.onPageChange
                 }
-                console.log("in wall");
-                console.log(props);
                 
                 this.setState({pageBarDisplay: <PageBar {...props} />});
             })

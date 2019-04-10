@@ -16,11 +16,11 @@ class PageBar extends Component {
 
     constructor(props) {
         super(props);
-        console.log(props);
         this.state = {
             limit: props.limit,
             offset: props.offset,
             pages: props.pages,
+            onPageChange: props.onPageChange,
             curPage: 1,
             pageItems: []
         };
@@ -32,7 +32,6 @@ class PageBar extends Component {
 
     updatePagination() {
         var item = [];
-        console.log(this.state);
         this.state.pages.map((value, key) => {
             if (value == this.state.curPage) {
                 item.push(
