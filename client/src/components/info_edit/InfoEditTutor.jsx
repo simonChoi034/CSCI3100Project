@@ -13,6 +13,7 @@ import {
     ListGroupItemText
 } from "reactstrap";
 import "./InfoEditTutor.css";
+import Password from './ChangePassword'
 import axios from 'axios';
 import dateformat from 'dateformat';
 
@@ -22,16 +23,15 @@ class InfoEditTutor extends Component{
         super(props);
         this.state = {
             id:'',
-            password: '',
-            confirm_password: '',
             email: '',
             description: '',
             error: false,
             error_message: ''
         };
+        this.toggle = this.toggle.bind(this);
     }
 
-    componentDidMount() {
+    componentWillMount() {
         var self = this;
         axios.get('/api/user/tutor_register')
             .then(function (res) {
@@ -73,9 +73,6 @@ class InfoEditTutor extends Component{
         return options;
     }
 
-    validateForm() {
-        return this.state.password.length > 0 && (this.state.password === this.state.confirm_password);
-    }
 
     handleChange = event => {
         this.setState({
@@ -83,13 +80,31 @@ class InfoEditTutor extends Component{
         });
     }
 
+    toggle(event, data) {
+        this.setState(prevState => ({
+            modal: !prevState.modal,
+            modalData: data
+        }));
+    }
+
+    createModal() {
+        const props = {
+            modal: this.state.modal,
+            toggle: this.toggle,
+            className: this.props.className,
+            modalData: this.state.modalData
+        };
+
+        return (
+            <Password {...props}/>
+        )
+    
+    }
 
     handleSubmit = event => {
         event.preventDefault();
         const data = {
             id: this.state.id,
-            password: this.state.password,
-            confirm_password: this.state.confirm_password,
             phone: this.state.phone,
             full_name_ch: this.state.full_name_ch,
             full_name_en: this.state.full_name_en,
@@ -125,24 +140,10 @@ class InfoEditTutor extends Component{
                     <Form id = "info_edit" key = {'Form'} onSubmit={this.handleSubmit}>
                     <ListGroupItemHeading>Username: </ListGroupItemHeading>
                     <ListGroupItem id = 'username'>{data.username}</ListGroupItem>  
-                    <ListGroupItemHeading>New Password: </ListGroupItemHeading>
-                    <FormGroup>
-                        <Input
-                            type="password"
-                            name="password"
-                            id="password"
-                            onChange={this.handleChange}
-                        />
-                    </FormGroup>
-                    <ListGroupItemHeading>Confirm Password: </ListGroupItemHeading>
-                    <FormGroup>
-                        <Input
-                            type="password"
-                            name="confirm_password"
-                            id="confirm_password"
-                            onChange={this.handleChange}
-                        />
-                    </FormGroup>
+                    <ListGroupItemHeading>Change Password: </ListGroupItemHeading>
+                    <ListGroupItem id = 'pw'>
+                    <Button outline color = 'info' onClick={(event) => this.toggle(event, this.state.id)}>Click here to change Password</Button>
+                    </ListGroupItem>
                     <ListGroupItemHeading>Email Address: </ListGroupItemHeading>
                     <ListGroupItem id = 'email'>{data.email}</ListGroupItem>  
                     <ListGroupItemHeading>Phone: </ListGroupItemHeading>
@@ -222,7 +223,6 @@ class InfoEditTutor extends Component{
                         id="normal_submit_btn"
                         color="primary"
                         className="text-center float-right"
-                        disabled={!this.validateForm()}
                     >
                         Edit Profile
                     </Button>
@@ -235,6 +235,7 @@ class InfoEditTutor extends Component{
     handleModal() {
         return (
             <Modal isOpen={this.props.modal} toggle={this.props.toggle} className={this.props.className} size={'lg'}>
+                { this.createModal() }
                 <ModalHeader toggle={this.props.toggle}>
                     <div className={"d-flex justify-content-center"}>
                         <b>Profile Edit</b>

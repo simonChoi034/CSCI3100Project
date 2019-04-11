@@ -13,6 +13,7 @@ import {
     ListGroupItemText
 } from "reactstrap";
 import "./InfoEditParent.css";
+import Password from './ChangePassword'
 import axios from 'axios';
 
 
@@ -29,9 +30,10 @@ class InfoEditParent extends Component{
             living_district: '',
             address: ''
         };
+        this.toggle = this.toggle.bind(this);
     }
 
-    componentDidMount() {
+    componentWillMount() {
         var self = this;
         axios.get('/api/user/parent_register')
             .then(function (res) {
@@ -74,8 +76,25 @@ class InfoEditParent extends Component{
         return options;
     }
 
-    validateForm() {
-        return this.state.password.length > 0 && (this.state.password === this.state.confirm_password);
+    toggle(event, data) {
+        this.setState(prevState => ({
+            modal: !prevState.modal,
+            modalData: data
+        }));
+    }
+
+    createModal() {
+        const props = {
+            modal: this.state.modal,
+            toggle: this.toggle,
+            className: this.props.className,
+            modalData: this.state.modalData
+        };
+
+        return (
+            <Password {...props}/>
+        )
+    
     }
 
     handleChange = event => {
@@ -123,24 +142,10 @@ class InfoEditParent extends Component{
                     <Form id = "info_edit" key = {'Form'} onSubmit={this.handleSubmit}>
                     <ListGroupItemHeading>Username: </ListGroupItemHeading>
                     <ListGroupItem id = 'username'>{data.username}</ListGroupItem>  
-                    <ListGroupItemHeading>New Password: </ListGroupItemHeading>
-                    <FormGroup>
-                        <Input
-                            type="password"
-                            name="password"
-                            id="password"
-                            onChange={this.handleChange}
-                        />
-                    </FormGroup>
-                    <ListGroupItemHeading>Confirm Password: </ListGroupItemHeading>
-                    <FormGroup>
-                        <Input
-                            type="password"
-                            name="confirm_password"
-                            id="confirm_password"
-                            onChange={this.handleChange}
-                        />
-                    </FormGroup>
+                    <ListGroupItemHeading>Change Password: </ListGroupItemHeading>
+                    <ListGroupItem id = 'pw'>
+                    <Button outline color = 'info' onClick={(event) => this.toggle(event, this.state.id)}>Click here to change Password</Button>
+                    </ListGroupItem>
                     <ListGroupItemHeading>Email Address: </ListGroupItemHeading>
                     <ListGroupItem id = 'email'>{data.email}</ListGroupItem>  
                     <ListGroupItemHeading>Name: </ListGroupItemHeading>
@@ -197,7 +202,6 @@ class InfoEditParent extends Component{
                         id="normal_submit_btn"
                         color="primary"
                         className="text-center float-right"
-                        disabled={!this.validateForm()}
                     >
                         Edit Profile
                     </Button>
