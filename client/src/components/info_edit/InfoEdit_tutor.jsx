@@ -28,6 +28,7 @@ class InfoEdit_Tutor extends Component{
             error: false,
             error_message: ''
         };
+        console.log(this.props)
     }
 
     componentDidMount() {
@@ -79,10 +80,10 @@ class InfoEdit_Tutor extends Component{
         };
 
         var self = this;
-        axios.post('/api/user/info_edit', data)
+        axios.post('/api/user/info_edit_tutor', data)
             .then(function (res) {
                 console.log(self.props);
-                self.props.history.push('/login');
+                self.props.history.push('/');
             })
             .catch(function (err){
                 const errors = err.response.data.errors;

@@ -89,10 +89,10 @@ class InfoEdit_Parent extends Component{
         };
 
         var self = this;
-        axios.post('/api/user/info_edit', data)
+        axios.post('/api/user/info_edit_parent', data)
             .then(function (res) {
                 console.log(self.props);
-                self.props.history.push('/login');
+                self.props.history.push('/');
             })
             .catch(function (err){
                 const errors = err.response.data.errors;
