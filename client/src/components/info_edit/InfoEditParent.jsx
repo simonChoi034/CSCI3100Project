@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FaUserEdit } from "react-icons/fa";
 import {
     Button, FormGroup, Label, Form, Input,
     Modal,
@@ -213,7 +214,7 @@ class InfoEditParent extends Component{
             {this.createModal()}
                 <ModalHeader toggle={this.props.toggle}>
                     <div className={"d-flex justify-content-center"}>
-                        <b>Profile Edit</b>
+                        <b>Profile Edit <FaUserEdit className="ml-1 align-middle"/></b>
                     </div>
                 </ModalHeader>
                 <ModalBody>
