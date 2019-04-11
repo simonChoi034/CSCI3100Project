@@ -13,14 +13,14 @@ img{
 .carousel{
     max-height: 100% !important;
     margin: 0px !important;
-    margin-top: 50px !important;
+    margin-top: 58px !important;
     padding-top: 0 !important;
     max-width: 100%;
 }
 
 @media (max-width:320px){
     .carousel{
-        margin-top: 98px !important;
+        margin-top: 58px !important;
     }
 }
 
