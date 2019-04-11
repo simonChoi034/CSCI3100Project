@@ -56,7 +56,7 @@ class Register extends Component {
                             onClick={this.handleClickTutor}>Tutor Registration
                         </Button>
                         <Button 
-                            color="secondary"
+                            color="primary"
                             className="text-center mx-3"
                             id="parent_btn"
                             onClick={this.handleClickParent}>Parent Registration

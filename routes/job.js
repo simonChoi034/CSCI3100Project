@@ -72,9 +72,9 @@ router.post('/create_job', [
     }
 });
 
-router.get('/list_job/:offset/:limit', function (req, res) {
-    offset = req.params['offset'];
-    limit = req.params['limit'];
+router.get('/list_job', function (req, res) {
+    offset = req.query['offset'];
+    limit = req.query['limit'];
     job.all(offset, limit)
         .then(function (result) {
             const data = {

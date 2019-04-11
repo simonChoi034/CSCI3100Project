@@ -284,7 +284,9 @@ router.post('/tutor_register', [
 });
 
 router.get('/list_tutor', function (req, res) {
-    tutor.all()
+    offset = req.query['offset'];
+    limit = req.query['limit'];
+    tutor.all(offset, limit)
         .then(function (result) {
             const data = {
                 tutorList: result
@@ -295,5 +297,19 @@ router.get('/list_tutor', function (req, res) {
             res.status(500).json({ errors: [err]});
         })
 });
+
+router.get('/tutor_total_count', function (req, res) {
+    tutor.totalCount()
+        .then(function (result) {
+            const data = {
+                total: result[0]['count(*)']
+            };
+
+            res.status(200).json(data);
+        })
+        .catch(function (err) {
+            res.status(500).json({ errors: [err]});
+        })
+})
 
 module.exports = router;

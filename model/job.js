@@ -82,7 +82,6 @@ module.exports.all = (offset, limit) => {
         )
         .where('open', true)
         .orderBy('create_time', 'desc')
-        .returning('*')
         .offset(parseInt(offset))
         .limit(parseInt(limit))
 };

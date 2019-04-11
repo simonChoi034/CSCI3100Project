@@ -20,7 +20,7 @@ class JobsWall extends Component {
             modalData: null,
             totalJobs: 0,
             totalPages: 0,
-            limit: 4,
+            limit: 8,
             offset: 0,
             curPage: 1,
             pages: [],
@@ -34,6 +34,17 @@ class JobsWall extends Component {
     componentDidMount() {
         this.setupPageBar();
         this.getJobs(this.state.offset, this.state.limit);
+    }
+
+    getJobs(offset, limit) {
+        axios.get("/api/job/list_job/?offset=".concat(offset).concat("&limit=").concat(limit))
+            .then(res => {
+                const jobs = res.data.jobList;
+                this.setState({
+                    jobs: jobs
+                });
+            })
+            .catch(err => console.error(err.toString()))
     }
 
     setupPageBar() {
@@ -56,7 +67,6 @@ class JobsWall extends Component {
             .catch(err => console.error(err.toString()))
     }
 
-    // not quite useful, might consider merge to setupPageBar()
     updatePageBar() {
       const props = {
           curPage: 1 + Math.floor(this.state.offset / this.state.limit),
@@ -64,17 +74,6 @@ class JobsWall extends Component {
           onPageChange: this.onPageChange
       }
       this.setState({pageBarDisplay: <PageBar {...props} />});
-    }
-
-    getJobs(offset, limit) {
-        axios.get("/api/job/list_job/".concat(offset).concat("/").concat(limit))
-            .then(res => {
-                const jobs = res.data.jobList;
-                this.setState({
-                    jobs: jobs
-                });
-            })
-            .catch(err => console.error(err.toString()))
     }
 
     onPageChange(event, page) {

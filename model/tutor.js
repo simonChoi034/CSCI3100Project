@@ -5,7 +5,7 @@ module.exports.find = (id) => {
     return db(TABLES.TUTOR_PROFILE).where('user_id', id);
 };
 
-module.exports.all = () => {
+module.exports.all = (offset, limit) => {
     return db(TABLES.TUTOR_PROFILE)
         .join(TABLES.EDUCATION_LEVEL, TABLES.EDUCATION_LEVEL.concat('.id'), '=', TABLES.TUTOR_PROFILE.concat('.education_level_id'))
         .select('user_id',
@@ -13,6 +13,8 @@ module.exports.all = () => {
             'sex',
             'description',
             'education_level.name as education_level')
+        .offset(parseInt(offset))
+        .limit(parseInt(limit))
 };
 
 module.exports.create = (password, body) => {
@@ -43,6 +45,10 @@ module.exports.create = (password, body) => {
                 })
         })
 };
+
+module.exports.totalCount = () => {
+    return db(TABLES.TUTOR_PROFILE).count()
+}
 
 module.exports.edit = () => {
 

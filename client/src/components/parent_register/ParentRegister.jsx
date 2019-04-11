@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
-import {Button, FormGroup, Label, Form, Input, Alert} from "reactstrap";
+import {
+    Button, 
+    FormGroup, 
+    Label, 
+    Form, 
+    Input, 
+    Alert,
+    Badge
+} from "reactstrap";
 import "./ParentRegister.css";
 import axios from 'axios';
 
@@ -95,7 +103,13 @@ class ParentRegister extends Component {
     render(){
         return (
             <Form id = "parent_register" onSubmit={this.handleSubmit}>
-                <Label className="text-center">Parent Registration</Label>
+                <Label className="text-center">
+                    <h2>
+                        <Badge color="light">
+                            Parent Registration
+                        </Badge>
+                    </h2>
+                </Label>
                 <FormGroup>
                     <Label for="username">Username: </Label>
                     <Input
