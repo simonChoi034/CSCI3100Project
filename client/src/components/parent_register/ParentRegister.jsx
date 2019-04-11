@@ -106,7 +106,7 @@ class ParentRegister extends Component {
                 <Label className="text-center">
                     <h2>
                         <Badge color="light">
-                            Parent Registration
+                            Parent/Student Registration
                         </Badge>
                     </h2>
                 </Label>
@@ -199,7 +199,7 @@ class ParentRegister extends Component {
                     className="text-center"
                     disabled={!this.validateForm()}
                 >
-                    Register as Parent
+                    Register as Parent/Student
                 </Button>
             </Form>
         );
