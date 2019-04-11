@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './TutorCard.css';
-import Male from "../../images/boy.png"
-import Female from "../../images/girl.png"
+import Male from "../../images/user/boy.png"
+import Female from "../../images/user/girl.png"
 import {
     Card,
     CardTitle,

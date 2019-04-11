@@ -1,23 +1,23 @@
 import React, {Component} from 'react';
 import './JobCard.css';
-import Biology from "../../images/biology.png";
-import Mathematics from "../../images/math.png";
-import Science from "../../images/science.png";
-import English from "../../images/english.png";
-import BAFS from "../../images/bafs.png";
-import Business from "../../images/business.png";
-import Chemistry from "../../images/chemistry.png";
-import Econ from "../../images/econ.png";
-import M2 from "../../images/m2.png";
-import Physics from "../../images/physics.png";
-import Statistics from "../../images/statistics.png";
-import M1 from "../../images/m1.png";
-import Geography from "../../images/geography.png";
-import History from "../../images/history.png";
-import ChineseHistory from "../../images/chinese_history.png";
-import GeneralEducation from "../../images/general_education.png";
-import Chinese from "../../images/chinese.png";
-import General from "../../images/general.png";
+import Biology from "../../images/subject/biology.png";
+import Mathematics from "../../images/subject/math.png";
+import Science from "../../images/subject/science.png";
+import English from "../../images/subject/english.png";
+import BAFS from "../../images/subject/bafs.png";
+import Business from "../../images/subject/business.png";
+import Chemistry from "../../images/subject/chemistry.png";
+import Econ from "../../images/subject/econ.png";
+import M2 from "../../images/subject/m2.png";
+import Physics from "../../images/subject/physics.png";
+import Statistics from "../../images/subject/statistics.png";
+import M1 from "../../images/subject/m1.png";
+import Geography from "../../images/subject/geography.png";
+import History from "../../images/subject/history.png";
+import ChineseHistory from "../../images/subject/chinese_history.png";
+import GeneralEducation from "../../images/subject/general_education.png";
+import Chinese from "../../images/subject/chinese.png";
+import General from "../../images/subject/general.png";
 
 import {
     Card, 
