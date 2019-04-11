@@ -18,21 +18,21 @@ class AboutUs extends Component {
                         <CardTitle><h4>Why you should use TeachHub?</h4></CardTitle>
                         <div className="text-left">
                             <CardText>Students can: </CardText>
-                            <CardText><FaRegCheckSquare className="mx-3" />Enhance their academic results</CardText>
-                            <CardText><FaRegCheckSquare className="mx-3" />Learn new non-academic skills</CardText>
+                            <CardText><span className="check-box"><FaRegCheckSquare className="mx-3" /></span>Enhance their academic results</CardText>
+                            <CardText><span className="check-box"><FaRegCheckSquare className="mx-3" /></span>Learn new non-academic skills</CardText>
                             <CardText>Tutors can:</CardText>
-                            <CardText><FaRegCheckSquare className="mx-3" />Earn a living</CardText>
+                            <CardText><span className="check-box"><FaRegCheckSquare className="mx-3" /></span>Earn a living</CardText>
                             <CardText>Easy to use:</CardText>
-                        <CardText><FaRegCheckSquare className="mx-3" />We provide a user-friendly chatroom for students and tutors to communicate easily</CardText>
+                        <CardText><span className="check-box"><FaRegCheckSquare className="mx-3" /></span>We provide a user-friendly chatroom for students and tutors to communicate easily</CardText>
                         </div>
                     </Card>
                     <Card className="my-4 p-5">
                         <CardTitle><h4>What you can find in TeachHub?</h4></CardTitle>
                         <div className="text-left">
                             <CardText>Students can: </CardText>
-                            <CardText><FaRegCheckSquare className="mx-3" />Find the most suitable tutor</CardText>
+                            <CardText><span className="check-box"><FaRegCheckSquare className="mx-3" /></span>Find the most suitable tutor</CardText>
                             <CardText>Tutors can:</CardText>
-                            <CardText><FaRegCheckSquare className="mx-3" />Find a tutoring job in the easiest way</CardText>
+                            <CardText><span className="check-box"><FaRegCheckSquare className="mx-3" /></span>Find a tutoring job in the easiest way</CardText>
                         </div>
                     </Card>
                 </Container>
