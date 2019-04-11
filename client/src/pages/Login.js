@@ -3,7 +3,6 @@ import { Button, Form, FormGroup, Label, Input, Alert, Container } from "reactst
 import "./Login.css";
 import axios from 'axios';
 import { authenticationService } from "../components/auth/authentication.service";
-import tutor_login from "../images/tutor_login.jpg";
 
 class Login extends Component {
 
@@ -56,7 +55,6 @@ class Login extends Component {
                 <h1>TeachHub</h1>
                 <h3>User Login</h3>
                 <Container fluid>
-                    <img id = 'image' src={tutor_login} alt="tutor_login" className="mx-auto"/>;
                     <Form onSubmit={this.handleSubmit}>
                         <FormGroup>
                             <Label for="email">Email address</Label>
