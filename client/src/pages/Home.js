@@ -127,23 +127,31 @@ class Home extends Component {
         return (
             <div>
 
-            {/* // banner slider
-            <Carousel
-                activeIndex={activeIndex}
-                next={this.next}
-                previous={this.previous}
-              >
-                <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
-                {slides}
-                <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
-                <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
-              </Carousel>
-            );
+                <Carousel
+                    activeIndex={activeIndex}
+                    next={this.next}
+                    previous={this.previous}
+                >
+                    <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
+                    {slides}
+                    <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
+                    <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
+                </Carousel>
 
-            // current jobs
 
-            // tutors */}
+                <Row>
+                    <Button  onClick = {this.handleClickJob}>
+                        <img src={job_btn} alt={'job'}/>
+                    </Button>
+                    <Button onClick = {this.handleClickReg}>
+                        <img src={reg_btn} alt={'reg'} />
+                    </Button>
+                    <Button onClick = { this.handleClickTutor}>
+                        <img src={tutor_btn} alt={'tutor'}/>
+                    </Button>
+                </Row>
 
+<<<<<<< HEAD
             <Carousel
                 activeIndex={activeIndex}
                 next={this.next}
@@ -159,6 +167,9 @@ class Home extends Component {
             </Row>
 
           </div>
+=======
+            </div>
+>>>>>>> 15b3ed8a20064bd00aeeabcab9a0be62cbd34e80
         );
             
     
