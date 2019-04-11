@@ -9,10 +9,16 @@
 }
 
 #contact_us {
-    margin-top: 1rem;
+    margin-top: 2rem;
     margin-bottom: 0px;
 }
 
 #contact_info {
     margin-bottom: 0px;
+    color: #1111ff
+}
+
+#contact_hotline {
+    margin-bottom: 0px;
+    color: #1111ff
 }
