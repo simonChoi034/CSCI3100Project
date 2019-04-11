@@ -17,3 +17,9 @@ img{
     padding-top: 0 !important;
     max-width: 100%;
 }
+
+@media (max-width:320px){
+    .carousel{
+        margin-top: 98px !important;
+    }
+}
