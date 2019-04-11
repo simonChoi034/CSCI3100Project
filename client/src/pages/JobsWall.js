@@ -53,7 +53,7 @@ class Jobs extends Component{
 
     render() {
         return (
-            <Container fluid>
+            <Container>
                 { this.showContent() }
             </Container>
         )
