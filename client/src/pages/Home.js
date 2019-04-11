@@ -1,15 +1,14 @@
 import React, { Component } from "react";
 import logo from './logo.svg';
+import CarouselContainer from '../components/carousel_container/CarouselContainer';
 
 const Home = () => {
-        return (
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo"/>
-                <p>
-                    Welcome to TeachHub!
-                </p>
-            </header>
-        );
+    return (
+        <div>
+            <CarouselContainer id="carousel" />
+
+        </div>
+    );
 }
 
 export default Home;
