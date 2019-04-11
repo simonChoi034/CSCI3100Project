@@ -11,7 +11,7 @@ class AboutUs extends Component {
                     <Card className="mt-5 mb-4 p-5">
                         <CardTitle><h4>What is TeachHub?</h4></CardTitle>
                         <div className="text-left">
-                            <CardText>TeachHub is an interactive platform for students and tutors matching in an convenient way.</CardText>
+                            <CardText>TeachHub is an interactive platform for students and tutors matching in a convenient way.</CardText>
                         </div>
                     </Card>
                     <Card className="my-4 p-5">
