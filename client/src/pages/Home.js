@@ -138,27 +138,6 @@ class Home extends Component {
                     <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
                 </Carousel>
 
-
-                <Row>
-                    <Button  onClick = {this.handleClickJob}>
-                        <img src={job_btn} alt={'job'}/>
-                    </Button>
-                    <Button onClick = {this.handleClickReg}>
-                        <img src={reg_btn} alt={'reg'} />
-                    </Button>
-                    <Button onClick = { this.handleClickTutor}>
-                        <img src={tutor_btn} alt={'tutor'}/>
-                    </Button>
-                </Row>
-
-            <Carousel
-                activeIndex={activeIndex}
-                next={this.next}
-                previous={this.previous}
-            >
-                {slides}
-            </Carousel>
-
             <Row>
                     <img onClick = {this.handleClickJob} src={job_btn} alt={'job'}/>
                     <img onClick = {this.handleClickReg} src={reg_btn} alt={'reg'} />
