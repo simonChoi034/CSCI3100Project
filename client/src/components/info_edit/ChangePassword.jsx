@@ -34,7 +34,7 @@ class ChangePassword extends Component{
     handleSubmit = event => {
         event.preventDefault();
         const data = {
-            id: this.state.id,
+            id: this.props.modalData,
             old_password: this.state.old_password,
             password: this.state.password
         };
