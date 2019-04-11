@@ -20,11 +20,8 @@ import banner4 from '../images/banners/banner4.jpg'
 import banner5 from '../images/banners/banner5.jpg'
 import banner6 from '../images/banners/banner6.jpg'
 import banner7 from '../images/banners/banner7.jpg'
-import job_btn from '../images/buttons/job.png'
-import reg_btn from '../images/buttons/reg.png'
-import tutor_btn from '../images/buttons/tutor.png'
 
-import { get } from "https";
+
 const items = [
     {
         src: banner1,
@@ -66,9 +63,6 @@ class Home extends Component {
       this.goToIndex = this.goToIndex.bind(this);
       this.onExiting = this.onExiting.bind(this);
       this.onExited = this.onExited.bind(this);
-      this.handleClickJob = this.handleClickJob.bind(this);
-      this.handleClickReg = this.handleClickReg.bind(this);
-      this.handleClickTutor = this.handleClickTutor.bind(this);
     }
 
     onExiting() {
@@ -94,18 +88,6 @@ class Home extends Component {
     goToIndex(newIndex) {
       if (this.animating) return;
       this.setState({ activeIndex: newIndex });
-    }
-    
-    handleClickJob(){
-        this.props.history.push('/jobs');
-    }
-
-    handleClickTutor(){
-        this.props.history.push('/tutors');
-    }
-
-    handleClickReg(){
-        this.props.history.push('/register');
     }
 
     render() {
@@ -138,18 +120,6 @@ class Home extends Component {
                     <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
                 </Carousel>
 
-
-                <Row>
-                    <Button  onClick = {this.handleClickJob}>
-                        <img src={job_btn} alt={'job'}/>
-                    </Button>
-                    <Button onClick = {this.handleClickReg}>
-                        <img src={reg_btn} alt={'reg'} />
-                    </Button>
-                    <Button onClick = { this.handleClickTutor}>
-                        <img src={tutor_btn} alt={'tutor'}/>
-                    </Button>
-                </Row>
 
             </div>
         );
