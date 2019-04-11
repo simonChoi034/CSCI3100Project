@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Role} from "../helper";
 import './NavbarComponent.css';
+import { FaUserAlt } from "react-icons/fa";
 import {
     Collapse,
     Navbar,
@@ -107,7 +108,14 @@ class NavbarComponent extends Component {
                     <NavbarBrand className="btn btn-outline-light m-0" href="/">TeachHub</NavbarBrand>
                     {
                         this.props.currentUser &&
-                        <Nav id = 'hi' className="text-light mx-1"><b><Button outline color = 'link' onClick={(event) => this.toggle(event, this.props.currentUser)}>Hi {this.props.currentUser.username}</Button></b></Nav>
+                        <Nav id = 'hi' className="text-light mx-1">
+                            <b>
+                                <Button outline color = 'link' onClick={(event) => this.toggle(event, this.props.currentUser)}>
+                                    <FaUserAlt className="mr-1"/>
+                                    Hi {this.props.currentUser.username}
+                                </Button>
+                            </b>
+                        </Nav>
                     }
                     <NavbarToggler className="navbar-light float-right" onClick={this.toggleNav}/>
                     <Collapse isOpen={this.state.isOpen} navbar>
