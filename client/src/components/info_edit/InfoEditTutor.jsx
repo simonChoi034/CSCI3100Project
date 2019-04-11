@@ -14,7 +14,7 @@ import {
 } from "reactstrap";
 import "./InfoEditTutor.css";
 import axios from 'axios';
-
+import dateformat from 'dateformat';
 
 
 class InfoEditTutor extends Component{
@@ -185,7 +185,7 @@ class InfoEditTutor extends Component{
                         />
                     </FormGroup>
                     <ListGroupItemHeading>Birth:</ListGroupItemHeading>
-                    <ListGroupItem id = 'birth'>{this.state.birth}</ListGroupItem> 
+                    <ListGroupItem id = 'birth'>{dateformat(this.state.birth,"yyyy-mm-dd")}</ListGroupItem> 
                     <ListGroupItemHeading>Sex:</ListGroupItemHeading>
                     <ListGroupItem id = 'sex'>{this.state.sex}</ListGroupItem>  
                     <ListGroupItemHeading >Education Level:</ListGroupItemHeading>

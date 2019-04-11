@@ -12,6 +12,8 @@ import banner2 from '../images/banner2.jpg'
 import banner3 from '../images/banner3.jpg'
 import banner4 from '../images/banner4.jpg'
 import banner5 from '../images/banner5.jpg'
+import banner6 from '../images/banner6.jpg'
+import banner7 from '../images/banner7.jpg'
 import './Home.css'
 const items = [
     {
@@ -33,6 +35,14 @@ const items = [
     {
         src: banner5,
         altText: 'Banner 5'
+    },
+    {
+        src: banner6,
+        altText: 'Banner 6'
+    },
+    {
+        src: banner7,
+        altText: 'Banner 7'
     }
   ];
 
