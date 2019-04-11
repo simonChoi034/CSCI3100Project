@@ -21,7 +21,7 @@ class AboutUs extends Component {
                             <CardText><FaRegCheckSquare className="mx-3" />Enhance their academic results</CardText>
                             <CardText><FaRegCheckSquare className="mx-3" />Learn new non-academic skills</CardText>
                             <CardText>Tutors can:</CardText>
-                            <CardText><FaRegCheckSquare className="mx-3" />earn a living</CardText>
+                            <CardText><FaRegCheckSquare className="mx-3" />Earn a living</CardText>
                             <CardText>Easy to use:</CardText>
                         <CardText><FaRegCheckSquare className="mx-3" />We provide a user-friendly chatroom for students and tutors to communicate easily</CardText>
                         </div>
