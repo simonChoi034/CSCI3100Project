@@ -20,7 +20,7 @@ class JobsWall extends Component {
             modalData: null,
             totalJobs: 0,
             totalPages: 0,
-            limit: 4,
+            limit: 6,
             offset: 0,
             curPage: 1,
             pages: [],
@@ -67,7 +67,7 @@ class JobsWall extends Component {
     }
 
     getJobs(offset, limit) {
-        axios.get("/api/job/list_job/".concat(offset).concat("/").concat(limit))
+        axios.get("/api/job/list_job/?offset=".concat(offset).concat("&limit=").concat(limit))
             .then(res => {
                 const jobs = res.data.jobList;
                 this.setState({
