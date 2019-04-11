@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
-import { Button, FormGroup, Input, Label, Form, Alert } from "reactstrap";
+import { 
+    Button, 
+    FormGroup, 
+    Input, 
+    Label, 
+    Form,
+    Alert,
+    Badge
+} from "reactstrap";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import "./TutorRegister.css";
@@ -101,7 +109,13 @@ class TutorRegister extends Component {
     render(){
         return (
             <Form id = "tutor_register" onSubmit={this.handleSubmit}>
-                <Label className="text-center">Tutor Registration</Label>
+                <Label className="text-center">
+                    <h2>
+                        <Badge color="light">
+                            Tutor Registration
+                        </Badge>
+                    </h2>
+                </Label>
                 <FormGroup>
                     <Label for="username">Username: </Label>
                     <Input
