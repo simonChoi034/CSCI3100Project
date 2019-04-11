@@ -108,12 +108,10 @@ class TutorRegister extends Component {
 
     render(){
         return (
-            <Form id = "tutor_register" onSubmit={this.handleSubmit}>
+            <Form id="tutor_register" className="mt-4" onSubmit={this.handleSubmit}>
                 <Label className="text-center">
                     <h2>
-                        <Badge color="light">
-                            Tutor Registration
-                        </Badge>
+                        Tutor Registration
                     </h2>
                 </Label>
                 <FormGroup>
