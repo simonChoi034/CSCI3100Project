@@ -32,7 +32,7 @@ class JobCard extends Component {
                     <CardText className="text-left">District: {this.state.job.district}</CardText>
                     <CardText className="text-left">Student Level: {this.state.job.student_level}</CardText>
                     <CardText className="text-left">Tuition Fee: {this.state.job.tuition_fee}</CardText>
-                    <Button color="info" className="detail_btn mx-1" onClick={ (event) => this.props.toggle(event, this.state.job)}>Show Detail</Button>
+                    <Button color="info" className="detail_btn mx-1" onClick={ (event) => this.props.toggle(event, this.state.job)}>Show Details</Button>
                 </Card>
             </Col>
         );

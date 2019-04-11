@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './TutorCard.css';
+import male from "../../images/boy.png"
+import female from "../../images/girl.png"
 import {
     Card,
     CardTitle,
@@ -11,7 +12,6 @@ import {
 
 class TutorCard extends Component {
 
-    
     constructor(props) {
         super(props);
         this.state = {
@@ -21,10 +21,11 @@ class TutorCard extends Component {
 
     createCardTitle() {
         const color = this.state.tutor.sex === 'M' ? 'primary' : 'danger';
-
+        const img = this.state.tutor.sex === 'M'? male : female;
         return (
             <Button outline disabled color={color}>
-                Tutor: {this.state.tutor.nick_name}
+                <img src={img} width={32} height={32} alt="img" />
+                <span className="m-2">Name: {this.state.tutor.nick_name}</span>
             </Button>
         )
     }
@@ -47,7 +48,7 @@ class TutorCard extends Component {
                         color="info"
                         onClick={ (event) => this.props.toggle(event, this.state.tutor) }
                     >
-                        More information
+                        Show Details
                     </Button>
                 </Card>
             </Col>
