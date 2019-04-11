@@ -92,7 +92,7 @@ class JobCard extends Component {
 
         return (
             <Button disabled outline color="primary">
-                <img src={img} alt="img" />
+                <div><img className="subject-icon" src={img} alt="img" /></div>
                 {this.state.job.subject}
             </Button>
         )
