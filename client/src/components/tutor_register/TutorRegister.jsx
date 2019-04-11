@@ -108,7 +108,7 @@ class TutorRegister extends Component {
 
     render(){
         return (
-            <Form id="tutor_register" className="mt-4" onSubmit={this.handleSubmit}>
+            <Form id="tutor_register" className="mt-4 pt-3" onSubmit={this.handleSubmit}>
                 <Label className="text-center">
                     <h2>
                         Tutor Registration
