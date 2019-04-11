@@ -120,7 +120,6 @@ class Home extends Component {
                     <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
                 </Carousel>
 
-
             </div>
         );
             
