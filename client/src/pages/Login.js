@@ -51,7 +51,7 @@ class Login extends Component {
 
     render() {
         return (
-            <div id="Login">
+            <div id="Login" className="py-5">
                 <h1>TeachHub</h1>
                 <h3>User Login</h3>
                 <Container fluid>

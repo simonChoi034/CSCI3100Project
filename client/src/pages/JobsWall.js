@@ -53,9 +53,11 @@ class Jobs extends Component{
 
     render() {
         return (
-            <Container>
-                { this.showContent() }
-            </Container>
+            <div className="py-5">
+                <Container>
+                    { this.showContent() }
+                </Container>
+            </div>
         )
     }
 }
