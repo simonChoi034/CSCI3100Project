@@ -92,6 +92,7 @@ class Home extends Component {
               onExiting={this.onExiting}
               onExited={this.onExited}
               key={item.src}
+              className="carousel-box"
             >
               <img src={item.src} alt={item.altText} />
             </CarouselItem>
