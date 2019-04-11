@@ -53,13 +53,13 @@ class Register extends Component {
                             color="success"
                             className="text-center pull-left mx-3" 
                             id="tutor_btn"
-                            onClick={this.handleClickTutor}>Tutor Registration
+                            onClick={this.handleClickTutor}>Tutor
                         </Button>
                         <Button 
                             color="primary"
                             className="text-center mx-3"
                             id="parent_btn"
-                            onClick={this.handleClickParent}>Parent/Student Registration
+                            onClick={this.handleClickParent}>Parent/Student
                         </Button>
                     </Row>
                     {this.state.out}
