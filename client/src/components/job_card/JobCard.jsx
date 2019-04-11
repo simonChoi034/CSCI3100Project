@@ -1,5 +1,24 @@
 import React, {Component} from 'react';
 import './JobCard.css';
+import Biology from "../../images/biology.png";
+import Mathematics from "../../images/math.png";
+import Science from "../../images/science.png";
+import English from "../../images/english.png";
+import BAFS from "../../images/bafs.png";
+import Business from "../../images/business.png";
+import Chemistry from "../../images/chemistry.png";
+import Econ from "../../images/econ.png";
+import M2 from "../../images/m2.png";
+import Physics from "../../images/physics.png";
+import Statistics from "../../images/statistics.png";
+import M1 from "../../images/m1.png";
+import Geography from "../../images/geography.png";
+import History from "../../images/history.png";
+import ChineseHistory from "../../images/chinese_history.png";
+import GeneralEducation from "../../images/general_education.png";
+import Chinese from "../../images/chinese.png";
+import General from "../../images/general.png";
+
 import {
     Card, 
     CardTitle, 
@@ -17,6 +36,68 @@ class JobCard extends Component {
         };
     }
 
+    createCardTitle() {
+        var img = General;
+        if (this.state.job.subject === 'Chinese') {
+            img = Chinese;
+        }
+        if (this.state.job.subject === 'English') {
+            img = English;
+        }
+        if (this.state.job.subject === 'Mathematics') {
+            img = Mathematics;
+        }
+        if (this.state.job.subject === 'General education') {
+            img = GeneralEducation;
+        }
+        if (this.state.job.subject === 'M1') {
+            img = M1;
+        }
+        if (this.state.job.subject === 'M2') {
+            img = M2;
+        }
+        if (this.state.job.subject === 'Chinese History') {
+            img = ChineseHistory;
+        }
+        if (this.state.job.subject === 'History') {
+            img = History;
+        }
+        if (this.state.job.subject === 'Geography') {
+            img = Geography;
+        }
+        if (this.state.job.subject === 'Science') {
+            img = Science;
+        }
+        if (this.state.job.subject === 'Physics') {
+            img = Physics;
+        }
+        if (this.state.job.subject === 'Chemistry') {
+            img = Chemistry;
+        }
+        if (this.state.job.subject === 'Biology') {
+            img = Biology;
+        }
+        if (this.state.job.subject === 'Business') {
+            img = Business;
+        }
+        if (this.state.job.subject === 'Econ') {
+            img = Econ;
+        }
+        if (this.state.job.subject === 'BAFS') {
+            img = BAFS;
+        }
+        if (this.state.job.subject === 'Statistics') {
+            img = Statistics;
+        }
+
+        return (
+            <Button disabled outline color="primary">
+                <img src={img} alt="img" />
+                {this.state.job.subject}
+            </Button>
+        )
+    }
+
     componentWillReceiveProps(props) {
         this.setState({
             job: props.job
@@ -27,7 +108,7 @@ class JobCard extends Component {
         return (
             <Col xs="12" sm="6" lg="4">
                 <Card body className="my-3">
-                    <CardTitle><Button disabled outline color="primary">{this.state.job.subject}</Button></CardTitle>
+                    <CardTitle>{ this.createCardTitle() }</CardTitle>
                     <CardText className="text-left">Region: {this.state.job.region}</CardText>
                     <CardText className="text-left">District: {this.state.job.district}</CardText>
                     <CardText className="text-left">Student Level: {this.state.job.student_level}</CardText>
