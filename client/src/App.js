@@ -11,8 +11,9 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Tutors from './pages/Tutors';
 import Jobs from './pages/JobsWall';
-import Footer from './components/footer/Footer'
+import Footer from './components/footer/Footer';
 import Messenger from './components/messenger/messenger';
+import AboutUs from "./pages/AboutUs";
 
 class App extends Component {
 
@@ -48,6 +49,7 @@ class App extends Component {
                                     <Route path='/tutors' component={Tutors} />
                                     <Route path='/jobs' component={Jobs} />
                                     <Route path='/messenger' component={Messenger} />
+                                    <Route path='/about_us' component={AboutUs} />
                                 </Switch>
                             </div>
                             <Footer />

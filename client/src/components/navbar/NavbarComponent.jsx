@@ -117,6 +117,9 @@ class NavbarComponent extends Component {
                             </NavItem>
                             }
                             <NavItem>
+                                <NavLink className="text-light" href="/about_us">About Us</NavLink>
+                            </NavItem>
+                            <NavItem>
                                 <NavLink className="text-light" href='/jobs'>Jobs</NavLink>
                             </NavItem>
                             <NavItem>
