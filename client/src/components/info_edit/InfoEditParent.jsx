@@ -40,27 +40,33 @@ class InfoEditParent extends Component{
             })
             .catch(function (err) {
                 console.log(err)
+            });
+        axios.get('/api/user/parent_profile')
+            .then(function (res) {
+                self.setState({
+                    name: res.data[0].name,
+                    phone: res.data[0].phone,
+                    living_district: res.data[0].living_district_id,
+                    address: res.data[0].address
+                })
+            })
+            .catch(function (err) {
+                console.log(err)
             })
     }
 
     creatDropDown(){
         var options = [];
         var districts = this.state.districtList;
-        var select = false;
-        const data = this.props.modalData;
+        var self = this;
 
         options.push(<option key = {""} value="">Please choose a district</option>);
 
         for (var key in districts) {
-            options.push(<option key = {key}value="" disabled>{key}</option>);
+            options.push(<option key = {key} value="" disabled>{key}</option>);
 
             districts[key].forEach(function (e, key) {
-                if (e.id == data.district){
-                    select = true 
-                }else{
-                    select = false
-                }
-                options.push(<option key = {e.id} value={e.id} {...select?'select:selected':null}>{e.district}</option>);
+                options.push(<option key = {e.id} value={e.id}>{e.district}</option>);
             })
         }
 
@@ -112,7 +118,7 @@ class InfoEditParent extends Component{
         if (data) {
             content.push( 
                 (
-                    <Form id = "info_edit" onSubmit={this.handleSubmit}>
+                    <Form id = "info_edit" key = {'Form'} onSubmit={this.handleSubmit}>
                     <ListGroupItemHeading>Username: </ListGroupItemHeading>
                     <ListGroupItem id = 'username'>{data.username}</ListGroupItem>  
                     <ListGroupItemHeading>Password: </ListGroupItemHeading>
@@ -141,6 +147,7 @@ class InfoEditParent extends Component{
                             type="text"
                             name="name"
                             id="name"
+                            value = {this.state.name}
                             onChange={this.handleChange}
                         />
                     </FormGroup>
@@ -152,7 +159,7 @@ class InfoEditParent extends Component{
                             id="phone"
                             onChange={this.handleChange}
                             pattern="[0-9]*"
-                            value = {data.phone}
+                            value = {this.state.phone}
                             maxLength={8}
                         />
                     </FormGroup>
@@ -162,6 +169,7 @@ class InfoEditParent extends Component{
                             type="select"
                             name="living_district"
                             id="living_district"
+                            defaultValue = {this.state.living_district}
                             onChange={this.handleChange}>
                             { this.state.districtList && this.creatDropDown() }
                         </Input>
@@ -172,7 +180,7 @@ class InfoEditParent extends Component{
                             type="text"
                             name="address"
                             id="address"
-                            value = {data.address}
+                            value = {this.state.address}
                             onChange={this.handleChange}
                         />
                     </FormGroup>

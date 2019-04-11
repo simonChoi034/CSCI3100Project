@@ -28,7 +28,6 @@ class InfoEditTutor extends Component{
             error: false,
             error_message: ''
         };
-        console.log(this.props)
     }
 
     componentDidMount() {
@@ -39,6 +38,23 @@ class InfoEditTutor extends Component{
                     eduLevelList: res.data.eduLevelList,
                     education_level: res.data.eduLevelList[0].id
                 });
+            })
+            .catch(function (err) {
+                console.log(err)
+            })
+        axios.get('/api/user/tutor_profile')
+            .then(function (res) {
+                self.setState({
+                    name: res.data[0].name,
+                    phone: res.data[0].phone,
+                    full_name_ch: res.data[0].full_name_ch,
+                    full_name_en: res.data[0].full_name_en,
+                    nick_name: res.data[0].nick_name,
+                    birth: res.data[0].birth,
+                    sex: res.data[0].sex == 'M' ? 'Male' : 'Female',
+                    education_level: res.data[0].education_level,
+                    description: res.data[0].description
+                })
             })
             .catch(function (err) {
                 console.log(err)
@@ -103,7 +119,7 @@ class InfoEditTutor extends Component{
         if (data) {
             content.push( 
                 (
-                    <Form id = "info_edit" onSubmit={this.handleSubmit}>
+                    <Form id = "info_edit" key = {'Form'} onSubmit={this.handleSubmit}>
                     <ListGroupItemHeading>Username: </ListGroupItemHeading>
                     <ListGroupItem id = 'username'>{data.username}</ListGroupItem>  
                     <ListGroupItemHeading>Password: </ListGroupItemHeading>
@@ -126,15 +142,6 @@ class InfoEditTutor extends Component{
                     </FormGroup>
                     <ListGroupItemHeading>Email Address: </ListGroupItemHeading>
                     <ListGroupItem id = 'email'>{data.email}</ListGroupItem>  
-                    <ListGroupItemHeading>Name: </ListGroupItemHeading>
-                    <FormGroup>
-                        <Input
-                            type="text"
-                            name="name"
-                            id="name"
-                            onChange={this.handleChange}
-                        />
-                    </FormGroup>
                     <ListGroupItemHeading>Phone: </ListGroupItemHeading>
                     <FormGroup>
                         <Input
@@ -143,7 +150,7 @@ class InfoEditTutor extends Component{
                             id="phone"
                             onChange={this.handleChange}
                             pattern="[0-9]*"
-                            value = {data.phone}
+                            value = {this.state.phone}
                             maxLength={8}
                         />
                     </FormGroup>
@@ -154,7 +161,7 @@ class InfoEditTutor extends Component{
                             name="chinese_name"
                             id="full_name_ch"
                             onChange={this.handleChange}
-                            value = {data.full_name_ch}
+                            value = {this.state.full_name_ch}
                         />
                     </FormGroup>
                     <ListGroupItemHeading>English Name:</ListGroupItemHeading>
@@ -164,7 +171,7 @@ class InfoEditTutor extends Component{
                             name="english_name"
                             id="full_name_en"
                             onChange={this.handleChange}
-                            value = {data.full_name_en}
+                            value = {this.state.full_name_en}
                         />
                     </FormGroup>
                     <ListGroupItemHeading>Nick Name:</ListGroupItemHeading>
@@ -174,13 +181,13 @@ class InfoEditTutor extends Component{
                             name="nick_name"
                             id="nick_name"
                             onChange={this.handleChange}
-                            value = {data.nick_name}
+                            value = {this.state.nick_name}
                         />
                     </FormGroup>
                     <ListGroupItemHeading>Birth:</ListGroupItemHeading>
-                    <ListGroupItem id = 'birth'>{data.birth}</ListGroupItem> 
+                    <ListGroupItem id = 'birth'>{this.state.birth}</ListGroupItem> 
                     <ListGroupItemHeading>Sex:</ListGroupItemHeading>
-                    <ListGroupItem id = 'birth'>{data.sex}</ListGroupItem>  
+                    <ListGroupItem id = 'sex'>{this.state.sex}</ListGroupItem>  
                     <ListGroupItemHeading >Education Level:</ListGroupItemHeading>
                     <FormGroup>
                         <Input
@@ -197,7 +204,7 @@ class InfoEditTutor extends Component{
                             type="textarea"
                             name="description"
                             id="description"
-                            value = {data.description}
+                            value = {this.state.description}
                             onChange={this.handleChange}
                         />
                     </FormGroup>
