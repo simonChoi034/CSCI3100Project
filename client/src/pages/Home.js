@@ -7,13 +7,13 @@ import {
   CarouselIndicators,
   CarouselCaption
 } from 'reactstrap';
-import banner1 from '../images/banner/banner1.jpg'
-import banner2 from '../images/banner/banner2.jpg'
-import banner3 from '../images/banner/banner3.jpg'
-import banner4 from '../images/banner/banner4.jpg'
-import banner5 from '../images/banner/banner5.jpg'
-import banner6 from '../images/banner/banner6.jpg'
-import banner7 from '../images/banner/banner7.jpg'
+import banner1 from '../images/banners/banner1.jpg'
+import banner2 from '../images/banners/banner2.jpg'
+import banner3 from '../images/banners/banner3.jpg'
+import banner4 from '../images/banners/banner4.jpg'
+import banner5 from '../images/banners/banner5.jpg'
+import banner6 from '../images/banners/banner6.jpg'
+import banner7 from '../images/banners/banner7.jpg'
 import './Home.css'
 const items = [
     {

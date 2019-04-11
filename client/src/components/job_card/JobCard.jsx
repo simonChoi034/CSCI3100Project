@@ -1,23 +1,23 @@
 import React, {Component} from 'react';
 import './JobCard.css';
-import Biology from "../../images/subject/biology.png";
-import Mathematics from "../../images/subject/math.png";
-import Science from "../../images/subject/science.png";
-import English from "../../images/subject/english.png";
-import BAFS from "../../images/subject/bafs.png";
-import Business from "../../images/subject/business.png";
-import Chemistry from "../../images/subject/chemistry.png";
-import Econ from "../../images/subject/econ.png";
-import M2 from "../../images/subject/m2.png";
-import Physics from "../../images/subject/physics.png";
-import Statistics from "../../images/subject/statistics.png";
-import M1 from "../../images/subject/m1.png";
-import Geography from "../../images/subject/geography.png";
-import History from "../../images/subject/history.png";
-import ChineseHistory from "../../images/subject/chinese_history.png";
-import GeneralEducation from "../../images/subject/general_education.png";
-import Chinese from "../../images/subject/chinese.png";
-import General from "../../images/subject/general.png";
+import Biology from "../../images/subjects/biology.png";
+import Mathematics from "../../images/subjects/math.png";
+import Science from "../../images/subjects/science.png";
+import English from "../../images/subjects/english.png";
+import BAFS from "../../images/subjects/bafs.png";
+import Business from "../../images/subjects/business.png";
+import Chemistry from "../../images/subjects/chemistry.png";
+import Econ from "../../images/subjects/econ.png";
+import M2 from "../../images/subjects/m2.png";
+import Physics from "../../images/subjects/physics.png";
+import Statistics from "../../images/subjects/statistics.png";
+import M1 from "../../images/subjects/m1.png";
+import Geography from "../../images/subjects/geography.png";
+import History from "../../images/subjects/history.png";
+import ChineseHistory from "../../images/subjects/chinese_history.png";
+import GeneralEducation from "../../images/subjects/general_education.png";
+import Chinese from "../../images/subjects/chinese.png";
+import General from "../../images/subjects/general.png";
 
 import {
     Card, 
