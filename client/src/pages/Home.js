@@ -120,14 +120,14 @@ class Home extends Component {
                 </Carousel>
 
                 <Container className="my-3">
-                    <Card className="py-3 px-4">
+                    <Card className="p-3">
                         <h4>Newest Jobs</h4>
                         <JobsWall limit={4} homeCall={true} />
                     </Card>
                 </Container>
 
                 <Container className="my-3">
-                    <Card className="py-3 px-4">
+                    <Card className="p-3">
                         <h4>Tutors</h4>
                         <TutorsWall limit={4} homeCall={true} />
                     </Card>
