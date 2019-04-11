@@ -20,12 +20,11 @@ class JobsWall extends Component {
             modalData: null,
             totalJobs: 0,
             totalPages: 0,
-            limit: 6,
+            limit: 4,
             offset: 0,
             curPage: 1,
             pages: [],
-            pageBarDisplay: null,
-            jobCardsDisplay: null,
+            pageBarDisplay: null
         };
 
         this.toggle = this.toggle.bind(this);
@@ -67,22 +66,13 @@ class JobsWall extends Component {
       this.setState({pageBarDisplay: <PageBar {...props} />});
     }
 
-    createJobCards(jobs) {
-        var item = [];
-        jobs.map((job, key) => {
-            item.push(<JobCard key = {key} job={job} toggle={this.toggle}/>);
-        });
-        this.setState({
-            jobCardsDisplay: item
-        });
-    }
-
     getJobs(offset, limit) {
         axios.get("/api/job/list_job/".concat(offset).concat("/").concat(limit))
             .then(res => {
                 const jobs = res.data.jobList;
-                this.setState({jobs: jobs});
-                this.createJobCards(jobs);
+                this.setState({
+                    jobs: jobs
+                });
             })
             .catch(err => console.error(err.toString()))
     }
@@ -127,7 +117,9 @@ class JobsWall extends Component {
                             : null
                     }
                     <Row>
-                        { this.state.jobCardsDisplay }
+                        {this.state.jobs.map((job, key) => 
+                            <JobCard key={key} job={job} toggle={this.toggle}/>
+                        )}
                     </Row>
                 </Fade>
 

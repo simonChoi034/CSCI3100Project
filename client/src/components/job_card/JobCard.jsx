@@ -16,6 +16,13 @@ class JobCard extends Component {
             job: props.job
         };
     }
+
+    componentWillReceiveProps(props) {
+        this.setState({
+            job: props.job
+        })
+    }
+
     render() {
         return (
             <Col xs="12" sm="6" lg="4">

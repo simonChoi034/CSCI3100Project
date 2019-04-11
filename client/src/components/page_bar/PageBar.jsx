@@ -1,12 +1,6 @@
 import React, {Component} from 'react';
-import axios from 'axios';
 import './PageBar.css';
-import JobCard from '../job_card/JobCard';
-import JobModal from '../job_wall/JobModal';
 import {
-    Button,
-    Row,
-    Fade,
     Pagination,
     PaginationItem,
     PaginationLink
