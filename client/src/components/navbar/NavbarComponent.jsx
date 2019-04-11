@@ -110,9 +110,9 @@ class NavbarComponent extends Component {
                         this.props.currentUser &&
                         <Nav id = 'hi' className="text-light mx-1">
                             <b>
-                                <Button outline color = 'link' onClick={(event) => this.toggle(event, this.props.currentUser)}>
-                                    <FaUserAlt className="mr-1"/>
-                                    Hi {this.props.currentUser.username}
+                                <Button outline color='link' className="text-light" onClick={(event) => this.toggle(event, this.props.currentUser)}>
+                                    <FaUserAlt className="mr-1 icon"/>
+                                    <span className="align-bottom">Hi {this.props.currentUser.username}</span>
                                 </Button>
                             </b>
                         </Nav>
