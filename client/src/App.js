@@ -11,6 +11,8 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Tutors from './pages/Tutors';
 import Jobs from './pages/JobsWall';
+import Footer from './components/footer/Footer'
+
 
 class App extends Component {
 
@@ -47,6 +49,7 @@ class App extends Component {
                                     <Route path='/jobs' component={Jobs} />
                                 </Switch>
                             </div>
+                            <Footer />
                         </div>
                     </div>
                 </Router>
