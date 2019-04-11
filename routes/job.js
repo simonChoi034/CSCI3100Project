@@ -3,10 +3,6 @@ var router = express.Router();
 const { body, check, validationResult } = require('express-validator/check');
 const jwt = require('jsonwebtoken');
 
-const withAuth = require('../helper/authentication');
-const user = require('../model/user');
-const tutor = require('../model/tutor');
-const parent = require('../model/parent');
 const job = require('../model/job');
 const helper = require('../model/helper');
 

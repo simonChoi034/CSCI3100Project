@@ -88,10 +88,63 @@ router.post('/login', [
 
 });
 
+router.post('/edit_password', [
+    withAuth,
+    check('old_password')
+        .not().isEmpty(),
+    check('password')
+        .isLength({ min: 8 }).withMessage('Password must contain at least 8 characters')
+        .not().isEmpty(),
+    check('confirm_password')
+        .custom(function(value, { req }) {
+            if (value !== req.body.password)
+                throw new Error('Password confirmation does not match password');
+            return true;
+        }),
+], function (req, res) {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()){
+        return res.status(422).json({ errors: errors.array() })
+    }
+
+    const userID = req.id;
+    const email = req.email;
+    const old_password = req.body.old_password;
+    const new_password = req.body.password;
+
+    user.login(email)
+        .then(function (result) {
+            const hashedPassword = result[0].password;
+            user.isCorrectPassword(old_password, hashedPassword, function (err, same){
+                if (err){
+                    res.status(500).json({errors: [{msg: 'Internal error please try again'}]});
+                }else if (!same) {
+                    res.status(401).json({errors: [{msg: 'Incorrect old password'}]});
+                }else {
+                    bcrypt.hash(new_password, saltRounds,function (err, hashedPassword) {
+                        if (err) {
+                            res.status(500).json({errors: [{msg: 'Internal error please try again'}]});
+                        }else {
+                            user.editPassword(userID, hashedPassword)
+                                .then(function (result) {
+                                    res.sendStatus(200);
+                                })
+                                .catch(function (err) {
+                                    console.log(err);
+                                    res.sendStatus(500);
+                                })
+                        }
+                    })
+                }
+            })
+        })
+
+});
+
 router.get('/parent_register', function (req, res) {
     helper.getDistrictList()
         .then(function (result) {
-            var hash = {};
+            const hash = {};
             result.forEach(function (e) {
                 if ( e.region in hash ){
                     hash[e.region].push(e);
@@ -176,10 +229,8 @@ router.post('/parent_register', [
                     res.sendStatus(200);
                 })
                 .catch(function (err) {
-                    // rename hash key
-                    err['msg'] = err['sqlMessage'];
-                    delete err['sqlMessage'];
-                    res.status(500).json({ errors: err});
+                    console.log(err);
+                    res.sendStatus(500);
                 })
         }
     });
@@ -187,7 +238,7 @@ router.post('/parent_register', [
 
 router.get('/tutor_register', function (req, res) {
     helper.getEduLevelList().then(function (eduLevelList) {
-        var data = {
+        const data = {
             eduLevelList: eduLevelList
         };
 
@@ -270,22 +321,20 @@ router.post('/tutor_register', [
         } else {
             // create user
             tutor.create(hashedPassword, req.body)
-                .then(function (result) {
+                .then(function () {
                     res.sendStatus(200);
                 })
                 .catch(function (err) {
-                    // rename hash key
-                    err['msg'] = err['sqlMessage'];
-                    delete err['sqlMessage'];
-                    res.status(500).json({ errors: [err]});
+                    console.log(err);
+                    res.sendStatus(500);
                 })
         }
     });
 });
 
 router.get('/list_tutor', function (req, res) {
-    offset = req.query['offset'];
-    limit = req.query['limit'];
+    const offset = req.query['offset'];
+    const limit = req.query['limit'];
     tutor.all(offset, limit)
         .then(function (result) {
             const data = {
@@ -313,25 +362,123 @@ router.get('/tutor_total_count', function (req, res) {
 });
 
 router.get('/tutor_profile', withAuth, function (req, res) {
-    const user_id = req.id;
+    const userID = req.id;
 
-    tutor.find(user_id)
-        .then(function (result) {
-            res.status(200).json(result);
+    helper.getEduLevelList().then(function (eduLevelList) {
+        tutor.find(userID)
+            .then(function (result) {
+                const data = {
+                    eduLevelList: eduLevelList,
+                    user: result
+                };
+                res.status(200).json(data);
+            })
+            .catch(function (err) {
+                console.log(err);
+                res.sendStatus(500);
+            })
+    });
+
+});
+
+router.post('/edit_tutor', [
+    withAuth,
+    check('phone')
+        .isLength(8).withMessage("Value must be a HK phone number")
+        .not().isEmpty()
+        .custom(function (value, { req }) {
+            return tutor.findUserByPhone(value).then(function (result){
+                if (result.length > 0 && result[0].user_id !== req.id)
+                    return Promise.reject('Phone no. has been used')
+            })
+        }),
+    check('full_name_ch')
+        .not().isEmpty(),
+    check('full_name_en')
+        .not().isEmpty(),
+    check('nick_name')
+        .not().isEmpty(),
+    check('education_level')
+        .not().isEmpty()
+], function (req, res) {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()){
+        return res.status(422).json({ errors: errors.array() })
+    }
+
+    const userID = req.id;
+
+    tutor.edit(userID, req.body)
+        .then(function () {
+            res.sendStatus(200);
         })
         .catch(function (err) {
+            console.log(err);
             res.sendStatus(500);
         })
 });
 
 router.get('/parent_profile', withAuth, function (req, res) {
-    const user_id = req.id;
+    const userID = req.id;
 
-    parent.find(user_id)
-        .then(function (result) {
-            res.status(200).json(result);
+    helper.getDistrictList()
+        .then(function (districtList) {
+            parent.find(userID)
+                .then(function (result) {
+                    const hash = {};
+                    districtList.forEach(function (e) {
+                        if ( e.region in hash ){
+                            hash[e.region].push(e);
+                        }else {
+                            hash[e.region] = [];
+                        }
+                    });
+
+                    const data = {
+                        districtList: hash,
+                        user: result
+                    };
+
+                    res.status(200).json(data);
+                })
+                .catch(function (err) {
+                    console.log(err);
+                    res.sendStatus(500);
+                })
+        })
+});
+
+router.post('/edit_parent', [
+    withAuth,
+    check('name')
+        .not().isEmpty(),
+    check('phone')
+        .isLength(8).withMessage("Value must be a HK phone number")
+        .not().isEmpty()
+        .custom(function (value, { req }) {
+            return parent.findUserByPhone(value).then(function (result){
+                if (result.length > 0 && result[0].user_id !== req.id)
+                    return Promise.reject('Phone no. has been used')
+            })
+        }),
+    check('living_district')
+        .not().isEmpty(),
+    check('address')
+        .not().isEmpty()
+], function (req, res) {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()){
+        return res.status(422).json({ errors: errors.array() })
+    }
+
+    const userID = req.id;
+
+    parent.edit(userID, req.body)
+        .then(function () {
+            res.sendStatus(200);
         })
         .catch(function (err) {
+            console.log(err);
             res.sendStatus(500);
         })
 });

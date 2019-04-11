@@ -34,23 +34,15 @@ class InfoEditParent extends Component{
 
     componentDidMount() {
         var self = this;
-        axios.get('/api/user/parent_register')
-            .then(function (res) {
-                self.setState({
-                    districtList: res.data.districtList,
-                })
-            })
-            .catch(function (err) {
-                console.log(err)
-            });
         axios.get('/api/user/parent_profile')
             .then(function (res) {
                 self.setState({
-                    id: res.data[0].id,
-                    name: res.data[0].name,
-                    phone: res.data[0].phone,
-                    living_district: res.data[0].living_district_id,
-                    address: res.data[0].address
+                    districtList: res.data.districtList,
+                    id: res.data.user.id,
+                    name: res.data.user.name,
+                    phone: res.data.user.phone,
+                    living_district: res.data.user.living_district,
+                    address: res.data.user.address,
                 })
             })
             .catch(function (err) {
@@ -105,7 +97,6 @@ class InfoEditParent extends Component{
     handleSubmit = event => {
         event.preventDefault();
         const data = {
-            id: this.state.id,
             name: this.state.name,
             phone: this.state.phone,
             living_district: this.state.living_district,
@@ -113,10 +104,12 @@ class InfoEditParent extends Component{
         };
 
         var self = this;
-        axios.post('/api/user/info_edit_parent', data)
+        axios.post('/api/user/edit_parent', data)
             .then(function (res) {
-                console.log(self.props);
-                self.props.history.push('/');
+                self.setState({
+                    error: false
+                });
+                self.props.toggle();
             })
             .catch(function (err){
                 const errors = err.response.data.errors;

@@ -5,8 +5,8 @@ const messenger = require('../model/messenger');
 const withAuth = require('../helper/authentication');
 
 router.post('/get_conversation_list', withAuth, function (req, res) {
-    const user_id = req.id;
-    messenger.getConversationList(user_id)
+    const userID = req.id;
+    messenger.getConversationList(userID)
         .then(function (result) {
             res.status(200).json(result)
         })

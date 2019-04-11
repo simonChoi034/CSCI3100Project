@@ -36,14 +36,17 @@ class ChangePassword extends Component{
         const data = {
             id: this.props.modalData,
             old_password: this.state.old_password,
-            password: this.state.password
+            password: this.state.password,
+            confirm_password: this.state.confirm_password
         };
 
         var self = this;
-        axios.post('/api/user/info_edit_password', data)
+        axios.post('/api/user/edit_password', data)
             .then(function (res) {
-                console.log(self.props);
-                self.props.history.push('/');
+                self.setState({
+                    error: false
+                });
+                self.props.toggle();
             })
             .catch(function (err){
                 const errors = err.response.data.errors;

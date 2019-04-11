@@ -27,3 +27,11 @@ module.exports.isCorrectPassword = (rawPassword, hashedPassword, callback) => {
         }
     })
 };
+
+module.exports.editPassword = (id, hashPassword) => {
+    return db(TABLES.USER_ACCOUNT)
+        .where('id', id)
+        .update({
+            password: hashPassword
+        })
+};

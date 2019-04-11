@@ -26,7 +26,6 @@ class InfoEditTutor extends Component{
             phone: '',
             nick_name: '',
             email: '',
-            description: '',
             full_name_ch: '',
             full_name_en: '',
             description: '',
@@ -41,26 +40,24 @@ class InfoEditTutor extends Component{
         axios.get('/api/user/tutor_register')
             .then(function (res) {
                 self.setState({
-                    eduLevelList: res.data.eduLevelList,
-                    education_level: res.data.eduLevelList[0].id
                 });
             })
             .catch(function (err) {
                 console.log(err)
-            })
+            });
         axios.get('/api/user/tutor_profile')
             .then(function (res) {
                 self.setState({
-                    id: res.data[0].id,
-                    name: res.data[0].name,
-                    phone: res.data[0].phone,
-                    full_name_ch: res.data[0].full_name_ch,
-                    full_name_en: res.data[0].full_name_en,
-                    nick_name: res.data[0].nick_name,
-                    birth: res.data[0].birth,
-                    sex: res.data[0].sex == 'M' ? 'Male' : 'Female',
-                    education_level: res.data[0].education_level,
-                    description: res.data[0].description
+                    eduLevelList: res.data.eduLevelList,
+                    id: res.data.user.id,
+                    phone: res.data.user.phone,
+                    full_name_ch: res.data.user.full_name_ch,
+                    full_name_en: res.data.user.full_name_en,
+                    nick_name: res.data.user.nick_name,
+                    birth: res.data.user.birth,
+                    sex: res.data.user.sex == 'M' ? 'Male' : 'Female',
+                    description: res.data.user.description,
+                    education_level: res.data.user.education_level
                 })
             })
             .catch(function (err) {
@@ -109,7 +106,6 @@ class InfoEditTutor extends Component{
     handleSubmit = event => {
         event.preventDefault();
         const data = {
-            id: this.state.id,
             phone: this.state.phone,
             full_name_ch: this.state.full_name_ch,
             full_name_en: this.state.full_name_en,
@@ -118,11 +114,13 @@ class InfoEditTutor extends Component{
             description: this.state.description
         };
 
-        var self = this;
-        axios.post('/api/user/info_edit_tutor', data)
+        const self = this;
+        axios.post('/api/user/edit_tutor', data)
             .then(function (res) {
-                console.log(self.props);
-                self.props.history.push('/');
+                self.setState({
+                    error: false
+                });
+                self.props.toggle();
             })
             .catch(function (err){
                 const errors = err.response.data.errors;
