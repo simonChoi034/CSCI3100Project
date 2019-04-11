@@ -8,9 +8,8 @@ import {
   CarouselItem,
   CarouselControl,
   CarouselIndicators,
-  CarouselCaption,
-  Row,
-  Button
+  Card,
+  Container
 } from 'reactstrap';
 
 import banner1 from '../images/banners/banner1.jpg'
@@ -120,12 +119,19 @@ class Home extends Component {
                     <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
                 </Carousel>
 
-                <h4>Newest Jobs</h4>
-                <JobsWall limit={4} homeCall={true} />
+                <Container className="my-3">
+                    <Card className="py-3 px-4">
+                        <h4>Newest Jobs</h4>
+                        <JobsWall limit={4} homeCall={true} />
+                    </Card>
+                </Container>
 
-                <h4>Tutors</h4>
-                <TutorsWall limit={4} homeCall={true} />
-
+                <Container className="my-3">
+                    <Card className="py-3 px-4">
+                        <h4>Tutors</h4>
+                        <TutorsWall limit={4} homeCall={true} />
+                    </Card>
+                </Container>
             </div>
         );
             
