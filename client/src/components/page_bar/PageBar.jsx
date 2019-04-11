@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './PageBar.css';
+import ReactDOM from 'react-dom';
 import {
     Pagination,
     PaginationItem,
@@ -20,6 +21,13 @@ class PageBar extends Component {
 
     componentDidMount() {
         this.updatePagination(this.state.curPage);
+    }
+
+    componentDidUpdate () {
+        const element = ReactDOM.findDOMNode(this);
+        if (element != null) {
+            window.scrollTo(0, this.scrollPosition)
+        }
     }
 
     updatePagination(newPage) {
