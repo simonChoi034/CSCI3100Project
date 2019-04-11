@@ -56,7 +56,7 @@ class Login extends Component {
                 <h1>TeachHub</h1>
                 <h3>User Login</h3>
                 <Container fluid>
-                    <img src={tutor_login} alt="tutor_login" className="mx-auto"/>;
+                    <img id = 'image' src={tutor_login} alt="tutor_login" className="mx-auto"/>;
                     <Form onSubmit={this.handleSubmit}>
                         <FormGroup>
                             <Label for="email">Email address</Label>
