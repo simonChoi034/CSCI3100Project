@@ -122,7 +122,7 @@ class InfoEditTutor extends Component{
                     <Form id = "info_edit" key = {'Form'} onSubmit={this.handleSubmit}>
                     <ListGroupItemHeading>Username: </ListGroupItemHeading>
                     <ListGroupItem id = 'username'>{data.username}</ListGroupItem>  
-                    <ListGroupItemHeading>Password: </ListGroupItemHeading>
+                    <ListGroupItemHeading>New Password: </ListGroupItemHeading>
                     <FormGroup>
                         <Input
                             type="password"
