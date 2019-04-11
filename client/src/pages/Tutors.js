@@ -5,7 +5,7 @@ import { Container } from 'reactstrap'
 
 const Tutors = () => {
     return (
-        <div className="py-5">
+        <div className="py-4">
             <Container>
                 <TutorsWall />
             </Container>
