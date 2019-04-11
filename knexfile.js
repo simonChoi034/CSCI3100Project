@@ -6,8 +6,8 @@ module.exports = {
     client: 'mysql',
     connection: {
       database: 'TeachHub',
-      user:     'MrRice',
-      password: 'franco0903'
+      user:     'root',
+      password: ''
     }
   },
 
@@ -15,8 +15,8 @@ module.exports = {
     client: 'mysql',
     connection: {
       database: 'TeachHub',
-      user:     'MrRice',
-      password: 'franco0903'
+      user:     'root',
+      password: ''
     },
     pool: {
       min: 2,
