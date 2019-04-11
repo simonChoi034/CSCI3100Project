@@ -21,6 +21,7 @@ class InfoEditParent extends Component{
     constructor(props){
         super(props);
         this.state = {
+            id: '',
             password: '',
             confirm_password: '',
             name: '',
@@ -44,6 +45,7 @@ class InfoEditParent extends Component{
         axios.get('/api/user/parent_profile')
             .then(function (res) {
                 self.setState({
+                    id: res.data[0].id,
                     name: res.data[0].name,
                     phone: res.data[0].phone,
                     living_district: res.data[0].living_district_id,
@@ -58,7 +60,6 @@ class InfoEditParent extends Component{
     creatDropDown(){
         var options = [];
         var districts = this.state.districtList;
-        var self = this;
 
         options.push(<option key = {""} value="">Please choose a district</option>);
 
@@ -86,6 +87,7 @@ class InfoEditParent extends Component{
     handleSubmit = event => {
         event.preventDefault();
         const data = {
+            id: this.state.id,
             password: this.state.password,
             confirm_password: this.state.confirm_password,
             name: this.state.name,

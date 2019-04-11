@@ -21,6 +21,7 @@ class InfoEditTutor extends Component{
     constructor(props){
         super(props);
         this.state = {
+            id:'',
             password: '',
             confirm_password: '',
             email: '',
@@ -45,6 +46,7 @@ class InfoEditTutor extends Component{
         axios.get('/api/user/tutor_profile')
             .then(function (res) {
                 self.setState({
+                    id: res.data[0].id,
                     name: res.data[0].name,
                     phone: res.data[0].phone,
                     full_name_ch: res.data[0].full_name_ch,
@@ -85,6 +87,7 @@ class InfoEditTutor extends Component{
     handleSubmit = event => {
         event.preventDefault();
         const data = {
+            id: this.state.id,
             password: this.state.password,
             confirm_password: this.state.confirm_password,
             phone: this.state.phone,
