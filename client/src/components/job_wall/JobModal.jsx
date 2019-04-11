@@ -77,7 +77,7 @@ class JobModal extends Component{
             <Modal isOpen={this.props.modal} toggle={this.props.toggle} className={this.props.className} size={'lg'}>
                 <ModalHeader toggle={this.props.toggle}>
                     <div className={"d-flex justify-content-center"}>
-                        <b>Job Info</b>
+                        <b>Job Information</b>
                     </div>
                 </ModalHeader>
                 <ModalBody>
