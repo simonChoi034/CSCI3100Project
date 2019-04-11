@@ -23,8 +23,6 @@ class InfoEditParent extends Component{
         super(props);
         this.state = {
             id: '',
-            password: '',
-            confirm_password: '',
             name: '',
             phone: '',
             living_district: '',
@@ -107,8 +105,6 @@ class InfoEditParent extends Component{
         event.preventDefault();
         const data = {
             id: this.state.id,
-            password: this.state.password,
-            confirm_password: this.state.confirm_password,
             name: this.state.name,
             phone: this.state.phone,
             living_district: this.state.living_district,
@@ -214,6 +210,7 @@ class InfoEditParent extends Component{
     handleModal() {
         return (
             <Modal isOpen={this.props.modal} toggle={this.props.toggle} className={this.props.className} size={'lg'}>
+            {this.createModal()}
                 <ModalHeader toggle={this.props.toggle}>
                     <div className={"d-flex justify-content-center"}>
                         <b>Profile Edit</b>
