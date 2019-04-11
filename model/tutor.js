@@ -2,7 +2,9 @@ const { db, TABLES } = require('../config/database');
 const helper = require('./helper');
 
 module.exports.find = (id) => {
-    return db(TABLES.TUTOR_PROFILE).where('user_id', id);
+    return db(TABLES.TUTOR_PROFILE)
+        .join(TABLES.USER_ACCOUNT, TABLES.USER_ACCOUNT.concat('.id'), '=', TABLES.TUTOR_PROFILE.concat('.user_id'))
+        .where('user_account.id', id);
 };
 
 module.exports.all = (offset, limit) => {

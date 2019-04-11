@@ -1,0 +1,11 @@
+@media all and (min-width: 480px) {
+    
+    .form-group{
+        text-align: left;
+        padding: 5px 20px 5px 20px;
+    }
+
+    #tutor_submit_btn{
+        margin-bottom: 1rem;
+    }
+}

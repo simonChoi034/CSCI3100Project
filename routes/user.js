@@ -310,6 +310,30 @@ router.get('/tutor_total_count', function (req, res) {
         .catch(function (err) {
             res.status(500).json({ errors: [err]});
         })
-})
+});
+
+router.get('/tutor_profile', withAuth, function (req, res) {
+    const user_id = req.id;
+
+    tutor.find(user_id)
+        .then(function (result) {
+            res.status(200).json(result);
+        })
+        .catch(function (err) {
+            res.sendStatus(500);
+        })
+});
+
+router.get('/parent_profile', withAuth, function (req, res) {
+    const user_id = req.id;
+
+    parent.find(user_id)
+        .then(function (result) {
+            res.status(200).json(result);
+        })
+        .catch(function (err) {
+            res.sendStatus(500);
+        })
+});
 
 module.exports = router;
