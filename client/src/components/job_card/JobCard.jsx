@@ -56,7 +56,7 @@ class JobCard extends Component {
         if (this.state.job.subject === 'M2') {
             img = M2;
         }
-        if (this.state.job.subject === 'Chinese History') {
+        if (this.state.job.subject === 'Chinese history') {
             img = ChineseHistory;
         }
         if (this.state.job.subject === 'History') {
