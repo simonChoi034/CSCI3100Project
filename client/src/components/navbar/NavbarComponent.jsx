@@ -106,20 +106,19 @@ class NavbarComponent extends Component {
                 <Navbar id="nav-bar" expand="sm">
                     
                     <NavbarBrand className="btn btn-outline-light m-0" href="/">TeachHub</NavbarBrand>
-                    {
-                        this.props.currentUser &&
-                        <Nav id = 'hi' className="text-light mx-1">
-                            <b>
-                                <Button outline color='link' className="text-light" onClick={(event) => this.toggle(event, this.props.currentUser)}>
-                                    <FaUserAlt className="mr-1 icon"/>
-                                    <span className="align-bottom">Hi {this.props.currentUser.username}</span>
-                                </Button>
-                            </b>
-                        </Nav>
-                    }
+                    
                     <NavbarToggler className="navbar-light float-right" onClick={this.toggleNav}/>
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
+                            {
+                            this.props.currentUser &&
+                            <NavItem id = 'user' className="text-light mx-1">
+                                <NavLink className="text-light profile-btn " onClick={(event) => this.toggle(event, this.props.currentUser)}>
+                                    <FaUserAlt className="mr-1 align-text-top"/>
+                                    {this.props.currentUser.username}
+                                </NavLink>
+                            </NavItem>
+                            }
                             <NavItem>
                                 <NavLink className="text-light" href='/jobs'>Jobs</NavLink>
                             </NavItem>

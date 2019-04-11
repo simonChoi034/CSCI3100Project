@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import logo from './logo.svg';
+import JobsWall from '../components/job_wall/JobsWall';
+import TutorsWall from '../components/tutor_wall/TutorsWall';
+import './Home.css';
 import {
   Carousel,
   CarouselItem,
@@ -7,14 +10,15 @@ import {
   CarouselIndicators,
   CarouselCaption
 } from 'reactstrap';
-import banner1 from '../images/banners/banner1.jpg'
-import banner2 from '../images/banners/banner2.jpg'
-import banner3 from '../images/banners/banner3.jpg'
-import banner4 from '../images/banners/banner4.jpg'
-import banner5 from '../images/banners/banner5.jpg'
-import banner6 from '../images/banners/banner6.jpg'
-import banner7 from '../images/banners/banner7.jpg'
-import './Home.css'
+
+import banner1 from '../images/banners/banner1.jpg';
+import banner2 from '../images/banners/banner2.jpg';
+import banner3 from '../images/banners/banner3.jpg';
+import banner4 from '../images/banners/banner4.jpg';
+import banner5 from '../images/banners/banner5.jpg';
+import banner6 from '../images/banners/banner6.jpg';
+import banner7 from '../images/banners/banner7.jpg';
+
 const items = [
     {
         src: banner1,
@@ -100,6 +104,7 @@ class Home extends Component {
         });
     
         return (
+          // banner slider
           <Carousel
             activeIndex={activeIndex}
             next={this.next}
@@ -111,7 +116,10 @@ class Home extends Component {
             <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
           </Carousel>
         );
-    
+
+        // current jobs
+
+        // tutors
     
     }
 }
