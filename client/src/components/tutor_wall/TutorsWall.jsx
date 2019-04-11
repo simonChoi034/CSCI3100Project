@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import './TutorsWall.css';
 import TutorCard from '../tutor_card/TutorCard';
+import PageBar from '../page_bar/PageBar';
 import {
     Container,
     Row,
@@ -16,18 +17,71 @@ class TutorsWall extends Component {
         this.state = {
             tutors: [],
             modal: false,
-            modalData: null
+            modalData: null,
+            totalTutors: 0,
+            totalPages: 0,
+            limit: 8,
+            offset: 0,
+            curPage: 1,
+            pages: [],
+            pageBarDisplay: null
         };
 
         this.toggle = this.toggle.bind(this);
+        this.onPageChange = this.onPageChange.bind(this);
     }
 
     componentDidMount() {
-        axios.get("/api/user/list_tutor")
+        this.setupPageBar();
+        this.getTutors(this.state.offset, this.state.limit);
+    }
+
+    getTutors(offset, limit) {
+      axios.get("/api/user/list_tutor/?offset=".concat(offset).concat("&limit=").concat(limit))
+      .then(res => {
+          this.setState({
+              tutors: res.data.tutorList
+          })
+      })
+      .catch(err => console.error(err.toString()))
+    }
+
+    setupPageBar() {
+        axios.get("/api/user/tutor_total_count")
             .then(res => {
-                this.setState({tutors: res.data.tutorList})
+                const total_tutors = res.data.total;
+                const total_pages = Math.ceil(total_tutors / this.state.limit);
+                var pages = [];
+                for (var i = 1; i <= total_pages; i++) {
+                    pages.push(i);
+                }
+                this.setState({
+                  totalTutors: total_tutors,
+                  totalPages: total_pages,
+                  pages: pages
+                })
+                
+                this.updatePageBar();
             })
             .catch(err => console.error(err.toString()))
+    }
+
+    updatePageBar() {
+      const props = {
+          curPage: 1 + Math.floor(this.state.offset / this.state.limit),
+          pages: this.state.pages,
+          onPageChange: this.onPageChange
+      }
+      this.setState({pageBarDisplay: <PageBar {...props} />});
+    }
+
+    onPageChange(event, page) {
+        const new_offset = (page - 1) * this.state.limit;
+        this.setState({
+            offset: new_offset,
+            curPage: page
+        });
+        this.getTutors(new_offset, this.state.limit);
     }
 
     toggle(event, data) {
@@ -52,14 +106,18 @@ class TutorsWall extends Component {
 
     render() {
         return (
-            <Fade>
-                { this.createModal() }
-                <Row>
-                    {this.state.tutors.map((tutor, key) =>
-                        <TutorCard key={key} tutor={tutor} toggle={this.toggle}/>
-                    )}
-                </Row>
-            </Fade>
+            <div>
+                <Fade>
+                    { this.createModal() }
+                    <Row>
+                        {this.state.tutors.map((tutor, key) =>
+                            <TutorCard key={key} tutor={tutor} toggle={this.toggle}/>
+                        )}
+                    </Row>
+                </Fade>
+
+                <Row>{ this.state.pageBarDisplay }</Row>
+            </div>
         );
     }
 }

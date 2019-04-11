@@ -29,6 +29,12 @@ class TutorCard extends Component {
         )
     }
 
+    componentWillReceiveProps(props) {
+        this.setState({
+            tutor: props.tutor
+        })
+    }
+
     render() {
         return (
             <Col className="d-flex justify-content-center" xs="12" sm="6" lg="4">
