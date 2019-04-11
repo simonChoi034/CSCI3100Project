@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './TutorCard.css';
-import male from "../../images/boy.png"
-import female from "../../images/girl.png"
+import Male from "../../images/boy.png"
+import Female from "../../images/girl.png"
 import {
     Card,
     CardTitle,
@@ -21,7 +21,7 @@ class TutorCard extends Component {
 
     createCardTitle() {
         const color = this.state.tutor.sex === 'M' ? 'primary' : 'danger';
-        const img = this.state.tutor.sex === 'M'? male : female;
+        const img = this.state.tutor.sex === 'M'? Male : Female;
         return (
             <Button outline disabled color={color}>
                 <img src={img} width={32} height={32} alt="img" />
