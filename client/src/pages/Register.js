@@ -46,7 +46,7 @@ class Register extends Component {
 
     render(){
         return (
-            <div id="Register">
+            <div id="Register" className="py-5">
                 <Container fluid>
                     <Row>
                         <Button

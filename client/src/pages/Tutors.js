@@ -5,9 +5,11 @@ import { Container } from 'reactstrap'
 
 const Tutors = () => {
     return (
-        <Container>
-            <TutorsWall />
-        </Container>
+        <div className="py-5">
+            <Container>
+                <TutorsWall />
+            </Container>
+        </div>
     );
 };
 
