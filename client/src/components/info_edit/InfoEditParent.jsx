@@ -31,7 +31,7 @@ class InfoEditParent extends Component{
         this.toggle = this.toggle.bind(this);
     }
 
-    componentWillMount() {
+    componentDidMount() {
         var self = this;
         axios.get('/api/user/parent_register')
             .then(function (res) {

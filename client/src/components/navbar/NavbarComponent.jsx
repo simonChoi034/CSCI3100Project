@@ -32,13 +32,6 @@ class NavbarComponent extends Component {
         this.createModal = this.createModal.bind(this);
     }
 
-    componentDidMount() {
-        authenticationService.currentUser.subscribe(x => this.setState({
-            currentUser: x,
-            isTutor: x && x.role === Role.Tutor
-        }));
-    }
-
     toggleNav() {
         this.setState({
             isOpen: !this.state.isOpen
@@ -75,6 +68,10 @@ class NavbarComponent extends Component {
 
 
     toggle(event, data) {
+        authenticationService.currentUser.subscribe(x => this.setState({
+            currentUser: x,
+            isTutor: x && x.role === Role.Tutor
+        }));
         this.setState(prevState => ({
             modal: !prevState.modal,
             modalData: data

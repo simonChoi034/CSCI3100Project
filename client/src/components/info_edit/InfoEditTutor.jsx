@@ -23,7 +23,12 @@ class InfoEditTutor extends Component{
         super(props);
         this.state = {
             id:'',
+            phone: '',
+            nick_name: '',
             email: '',
+            description: '',
+            full_name_ch: '',
+            full_name_en: '',
             description: '',
             error: false,
             error_message: ''
@@ -31,7 +36,7 @@ class InfoEditTutor extends Component{
         this.toggle = this.toggle.bind(this);
     }
 
-    componentWillMount() {
+    componentDidMount() {
         var self = this;
         axios.get('/api/user/tutor_register')
             .then(function (res) {
@@ -153,7 +158,6 @@ class InfoEditTutor extends Component{
                             name="phone"
                             id="phone"
                             onChange={this.handleChange}
-                            pattern="[0-9]*"
                             value = {this.state.phone}
                             maxLength={8}
                         />
