@@ -12,31 +12,33 @@ import {
     ListGroupItemHeading,
     ListGroupItemText
 } from "reactstrap";
-import "./InfoEdit_parent.css";
+import "./InfoEditTutor.css";
 import axios from 'axios';
 
 
 
-class InfoEdit_Parent extends Component{
+class InfoEditTutor extends Component{
     constructor(props){
         super(props);
         this.state = {
             password: '',
             confirm_password: '',
-            name: '',
-            phone: '',
-            living_district: '',
-            address: ''
+            email: '',
+            description: '',
+            error: false,
+            error_message: ''
         };
+        console.log(this.props)
     }
 
     componentDidMount() {
         var self = this;
-        axios.get('/api/user/parent_register')
+        axios.get('/api/user/tutor_register')
             .then(function (res) {
                 self.setState({
-                    districtList: res.data.districtList,
-                })
+                    eduLevelList: res.data.eduLevelList,
+                    education_level: res.data.eduLevelList[0].id
+                });
             })
             .catch(function (err) {
                 console.log(err)
@@ -45,24 +47,10 @@ class InfoEdit_Parent extends Component{
 
     creatDropDown(){
         var options = [];
-        var districts = this.state.districtList;
-        var select = false;
-        const data = this.props.modalData;
 
-        options.push(<option key = {""} value="">Please choose a district</option>);
-
-        for (var key in districts) {
-            options.push(<option key = {key}value="" disabled>{key}</option>);
-
-            districts[key].forEach(function (e, key) {
-                if (e.id == data.district){
-                    select = true 
-                }else{
-                    select = false
-                }
-                options.push(<option key = {e.id} value={e.id} {...select?'select:selected':null}>{e.district}</option>);
-            })
-        }
+        this.state.eduLevelList.forEach(function (e) {
+            options.push(<option key = {e.id} value={e.id}>{e.education_level}</option>);
+        });
 
         return options;
     }
@@ -77,19 +65,22 @@ class InfoEdit_Parent extends Component{
         });
     }
 
+
     handleSubmit = event => {
         event.preventDefault();
         const data = {
             password: this.state.password,
             confirm_password: this.state.confirm_password,
-            name: this.state.name,
             phone: this.state.phone,
-            living_district: this.state.living_district,
-            address: this.state.address
+            full_name_ch: this.state.full_name_ch,
+            full_name_en: this.state.full_name_en,
+            nick_name: this.state.nick_name,
+            education_level: this.state.education_level,
+            description: this.state.description
         };
 
         var self = this;
-        axios.post('/api/user/info_edit_parent', data)
+        axios.post('/api/user/info_edit_tutor', data)
             .then(function (res) {
                 console.log(self.props);
                 self.props.history.push('/');
@@ -156,23 +147,57 @@ class InfoEdit_Parent extends Component{
                             maxLength={8}
                         />
                     </FormGroup>
-                    <ListGroupItemHeading >Living district:</ListGroupItemHeading>
-                    <FormGroup>
-                        <Input
-                            type="select"
-                            name="living_district"
-                            id="living_district"
-                            onChange={this.handleChange}>
-                            { this.state.districtList && this.creatDropDown() }
-                        </Input>
-                    </FormGroup>
-                    <ListGroupItemHeading >Address: </ListGroupItemHeading>
+                    <ListGroupItemHeading>中文姓名:</ListGroupItemHeading>
                     <FormGroup>
                         <Input
                             type="text"
-                            name="address"
-                            id="address"
-                            value = {data.address}
+                            name="chinese_name"
+                            id="full_name_ch"
+                            onChange={this.handleChange}
+                            value = {data.full_name_ch}
+                        />
+                    </FormGroup>
+                    <ListGroupItemHeading>English Name:</ListGroupItemHeading>
+                    <FormGroup>
+                        <Input
+                            type="text"
+                            name="english_name"
+                            id="full_name_en"
+                            onChange={this.handleChange}
+                            value = {data.full_name_en}
+                        />
+                    </FormGroup>
+                    <ListGroupItemHeading>Nick Name:</ListGroupItemHeading>
+                    <FormGroup>
+                        <Input
+                            type="text"
+                            name="nick_name"
+                            id="nick_name"
+                            onChange={this.handleChange}
+                            value = {data.nick_name}
+                        />
+                    </FormGroup>
+                    <ListGroupItemHeading>Birth:</ListGroupItemHeading>
+                    <ListGroupItem id = 'birth'>{data.birth}</ListGroupItem> 
+                    <ListGroupItemHeading>Sex:</ListGroupItemHeading>
+                    <ListGroupItem id = 'birth'>{data.sex}</ListGroupItem>  
+                    <ListGroupItemHeading >Education Level:</ListGroupItemHeading>
+                    <FormGroup>
+                        <Input
+                            type="select"
+                            id="education_level"
+                            name="education_level"
+                            onChange={this.handleChange}>
+                            { this.state.eduLevelList && this.creatDropDown() }
+                        </Input>
+                    </FormGroup>
+                    <ListGroupItemHeading >Self description: </ListGroupItemHeading>
+                    <FormGroup>
+                        <Input
+                            type="textarea"
+                            name="description"
+                            id="description"
+                            value = {data.description}
                             onChange={this.handleChange}
                         />
                     </FormGroup>
@@ -219,4 +244,4 @@ class InfoEdit_Parent extends Component{
     }
 }
 
-export default InfoEdit_Parent;
+export default InfoEditTutor;

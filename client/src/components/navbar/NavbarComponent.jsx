@@ -14,8 +14,8 @@ import {
     Fade
 } from 'reactstrap';
 import { authenticationService } from '../auth/authentication.service';
-import InfoEdit_parent from '../info_edit/InfoEdit_parent';
-import InfoEdit_tutor from '../info_edit/InfoEdit_tutor';
+import InfoEditParent from '../info_edit/InfoEditParent';
+import InfoEditTutor from '../info_edit/InfoEditTutor';
 
 class NavbarComponent extends Component {
 
@@ -89,11 +89,11 @@ class NavbarComponent extends Component {
         };
         if(this.state.isTutor){
             return (
-                <InfoEdit_tutor {...props}/>
+                <InfoEditTutor {...props}/>
             )
         }else{
             return (
-                <InfoEdit_parent {...props}/>
+                <InfoEditParent {...props}/>
             )
         }
     }
