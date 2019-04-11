@@ -12,7 +12,7 @@ import Register from './pages/Register';
 import Tutors from './pages/Tutors';
 import Jobs from './pages/JobsWall';
 import Footer from './components/footer/Footer'
-
+import Messenger from './components/messenger/messenger';
 
 class App extends Component {
 
@@ -47,6 +47,7 @@ class App extends Component {
                                     <Route path='/register' component={Register} />
                                     <Route path='/tutors' component={Tutors} />
                                     <Route path='/jobs' component={Jobs} />
+                                    <Route path='/messenger' component={Messenger} />
                                 </Switch>
                             </div>
                             <Footer />
