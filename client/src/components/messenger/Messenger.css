@@ -3,7 +3,8 @@
   width: 100%;
   height: 100vh;
   background: transparent;
-
+  min-width: 600px;
+  min-height: 600px;
   grid-template-columns: 350px auto;
   grid-template-rows: 60px auto 60px;
   grid-column-gap: 1px;
@@ -49,4 +50,21 @@
 
 #footer{
   margin-top: 0 !important;
+  width: 100%;
+  min-width: 600px;
+}
+
+@media (max-width:480px){
+  .sidebar{
+    width:80%;
+  }
+  .content{
+    margin-left: -29%;
+  }
+
+  #footer{
+    margin-top: -1.5REM !important;
+    width: 100%;
+    min-width: 600px;
+  }
 }
