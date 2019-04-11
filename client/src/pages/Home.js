@@ -151,7 +151,6 @@ class Home extends Component {
                     </Button>
                 </Row>
 
-<<<<<<< HEAD
             <Carousel
                 activeIndex={activeIndex}
                 next={this.next}
@@ -167,9 +166,6 @@ class Home extends Component {
             </Row>
 
           </div>
-=======
-            </div>
->>>>>>> 15b3ed8a20064bd00aeeabcab9a0be62cbd34e80
         );
             
     
