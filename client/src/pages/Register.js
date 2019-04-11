@@ -49,18 +49,38 @@ class Register extends Component {
             <div id="Register" className="py-5">
                 <Container fluid>
                     <Row>
-                        <Button
-                            color="success"
-                            className="text-center pull-left mx-3" 
-                            id="tutor_btn"
-                            onClick={this.handleClickTutor}>Tutor
-                        </Button>
-                        <Button 
-                            color="primary"
-                            className="text-center mx-3"
-                            id="parent_btn"
-                            onClick={this.handleClickParent}>Parent/Student
-                        </Button>
+                        {
+                            this.state.showTutor?
+                            <Button
+                                color="primary"
+                                className="text-center pull-left mx-3" 
+                                id="tutor_btn"
+                                onClick={this.handleClickTutor}>Tutor
+                            </Button> :
+                            <Button
+                                color="primary"
+                                outline
+                                className="text-center pull-left mx-3" 
+                                id="tutor_btn"
+                                onClick={this.handleClickTutor}>Tutor
+                            </Button>
+                        }
+                        {
+                            this.state.showParent?
+                            <Button 
+                                color="primary"
+                                className="text-center mx-3"
+                                id="parent_btn"
+                                onClick={this.handleClickParent}>Parent/Student
+                            </Button> :
+                            <Button 
+                                color="primary"
+                                outline
+                                className="text-center mx-3"
+                                id="parent_btn"
+                                onClick={this.handleClickParent}>Parent/Student
+                            </Button>
+                        }
                     </Row>
                     {this.state.out}
                 </Container>
