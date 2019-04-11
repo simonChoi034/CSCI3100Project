@@ -24,7 +24,7 @@ class TutorCard extends Component {
         const img = this.state.tutor.sex === 'M'? Male : Female;
         return (
             <Button outline disabled color={color}>
-                <img src={img} width={32} height={32} alt="img" />
+                <img src={img} alt="img" />
                 <span className="m-2">Name: {this.state.tutor.nick_name}</span>
             </Button>
         )

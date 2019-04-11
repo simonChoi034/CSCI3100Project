@@ -12,6 +12,8 @@ import banner2 from '../images/banner/banner2.jpg'
 import banner3 from '../images/banner/banner3.jpg'
 import banner4 from '../images/banner/banner4.jpg'
 import banner5 from '../images/banner/banner5.jpg'
+import banner6 from '../images/banner/banner6.jpg'
+import banner7 from '../images/banner/banner7.jpg'
 import './Home.css'
 const items = [
     {
@@ -33,6 +35,14 @@ const items = [
     {
         src: banner5,
         altText: 'Banner 5'
+    },
+    {
+        src: banner6,
+        altText: 'Banner 6'
+    },
+    {
+        src: banner7,
+        altText: 'Banner 7'
     }
   ];
 
@@ -82,7 +92,6 @@ class Home extends Component {
               onExiting={this.onExiting}
               onExited={this.onExited}
               key={item.src}
-              className="carousel-box"
             >
               <img src={item.src} alt={item.altText} />
             </CarouselItem>
