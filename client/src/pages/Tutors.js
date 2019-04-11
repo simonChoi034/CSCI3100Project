@@ -4,10 +4,13 @@ import TutorsWall from '../components/tutor_wall/TutorsWall'
 import { Container } from 'reactstrap'
 
 const Tutors = () => {
+    const limit = 8;
     return (
-        <Container>
-            <TutorsWall />
-        </Container>
+        <div className="py-4">
+            <Container>
+                <TutorsWall limit={limit} homeCall={false} />
+            </Container>
+        </div>
     );
 };
 

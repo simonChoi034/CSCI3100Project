@@ -5,6 +5,7 @@ import TutorCard from '../tutor_card/TutorCard';
 import PageBar from '../page_bar/PageBar';
 import {
     Container,
+    Button,
     Row,
     Fade
 } from 'reactstrap';
@@ -20,11 +21,12 @@ class TutorsWall extends Component {
             modalData: null,
             totalTutors: 0,
             totalPages: 0,
-            limit: 8,
+            limit: props.limit,
             offset: 0,
             curPage: 1,
             pages: [],
-            pageBarDisplay: null
+            pageBarDisplay: null,
+            homeCall: props.homeCall
         };
 
         this.toggle = this.toggle.bind(this);
@@ -116,7 +118,12 @@ class TutorsWall extends Component {
                     </Row>
                 </Fade>
 
-                <Row>{ this.state.pageBarDisplay }</Row>
+                {
+                    this.state.homeCall? 
+                    <Button outline color="info" href="/tutors">View More</Button> : 
+                    <Row>{ this.state.pageBarDisplay }</Row>
+                }
+                
             </div>
         );
     }

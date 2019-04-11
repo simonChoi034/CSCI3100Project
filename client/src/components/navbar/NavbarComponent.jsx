@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Role} from "../helper";
 import './NavbarComponent.css';
+import { FaUserAlt } from "react-icons/fa";
 import {
     Collapse,
     Navbar,
@@ -14,8 +15,8 @@ import {
     Fade
 } from 'reactstrap';
 import { authenticationService } from '../auth/authentication.service';
-import InfoEdit_parent from '../info_edit/InfoEdit_parent';
-import InfoEdit_tutor from '../info_edit/InfoEdit_tutor';
+import InfoEditParent from '../info_edit/InfoEditParent';
+import InfoEditTutor from '../info_edit/InfoEditTutor';
 
 class NavbarComponent extends Component {
 
@@ -29,13 +30,6 @@ class NavbarComponent extends Component {
             modalData: null
         };
         this.createModal = this.createModal.bind(this);
-    }
-
-    componentDidMount() {
-        authenticationService.currentUser.subscribe(x => this.setState({
-            currentUser: x,
-            isTutor: x && x.role === Role.Tutor
-        }));
     }
 
     toggleNav() {
@@ -74,6 +68,10 @@ class NavbarComponent extends Component {
 
 
     toggle(event, data) {
+        authenticationService.currentUser.subscribe(x => this.setState({
+            currentUser: x,
+            isTutor: x && x.role === Role.Tutor
+        }));
         this.setState(prevState => ({
             modal: !prevState.modal,
             modalData: data
@@ -89,11 +87,11 @@ class NavbarComponent extends Component {
         };
         if(this.state.isTutor){
             return (
-                <InfoEdit_tutor {...props}/>
+                <InfoEditTutor {...props}/>
             )
         }else{
             return (
-                <InfoEdit_parent {...props}/>
+                <InfoEditParent {...props}/>
             )
         }
     }
@@ -105,13 +103,19 @@ class NavbarComponent extends Component {
                 <Navbar id="nav-bar" expand="sm">
                     
                     <NavbarBrand className="btn btn-outline-light m-0" href="/">TeachHub</NavbarBrand>
-                    {
-                        this.props.currentUser &&
-                        <Nav id = 'hi' className="text-light mx-1"><b><Button outline color = 'link' onClick={(event) => this.toggle(event, this.props.currentUser)}>Hi {this.props.currentUser.username}</Button></b></Nav>
-                    }
+                    
                     <NavbarToggler className="navbar-light float-right" onClick={this.toggleNav}/>
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
+                            {
+                            this.props.currentUser &&
+                            <NavItem id = 'user' className="text-light mx-1">
+                                <NavLink className="text-light profile-btn " onClick={(event) => this.toggle(event, this.props.currentUser)}>
+                                    <FaUserAlt className="mr-1 align-text-top"/>
+                                    {this.props.currentUser.username}
+                                </NavLink>
+                            </NavItem>
+                            }
                             <NavItem>
                                 <NavLink className="text-light" href='/jobs'>Jobs</NavLink>
                             </NavItem>

@@ -46,7 +46,7 @@ class Register extends Component {
 
     render(){
         return (
-            <div id="Register">
+            <div id="Register" className="py-5">
                 <Container fluid>
                     <Row>
                         <Button
@@ -59,7 +59,7 @@ class Register extends Component {
                             color="primary"
                             className="text-center mx-3"
                             id="parent_btn"
-                            onClick={this.handleClickParent}>Parent Registration
+                            onClick={this.handleClickParent}>Parent/Student Registration
                         </Button>
                     </Row>
                     {this.state.out}

@@ -1,0 +1,29 @@
+#body{
+    margin: 0px ;
+    margin-top: 50px;
+    padding-top: 0 ;
+    max-width: 100%;
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+
+.carousel{
+    max-height: 100% !important;
+    margin: 0px !important;
+    margin-top: 58px !important;
+    padding-top: 0 !important;
+    max-width: 100%;
+}
+
+@media (max-width:320px){
+    .carousel{
+        margin-top: 58px !important;
+    }
+}
+
+.carousel-box {
+    max-height: 500px;
+}

@@ -1,3 +1,4 @@
+
 #nav-bar {
     background: #1EB4E2;
     box-shadow: 5px 5px 25px 0px rgba(46, 61, 73, 0.2);
@@ -6,7 +7,12 @@
     z-index: 100;
 }
 
-#hi{
+#user{
     margin-left: 1rem !important;
     margin-bottom: 0 !important;
+}
+
+.profile-btn {
+    cursor: pointer;
+    color: white;
 }
