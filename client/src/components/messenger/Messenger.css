@@ -36,3 +36,16 @@
   grid-column-start: 2;
   background: white;
 }
+
+.compose{
+  position: absolute;
+  background-color: #dddddd;
+}
+
+.compose-imput{
+  font-size: 20px;
+}
+
+#footer{
+  margin-top: 0 !important;
+}
