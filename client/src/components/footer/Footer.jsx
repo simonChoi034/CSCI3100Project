@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Container } from 'reactstrap';
+import {Row, Col} from 'reactstrap';
 import './Footer.css';
 
 class Footer extends Component {
@@ -7,11 +7,22 @@ class Footer extends Component {
 
     render() {
         return (
-            <div id="footer" className="mt-5 mb-0 px-0 text-light">
-                <p className="text-center m-0">TeachHub © 2019 All Rights Reserved</p>
-                <p id="contact_us">Contact Us</p>
-                <a href = 'mailto:teachhub@gmail.com'><p id="contact_info">Email: teachhub@gmail.com</p></a>
-                <p id="contact_hotline">Hotline: 9388 9388</p>
+            <div id="footer" className="mt-5 mb-0 px-5 py-3 text-light">
+                
+                <Row>
+                    <Col sm="12" md="4" className="text-left mt-4">
+                        <h6 id="contact_us m-0">Contact Us:</h6>
+                        <a href = 'mailto:teachhub@gmail.com'>
+                            <p id="contact_info">Email: teachhub@gmail.com</p>
+                        </a>
+                        <p id="contact_hotline">Hotline: 9388 9388</p>
+                    </Col>
+                    <Col sm="0" md="3" xl="5"></Col>
+                    <Col sm="12" md="5" xl="3" className="text-left pr-0 mt-4">
+                        <p className="text-left">TeachHub © 2019 All Rights Reserved</p>
+                    </Col>
+                </Row>
+
             </div>
         )
     }
