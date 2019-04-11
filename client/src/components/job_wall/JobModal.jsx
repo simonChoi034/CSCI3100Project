@@ -25,7 +25,7 @@ class JobModal extends Component{
         const data = this.props.modalData;
         if (data) {
             content.push(
-                (<Row>
+                (<Row key = {'row'}>
                     <Col>
                         <ListGroupItem key = {1}>
                             <ListGroupItemHeading>{'Region:'}</ListGroupItemHeading>
