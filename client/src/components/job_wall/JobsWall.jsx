@@ -20,11 +20,12 @@ class JobsWall extends Component {
             modalData: null,
             totalJobs: 0,
             totalPages: 0,
-            limit: 8,
+            limit: props.limit,
             offset: 0,
             curPage: 1,
             pages: [],
-            pageBarDisplay: null
+            pageBarDisplay: null,
+            homeCall: props.homeCall
         };
 
         this.toggle = this.toggle.bind(this);
@@ -122,7 +123,12 @@ class JobsWall extends Component {
                     </Row>
                 </Fade>
 
-                <Row>{ this.state.pageBarDisplay }</Row>
+                {
+                    this.state.homeCall? 
+                    <Button outline color="info" href="/jobs">View More</Button> : 
+                    <Row>{ this.state.pageBarDisplay }</Row>
+                }
+
             </div>
         );
     }

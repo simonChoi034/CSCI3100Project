@@ -11,7 +11,8 @@ class Jobs extends Component{
         super(props);
 
         this.state = {
-            isFormOpen: false
+            isFormOpen: false,
+            limit: 8
         };
 
         this.handleOpenForm = this.handleOpenForm.bind(this)
@@ -45,6 +46,8 @@ class Jobs extends Component{
                 isTutor={this.state.isTutor}
                 openForm={this.handleOpenForm}
                 history={this.props.history}
+                limit={this.state.limit}
+                homeCall={false}
             />
         );
 

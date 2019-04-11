@@ -120,6 +120,12 @@ class Home extends Component {
                     <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
                 </Carousel>
 
+                <h4>Newest Jobs</h4>
+                <JobsWall limit={4} homeCall={true} />
+
+                <h4>Tutors</h4>
+                <TutorsWall limit={4} homeCall={true} />
+
             </div>
         );
             
