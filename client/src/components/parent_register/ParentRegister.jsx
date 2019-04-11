@@ -102,7 +102,7 @@ class ParentRegister extends Component {
 
     render(){
         return (
-            <Form id="parent_register" className="mt-4" onSubmit={this.handleSubmit}>
+            <Form id="parent_register" className="mt-4 pt-3" onSubmit={this.handleSubmit}>
                 <Label className="text-center">
                     <h2>
                         Parent/Student Registration
