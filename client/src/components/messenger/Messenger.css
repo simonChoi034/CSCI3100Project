@@ -40,9 +40,10 @@
 .compose{
   position: absolute;
   background-color: #dddddd;
+  border-radius: 30px;
 }
 
-.compose-imput{
+.compose-input{
   font-size: 20px;
 }
 
