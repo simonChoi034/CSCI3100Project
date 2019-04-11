@@ -6,7 +6,8 @@ class AboutUs extends Component {
         return (
             <div>
                 <p>What is TeachHub?</p>
-                <p>We provide student and tutor matching</p>
+                <p>We provide an interactive platform for students and tutors matching in an convenient way.
+                    Therefore, students can enhance their academic results or learn new non-academic skills while private tutors can earn a living.</p>
                 <p>Why you should use TeachHub?</p>
                 <p>Easy to use</p>
                 <p>We provide a user-friendly chatroom for students and tutors to communicate easily</p>
