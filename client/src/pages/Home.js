@@ -6,7 +6,8 @@ import {
   CarouselControl,
   CarouselIndicators,
   CarouselCaption,
-  Row
+  Row,
+  Button
 } from 'reactstrap';
 import banner1 from '../images/banners/banner1.jpg'
 import banner2 from '../images/banners/banner2.jpg'
@@ -19,6 +20,7 @@ import job_btn from '../images/button/job.png'
 import reg_btn from '../images/button/reg.png'
 import tutor_btn from '../images/button/tutor.png'
 import './Home.css'
+import { get } from "https";
 const items = [
     {
         src: banner1,
@@ -54,14 +56,17 @@ const items = [
 class Home extends Component {
     constructor(props) {
       super(props);
-      this.state = { activeIndex: 0 };
+      this.state = { activeIndex: 0, redirect: false, path: '' };
       this.next = this.next.bind(this);
       this.previous = this.previous.bind(this);
       this.goToIndex = this.goToIndex.bind(this);
       this.onExiting = this.onExiting.bind(this);
       this.onExited = this.onExited.bind(this);
+      this.handleClickJob = this.handleClickJob.bind(this);
+      this.handleClickReg = this.handleClickReg.bind(this);
+      this.handleClickTutor = this.handleClickTutor.bind(this);
     }
-  
+
     onExiting() {
       this.animating = true;
     }
@@ -86,7 +91,19 @@ class Home extends Component {
       if (this.animating) return;
       this.setState({ activeIndex: newIndex });
     }
-  
+    
+    handleClickJob(){
+        this.props.history.push('/jobs');
+    }
+
+    handleClickTutor(){
+        this.props.history.push('/tutors');
+    }
+
+    handleClickReg(){
+        this.props.history.push('/register');
+    }
+
     render() {
         const { activeIndex } = this.state;
     
@@ -110,16 +127,19 @@ class Home extends Component {
                 next={this.next}
                 previous={this.previous}
             >
-                <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
                 {slides}
-                <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
-                <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
             </Carousel>
             <Row>
-                <img src={job_btn} alt={'job'} />
-                <img src={reg_btn} alt={'reg'} />
-                <img src={tutor_btn} alt={'tutor'} />
-            </Row>
+                <Button  onClick = {this.handleClickJob}>
+                    <img src={job_btn} alt={'job'}/>
+                </Button>
+                <Button onClick = {this.handleClickReg}>
+                    <img src={reg_btn} alt={'reg'} />
+                </Button>
+                <Button onClick = { this.handleClickTutor}>
+                    <img src={tutor_btn} alt={'tutor'}/>
+                </Button>
+           </Row>
           </div>
         );
             
