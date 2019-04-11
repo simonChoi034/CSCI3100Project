@@ -24,7 +24,7 @@ class ParticlesContainer extends Component {
             params={{
               "particles": {
                   "number": {
-                      "value": 40
+                      "value": 50
                   },
                   "size": {
                       "value": 3
