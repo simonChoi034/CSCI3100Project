@@ -20,9 +20,9 @@ import banner4 from '../images/banners/banner4.jpg'
 import banner5 from '../images/banners/banner5.jpg'
 import banner6 from '../images/banners/banner6.jpg'
 import banner7 from '../images/banners/banner7.jpg'
-// import job_btn from '../images/buttons/job.png'
-// import reg_btn from '../images/buttons/reg.png'
-// import tutor_btn from '../images/buttons/tutor.png'
+import job_btn from '../images/buttons/job.png'
+import reg_btn from '../images/buttons/reg.png'
+import tutor_btn from '../images/buttons/tutor.png'
 
 import { get } from "https";
 const items = [
@@ -139,7 +139,7 @@ class Home extends Component {
                 </Carousel>
 
 
-                {/* <Row>
+                <Row>
                     <Button  onClick = {this.handleClickJob}>
                         <img src={job_btn} alt={'job'}/>
                     </Button>
@@ -149,7 +149,7 @@ class Home extends Component {
                     <Button onClick = { this.handleClickTutor}>
                         <img src={tutor_btn} alt={'tutor'}/>
                     </Button>
-                </Row> */}
+                </Row>
 
             </div>
         );
