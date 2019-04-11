@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './TutorCard.css';
-import male from "./boy.png"
-import female from "./girl.png"
+import male from "../../images/boy.png"
+import female from "../../images/girl.png"
 import {
     Card,
     CardTitle,
@@ -13,7 +12,6 @@ import {
 
 class TutorCard extends Component {
 
-    
     constructor(props) {
         super(props);
         this.state = {
@@ -27,7 +25,7 @@ class TutorCard extends Component {
         return (
             <Button outline disabled color={color}>
                 <img src={img} width={32} height={32} alt="img" />
-                Tutor: {this.state.tutor.nick_name}
+                <span className="m-2">Name: {this.state.tutor.nick_name}</span>
             </Button>
         )
     }
