@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import logo from './logo.svg';
+import JobsWall from '../components/job_wall/JobsWall';
+import TutorsWall from '../components/tutor_wall/TutorsWall';
+import './Home.css';
 import {
   Carousel,
   CarouselItem,
@@ -9,6 +12,7 @@ import {
   Row,
   Button
 } from 'reactstrap';
+
 import banner1 from '../images/banners/banner1.jpg'
 import banner2 from '../images/banners/banner2.jpg'
 import banner3 from '../images/banners/banner3.jpg'
@@ -16,10 +20,10 @@ import banner4 from '../images/banners/banner4.jpg'
 import banner5 from '../images/banners/banner5.jpg'
 import banner6 from '../images/banners/banner6.jpg'
 import banner7 from '../images/banners/banner7.jpg'
-import job_btn from '../images/button/job.png'
-import reg_btn from '../images/button/reg.png'
-import tutor_btn from '../images/button/tutor.png'
-import './Home.css'
+// import job_btn from '../images/buttons/job.png'
+// import reg_btn from '../images/buttons/reg.png'
+// import tutor_btn from '../images/buttons/tutor.png'
+
 import { get } from "https";
 const items = [
     {
@@ -122,6 +126,24 @@ class Home extends Component {
     
         return (
             <div>
+
+            {/* // banner slider
+            <Carousel
+                activeIndex={activeIndex}
+                next={this.next}
+                previous={this.previous}
+              >
+                <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
+                {slides}
+                <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
+                <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
+              </Carousel>
+            );
+
+            // current jobs
+
+            // tutors */}
+
             <Carousel
                 activeIndex={activeIndex}
                 next={this.next}
@@ -129,7 +151,8 @@ class Home extends Component {
             >
                 {slides}
             </Carousel>
-            <Row>
+
+            {/* <Row>
                 <Button  onClick = {this.handleClickJob}>
                     <img src={job_btn} alt={'job'}/>
                 </Button>
@@ -139,7 +162,8 @@ class Home extends Component {
                 <Button onClick = { this.handleClickTutor}>
                     <img src={tutor_btn} alt={'tutor'}/>
                 </Button>
-           </Row>
+            </Row> */}
+
           </div>
         );
             

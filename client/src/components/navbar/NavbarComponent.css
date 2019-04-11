@@ -1,36 +1,18 @@
-@media (min-width:480px){
-    #nav-bar {
-        background: #1EB4E2;
-        box-shadow: 5px 5px 25px 0px rgba(46, 61, 73, 0.2);
-        width: 100%;
-        position: fixed;
-        z-index: 100;
-    }
 
-    #hi{
-        margin-left: 1rem !important;
-        margin-bottom: 0 !important;
-    }
-
-    .icon {
-        color: rgb(255, 255, 255);
-    }
+#nav-bar {
+    background: #1EB4E2;
+    box-shadow: 5px 5px 25px 0px rgba(46, 61, 73, 0.2);
+    width: 100%;
+    position: fixed;
+    z-index: 100;
 }
 
-@media (max-width:479px){
-    #nav-bar {
-        background: #1EB4E2;
-        box-shadow: 5px 5px 25px 0px rgba(46, 61, 73, 0.2);
-        width: 100%;
-        position: fixed;
-        z-index: 100;
-    }
+#user{
+    margin-left: 1rem !important;
+    margin-bottom: 0 !important;
+}
 
-    #hi{
-        margin-bottom: 0 !important;
-    }
-
-    .icon {
-        color: rgb(255, 255, 255);
-    }
+.profile-btn {
+    cursor: pointer;
+    color: white;
 }
