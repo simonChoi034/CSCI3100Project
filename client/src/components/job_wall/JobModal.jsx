@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import './JobModal.css'
+import axios from 'axios';
+
 import {
     Row,
     Col,
@@ -18,6 +20,20 @@ import {
 class JobModal extends Component{
     constructor(props){
         super(props);
+    }
+
+    handleClick() {
+        // create new chatroom
+        const data = {
+            client_id: this.props.modalData.client_id
+        };
+
+        var handleChatModal = this.props.handleChatModal;
+
+        axios.post('/api/user/create_new_chat', data)
+            .then(function () {
+                handleChatModal();
+            });
     }
 
     createModalContent() {
@@ -90,7 +106,7 @@ class JobModal extends Component{
                     </ListGroup>
                 </ModalBody>
                 <ModalFooter>
-                    <Button outline color={"primary"}>Message Me</Button>
+                    <Button outline color={"primary"} onClick={this.handleClick.bind(this)}>Message Me</Button>
                 </ModalFooter>
             </Modal>
         );

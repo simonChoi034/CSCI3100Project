@@ -10,10 +10,24 @@ import {
     ListGroupItemHeading,
     ListGroupItemText
 } from "reactstrap";
+import axios from "axios";
 
 class TutorModal extends Component{
     constructor(props) {
         super(props);
+    }
+
+    handleClick(){
+        const data = {
+            client_id: this.props.modalData.user_id
+        };
+
+        var handleChatModal = this.props.handleChatModal;
+
+        axios.post('/api/user/create_new_chat', data)
+            .then(function () {
+                handleChatModal();
+            });
     }
 
     mapTutorSex(data){
@@ -68,7 +82,7 @@ class TutorModal extends Component{
                     </ListGroup>
                 </ModalBody>
                 <ModalFooter>
-                    <Button outline color={"primary"}>Contact Me</Button>
+                    <Button outline color={"primary"} onClick={this.handleClick.bind(this)}>Contact Me</Button>
                 </ModalFooter>
             </Modal>
         );

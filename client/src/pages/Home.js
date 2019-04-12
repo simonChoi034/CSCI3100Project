@@ -122,14 +122,14 @@ class Home extends Component {
                 <Container className="my-3">
                     <Card className="p-3">
                         <h4>Newest Jobs</h4>
-                        <JobsWall limit={4} homeCall={true} />
+                        <JobsWall limit={4} homeCall={true} handleChatModal={this.props.handleChatModal}/>
                     </Card>
                 </Container>
 
                 <Container className="my-3">
                     <Card className="p-3">
                         <h4>Tutors</h4>
-                        <TutorsWall limit={4} homeCall={true} />
+                        <TutorsWall limit={4} homeCall={true} handleChatModal={this.props.handleChatModal}/>
                     </Card>
                 </Container>
             </div>

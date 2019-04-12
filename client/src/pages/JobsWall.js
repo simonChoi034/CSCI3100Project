@@ -48,6 +48,7 @@ class Jobs extends Component{
                 history={this.props.history}
                 limit={this.state.limit}
                 homeCall={false}
+                handleChatModal={this.props.handleChatModal}
             />
         );
 

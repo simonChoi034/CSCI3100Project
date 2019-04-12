@@ -8,34 +8,18 @@ import MessengerModal from '../messenger_modal/MessengerModal';
 
 class Launcher extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             launcherIcon,
-            isOpen: false
+            isOpen: this.props.isOpen
         };
-
-        this.toggle = this.toggle.bind(this);
-    }
-
-    handleClick() {
-        this.setState({
-            isOpen: !this.state.isOpen,
-        });
-    }
-
-    toggle() {
-        this.setState(prevState => ({
-            isOpen: !prevState.isOpen,
-        }));
     }
 
     createModal() {
         const props = {
-            isOpen: this.state.isOpen,
-            toggle: this.toggle,
-            className: this.props.className,
-            modalData: this.state.modalData
+            isOpen: this.props.isOpen,
+            toggle: this.props.handleChatModal,
         };
 
         return (
@@ -51,7 +35,7 @@ class Launcher extends Component {
         ];
         return (
             <div id="sc-launcher">
-                <div className={classList.join(' ')} onClick={this.handleClick.bind(this)}>
+                <div className={classList.join(' ')} onClick={this.props.handleChatModal}>
                     <MessageCount count={this.props.newMessagesCount} isOpen={isOpen}/>
                     <img className={"sc-open-icon"} src={launcherIconActive}/>
                     <img className={"sc-closed-icon"} src={launcherIcon}/>

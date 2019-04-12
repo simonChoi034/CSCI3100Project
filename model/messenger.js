@@ -54,10 +54,22 @@ module.exports.send = (chatRoomID, userID, message) => {
         })
 };
 
-module.exports.createConversation = (user1ID, user2ID) => {
+module.exports.new = (userOneID, userTwoID) => {
     return db(TABLES.CONVERSATION)
-        .insert([{
-            user_one: user1ID,
-            user_two: user2ID
-        }])
+        .where(function () {
+            this.where('user_one', userOneID).where('user_two', userTwoID)
+        })
+        .orWhere(function () {
+            this.where('user_one', userTwoID).where('user_two', userOneID)
+        })
+        .returning('*')
+        .then(function (result) {
+            if (result.length === 0 && userOneID !== userTwoID) {
+                return db(TABLES.CONVERSATION)
+                    .insert([{
+                        user_one: userOneID,
+                        user_two: userTwoID
+                    }])
+            }
+        })
 }

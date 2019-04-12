@@ -9,6 +9,7 @@ const user = require('../model/user');
 const tutor = require('../model/tutor');
 const parent = require('../model/parent');
 const helper = require('../model/helper');
+const messenger = require('../model/messenger');
 
 const secret = 'thisisasecrettoken';
 const saltRounds = 10;
@@ -474,6 +475,22 @@ router.post('/edit_parent', [
     const userID = req.id;
 
     parent.edit(userID, req.body)
+        .then(function () {
+            res.sendStatus(200);
+        })
+        .catch(function (err) {
+            console.log(err);
+            res.sendStatus(500);
+        })
+});
+
+router.post('/create_new_chat', withAuth, function (req, res) {
+    const userOneID = req.id;
+    const userTwoID = req.body.client_id;
+
+    console.log(userOneID, userTwoID);
+
+    messenger.new(userOneID, userTwoID)
         .then(function () {
             res.sendStatus(200);
         })
