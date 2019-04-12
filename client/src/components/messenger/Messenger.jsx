@@ -7,6 +7,7 @@ import {authenticationService} from "../auth/authentication.service";
 import {Role} from "../helper";
 import { Fade } from 'reactstrap';
 
+
 export default class Messenger extends Component {
     constructor(props){
         super(props);
