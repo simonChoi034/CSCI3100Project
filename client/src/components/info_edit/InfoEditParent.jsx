@@ -207,7 +207,7 @@ class InfoEditParent extends Component{
             {this.createModal()}
                 <ModalHeader toggle={this.props.toggle}>
                     <div className={"d-flex justify-content-center"}>
-                        <b>Profile Edit <FaUserEdit className="ml-1 align-middle"/></b>
+                        <b>Profile Edit <FaUserEdit className="ml-1 align-middle align-text-top"/></b>
                     </div>
                 </ModalHeader>
                 <ModalBody>
