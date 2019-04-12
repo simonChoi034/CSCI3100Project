@@ -20,6 +20,7 @@
 }
 
 .opened-sidebar-btn {
+  background-color: white;
   left: 188px;
   width: 31px;
   height: 62px;
@@ -37,6 +38,7 @@
 }
 
 .closed-sidebar-btn {
+  background-color: white;
   left: 0px;
   width: 31px;
   height: 62px;
