@@ -82,9 +82,14 @@ export default class Messenger extends Component {
                             </Fade>
                         </div>
                     }
-                <button className="open-sidebar-btn" onClick={() => this.onSetSidebarOpen(true)}>
-                    { this.state.sidebarOpen? <FaAngleLeft /> : <FaAngleRight /> }
-                </button>
+                    { this.state.sidebarOpen?
+                        <button className="toggle-btn opened-sidebar-btn" onClick={() => this.onSetSidebarOpen(false)}>
+                            <FaAngleLeft />
+                        </button> :
+                        <button className="toggle-btn closed-sidebar-btn" onClick={() => this.onSetSidebarOpen(true)}>
+                            <FaAngleRight />
+                        </button>
+                    }
                 </Sidebar>
                 
                 
