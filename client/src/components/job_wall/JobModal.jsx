@@ -90,7 +90,7 @@ class JobModal extends Component{
                     </ListGroup>
                 </ModalBody>
                 <ModalFooter>
-                    <Button outline color={"primary"}>Contact Me</Button>
+                    <Button outline color={"primary"}>Message Me</Button>
                 </ModalFooter>
             </Modal>
         );
