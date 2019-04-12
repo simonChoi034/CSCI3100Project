@@ -20,7 +20,7 @@
 }
 
 .opened-sidebar-btn {
-  left: 188px;
+  left: 189px;
   width: 30px;
   height: 60px;
   border-bottom-right-radius: 30px;
@@ -106,6 +106,9 @@
     grid-row-gap: 1px;
   }
   
+  .opened-sidebar-btn {
+    left: 210px;
+  }
   
   
 }
