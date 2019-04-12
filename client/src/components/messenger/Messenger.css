@@ -20,7 +20,11 @@
 }
 
 .open-sidebar-btn {
-  float:left;
+  right:-30px;
+  width: 30px;
+  height: 60px;
+  border-bottom-right-radius: 30px;
+  border-top-right-radius: 30px;
 }
 
 .scrollable {

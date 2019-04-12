@@ -7,7 +7,7 @@ import {authenticationService} from "../auth/authentication.service";
 import {Role} from "../helper";
 import { Fade, Button } from 'reactstrap';
 import Sidebar from 'react-sidebar';
-
+import { FaAngleRight, FaAngleLeft } from 'react-icons/fa';
 
 export default class Messenger extends Component {
     constructor(props){
@@ -19,8 +19,6 @@ export default class Messenger extends Component {
         };
 
         // collapsable sidebar
-        this.mql = window.matchMedia('(min-width: 480px');
-        this.mediaQueryChanged = this.mediaQueryChanged.bind(this);
         this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
 
         // connect socket
@@ -34,14 +32,6 @@ export default class Messenger extends Component {
             currentUser: x,
             isTutor: x && x.role === Role.Tutor
         }));
-    }
-
-    componentWillMount() {
-        this.mql.addListener(this.mediaQueryChanged);
-    }
-
-    componentWillUnmount() {
-        this.mql.removeListener(this.mediaQueryChanged);
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -77,13 +67,12 @@ export default class Messenger extends Component {
                     </div>
                   }
                   open={this.state.sidebarOpen}
-                  docked={this.state.sidebarDocked}
                   onSetOpen={this.onSetSidebarOpen}
                   className="collapse-sidebar"
                 >
-                    <Button onClick={() => this.onSetSidebarOpen(true)}>
-                      Open sidebar
-                    </Button>
+                    <button className="open-sidebar-btn" onClick={() => this.onSetSidebarOpen(true)}>
+                        { this.state.sidebarOpen? <FaAngleLeft /> : <FaAngleRight /> }
+                    </button>
                     {
                         this.state.currentChatRoomData &&
                         <div className="scrollable content massage-list-container">
