@@ -15,6 +15,14 @@
   padding: 10px;
 }
 
+.message-list-container {
+  height: 100%;
+}
+
+.open-sidebar-btn {
+  float:left;
+}
+
 .scrollable {
   position: relative;
   overflow-y: auto;
@@ -25,6 +33,7 @@
   background: white;
   grid-row-start: 1;
   grid-row-end: span 3;
+  height: 100%;
 }
 
 .content {
@@ -42,6 +51,7 @@
   position: absolute;
   background-color: #dddddd;
   border-radius: 30px;
+  bottom: 0;
 }
 
 .compose-input{
@@ -62,5 +72,9 @@
 
   #footer{
     width: 100%;
+  }
+
+  .collapse-sidebar {
+      height:100%;
   }
 }
