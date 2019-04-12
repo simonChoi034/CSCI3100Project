@@ -22,7 +22,7 @@ export default class Messenger extends Component {
         this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
 
         // connect socket
-        this.socket = client.connect('http://localhost:8080/');
+        this.socket = client.connect('http://192.168.1.89:8080/');
 
         this.handleChatRoom = this.handleChatRoom.bind(this);
     }
@@ -70,9 +70,6 @@ export default class Messenger extends Component {
                   onSetOpen={this.onSetSidebarOpen}
                   className="collapse-sidebar"
                 >
-                    <button className="open-sidebar-btn" onClick={() => this.onSetSidebarOpen(true)}>
-                        { this.state.sidebarOpen? <FaAngleLeft /> : <FaAngleRight /> }
-                    </button>
                     {
                         this.state.currentChatRoomData &&
                         <div className="scrollable content massage-list-container">
@@ -85,6 +82,9 @@ export default class Messenger extends Component {
                             </Fade>
                         </div>
                     }
+                    <button className="open-sidebar-btn" onClick={() => this.onSetSidebarOpen(true)}>
+                    { this.state.sidebarOpen? <FaAngleLeft /> : <FaAngleRight /> }
+                </button>
                 </Sidebar>
                 
                 
