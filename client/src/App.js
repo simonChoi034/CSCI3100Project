@@ -12,8 +12,8 @@ import Register from './pages/Register';
 import Tutors from './pages/Tutors';
 import Jobs from './pages/JobsWall';
 import Footer from './components/footer/Footer';
-import Messenger from './components/messenger/messenger';
 import AboutUs from "./pages/AboutUs";
+import MessengerLauncher from './components/messager_launcher/Launcher';
 
 class App extends Component {
 
@@ -23,7 +23,7 @@ class App extends Component {
         this.state = {
             currentUser: null,
             isTutor: false
-        };
+        }
     }
 
     componentDidMount() {
@@ -48,10 +48,13 @@ class App extends Component {
                                     <Route path='/register' component={Register} />
                                     <Route path='/tutors' component={Tutors} />
                                     <Route path='/jobs' component={Jobs} />
-                                    <Route path='/messenger' component={Messenger} />
                                     <Route path='/about_us' component={AboutUs} />
                                 </Switch>
                             </div>
+                            {
+                                this.state.currentUser &&
+                                <MessengerLauncher/>
+                            }
                             <Footer />
                         </div>
                     </div>
