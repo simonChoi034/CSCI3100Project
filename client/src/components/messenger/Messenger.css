@@ -17,6 +17,13 @@
 
 .message-list-container {
   height: 100%;
+  padding: 20px;
+  padding-left: 0;
+}
+
+
+.message-list {
+  height: 100%;
 }
 
 .opened-sidebar-btn {
@@ -87,6 +94,7 @@
   background-color: #dddddd;
   border-radius: 30px;
   margin: 10px 10px;
+  margin-left: -20px;
 }
 
 .compose-input{
@@ -117,12 +125,29 @@
     left: 250px;
   }
   
+  .message-list-container {
+    max-height: 100%;
+    padding-left: 0;
+  }
+
+  .message-list .message-list-container{
+    max-height: 80%;
+    padding-left: 0;
+  }
+
   .compose{
-    background-color: #dddddd;
-    z-index: 10;
+    background-color: #ddd;
+    background: #ddd;
+    height: 40px;
+    padding-left: 10px;
+    width: 80%;
+    margin-left: 0;
   }
   
   .compose-input{
-    background-color: #dddddd;
+    background-color: #ddd;
+    background: #ddd;
+    height: 30px;
+    width: 80%;
   }
 }

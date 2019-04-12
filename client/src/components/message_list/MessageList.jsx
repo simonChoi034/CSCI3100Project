@@ -128,17 +128,20 @@ export default class MessageList extends Component {
 
     render() {
         return (
-            <div className="message-list">
-                <Toolbar
-                    title={this.props.chatRoomData.name}
-                    rightItems={[
-                        <ToolbarButton key="info" icon="ion-ios-information-circle-outline"/>,
-                        <ToolbarButton key="video" icon="ion-ios-videocam"/>,
-                        <ToolbarButton key="phone" icon="ion-ios-call"/>
-                    ]}
-                />
+            <div>
+                <div className="message-list">
+                    <Toolbar
+                        title={this.props.chatRoomData.name}
+                        rightItems={[
+                            <ToolbarButton key="info" icon="ion-ios-information-circle-outline"/>,
+                            <ToolbarButton key="video" icon="ion-ios-videocam"/>,
+                            <ToolbarButton key="phone" icon="ion-ios-call"/>
+                        ]}
+                    />
 
-                <div className="message-list-container">{this.renderMessages()}</div>
+                    <div className="message-list-container">{this.renderMessages()}</div>
+
+                </div>
 
                 <Compose
                     rightItems={[
