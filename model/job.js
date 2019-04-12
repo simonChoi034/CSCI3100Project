@@ -65,6 +65,7 @@ module.exports.all = (offset, limit) => {
         .join(TABLES.JOB_SUBJECT, TABLES.JOB_SUBJECT.concat('.job_id'), '=', TABLES.JOB.concat('.id'))
         .join(TABLES.SUBJECT, TABLES.JOB_SUBJECT.concat('.subject_id'), '=', TABLES.SUBJECT.concat('.id'))
         .select('job.id as id',
+            'job.client_id',
             'district.name as district',
             'region.name as region',
             'location',

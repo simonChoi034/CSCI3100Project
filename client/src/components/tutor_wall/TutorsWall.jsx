@@ -98,7 +98,8 @@ class TutorsWall extends Component {
             modal: this.state.modal,
             toggle: this.toggle,
             className: this.props.className,
-            modalData: this.state.modalData
+            modalData: this.state.modalData,
+            handleChatModal: this.props.handleChatModal
         };
 
         return (

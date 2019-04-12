@@ -22,8 +22,11 @@ class App extends Component {
 
         this.state = {
             currentUser: null,
-            isTutor: false
-        }
+            isTutor: false,
+            messengerModal: false
+        };
+
+        this.handleChatModal = this.handleChatModal.bind(this);
     }
 
     componentDidMount() {
@@ -31,6 +34,12 @@ class App extends Component {
             currentUser: x,
             isTutor: x && x.role === Role.Tutor
         }));
+    }
+
+    handleChatModal(){
+        this.setState({
+            messengerModal: !this.state.messengerModal
+        })
     }
 
     render() {
@@ -43,17 +52,17 @@ class App extends Component {
                             <NavbarComponent currentUser={this.state.currentUser} history={history}/>
                             <div id="body">
                                 <Switch>
-                                    <Route path='/' component={Home} exact />
+                                    <Route path='/' render={() => <Home handleChatModal={this.handleChatModal}/>} exact />
                                     <Route path='/login' component={Login} />
                                     <Route path='/register' component={Register} />
-                                    <Route path='/tutors' component={Tutors} />
-                                    <Route path='/jobs' component={Jobs} />
+                                    <Route path='/tutors' render={() => <Tutors handleChatModal={this.handleChatModal}/>} />
+                                    <Route path='/jobs' render={() => <Jobs handleChatModal={this.handleChatModal}/>} />
                                     <Route path='/about_us' component={AboutUs} />
                                 </Switch>
                             </div>
                             {
                                 this.state.currentUser &&
-                                <MessengerLauncher/>
+                                <MessengerLauncher isOpen={this.state.messengerModal} handleChatModal={this.handleChatModal}/>
                             }
                             <Footer />
                         </div>
