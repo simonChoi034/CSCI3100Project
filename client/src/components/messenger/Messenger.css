@@ -95,18 +95,17 @@
 }
 
 @media (max-width:480px){
-  .sidebar{
-    width:80%;
-  }
-  .content{
-    margin-left: -29%;
-  }
-
-  #footer{
+  .messenger {
+    display: grid;
     width: 100%;
+    height: 90vh;
+    background: transparent;
+    grid-template-columns: 200px auto;
+    grid-template-rows: 60px auto 60px;
+    grid-column-gap: 1px;
+    grid-row-gap: 1px;
   }
-
-  .collapse-sidebar {
-      height:100%;
-  }
+  
+  
+  
 }
