@@ -31,7 +31,6 @@
 }
 
 .scrollable {
-  position: relative;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -58,7 +57,7 @@
   position: absolute;
   background-color: #dddddd;
   border-radius: 30px;
-  bottom: 0;
+  margin: 10px 10px;
 }
 
 .compose-input{
