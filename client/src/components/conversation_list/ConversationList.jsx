@@ -46,7 +46,7 @@ export default class ConversationList extends Component {
                 <Toolbar
                     title="Messenger"
                     leftItems={[
-                        <ToolbarButton key="cog" icon="ion-ios-cog" />
+                        <ToolbarButton key="close" icon="ion-ios-close-circle-outline" onClick={this.props.handleChatRoom} />
                     ]}
                     rightItems={[
                         <ToolbarButton key="add" icon="ion-ios-add-circle-outline" />
