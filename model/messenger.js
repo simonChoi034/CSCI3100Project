@@ -53,3 +53,11 @@ module.exports.send = (chatRoomID, userID, message) => {
                 .first()
         })
 };
+
+module.exports.addConversation = (user1ID, user2ID) => {
+    return db(TABLES.CONVERSATION)
+        .insert([{
+            user_one: user1ID,
+            user_two: user2ID
+        }])
+}
