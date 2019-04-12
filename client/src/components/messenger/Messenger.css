@@ -21,10 +21,10 @@
 
 .opened-sidebar-btn {
   left: 188px;
-  width: 30px;
-  height: 60px;
-  border-bottom-right-radius: 30px;
-  border-top-right-radius: 30px;
+  width: 31px;
+  height: 62px;
+  border-bottom-right-radius: 31px;
+  border-top-right-radius: 31px;
   border-left: 0;
   z-index: 100;
   position: relative;
@@ -38,10 +38,10 @@
 
 .closed-sidebar-btn {
   left: 0px;
-  width: 30px;
-  height: 60px;
-  border-bottom-right-radius: 30px;
-  border-top-right-radius: 30px;
+  width: 31px;
+  height: 62px;
+  border-bottom-right-radius: 31px;
+  border-top-right-radius: 31px;
   border-left: 0;
   z-index: 100;
   position: relative;
