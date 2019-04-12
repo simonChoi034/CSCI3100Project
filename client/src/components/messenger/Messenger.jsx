@@ -70,6 +70,15 @@ export default class Messenger extends Component {
                   onSetOpen={this.onSetSidebarOpen}
                   className="collapse-sidebar"
                 >
+
+                    { this.state.sidebarOpen?
+                        <button className="toggle-btn opened-sidebar-btn" onClick={() => this.onSetSidebarOpen(false)}>
+                            <FaAngleLeft />
+                        </button> :
+                        <button className="toggle-btn closed-sidebar-btn" onClick={() => this.onSetSidebarOpen(true)}>
+                            <FaAngleRight />
+                        </button>
+                    }
                     {
                         this.state.currentChatRoomData &&
                         <div className="scrollable content massage-list-container">
@@ -81,14 +90,6 @@ export default class Messenger extends Component {
                                 />
                             </Fade>
                         </div>
-                    }
-                    { this.state.sidebarOpen?
-                        <button className="toggle-btn opened-sidebar-btn" onClick={() => this.onSetSidebarOpen(false)}>
-                            <FaAngleLeft />
-                        </button> :
-                        <button className="toggle-btn closed-sidebar-btn" onClick={() => this.onSetSidebarOpen(true)}>
-                            <FaAngleRight />
-                        </button>
                     }
                 </Sidebar>
                 
