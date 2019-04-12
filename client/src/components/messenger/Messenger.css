@@ -21,7 +21,7 @@
 
 .opened-sidebar-btn {
   background-color: white;
-  left: 188px;
+  left: 350px;
   width: 31px;
   height: 62px;
   border-bottom-right-radius: 31px;
@@ -67,6 +67,7 @@
   background: white;
   grid-row-start: 1;
   grid-row-end: span 3;
+  width: 350px;
   height: 100%;
 }
 
