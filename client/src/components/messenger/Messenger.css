@@ -108,6 +108,9 @@
     grid-row-gap: 1px;
   }
   
+  .opened-sidebar-btn {
+    left: 210px;
+  }
   
   
 }
