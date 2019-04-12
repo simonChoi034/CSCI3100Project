@@ -20,6 +20,7 @@
     "reactstrap": "^8.0.0",
     "redux": "^4.0.1",
     "shave": "^2.5.2",
+    "socket.io-client": "^2.2.0",
     "typescript": "^3.3.4000"
   },
   "scripts": {

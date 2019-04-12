@@ -23,7 +23,7 @@ class App extends Component {
         this.state = {
             currentUser: null,
             isTutor: false
-        }
+        };
     }
 
     componentDidMount() {

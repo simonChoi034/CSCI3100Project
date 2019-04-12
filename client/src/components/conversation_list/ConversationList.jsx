@@ -3,7 +3,6 @@ import ConversationSearch from '../conversation_search/ConversationSearch';
 import ConversationListItem from '../conversation_list_item/ConversationListItem';
 import Toolbar from '../messager_toolbar/Toolbar';
 import ToolbarButton from '../messager_toolbar_button/ToolbarButton'
-import axios from 'axios';
 
 import './ConversationList.css';
 
@@ -15,14 +14,19 @@ export default class ConversationList extends Component {
         };
     }
 
-    componentDidMount() {
-        this.getConversations();
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.props.currentUser !== prevProps.currentUser) {
+            this.props.socket.emit('initChatList', this.props.currentUser);
+            this.getConversations()
+        }
     }
 
+
     getConversations = () => {
-        axios.post('/api/messenger/get_conversation_list').then(response => {
+        this.props.socket.on("initChatList", response => {
+
             this.setState(prevState => {
-                let conversations = response.data.map(result => {
+                let conversations = response.map(result => {
                     return {
                         userID: result.user_id,
                         name: result.username,
@@ -33,7 +37,7 @@ export default class ConversationList extends Component {
 
                 return { ...prevState, conversations };
             });
-        });
+        })
     }
 
     render() {

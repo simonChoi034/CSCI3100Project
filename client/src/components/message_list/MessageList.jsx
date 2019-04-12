@@ -16,6 +16,11 @@ export default class MessageList extends Component {
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
+
+        const self = this;
+        this.props.socket.on('receive_massage', function (data) {
+            self.addMessage(data);
+        })
     }
 
     componentDidMount() {
@@ -29,18 +34,26 @@ export default class MessageList extends Component {
     }
 
     getMessages = () => {
+        const self = this;
         const data = {
-            chatRoomID: this.props.chatRoomData.chatRoomID
+            chatRoomID: this.props.chatRoomData.chatRoomID,
+            currentUser: this.props.currentUser
         };
 
-        axios.post('/api/messenger/get_messages', data)
-            .then(response => {
-                console.log(response.data);
-                this.setState({
-                    messages: response.data
-                });
+        this.props.socket.emit("initChatRoom", data);
+        this.props.socket.on("initChatRoom", function (response) {
+            self.setState({
+                messages: response
             });
-    }
+        })
+    };
+
+    addMessage = (data) => {
+        console.log(data);
+        this.setState({
+            messages: [...this.state.messages, data]
+        });
+    };
 
     renderMessages() {
         let i = 0;
@@ -102,12 +115,15 @@ export default class MessageList extends Component {
     }
 
     handleSubmit(value) {
+        const self = this;
         const data = {
             chatRoomID: this.props.chatRoomData.chatRoomID,
+            targetUserId: this.props.chatRoomData.userID,
+            currentUser: this.props.currentUser,
             message: value
         };
 
-        axios.post('/api/messenger/send_message', data);
+        this.props.socket.emit('send_massage', data);
     }
 
     render() {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import client from 'socket.io-client';
 import ConversationList from '../conversation_list/ConversationList';
 import MessageList from '../message_list/MessageList';
 import './Messenger.css';
@@ -14,6 +15,9 @@ export default class Messenger extends Component {
             currentChatRoomData: null,
         };
 
+        // connect socket
+        this.socket = client.connect('http://localhost:8080/');
+
         this.handleChatRoom = this.handleChatRoom.bind(this);
     }
 
@@ -22,6 +26,12 @@ export default class Messenger extends Component {
             currentUser: x,
             isTutor: x && x.role === Role.Tutor
         }));
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.state.currentUser !== prevState.currentUser) {
+            this.socket.emit('setSocketID', this.state.currentUser.id);
+        }
     }
 
     handleChatRoom(data){
@@ -34,7 +44,7 @@ export default class Messenger extends Component {
         return (
             <div className="messenger">
                 <div className="scrollable sidebar">
-                    <ConversationList handleChatRoom={this.handleChatRoom}/>
+                    <ConversationList handleChatRoom={this.handleChatRoom} socket={this.socket} currentUser={this.state.currentUser}/>
                 </div>
 
                 {
@@ -44,6 +54,7 @@ export default class Messenger extends Component {
                             <MessageList
                                 chatRoomData={this.state.currentChatRoomData}
                                 currentUser={this.state.currentUser}
+                                socket={this.socket}
                             />
                         </Fade>
                     </div>

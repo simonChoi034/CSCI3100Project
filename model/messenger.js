@@ -40,4 +40,16 @@ module.exports.send = (chatRoomID, userID, message) => {
             user_id: userID,
             c_id: chatRoomID
         }])
+        .returning('*')
+        .then(function (id) {
+            return db(TABLES.CONVERSATION_REPLY)
+                .select(
+                    'cr_id as id',
+                    'message',
+                    'user_id as author',
+                    'time as timestamp'
+                )
+                .where('cr_id', id[0])
+                .first()
+        })
 };
