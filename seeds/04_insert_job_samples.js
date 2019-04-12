@@ -18,9 +18,22 @@ exports.seed = function(knex, Promise) {
           { username: "LoTaiNgan", email: "Chan2014@gmail.com", password: "$2b$10$1mGILaFWsOJjP11x8bmIjuUoBfPQhIPscCU6VnemYmsLnz8e1PLfC", user_type_id: 2},
           { username: "ChanTaiGou", email: "Chan2015@gmail.com", password: "$2b$10$1mGILaFWsOJjP11x8bmIjuUoBfPQhIPscCU6VnemYmsLnz8e1PLfC", user_type_id: 2},
           { username: "HelloWorld", email: "Chan2016@gmail.com", password: "$2b$10$1mGILaFWsOJjP11x8bmIjuUoBfPQhIPscCU6VnemYmsLnz8e1PLfC", user_type_id: 2},
-          // { username: "Tutor1", email: "tut1@gmail.com", password: "$2b$10$1mGILaFWsOJjP11x8bmIjuUoBfPQhIPscCU6VnemYmsLnz8e1PLfC", user_type_id: 1},
-          // { username: "Tutor2", email: "tut2@gmail.com", password: "$2b$10$1mGILaFWsOJjP11x8bmIjuUoBfPQhIPscCU6VnemYmsLnz8e1PLfC", user_type_id: 1},
-          // { username: "Tutor3", email: "tut3@gmail.com", password: "$2b$10$1mGILaFWsOJjP11x8bmIjuUoBfPQhIPscCU6VnemYmsLnz8e1PLfC", user_type_id: 1}
+          { username: "Tutor1", email: "tut1@gmail.com", password: "$2b$10$1mGILaFWsOJjP11x8bmIjuUoBfPQhIPscCU6VnemYmsLnz8e1PLfC", user_type_id: 1},
+          { username: "Tutor2", email: "tut2@gmail.com", password: "$2b$10$1mGILaFWsOJjP11x8bmIjuUoBfPQhIPscCU6VnemYmsLnz8e1PLfC", user_type_id: 1},
+          { username: "Tutor3", email: "tut3@gmail.com", password: "$2b$10$1mGILaFWsOJjP11x8bmIjuUoBfPQhIPscCU6VnemYmsLnz8e1PLfC", user_type_id: 1},
+          { username: "Tutor4", email: "tut4@gmail.com", password: "$2b$10$1mGILaFWsOJjP11x8bmIjuUoBfPQhIPscCU6VnemYmsLnz8e1PLfC", user_type_id: 1},
+          { username: "Tutor5", email: "tut5@gmail.com", password: "$2b$10$1mGILaFWsOJjP11x8bmIjuUoBfPQhIPscCU6VnemYmsLnz8e1PLfC", user_type_id: 1},
+          { username: "Tutor6", email: "tut6@gmail.com", password: "$2b$10$1mGILaFWsOJjP11x8bmIjuUoBfPQhIPscCU6VnemYmsLnz8e1PLfC", user_type_id: 1},
+          { username: "Tutor7", email: "tut7@gmail.com", password: "$2b$10$1mGILaFWsOJjP11x8bmIjuUoBfPQhIPscCU6VnemYmsLnz8e1PLfC", user_type_id: 1},
+          { username: "Tutor8", email: "tut8@gmail.com", password: "$2b$10$1mGILaFWsOJjP11x8bmIjuUoBfPQhIPscCU6VnemYmsLnz8e1PLfC", user_type_id: 1},
+          { username: "Tutor9", email: "tut9@gmail.com", password: "$2b$10$1mGILaFWsOJjP11x8bmIjuUoBfPQhIPscCU6VnemYmsLnz8e1PLfC", user_type_id: 1},
+          { username: "Tutor10", email: "tut10@gmail.com", password: "$2b$10$1mGILaFWsOJjP11x8bmIjuUoBfPQhIPscCU6VnemYmsLnz8e1PLfC", user_type_id: 1},
+          { username: "Tutor11", email: "tut11@gmail.com", password: "$2b$10$1mGILaFWsOJjP11x8bmIjuUoBfPQhIPscCU6VnemYmsLnz8e1PLfC", user_type_id: 1},
+          { username: "Tutor12", email: "tut12@gmail.com", password: "$2b$10$1mGILaFWsOJjP11x8bmIjuUoBfPQhIPscCU6VnemYmsLnz8e1PLfC", user_type_id: 1},
+          { username: "Tutor13", email: "tut13@gmail.com", password: "$2b$10$1mGILaFWsOJjP11x8bmIjuUoBfPQhIPscCU6VnemYmsLnz8e1PLfC", user_type_id: 1},
+          { username: "Tutor14", email: "tut14@gmail.com", password: "$2b$10$1mGILaFWsOJjP11x8bmIjuUoBfPQhIPscCU6VnemYmsLnz8e1PLfC", user_type_id: 1},
+          { username: "Tutor15", email: "tut15@gmail.com", password: "$2b$10$1mGILaFWsOJjP11x8bmIjuUoBfPQhIPscCU6VnemYmsLnz8e1PLfC", user_type_id: 1},
+          { username: "Tutor16", email: "tut16@gmail.com", password: "$2b$10$1mGILaFWsOJjP11x8bmIjuUoBfPQhIPscCU6VnemYmsLnz8e1PLfC", user_type_id: 1}
       ]),
       knex('parent_profile').insert([
           { user_id: 1, name: "Chan Tai Man", phone: "90000001", email: "Chan2001@gmail.com", living_district_id: 1, address: "here"},
@@ -40,11 +53,24 @@ exports.seed = function(knex, Promise) {
           { user_id: 15, name: "Chan Tai Gou", phone: "90000015", email: "Chan2015@gmail.com", living_district_id: 15, address: "here"},
           { user_id: 16, name: "Hello World", phone: "90000016", email: "Chan2016@gmail.com", living_district_id: 16, address: "here"}
       ]),
-      // knex('tutor_profile').insert([
-      //     { user_id: 17, email: "tut1@gmail.com", phone: "90000017", full_name_ch: "陳一", full_name_en: "ChanOne", nick_name: "Chan1", sex: "F", birth: "1998-11-11", education_level_id: "2", description: "I am very nice!"},
-      //     { user_id: 18, email: "tut2@gmail.com", phone: "90000018", full_name_ch: "陳二", full_name_en: "ChanTwo", nick_name: "Chan2", sex: "M", birth: "1998-11-11", education_level_id: "2", description: "I am very nice!"},
-      //     { user_id: 19, email: "tut3@gmail.com", phone: "90000019", full_name_ch: "陳三", full_name_en: "ChanThree", nick_name: "Chan3", sex: "F", birth: "1998-11-10", education_level_id: "2", description: "I am very nice!"}
-      // ]),
+      knex('tutor_profile').insert([
+          { user_id: 17, email: "tut1@gmail.com", phone: "90000017", full_name_ch: "陳一", full_name_en: "ChanOne", nick_name: "Chan1", sex: "F", birth: "1998-1-1", education_level_id: "1", description: "I am very nice!"},
+          { user_id: 18, email: "tut2@gmail.com", phone: "90000018", full_name_ch: "陳二", full_name_en: "ChanTwo", nick_name: "Chan2", sex: "M", birth: "1998-2-2", education_level_id: "2", description: "I am very good!"},
+          { user_id: 19, email: "tut3@gmail.com", phone: "90000019", full_name_ch: "陳三", full_name_en: "ChanThree", nick_name: "Chan3", sex: "F", birth: "1998-3-3", education_level_id: "3", description: "I am very great!"},
+          { user_id: 20, email: "tut4@gmail.com", phone: "90000020", full_name_ch: "陳四", full_name_en: "ChanFour", nick_name: "Chan4", sex: "M", birth: "1998-4-4", education_level_id: "4", description: "I am excellent!"},
+          { user_id: 21, email: "tut5@gmail.com", phone: "90000021", full_name_ch: "陳五", full_name_en: "ChanFive", nick_name: "Chan5", sex: "F", birth: "1998-5-5", education_level_id: "5", description: "I am the best!"},
+          { user_id: 22, email: "tut6@gmail.com", phone: "90000022", full_name_ch: "陳六", full_name_en: "ChanSix", nick_name: "Chan6", sex: "M", birth: "1998-6-6", education_level_id: "6", description: "I am wonderful!"},
+          { user_id: 23, email: "tut7@gmail.com", phone: "90000023", full_name_ch: "陳七", full_name_en: "ChanSeven", nick_name: "Chan7", sex: "F", birth: "1998-7-7", education_level_id: "7", description: "I am brilliant!"},
+          { user_id: 24, email: "tut8@gmail.com", phone: "90000024", full_name_ch: "陳八", full_name_en: "ChanEight", nick_name: "Chan8", sex: "M", birth: "1998-8-8", education_level_id: "1", description: "I am the best of the best!"},
+          { user_id: 25, email: "tut9@gmail.com", phone: "90000025", full_name_ch: "陳九", full_name_en: "ChanNine", nick_name: "Chan9", sex: "F", birth: "1998-9-9", education_level_id: "2", description: "I am nice!"},
+          { user_id: 26, email: "tut10@gmail.com", phone: "90000026", full_name_ch: "陳十", full_name_en: "ChanTen", nick_name: "Chan10", sex: "M", birth: "1998-10-10", education_level_id: "3", description: "I am good!"},
+          { user_id: 27, email: "tut11@gmail.com", phone: "90000027", full_name_ch: "陳十一", full_name_en: "ChanEleven", nick_name: "Chan11", sex: "F", birth: "1998-11-11", education_level_id: "4", description: "I am genius!"},
+          { user_id: 28, email: "tut12@gmail.com", phone: "90000028", full_name_ch: "陳十二", full_name_en: "ChanTwelve", nick_name: "Chan12", sex: "M", birth: "1998-12-12", education_level_id: "5", description: "I am sophisticated!"},
+          { user_id: 29, email: "tut13@gmail.com", phone: "90000029", full_name_ch: "陳十三", full_name_en: "ChanThirteen", nick_name: "Chan13", sex: "F", birth: "1998-1-13", education_level_id: "6", description: "I am a nice guy!"},
+          { user_id: 30, email: "tut14@gmail.com", phone: "90000030", full_name_ch: "陳十四", full_name_en: "ChanFourteen", nick_name: "Chan14", sex: "M", birth: "1998-2-14", education_level_id: "7", description: "I am experienced!"},
+          { user_id: 31, email: "tut15@gmail.com", phone: "90000031", full_name_ch: "陳十五", full_name_en: "ChanFifteen", nick_name: "Chan15", sex: "F", birth: "1998-3-15", education_level_id: "1", description: "I am a good person!"},
+          { user_id: 32, email: "tut16@gmail.com", phone: "90000032", full_name_ch: "陳十六", full_name_en: "ChanSixteen", nick_name: "Chan16", sex: "M", birth: "1998-4-16", education_level_id: "2", description: "I am a kind person!"}
+      ]),
       // knex('job').insert([
       //     { open: true, district_id: 1, location: 'this street', student_level_id: 1, tuition_fee: "255", num_of_student: 1, tutor_academic_id: 7, tutor_sex: 'F', times_per_week: '10 hrs', duration: '1 year', lesson_time: 'Wednesday 10:00am-11:30am', remark: 'the tutor should be nice'},
       //     { open: true, district_id: 2, location: 'that street', student_level_id: 2, tuition_fee: "230", num_of_student: 2, tutor_academic_id: 3, tutor_sex: 'M', times_per_week: '10 hrs', duration: '3 years', lesson_time: 'Monday Tuesday 10:00am-11:30am', remark: 'want patient tutor'},

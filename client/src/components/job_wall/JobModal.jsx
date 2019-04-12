@@ -106,7 +106,7 @@ class JobModal extends Component{
                     </ListGroup>
                 </ModalBody>
                 <ModalFooter>
-                    <Button outline color={"primary"} onClick={this.handleClick.bind(this)}>Contact Me</Button>
+                    <Button outline color={"primary"} onClick={this.handleClick.bind(this)}>Message Me</Button>
                 </ModalFooter>
             </Modal>
         );
