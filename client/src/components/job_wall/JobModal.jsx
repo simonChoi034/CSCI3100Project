@@ -62,6 +62,10 @@ class JobModal extends Component{
                             <ListGroupItemText>{data.lesson_time}</ListGroupItemText>
                         </ListGroupItem>
                             <ListGroupItem key = {9}>
+                            <ListGroupItemHeading>{'Hotline:'} </ListGroupItemHeading>
+                            <ListGroupItemText>{data.hotline}</ListGroupItemText>
+                        </ListGroupItem>
+                            <ListGroupItem key = {10}>
                             <ListGroupItemHeading>{'Remark:'} </ListGroupItemHeading>
                             <ListGroupItemText>{data.remark}</ListGroupItemText>
                         </ListGroupItem>

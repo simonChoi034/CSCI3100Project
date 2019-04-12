@@ -18,21 +18,21 @@ class AboutUs extends Component {
                         <CardTitle><h4>Why you should use TeachHub?</h4></CardTitle>
                         <div className="text-left">
                             <CardText className="words">Students can: </CardText>
-                            <CardText className="words"><span className="check-box"><FaRegCheckSquare className="mx-3" /></span>Enhance their academic results</CardText>
-                            <CardText className="words"><span className="check-box"><FaRegCheckSquare className="mx-3" /></span>Learn new non-academic skills</CardText>
+                            <CardText className="words"><span className="check-box"><FaRegCheckSquare className="mx-3 align-text-top" /></span>Enhance their academic results</CardText>
+                            <CardText className="words"><span className="check-box"><FaRegCheckSquare className="mx-3 align-text-top" /></span>Learn new non-academic skills</CardText>
                             <CardText className="words">Tutors can:</CardText>
-                            <CardText className="words"><span className="check-box"><FaRegCheckSquare className="mx-3" /></span>Earn a living</CardText>
+                            <CardText className="words"><span className="check-box"><FaRegCheckSquare className="mx-3 align-text-top" /></span>Earn a living</CardText>
                             <CardText className="words">Easy to use:</CardText>
-                        <CardText className="words"><span className="check-box"><FaRegCheckSquare className="mx-3" /></span>We provide a user-friendly chatroom for students and tutors to communicate easily</CardText>
+                        <CardText className="words"><span className="check-box"><FaRegCheckSquare className="mx-3 align-text-top" /></span>We provide a user-friendly chatroom for students and tutors to communicate easily</CardText>
                         </div>
                     </Card>
                     <Card className="my-4 p-5">
                         <CardTitle><h4>What you can find in TeachHub?</h4></CardTitle>
                         <div className="text-left">
                             <CardText className="words">Students can: </CardText>
-                            <CardText className="words"><span className="check-box"><FaRegCheckSquare className="mx-3" /></span>Find the most suitable tutor</CardText>
+                            <CardText className="words"><span className="check-box"><FaRegCheckSquare className="mx-3 align-text-top" /></span>Find the most suitable tutor</CardText>
                             <CardText className="words">Tutors can:</CardText>
-                            <CardText className="words"><span className="check-box"><FaRegCheckSquare className="mx-3" /></span>Find a tutoring job in the easiest way</CardText>
+                            <CardText className="words"><span className="check-box"><FaRegCheckSquare className="mx-3 align-text-top" /></span>Find a tutoring job in the easiest way</CardText>
                         </div>
                     </Card>
                 </Container>

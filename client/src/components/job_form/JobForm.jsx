@@ -106,7 +106,7 @@ class JobForm extends Component{
             duration: this.state.duration,
             lesson_time: this.state.lesson_time,
             hotline: this.state.hotline,
-            remark: this.state.hotline
+            remark: this.state.remark
         };
 
         var self = this;
