@@ -11,6 +11,7 @@ class PageBar extends Component {
 
     constructor(props) {
         super(props);
+        // initialize the states for the component
         this.state = {
             curPage: props.curPage,
             pages: props.pages,
@@ -19,10 +20,12 @@ class PageBar extends Component {
         };
     }
 
+    // update(initialize) the pagination bar once it is mounted
     componentDidMount() {
         this.updatePagination(this.state.curPage);
     }
 
+    // after page update, scroll to top 
     componentDidUpdate () {
         const element = ReactDOM.findDOMNode(this);
         if (element != null) {
@@ -30,6 +33,7 @@ class PageBar extends Component {
         }
     }
 
+    // update the pagination bar according to its current states
     updatePagination(newPage) {
         const curPage = newPage;
         var item = [];

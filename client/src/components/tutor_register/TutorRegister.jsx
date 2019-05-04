@@ -19,6 +19,7 @@ class TutorRegister extends Component {
     constructor(props) {
         super(props);
 
+        // initialize the states for the component
         this.state = {
             username: '',
             password: '',
@@ -34,6 +35,7 @@ class TutorRegister extends Component {
 
     componentDidMount() {
         var self = this;
+        // call rest api to get the information for the registration form
         axios.get('/api/user/tutor_register')
             .then(function (res) {
                 self.setState({
@@ -46,6 +48,7 @@ class TutorRegister extends Component {
             })
     }
 
+    // create a drop down selection list for the edu level options
     creatDropDown(){
         var options = [];
 
@@ -56,23 +59,27 @@ class TutorRegister extends Component {
         return options;
     }
 
+    // validate all the fields in the form
     validateForm() {
         return this.state.username.length > 0 && this.state.password.length > 0
             && this.state.email.length > 0 && (this.state.password === this.state.confirm_password);
     }
 
+    // handler for any changes on the form
     handleChange = event => {
         this.setState({
             [event.target.id]: event.target.value
         });
     }
 
+    // handler for the change on the date in the calender api
     handleDateChange = date => {
         this.setState({
             birth: date
         });
     }
 
+    // handler for submission of the form
     handleSubmit = event => {
         event.preventDefault();
         const data = {

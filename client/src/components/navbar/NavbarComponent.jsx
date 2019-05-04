@@ -24,6 +24,7 @@ class NavbarComponent extends Component {
         super(props);
         this.toggle = this.toggle.bind(this);
         this.toggleNav = this.toggleNav.bind(this);
+        // initialize the states for the component
         this.state = {
             isOpen: false,
             modal: false,
@@ -32,12 +33,14 @@ class NavbarComponent extends Component {
         this.createModal = this.createModal.bind(this);
     }
 
+    // toggler for the navbar
     toggleNav() {
         this.setState({
             isOpen: !this.state.isOpen
         });
     }
 
+    // create the navbar items
     createNavItem() {
         var item = [];
 
@@ -61,13 +64,16 @@ class NavbarComponent extends Component {
         return item;
     }
 
+    // logout button
     logout() {
         authenticationService.logout();
         this.props.history.push('/');
     }
 
 
+    // toggler for edit profile model
     toggle(event, data) {
+        // check login status
         authenticationService.currentUser.subscribe(x => this.setState({
             currentUser: x,
             isTutor: x && x.role === Role.Tutor
@@ -78,6 +84,7 @@ class NavbarComponent extends Component {
         }));
     }
 
+    // create a popup model for edit profile
     createModal(data) {
         const props = {
             modal: this.state.modal,

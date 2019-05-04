@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './ParticlesContainer.css';
 import Particles from 'react-particles-js';
 
+// the dynamic particles floating component for the background of the website
 class ParticlesContainer extends Component {
 
     constructor(props) {

@@ -16,6 +16,7 @@ class ParentRegister extends Component {
     constructor(props) {
         super(props);
 
+        // initialize the states for the component
         this.state = {
             username: '',
             password: '',
@@ -30,6 +31,7 @@ class ParentRegister extends Component {
     
     componentDidMount() {
         var self = this;
+        // call rest api to get information for the registration form
         axios.get('/api/user/parent_register')
             .then(function (res) {
                 self.setState({
@@ -41,6 +43,7 @@ class ParentRegister extends Component {
             })
     }
 
+    // create a dropdown selection list for the district options
     creatDropDown(){
         var options = [];
         var districts = this.state.districtList;
@@ -58,17 +61,20 @@ class ParentRegister extends Component {
         return options;
     }
 
+    // validate all the fields in the form
     validateForm() {
         return this.state.username.length > 0 && this.state.password.length > 0
             && this.state.email.length > 0 && (this.state.password === this.state.confirm_password);
     }
 
+    // handler for any changes on the form
     handleChange = event => {
         this.setState({
             [event.target.id]: event.target.value
         });
     }
 
+    // handler for submission
     handleSubmit = event => {
         event.preventDefault();
         const data = {

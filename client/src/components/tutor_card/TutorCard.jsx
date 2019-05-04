@@ -14,11 +14,13 @@ class TutorCard extends Component {
 
     constructor(props) {
         super(props);
+        // initialize the states for the component
         this.state = {
             tutor: props.tutor
         };
     }
 
+    // create the title for the tutor card
     createCardTitle() {
         const color = this.state.tutor.sex === 'M' ? 'primary' : 'danger';
         const img = this.state.tutor.sex === 'M'? Male : Female;
@@ -30,6 +32,7 @@ class TutorCard extends Component {
         )
     }
 
+    // get parameters from caller
     componentWillReceiveProps(props) {
         this.setState({
             tutor: props.tutor

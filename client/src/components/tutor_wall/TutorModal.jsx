@@ -17,6 +17,7 @@ class TutorModal extends Component{
         super(props);
     }
 
+    // handler for clicking the tutor "contact" button
     handleClick(){
         const data = {
             client_id: this.props.modalData.user_id
@@ -24,12 +25,14 @@ class TutorModal extends Component{
 
         var handleChatModal = this.props.handleChatModal;
 
+        // call rest api to create a chat with that tutor
         axios.post('/api/user/create_new_chat', data)
             .then(function () {
                 handleChatModal();
             });
     }
 
+    // map M/F to Male/Female
     mapTutorSex(data){
         const color = data.sex === 'M' ? "primary" : "danger";
         const sex = data.sex === 'M' ? "Male" : "Female";
@@ -41,6 +44,7 @@ class TutorModal extends Component{
         )
     }
 
+    // create the content of the popup model using the data of the tutor
     createModalContent() {
         const content = [];
         const data = this.props.modalData;
@@ -68,6 +72,7 @@ class TutorModal extends Component{
         return content;
     }
 
+    // handler for the popup model
     handleModal() {
         return (
             <Modal isOpen={this.props.modal} toggle={this.props.toggle} className={this.props.className} size={'lg'}>

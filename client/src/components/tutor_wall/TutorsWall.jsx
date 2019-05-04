@@ -15,6 +15,7 @@ class TutorsWall extends Component {
 
     constructor(props) {
         super(props);
+        // initialize the states for the component
         this.state = {
             tutors: [],
             modal: false,
@@ -29,16 +30,19 @@ class TutorsWall extends Component {
             homeCall: props.homeCall
         };
 
+        // bind these methods to pass to other components
         this.toggle = this.toggle.bind(this);
         this.onPageChange = this.onPageChange.bind(this);
     }
 
+    // setup the pagination bar and get tutors info from database
     componentDidMount() {
         this.setupPageBar();
         this.getTutors(this.state.offset, this.state.limit);
     }
 
     getTutors(offset, limit) {
+      // call rest api to get tutor info from database
       axios.get("/api/user/list_tutor/?offset=".concat(offset).concat("&limit=").concat(limit))
       .then(res => {
           this.setState({
@@ -49,6 +53,7 @@ class TutorsWall extends Component {
     }
 
     setupPageBar() {
+        // call rest api to get the total number of tutors in the database
         axios.get("/api/user/tutor_total_count")
             .then(res => {
                 const total_tutors = res.data.total;
@@ -68,6 +73,7 @@ class TutorsWall extends Component {
             .catch(err => console.error(err.toString()))
     }
 
+    // update the pagination bar when it is clicked
     updatePageBar() {
       const props = {
           curPage: 1 + Math.floor(this.state.offset / this.state.limit),
@@ -77,6 +83,7 @@ class TutorsWall extends Component {
       this.setState({pageBarDisplay: <PageBar {...props} />});
     }
 
+    // update the content on the page when page is changed
     onPageChange(event, page) {
         const new_offset = (page - 1) * this.state.limit;
         this.setState({
@@ -86,6 +93,7 @@ class TutorsWall extends Component {
         this.getTutors(new_offset, this.state.limit);
     }
 
+    // toggler for the popup model of the tutor card
     toggle(event, data) {
         this.setState(prevState => ({
             modal: !prevState.modal,
@@ -93,6 +101,7 @@ class TutorsWall extends Component {
         }));
     }
 
+    // create a popup model for the tutor
     createModal() {
         const props = {
             modal: this.state.modal,
