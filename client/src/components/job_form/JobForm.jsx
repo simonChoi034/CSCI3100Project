@@ -7,6 +7,7 @@ class JobForm extends Component{
     constructor(props){
         super(props);
 
+        // initialize the states for this components
         this.state = {
             currentUser: this.props.currentUser,
             client_id: this.props.currentUser.id,
@@ -20,6 +21,7 @@ class JobForm extends Component{
 
     componentDidMount() {
         var self = this;
+        // call Rest Api to create job in database
         axios.get('/api/job/create_job')
             .then(function (res) {
                 self.setState({
@@ -39,7 +41,7 @@ class JobForm extends Component{
 
     creatEduLevelList() {
         var options = [];
-
+        // push all edu levels got from database to the selection list
         this.state.eduLevelList.forEach(function (e) {
             options.push(<option value={e.id}>{e.education_level}</option>)
         });
@@ -51,6 +53,7 @@ class JobForm extends Component{
         var options = [];
         var districts = this.state.districtList;
 
+        // push all district got from database to the selection list
         options.push(<option value="">Please choose a district</option>);
 
         for (var key in districts) {
@@ -67,6 +70,7 @@ class JobForm extends Component{
     createSubjectList() {
         var options = [];
 
+        // push all subjects got from database to the selection list
         this.state.subjectList.forEach(function (e) {
             options.push(<option value={e.id}>{e.subject}</option>)
         });
@@ -77,6 +81,7 @@ class JobForm extends Component{
     createStuLevelList() {
         var options = [];
 
+        // push all student levels got from database to the selection list
         this.state.studentLevelList.forEach(function (e) {
             options.push(<option value={e.id}>{e.student_level}</option>)
         });
@@ -84,12 +89,14 @@ class JobForm extends Component{
         return options;
     }
 
+    // handler for any changing on fields of the form
     handleChange = event => {
         this.setState({
             [event.target.id]: event.target.value
         });
     };
 
+    // handler for submission
     handleSubmit = event => {
         event.preventDefault();
         const data = {
@@ -109,6 +116,7 @@ class JobForm extends Component{
             remark: this.state.remark
         };
 
+        // call Rest Api to create a job
         var self = this;
         axios.post('/api/job/create_job', data)
             .then(function (res) {

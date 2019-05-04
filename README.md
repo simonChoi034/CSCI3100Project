@@ -45,3 +45,4 @@ All route controllers are placed in ```routes/```
 The database configuration file is placed in ```config/```
 
 All seeding files for database are placed in ```seeds/```
+

@@ -4,6 +4,7 @@ import './Toolbar.css';
 export default class Toolbar extends Component {
   render() {
     const { title, leftItems, rightItems } = this.props;
+    // render the content of the toolbar
     return (
       <div className="toolbar">
         <div className="left-items">{ leftItems }</div>

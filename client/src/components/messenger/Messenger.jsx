@@ -13,20 +13,23 @@ export default class Messenger extends Component {
     constructor(props){
         super(props);
 
+        // initialize the states for this component
         this.state = {
             currentChatRoomData: null,
             sidebarOpen: true
         };
 
-        // collapsable sidebar
+        // bind collapsable sidebar
         this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
 
         // connect socket
         this.socket = client.connect('http://localhost:8080/');
 
+        // bind this method to pass to other child components
         this.handleChatRoom = this.handleChatRoom.bind(this);
     }
 
+    // check login status when the component is mounted
     componentDidMount() {
         authenticationService.currentUser.subscribe(x => this.setState({
             currentUser: x,
@@ -34,16 +37,19 @@ export default class Messenger extends Component {
         }));
     }
 
+    // update the socket when the component is updated
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (this.state.currentUser !== prevState.currentUser) {
             this.socket.emit('setSocketID', this.state.currentUser.id);
         }
     }
 
+    // open the side bar
     onSetSidebarOpen(open) {
         this.setState({sidebarOpen: open});
     }
 
+    // change media query
     mediaQueryChanged() {
         this.setState({
             sidebarDocked: this.mql.matches,
@@ -51,6 +57,7 @@ export default class Messenger extends Component {
         })
     }
 
+    // handler for the data in the chatroom
     handleChatRoom(data){
         this.setState({
             currentChatRoomData: data

@@ -5,13 +5,16 @@ export default class Compose extends Component {
     constructor(props){
         super(props);
 
+        // initialize all states for this component
         this.state = {
             input: ''
         };
 
+        // bind this method to pass it to other child components
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    // handler for submission
     handleSubmit(e) {
         if (e.key === 'Enter'){
             const input = this.state.input;
@@ -22,6 +25,7 @@ export default class Compose extends Component {
         }
     }
 
+    // handler for any changes
     handleChange = event => {
         this.setState({
             [event.target.id]: event.target.value

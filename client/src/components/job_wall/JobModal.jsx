@@ -30,12 +30,14 @@ class JobModal extends Component{
 
         var handleChatModal = this.props.handleChatModal;
 
+        // call Rest Api to create a new chat on the messenger
         axios.post('/api/user/create_new_chat', data)
             .then(function () {
                 handleChatModal();
             });
     }
 
+    // create the content got from database for the jobModel popup
     createModalContent() {
         const content = [];
         const data = this.props.modalData;
@@ -92,6 +94,7 @@ class JobModal extends Component{
         return content;
     }
 
+    // handler for popping and hiding the jobModel popup
     handleModal() {
         return (
             <Modal isOpen={this.props.modal} toggle={this.props.toggle} className={this.props.className} size={'lg'}>

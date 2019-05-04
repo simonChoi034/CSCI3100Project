@@ -21,6 +21,7 @@ router.get('/checkToken', withAuth, function (req, res) {
     res.sendStatus(200);
 });
 
+// check tutor token using get method
 router.get('/checkTutorToken', withAuth, function (req, res) {
     if (req.isTutor) {
         res.sendStatus(200);
@@ -29,6 +30,7 @@ router.get('/checkTutorToken', withAuth, function (req, res) {
     }
 });
 
+// check parent token using get method
 router.get('/checkParentToken', withAuth, function (req, res) {
     if (!req.isTutor) {
         res.sendStatus(200);
@@ -37,7 +39,7 @@ router.get('/checkParentToken', withAuth, function (req, res) {
     }
 });
 
-// user login
+// user login using post method 
 router.post('/login', [
     check('email').not().isEmpty(),
     check('password').not().isEmpty()
@@ -89,6 +91,7 @@ router.post('/login', [
 
 });
 
+// edit the password using post method
 router.post('/edit_password', [
     withAuth,
     check('old_password')
@@ -142,6 +145,7 @@ router.post('/edit_password', [
 
 });
 
+// get the required information from database for parent registration using get method
 router.get('/parent_register', function (req, res) {
     helper.getDistrictList()
         .then(function (result) {
@@ -165,6 +169,7 @@ router.get('/parent_register', function (req, res) {
         })
 });
 
+// parent registration using post method
 router.post('/parent_register', [
     // form validation
     check('username')
@@ -237,6 +242,7 @@ router.post('/parent_register', [
     });
 });
 
+// get the required information from the database for tutor registration using get method
 router.get('/tutor_register', function (req, res) {
     helper.getEduLevelList().then(function (eduLevelList) {
         const data = {
@@ -247,6 +253,7 @@ router.get('/tutor_register', function (req, res) {
     })
 });
 
+// tutor registration using post method
 router.post('/tutor_register', [
     // form validation
     check('username')
@@ -333,6 +340,7 @@ router.post('/tutor_register', [
     });
 });
 
+// get the list of tutors in the specified range from database using get method
 router.get('/list_tutor', function (req, res) {
     const offset = req.query['offset'];
     const limit = req.query['limit'];
@@ -348,6 +356,7 @@ router.get('/list_tutor', function (req, res) {
         })
 });
 
+// get the number of total tutors using get method
 router.get('/tutor_total_count', function (req, res) {
     tutor.totalCount()
         .then(function (result) {
@@ -362,6 +371,7 @@ router.get('/tutor_total_count', function (req, res) {
         })
 });
 
+// get the profile of the particular tutor using get method
 router.get('/tutor_profile', withAuth, function (req, res) {
     const userID = req.id;
 
@@ -382,6 +392,7 @@ router.get('/tutor_profile', withAuth, function (req, res) {
 
 });
 
+// edit tutor profile using post method
 router.post('/edit_tutor', [
     withAuth,
     check('phone')
@@ -419,6 +430,7 @@ router.post('/edit_tutor', [
         })
 });
 
+// get the profile of the particular parent using get method
 router.get('/parent_profile', withAuth, function (req, res) {
     const userID = req.id;
 
@@ -449,6 +461,7 @@ router.get('/parent_profile', withAuth, function (req, res) {
         })
 });
 
+// edit the profile of parent using post method
 router.post('/edit_parent', [
     withAuth,
     check('name')
@@ -484,6 +497,7 @@ router.post('/edit_parent', [
         })
 });
 
+// create a new chat with a particular user using post method
 router.post('/create_new_chat', withAuth, function (req, res) {
     const userOneID = req.id;
     const userTwoID = req.body.client_id;

@@ -31,6 +31,7 @@ import {
 class JobCard extends Component {
     constructor(props) {
         super(props);
+        // initialize the job for this component
         this.state = {
             job: props.job
         };
@@ -38,6 +39,7 @@ class JobCard extends Component {
 
     createCardTitle() {
         var img = General;
+        // branching for choosing the image of this job card
         if (this.state.job.subject === 'Chinese') {
             img = Chinese;
         }
@@ -99,6 +101,7 @@ class JobCard extends Component {
     }
 
     componentWillReceiveProps(props) {
+        // get the jobs from parameters props
         this.setState({
             job: props.job
         })

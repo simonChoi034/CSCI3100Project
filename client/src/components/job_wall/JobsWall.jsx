@@ -14,6 +14,8 @@ class JobsWall extends Component {
 
     constructor(props) {
         super(props);
+
+        // initialize the states for this components
         this.state = {
             jobs: [],
             modal: false,
@@ -28,16 +30,19 @@ class JobsWall extends Component {
             homeCall: props.homeCall
         };
 
+        // bind these methods to pass them to child components
         this.toggle = this.toggle.bind(this);
         this.onPageChange = this.onPageChange.bind(this);
     }
 
+    // setup pagination bar and get jobs from database when this component is mounted
     componentDidMount() {
         this.setupPageBar();
         this.getJobs(this.state.offset, this.state.limit);
     }
 
     getJobs(offset, limit) {
+        // call Rest Api to get jobs from database
         axios.get("/api/job/list_job/?offset=".concat(offset).concat("&limit=").concat(limit))
             .then(res => {
                 const jobs = res.data.jobList;
@@ -49,6 +54,7 @@ class JobsWall extends Component {
     }
 
     setupPageBar() {
+        // call Rest Api to get the total number of jobs in the database
         axios.get("/api/job/total_count")
             .then(res => {
                 const total_jobs = res.data.total;
@@ -68,6 +74,7 @@ class JobsWall extends Component {
             .catch(err => console.error(err.toString()))
     }
 
+    // method to update the pagination when clicking
     updatePageBar() {
       const props = {
           curPage: 1 + Math.floor(this.state.offset / this.state.limit),
@@ -77,6 +84,7 @@ class JobsWall extends Component {
       this.setState({pageBarDisplay: <PageBar {...props} />});
     }
 
+    // update the page when the page is changed
     onPageChange(event, page) {
         const new_offset = (page - 1) * this.state.limit;
         this.setState({
@@ -86,6 +94,7 @@ class JobsWall extends Component {
         this.getJobs(new_offset, this.state.limit);
     }
 
+    // toggler for the job model when click "more" button
     toggle(event, data) {
         this.setState(prevState => ({
             modal: !prevState.modal,
@@ -93,6 +102,7 @@ class JobsWall extends Component {
         }));
     }
 
+    // create the jobModel based on the current clicked job
     createModal() {
         const props = {
             modal: this.state.modal,

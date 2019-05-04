@@ -6,16 +6,19 @@ import launcherIconActive from './../../assets/close-icon.png';
 import './launcher.css';
 import MessengerModal from '../messenger_modal/MessengerModal';
 
+// launcher for the chatroom
 class Launcher extends Component {
 
     constructor(props) {
         super(props);
+        // initialize the states for the component
         this.state = {
             launcherIcon,
             isOpen: this.props.isOpen
         };
     }
 
+    // create a popup model (the chatroom) for the launcher
     createModal() {
         const props = {
             isOpen: this.props.isOpen,
@@ -46,6 +49,7 @@ class Launcher extends Component {
     }
 }
 
+// count the number of messages
 const MessageCount = (props) => {
   if (props.count === 0 || props.isOpen === true) { return null }
   return (
@@ -55,6 +59,7 @@ const MessageCount = (props) => {
   )
 }
 
+// config for the launcher
 Launcher.propTypes = {
     onMessageWasReceived: PropTypes.func,
     onMessageWasSent: PropTypes.func,

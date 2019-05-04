@@ -9,11 +9,13 @@ import './ConversationList.css';
 export default class ConversationList extends Component {
     constructor(props) {
         super(props);
+        // initialize the states for this component
         this.state = {
             conversations: []
         };
     }
 
+    // initialze the chatlist when this component is mounted
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (this.props.currentUser !== prevProps.currentUser) {
             this.props.socket.emit('initChatList', this.props.currentUser);
@@ -22,6 +24,7 @@ export default class ConversationList extends Component {
     }
 
 
+    // get conversations from socket
     getConversations = () => {
         this.props.socket.on("initChatList", response => {
 

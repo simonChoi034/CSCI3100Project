@@ -11,10 +11,13 @@ import './MessageList.css';
 export default class MessageList extends Component {
     constructor(props) {
         super(props);
+
+        // initialize the states for this component
         this.state = {
             messages: [],
         };
 
+        // bind this method to pass it to child components
         this.handleSubmit = this.handleSubmit.bind(this);
 
         const self = this;
@@ -23,16 +26,19 @@ export default class MessageList extends Component {
         })
     }
 
+    // get all message history when the component is mounted
     componentDidMount() {
         this.getMessages();
     }
 
+    // update the chatroom when the component is updated
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (this.props.chatRoomData !== prevProps.chatRoomData) {
             this.getMessages();
         }
     }
 
+    // get messages from socket
     getMessages = () => {
         const self = this;
         const data = {
@@ -48,6 +54,7 @@ export default class MessageList extends Component {
         })
     };
 
+    // add new message
     addMessage = (data) => {
         console.log(data);
         this.setState({
@@ -55,6 +62,7 @@ export default class MessageList extends Component {
         });
     };
 
+    // render message to the chatroom
     renderMessages() {
         let i = 0;
         let messageCount = this.state.messages.length;
@@ -114,6 +122,7 @@ export default class MessageList extends Component {
         return messages;
     }
 
+    // handler for submission(sending) of message
     handleSubmit(value) {
         const self = this;
         const data = {

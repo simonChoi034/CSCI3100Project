@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 const job = require('../model/job');
 const helper = require('../model/helper');
 
+// get the required information from database to create a job using get method
 router.get('/create_job', function (req, res) {
     helper.getEduLevelList()
         .then(function (eduLevelList) {
@@ -41,6 +42,7 @@ router.get('/create_job', function (req, res) {
         })
 });
 
+// create a job using post method
 router.post('/create_job', [
     check('client_id')
         .not().isEmpty(),
@@ -68,6 +70,7 @@ router.post('/create_job', [
     }
 });
 
+// list all jobs in the required range using get method
 router.get('/list_job', function (req, res) {
     offset = req.query['offset'];
     limit = req.query['limit'];
@@ -84,6 +87,7 @@ router.get('/list_job', function (req, res) {
         })
 });
 
+// get the total number of jobs using get method
 router.get('/total_count', function (req, res) {
     job.totalCount()
         .then(function (result) {
@@ -98,6 +102,7 @@ router.get('/total_count', function (req, res) {
         })
 })
 
+// get the particular job with its id
 router.get('/:id', function (req, res) {
     const id = req.params['id'];
 
