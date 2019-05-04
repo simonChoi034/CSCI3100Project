@@ -38,7 +38,7 @@ All pages and its css are placed in ```client/pages/```
 # Backend Folder Structure
 All database migration files are placed in ```migrations/```
 
-All database models(entities which create table in database) are placed in ```model```
+All database models(entities which create table in database) are placed in ```model/```
 
 All route controllers are placed in ```routes/```
 
