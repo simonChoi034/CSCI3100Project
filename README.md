@@ -30,12 +30,18 @@ then run ```npm start```
 
 # Frontend Folder Structure
 All frontend resources are placed in ```client/```
+
 All ReactJS Components are placed in ```client/components/```
+
 All pages and its css are placed in ```client/pages/```
 
 # Backend Folder Structure
 All database migration files are placed in ```migrations/```
+
 All database models(entities which create table in database) are placed in ```model```
+
 All route controllers are placed in ```routes/```
+
 The database configuration file is placed in ```config/```
+
 All seeding files for database are placed in ```seeds/```
