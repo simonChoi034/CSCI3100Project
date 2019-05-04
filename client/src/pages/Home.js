@@ -20,7 +20,7 @@ import banner5 from '../images/banners/banner5.jpg'
 import banner6 from '../images/banners/banner6.jpg'
 import banner7 from '../images/banners/banner7.jpg'
 
-
+// create a list storing all banners
 const items = [
     {
         src: banner1,
@@ -64,26 +64,31 @@ class Home extends Component {
       this.onExited = this.onExited.bind(this);
     }
 
+    // animation toggler for carouselItem
     onExiting() {
       this.animating = true;
     }
   
+    // animation toggler for carouselItem
     onExited() {
       this.animating = false;
     }
   
+    // method for viewing next carousel banner
     next() {
       if (this.animating) return;
       const nextIndex = this.state.activeIndex === items.length - 1 ? 0 : this.state.activeIndex + 1;
       this.setState({ activeIndex: nextIndex });
     }
   
+    // method for viewing previous carousel banner
     previous() {
       if (this.animating) return;
       const nextIndex = this.state.activeIndex === 0 ? items.length - 1 : this.state.activeIndex - 1;
       this.setState({ activeIndex: nextIndex });
     }
   
+    // go to a specific carousel banner by its index
     goToIndex(newIndex) {
       if (this.animating) return;
       this.setState({ activeIndex: newIndex });

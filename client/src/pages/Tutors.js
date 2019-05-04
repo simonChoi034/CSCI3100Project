@@ -7,6 +7,8 @@ class Tutors extends Component{
     constructor(props){
         super(props);
 
+        // initialize the states for this component
+        // limit is the max number of tutors to be retrieve from the database
         this.state = {
             limit: 8
         }

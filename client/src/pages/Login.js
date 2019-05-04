@@ -8,6 +8,8 @@ class Login extends Component {
 
     constructor(props) {
         super(props);
+
+        // initialize the states for this components
         this.state = {
             email: "",
             password: "",
@@ -20,14 +22,17 @@ class Login extends Component {
         }
     }
 
+    // validate the form
     validateForm() {
         return this.state.email.length > 0 && this.state.password.length > 0;
     }
 
+    // set all the changed fields of the form to the states of this component
     handleChange = event => {
         this.setState({[event.target.id]: event.target.value});
     }
 
+    // post the input data to server for checking
     handleSubmit = event => {
         event.preventDefault();
         const email = this.state.email;

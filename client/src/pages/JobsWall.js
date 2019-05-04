@@ -10,14 +10,17 @@ class Jobs extends Component{
     constructor(props){
         super(props);
 
+        // initialize the states for this components
         this.state = {
             isFormOpen: false,
             limit: 8
         };
 
+        // bind this method for passing into child components
         this.handleOpenForm = this.handleOpenForm.bind(this)
     }
 
+    // when the component is mounted on the page, check its login status
     componentDidMount() {
         authenticationService.currentUser.subscribe(x => this.setState({
             currentUser: x,
@@ -25,12 +28,14 @@ class Jobs extends Component{
         }));
     }
 
+    // toggler for the job form component
     handleOpenForm() {
         this.setState({
             isFormOpen: !this.state.isFormOpen
         })
     }
 
+    // method to show the content of the job
     showContent() {
         const form = (
             <JobForm

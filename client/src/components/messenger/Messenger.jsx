@@ -22,7 +22,7 @@ export default class Messenger extends Component {
         this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
 
         // connect socket
-        this.socket = client.connect('http://192.168.1.89:8080/');
+        this.socket = client.connect('http://localhost:8080/');
 
         this.handleChatRoom = this.handleChatRoom.bind(this);
     }

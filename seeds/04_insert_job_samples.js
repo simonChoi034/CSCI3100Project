@@ -1,5 +1,5 @@
 exports.seed = function(knex, Promise) {
-  // Deletes ALL existing entries
+  // Deletes ALL existing entries before inserting
   return Promise.all([
       knex('user_account').insert([
           { username: "ChanTaiMan", email: "Chan2001@gmail.com", password: "$2b$10$1mGILaFWsOJjP11x8bmIjuUoBfPQhIPscCU6VnemYmsLnz8e1PLfC", user_type_id: 2},

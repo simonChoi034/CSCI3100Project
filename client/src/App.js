@@ -20,16 +20,19 @@ class App extends Component {
     constructor(props){
         super(props);
 
+        // initialize the states for this component
         this.state = {
             currentUser: null,
             isTutor: false,
             messengerModal: false
         };
 
+        // bind the handleChatModel method to pass to child components
         this.handleChatModal = this.handleChatModal.bind(this);
     }
 
     componentDidMount() {
+        // when the component is mount on the page
         authenticationService.currentUser.subscribe(x => this.setState({
             currentUser: x,
             isTutor: x && x.role === Role.Tutor
@@ -37,6 +40,7 @@ class App extends Component {
     }
 
     handleChatModal(){
+        // toggle the state of messengerModel
         this.setState({
             messengerModal: !this.state.messengerModal
         })

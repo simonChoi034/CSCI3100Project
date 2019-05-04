@@ -13,6 +13,7 @@ class Register extends Component {
     constructor(props) {
         super(props);
 
+        // initialize the states of this component
         this.state = {
             username: '',
             password: '',
@@ -24,10 +25,12 @@ class Register extends Component {
             out: <ParentRegister history={this.props.history}/>
         };
         
+        // bind these methods to pass them into other child components
         this.handleClickTutor = this.handleClickTutor.bind(this);
         this.handleClickParent = this.handleClickParent.bind(this);
     }
 
+    // handler for clicking tutor button, change to the register form for tutor
     handleClickTutor(event) {  
         this.setState({
             showTutor: true,
@@ -36,6 +39,7 @@ class Register extends Component {
         });
     }
 
+    // handler for clicking parent button, change to the register form for parent
     handleClickParent(event) {  
         this.setState({
             showTutor: false,
